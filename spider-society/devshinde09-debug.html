@@ -1,0 +1,194 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to devshinde09-debug.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+-->
+<div
+  class="spider-card"
+  data-name="Devang Shinde"
+  data-alias="Weaver Supreme"
+  data-github="devshinde09-debug"
+  data-suit="#c29b40"
+    /* ── Your suit starts here ──────────────────────────────── */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;600&family=Space+Mono&display=swap');
+
+    .spider-card {
+      /* Theme Colors based on Strange Supreme */
+      --gold: #c29b40;
+      --gold-glow: rgba(194, 155, 64, 0.5);
+      --purple-deep: #1a0833;
+      --purple-base: #0a0118;
+      --text-main: #f5eeda;
+      --text-muted: #8b7ca3;
+
+      /* Card Dimensions & Base Styles */
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      background-color: var(--purple-base);
+      border: 3px solid var(--gold);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(26, 8, 51, 0.6);
+    }
+
+    /* Background Pattern: Diamond Grid */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(135deg, rgba(139, 124, 163, 0.05) 25%, transparent 25%), 
+        linear-gradient(225deg, rgba(139, 124, 163, 0.05) 25%, transparent 25%), 
+        linear-gradient(45deg, rgba(139, 124, 163, 0.05) 25%, transparent 25%), 
+        linear-gradient(315deg, rgba(139, 124, 163, 0.05) 25%, transparent 25%);
+      background-position: 10px 0, 10px 0, 0 0, 0 0;
+      background-size: 20px 20px;
+      background-repeat: repeat;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    /* Background Artifact: Mystic Sigil */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 220px;
+      height: 220px;
+      /* Using a radial gradient to simulate a complex magical rune structure */
+      background: 
+        radial-gradient(circle at center, transparent 30%, var(--purple-deep) 31%, transparent 33%),
+        radial-gradient(circle at center, transparent 50%, var(--gold) 51%, transparent 52%),
+        repeating-conic-gradient(from 0deg, transparent 0deg 10deg, var(--gold) 11deg 12deg, transparent 13deg 20deg);
+      border-radius: 50%;
+      opacity: 0.15;
+      filter: blur(1px);
+      z-index: 1;
+    }
+
+    /* All content must be above the background patterns */
+    .card-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Avatar Container */
+    .avatar-container {
+      width: 76px;
+      height: 76px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .avatar-frame {
+      position: absolute;
+      inset: -4px;
+      border: 3px solid var(--gold);
+      border-radius: 14px;
+      box-shadow: 0 0 15px var(--gold-glow);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 11px;
+      object-fit: cover;
+      display: block;
+      background-color: #000; /* Placeholder color while loading */
+    }
+
+    /* Text Styles */
+    .alias {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 4px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 2px 0;
+      color: var(--text-main);
+    }
+
+    .handle {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0 0 16px 0;
+    }
+
+    /* Skills Tags */
+    .skills-container {
+      display: flex;
+      gap: 8px;
+      margin-bottom: auto; /* Pushes the footer down */
+    }
+
+    .skill-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      background-color: rgba(26, 8, 51, 0.8);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      color: var(--gold);
+      box-shadow: 0 0 5px rgba(194, 155, 64, 0.2);
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(139, 124, 163, 0.3);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+    }
+  </style>
+
+  <div class="card-content">
+    <div class="avatar-container">
+      <div class="avatar-frame"></div>
+      <!-- Your GitHub Avatar -->
+      <img class="avatar" src="https://github.com/devshinde09-debug.png" alt="Devang Shinde" />
+    </div>
+
+    <h1 class="alias">Weaver Supreme</h1>
+    <p class="name">Devang Shinde</p>
+    <p class="handle">@devshinde09-debug</p>
+
+    <div class="skills-container">
+      <span class="skill-tag">C Programming</span>
+      <span class="skill-tag">Reverse Engineering</span>
+    </div>
+
+    <div class="footer">
+      <span>Spider-Society</span>
+      <span>Earth-91233</span>
+    </div>
+  </div>
+</div>
