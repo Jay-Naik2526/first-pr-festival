@@ -1,0 +1,944 @@
+```html
+<!--
+  SPIDER-ID CARD — ITACHI
+  Spider-Society Anomaly Edition
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags.
+  4. Everything must fit inside 320 x 440.
+  5. Keep all four data- attributes on .spider-card.
+-->
+
+<div
+  class="spider-card"
+  data-name="MOKSHIT"
+  data-alias="DR.DOOM"
+  data-github="mokshitdoshi"
+  data-suit="#3B3F42"
+>
+  <style>
+
+    /* =========================================================
+       ITACHI // SPIDER-SOCIETY ANOMALY
+       ========================================================= */
+
+    .spider-card {
+      --red: #e62429;
+      --bright: #ff3340;
+      --dark-red: #68070b;
+      --black: #030303;
+      --ink: #0a0a0b;
+      --gray: #777;
+      --light: #ededed;
+
+      width: 320px;
+      height: 440px;
+
+      box-sizing: border-box;
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 18px;
+
+      background:
+        radial-gradient(
+          circle at 72% 30%,
+          rgba(230,36,41,.20),
+          transparent 28%
+        ),
+        linear-gradient(
+          155deg,
+          #171719 0%,
+          #080809 48%,
+          #020202 100%
+        );
+
+      color: var(--light);
+
+      font-family: system-ui, sans-serif;
+
+      border: 1px solid rgba(255,255,255,.25);
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 0 0 1px rgba(230,36,41,.4),
+        0 0 30px rgba(230,36,41,.15);
+
+      isolation: isolate;
+    }
+
+
+    /* =========================================================
+       COMIC PRINT TEXTURE
+       ========================================================= */
+
+    .spider-card::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.10) 0.6px,
+          transparent 0.6px
+        );
+
+      background-size: 5px 5px;
+
+      opacity: .08;
+
+      mix-blend-mode: screen;
+
+      pointer-events: none;
+
+      z-index: 1;
+    }
+
+
+    /* =========================================================
+       RED DIAGONAL COMIC PANEL
+       ========================================================= */
+
+    .red-panel {
+      position: absolute;
+
+      width: 270px;
+      height: 110px;
+
+      right: -85px;
+      top: 100px;
+
+      background:
+        linear-gradient(
+          135deg,
+          transparent 0 8%,
+          rgba(230,36,41,.9) 8% 92%,
+          transparent 92%
+        );
+
+      transform: rotate(-18deg);
+
+      opacity: .14;
+
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       GIANT BACKGROUND ALIAS
+       ========================================================= */
+
+    .ghost-name {
+      position: absolute;
+
+      right: -72px;
+      top: 150px;
+
+      font-size: 82px;
+
+      line-height: .8;
+
+      font-weight: 1000;
+
+      letter-spacing: -7px;
+
+      color: transparent;
+
+      -webkit-text-stroke: 1px rgba(230,36,41,.22);
+
+      transform: rotate(-90deg);
+
+      z-index: 0;
+
+      pointer-events: none;
+    }
+
+
+    /* =========================================================
+       SPIDER SILHOUETTE
+       ========================================================= */
+
+    .spider {
+      position: absolute;
+
+      right: -10px;
+      top: 27px;
+
+      width: 130px;
+      height: 130px;
+
+      color: var(--red);
+
+      opacity: .09;
+
+      font-size: 118px;
+
+      line-height: 1;
+
+      transform: rotate(12deg);
+
+      filter:
+        drop-shadow(
+          0 0 12px rgba(230,36,41,.8)
+        );
+
+      z-index: 1;
+    }
+
+
+    /* =========================================================
+       CONTENT
+       ========================================================= */
+
+    .content {
+      position: relative;
+
+      z-index: 5;
+    }
+
+
+    /* =========================================================
+       TOP SYSTEM BAR
+       ========================================================= */
+
+    .topbar {
+      height: 18px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 12px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      color: var(--gray);
+    }
+
+    .society {
+      color: var(--red);
+
+      font-weight: 700;
+    }
+
+    .signal {
+      display: flex;
+
+      align-items: center;
+
+      gap: 5px;
+    }
+
+    .signal-dot {
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+
+      background: var(--red);
+
+      box-shadow:
+        0 0 5px var(--red);
+    }
+
+
+    /* =========================================================
+       IDENTITY HEADER
+       ========================================================= */
+
+    .identity {
+      display: grid;
+
+      grid-template-columns: 84px 1fr;
+
+      gap: 13px;
+
+      align-items: end;
+    }
+
+
+    /* =========================================================
+       AVATAR
+       ========================================================= */
+
+    .avatar-wrap {
+      position: relative;
+
+      width: 84px;
+      height: 84px;
+
+      padding: 3px;
+
+      background: var(--red);
+
+      clip-path: polygon(
+        0 12%,
+        12% 0,
+        88% 0,
+        100% 12%,
+        100% 88%,
+        88% 100%,
+        12% 100%,
+        0 88%
+      );
+    }
+
+    .avatar {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      background: #111;
+
+      filter:
+        grayscale(.15)
+        contrast(1.12);
+
+      clip-path: polygon(
+        0 12%,
+        12% 0,
+        88% 0,
+        100% 12%,
+        100% 88%,
+        88% 100%,
+        12% 100%,
+        0 88%
+      );
+    }
+
+
+    /* =========================================================
+       ID NUMBER
+       ========================================================= */
+
+    .id-block {
+      padding-bottom: 2px;
+    }
+
+    .id-label {
+      font-family: ui-monospace, monospace;
+
+      font-size: 6px;
+
+      letter-spacing: 2px;
+
+      color: var(--red);
+
+      text-transform: uppercase;
+
+      margin-bottom: 5px;
+    }
+
+    .id-number {
+      font-family: ui-monospace, monospace;
+
+      font-size: 17px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      color: #ddd;
+    }
+
+    .id-sub {
+      margin-top: 3px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+
+      color: #666;
+
+      letter-spacing: 1px;
+    }
+
+
+    /* =========================================================
+       MAIN ALIAS
+       ========================================================= */
+
+    .alias {
+      margin: 16px 0 0;
+
+      font-size: 53px;
+
+      line-height: .78;
+
+      font-weight: 1000;
+
+      letter-spacing: -4px;
+
+      color: var(--light);
+
+      text-transform: uppercase;
+
+      transform: skew(-5deg);
+
+      text-shadow:
+        3px 3px 0 var(--red),
+        6px 6px 0 rgba(230,36,41,.12);
+    }
+
+
+    /* =========================================================
+       REAL NAME
+       ========================================================= */
+
+    .real-name {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-top: 12px;
+    }
+
+    .real-name::before {
+      content: "";
+
+      width: 24px;
+      height: 2px;
+
+      background: var(--red);
+    }
+
+    .real-name span {
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      color: #aaa;
+    }
+
+
+    /* =========================================================
+       HANDLE
+       ========================================================= */
+
+    .handle {
+      margin: 4px 0 0 32px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      color: #555;
+    }
+
+
+    /* =========================================================
+       CUTTING LINE
+       ========================================================= */
+
+    .cut {
+      width: 100%;
+
+      height: 1px;
+
+      margin: 12px 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red) 0 25%,
+          rgba(255,255,255,.1) 25% 100%
+        );
+    }
+
+
+    /* =========================================================
+       ABILITY SECTION
+       ========================================================= */
+
+    .section-head {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 7px;
+    }
+
+    .section-title {
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 2px;
+
+      color: var(--red);
+
+      text-transform: uppercase;
+    }
+
+    .section-number {
+      font-family: ui-monospace, monospace;
+
+      font-size: 6px;
+
+      color: #555;
+    }
+
+
+    /* =========================================================
+       SKILL BARS
+       ========================================================= */
+
+    .abilities {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 5px;
+
+      margin: 0;
+
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .abilities li {
+      position: relative;
+
+      padding: 6px 7px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(230,36,41,.13),
+          rgba(255,255,255,.025)
+        );
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      border-left: 2px solid var(--red);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      color: #ccc;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       LOWER DATA
+       ========================================================= */
+
+    .data-row {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr;
+
+      gap: 5px;
+
+      margin-top: 10px;
+    }
+
+    .data {
+      padding: 6px;
+
+      border-top: 1px solid var(--red);
+
+      background: rgba(255,255,255,.025);
+    }
+
+    .data-label {
+      font-family: ui-monospace, monospace;
+
+      font-size: 5.5px;
+
+      color: #555;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+    }
+
+    .data-value {
+      margin-top: 3px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      color: #ddd;
+    }
+
+
+    /* =========================================================
+       ANOMALY WARNING
+       ========================================================= */
+
+    .warning {
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-top: 9px;
+
+      padding: 6px 8px;
+
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(230,36,41,.09) 0 5px,
+          transparent 5px 10px
+        );
+
+      border: 1px solid rgba(230,36,41,.25);
+    }
+
+    .warning-symbol {
+      color: var(--red);
+
+      font-size: 10px;
+
+      font-weight: 900;
+    }
+
+    .warning-text {
+      font-family: ui-monospace, monospace;
+
+      font-size: 6.5px;
+
+      letter-spacing: .8px;
+
+      color: #999;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .footer {
+      position: absolute;
+
+      left: 18px;
+      right: 18px;
+      bottom: 12px;
+
+      z-index: 10;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      padding-top: 8px;
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 6px;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+
+      color: #4e4e4e;
+    }
+
+    .footer strong {
+      color: var(--red);
+    }
+
+
+    /* =========================================================
+       CORNER BRACKETS
+       ========================================================= */
+
+    .corner {
+      position: absolute;
+
+      width: 10px;
+      height: 10px;
+
+      z-index: 20;
+
+      opacity: .75;
+
+      border-color: var(--red);
+    }
+
+    .tl {
+      top: 8px;
+      left: 8px;
+
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .tr {
+      top: 8px;
+      right: 8px;
+
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .bl {
+      bottom: 8px;
+      left: 8px;
+
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .br {
+      bottom: 8px;
+      right: 8px;
+
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+
+  </style>
+
+
+  <!-- =========================================================
+       DECORATIVE ELEMENTS
+       ========================================================= -->
+
+  <div class="red-panel"></div>
+
+  <div class="ghost-name">
+    ITACHI
+  </div>
+
+  <div class="spider">
+    🕷
+  </div>
+
+
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+
+  <!-- =========================================================
+       CONTENT
+       ========================================================= -->
+
+  <div class="content">
+
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+      <span class="society">
+        SPIDER-SOCIETY
+      </span>
+
+      <span class="signal">
+        <span class="signal-dot"></span>
+        SIGNAL LOCKED
+      </span>
+
+    </div>
+
+
+    <!-- PROFILE -->
+
+    <div class="identity">
+
+      <div class="avatar-wrap">
+
+        <img
+          class="avatar"
+          src="https://github.com/mokshitdoshi.png"
+          alt="MOKSHIT"
+        />
+
+      </div>
+
+
+      <div class="id-block">
+
+        <div class="id-label">
+          Anomaly Identifier
+        </div>
+
+        <div class="id-number">
+          ITA-001
+        </div>
+
+        <div class="id-sub">
+          DIMENSIONAL SIGNATURE: STABLE
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ALIAS -->
+
+    <h1 class="alias">
+      ITACHI
+    </h1>
+
+
+    <!-- NAME -->
+
+    <div class="real-name">
+      <span>
+        MOKSHIT
+      </span>
+    </div>
+
+
+    <p class="handle">
+      @mokshitdoshi
+    </p>
+
+
+    <!-- DIVIDER -->
+
+    <div class="cut"></div>
+
+
+    <!-- ABILITIES -->
+
+    <div class="section-head">
+
+      <span class="section-title">
+        // ABILITY MATRIX
+      </span>
+
+      <span class="section-number">
+        05 MODULES
+      </span>
+
+    </div>
+
+
+    <ul class="abilities">
+
+      <li>AI / ML</li>
+      <li>PYTHON</li>
+      <li>C++</li>
+      <li>WEB DEV</li>
+      <li>GIT</li>
+      <li>PROBLEM SOLVING</li>
+
+    </ul>
+
+
+    <!-- DATA -->
+
+    <div class="data-row">
+
+      <div class="data">
+
+        <div class="data-label">
+          Earth
+        </div>
+
+        <div class="data-value">
+          1610
+        </div>
+
+      </div>
+
+
+      <div class="data">
+
+        <div class="data-label">
+          Suit
+        </div>
+
+        <div class="data-value">
+          RED//BLACK
+        </div>
+
+      </div>
+
+
+      <div class="data">
+
+        <div class="data-label">
+          Status
+        </div>
+
+        <div class="data-value">
+          ACTIVE
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- WARNING -->
+
+    <div class="warning">
+
+      <div class="warning-symbol">
+        !
+      </div>
+
+      <div class="warning-text">
+        Unregistered spider signature detected.
+        Proceed with caution.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <div class="footer">
+
+    <span>
+      <strong>ITACHI</strong>
+      // MOKSHIT
+    </span>
+
+    <span>
+      SPIDER-SOCIETY // 1610
+    </span>
+
+  </div>
+
+</div>
+```
