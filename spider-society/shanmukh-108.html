@@ -1,163 +1,84 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
 <div
   class="spider-card"
-  data-name="unknown"
+  data-name="shanmukh-108"
   data-alias="carnage"
-  data-github="webslinger-404"
-  data-suit="#00f0ff"
+  data-github="shanmukh-108"
+  data-suit="#E62429"
 >
   <style>
-    /* ── Absolute chaos suit ──────────────────────────────── */
+    /* ── Your suit starts here ──────────────────────────────── */
     .spider-card {
-      --suit: #00f0ff;
-      --suit2: #ff00aa;
-      --suit3: #ffee00;
-      --ink: #05050a;
+      --suit: #e62429;
+      --ink: #08080a;
 
       width: 320px;
       height: 440px;
       box-sizing: border-box;
-      padding: 18px;
-      font-family: "Courier New", ui-monospace, monospace;
+      padding: 22px;
+      font-family: system-ui, sans-serif;
       color: #e8e6e3;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(0, 240, 255, 0.28), transparent 42%),
-        radial-gradient(circle at 82% 78%, rgba(255, 0, 170, 0.22), transparent 48%),
-        radial-gradient(circle at 50% 50%, #1a0a2e, var(--ink) 70%);
-      border: 3px solid transparent;
-      border-image: linear-gradient(135deg, var(--suit), var(--suit2), var(--suit3), var(--suit)) 1;
-      border-radius: 20px;
+      background: radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 70%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
       overflow: hidden;
       position: relative;
-      box-shadow:
-        0 0 30px rgba(0, 240, 255, 0.45),
-        0 0 60px rgba(255, 0, 170, 0.3),
-        inset 0 0 50px rgba(0, 0, 0, 0.65);
     }
 
-    /* Triple-layered insane webbing */
+    /* Webbing, drawn with two repeating gradients. Delete it if you like. */
     .spider-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image:
-        repeating-linear-gradient(
-          28deg,
-          rgba(0, 240, 255, 0.09) 0 1px,
-          transparent 1px 11px
+      background-image: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
         ),
-        repeating-linear-gradient(
-          -28deg,
-          rgba(255, 0, 170, 0.08) 0 1px,
-          transparent 1px 11px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(255, 238, 0, 0.05) 0 1px,
-          transparent 1px 16px
-        );
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 14px);
       pointer-events: none;
-      animation: webPulse 3.5s ease-in-out infinite alternate;
-    }
-
-    /* Bigger spinning multiverse portal */
-    .spider-card::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      top: -55px;
-      right: -75px;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 0deg,
-        transparent,
-        rgba(0, 240, 255, 0.18),
-        transparent 20%,
-        rgba(255, 0, 170, 0.18),
-        transparent 40%,
-        rgba(255, 238, 0, 0.12),
-        transparent 60%,
-        rgba(0, 240, 255, 0.15),
-        transparent
-      );
-      animation: spinPortal 10s linear infinite;
-      pointer-events: none;
-      filter: blur(1.5px);
-    }
-
-    @keyframes webPulse {
-      0% { opacity: 0.65; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.03); }
-    }
-
-    @keyframes spinPortal {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes glitch {
-      0%, 88%, 100% { transform: translate(0); }
-      90% { transform: translate(-3px, 1px); }
-      92% { transform: translate(3px, -1px); }
-      94% { transform: translate(-2px, -2px); }
-      96% { transform: translate(2px, 1px); }
-      98% { transform: translate(-1px, 2px); }
     }
 
     .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 18px;
-      border: 3px solid var(--suit);
-      object-fit: contain;
-      padding: 10px;
-      background: #0a0a0f;
-      box-shadow:
-        0 0 25px rgba(0, 240, 255, 0.8),
-        0 0 50px rgba(255, 0, 170, 0.45),
-        inset 0 0 15px rgba(0, 0, 0, 0.5);
-      position: relative;
-      z-index: 2;
+      width: 84px;
+      height: 84px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow: 0 0 22px rgba(230, 36, 41, 0.5);
     }
 
     .alias {
-      margin: 14px 0 3px;
-      font-size: 29px;
-      line-height: 1;
-      letter-spacing: 1.2px;
-      font-weight: 900;
+      margin: 14px 0 2px;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
       text-transform: uppercase;
-      background: linear-gradient(90deg, var(--suit), var(--suit2), var(--suit3), var(--suit));
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-      animation: glitch 2.8s infinite, gradientShift 4s linear infinite;
-      position: relative;
-      z-index: 2;
-    }
-
-    @keyframes gradientShift {
-      to { background-position: 200% center; }
     }
 
     .name {
       margin: 0;
-      font-size: 13px;
-      opacity: 0.85;
-      letter-spacing: 1.2px;
-      color: #ddd;
-      position: relative;
-      z-index: 2;
+      font-size: 14px;
+      opacity: 0.75;
     }
 
     .handle {
-      margin-top: 2px;
+      margin-top: 4px;
+      font-family: ui-monospace, monospace;
       font-size: 12px;
-      opacity: 0.65;
-      color: var(--suit);
-      position: relative;
-      z-index: 2;
+      opacity: 0.55;
     }
 
     .skills {
@@ -167,120 +88,48 @@
       margin-top: 18px;
       padding: 0;
       list-style: none;
-      position: relative;
-      z-index: 2;
     }
 
     .skills li {
-      padding: 5px 11px;
-      font-size: 11px;
-      font-weight: 700;
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 1px solid var(--suit);
       border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      background: rgba(0, 0, 0, 0.55);
-      border: 1.5px solid;
-      animation: skillGlow 2.2s ease-in-out infinite alternate;
-    }
-
-    .skills li:nth-child(1) {
-      border-color: var(--suit);
-      color: var(--suit);
-      box-shadow: 0 0 14px rgba(0, 240, 255, 0.5);
-    }
-    .skills li:nth-child(2) {
-      border-color: var(--suit2);
-      color: var(--suit2);
-      box-shadow: 0 0 14px rgba(255, 0, 170, 0.5);
-      animation-delay: 0.3s;
-    }
-    .skills li:nth-child(3) {
-      border-color: var(--suit3);
-      color: var(--suit3);
-      box-shadow: 0 0 14px rgba(255, 238, 0, 0.5);
-      animation-delay: 0.6s;
-    }
-    .skills li:nth-child(4) {
-      border-color: #a855f7;
-      color: #c084fc;
-      box-shadow: 0 0 14px rgba(168, 85, 247, 0.5);
-      animation-delay: 0.9s;
-    }
-
-    @keyframes skillGlow {
-      from { filter: brightness(1); transform: scale(1); }
-      to { filter: brightness(1.45); transform: scale(1.04); }
+      background: rgba(230, 36, 41, 0.12);
     }
 
     .footer {
       position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 14px;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
       display: flex;
       justify-content: space-between;
+      font-family: ui-monospace, monospace;
       font-size: 10px;
-      letter-spacing: 2.2px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      opacity: 0.6;
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      opacity: 0.45;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       padding-top: 10px;
-      z-index: 2;
-    }
-
-    .footer span:first-child {
-      color: var(--suit);
-    }
-    .footer span:last-child {
-      color: var(--suit2);
-    }
-
-    /* More floating particles */
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--suit);
-      opacity: 0.7;
-      animation: float 5.5s ease-in-out infinite;
-      z-index: 1;
-    }
-    .particle:nth-child(1) { top: 28%; left: 8%; animation-delay: 0s; }
-    .particle:nth-child(2) { top: 55%; left: 88%; background: var(--suit2); animation-delay: 0.8s; width: 4px; height: 4px; }
-    .particle:nth-child(3) { top: 72%; left: 18%; background: var(--suit3); animation-delay: 1.6s; }
-    .particle:nth-child(4) { top: 38%; left: 75%; animation-delay: 2.4s; }
-    .particle:nth-child(5) { top: 18%; left: 55%; background: #a855f7; animation-delay: 3.2s; width: 2px; height: 2px; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-      50% { transform: translateY(-18px) scale(1.4); opacity: 1; }
     }
   </style>
 
-  <!-- Floating particles -->
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
+  <!-- Swap the username in this URL for your own -->
+  <img class="avatar" src="https://github.com/your-github-username.png" alt="" />
 
-  <!-- Iconic Spider-Man symbol / face-mask logo -->
-  <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Spider-man_Tom_Holland_logo_red.png" alt="Spider-Man Symbol" />
-
-  <h1 class="alias">Git-Spidey</h1>
-  <p class="name">Chaos Weaver</p>
-  <p class="handle">@webslinger-404</p>
+  <h1 class="alias">Your Spider-Alias</h1>
+  <p class="name">Your Name</p>
+  <p class="handle">@your-github-username</p>
 
   <ul class="skills">
-    <li>PR Punch</li>
-    <li>Merge Slam</li>
-    <li>Branch Swing</li>
-    <li>Commit Web</li>
+    <li>Skill One</li>
+    <li>Skill Two</li>
+    <li>Skill Three</li>
   </ul>
 
   <div class="footer">
-    <span>Git-Society</span>
-    <span>Earth-404</span>
+    <span>Spider-Society</span>
+    <span>Earth-1610</span>
   </div>
 </div>
