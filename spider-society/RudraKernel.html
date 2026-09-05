@@ -1,0 +1,284 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="NOVA 07"
+  data-alias="NOVA 07"
+  data-github="nova07"
+  data-suit="#c8102e"
+>
+  <style>
+    /* ── Your suit starts here ──────────────────────────────── */
+    .spider-card {
+      --suit: #c8102e;
+      --gold: #d4af37;
+      --ink: #0a0a0c;
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 24px;
+      font-family: system-ui, sans-serif;
+      color: #f0ece0;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(212,175,55,0.16), transparent 55%),
+        radial-gradient(circle at 85% 95%, rgba(200,16,46,0.28), transparent 55%),
+        var(--ink);
+      border: 1px solid rgba(212,175,55,0.5);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Hex-plate armor texture, faint */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.5;
+      background-image:
+        linear-gradient(30deg, rgba(212,175,55,0.05) 12%, transparent 12.5%, transparent 87%, rgba(212,175,55,0.05) 87.5%),
+        linear-gradient(150deg, rgba(212,175,55,0.05) 12%, transparent 12.5%, transparent 87%, rgba(212,175,55,0.05) 87.5%),
+        linear-gradient(30deg, rgba(212,175,55,0.05) 12%, transparent 12.5%, transparent 87%, rgba(212,175,55,0.05) 87.5%),
+        linear-gradient(150deg, rgba(212,175,55,0.05) 12%, transparent 12.5%, transparent 87%, rgba(212,175,55,0.05) 87.5%);
+      background-size: 34px 60px;
+      background-position: 0 0, 0 0, 17px 30px, 17px 30px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Slowly spinning web overlay in the background */
+    .web-overlay {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      opacity: 0.16;
+      pointer-events: none;
+      background: repeating-conic-gradient(
+        from 0deg,
+        var(--gold) 0deg 1deg,
+        transparent 1deg 15deg
+      );
+      animation: webSpin 40s linear infinite;
+      z-index: 0;
+    }
+    .web-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(circle at center, transparent 0 18px, rgba(212,175,55,0.5) 18px 19px);
+    }
+    @keyframes webSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    /* Drifting spider-dust motes */
+    .mote {
+      position: absolute;
+      bottom: -10px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+      opacity: 0;
+      z-index: 0;
+      animation: moteDrift linear infinite;
+    }
+    .mote.m1 { left: 20px;  animation-duration: 9s;  animation-delay: 0s; }
+    .mote.m2 { left: 90px;  animation-duration: 12s; animation-delay: 2s; }
+    .mote.m3 { left: 160px; animation-duration: 10s; animation-delay: 4s; }
+    .mote.m4 { left: 230px; animation-duration: 14s; animation-delay: 1s; }
+    .mote.m5 { left: 270px; animation-duration: 11s; animation-delay: 6s; }
+    @keyframes moteDrift {
+      0%   { transform: translateY(0) translateX(0);      opacity: 0; }
+      10%  { opacity: 0.9; }
+      50%  { transform: translateY(-220px) translateX(14px); opacity: 0.5; }
+      90%  { opacity: 0; }
+      100% { transform: translateY(-440px) translateX(-10px); opacity: 0; }
+    }
+    /* Thin gold corner brackets, HUD style */
+    .bracket { position: absolute; width: 18px; height: 18px; border: 2px solid var(--gold); opacity: 0.8; z-index: 1; }
+    .bracket.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+    .bracket.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .reactor {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      background: var(--ink);
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 18px rgba(212,175,55,0.55), inset 0 0 12px rgba(200,16,46,0.5);
+      overflow: hidden;
+    }
+    /* Original CSS-drawn masked-hero silhouette — no external art */
+    .hood {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 40%, #1c1c22 0%, #0a0a0c 68%);
+    }
+    .hood::before {
+      /* faint web-crack lines across the mask */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, transparent 46%, rgba(212,175,55,0.35) 47%, transparent 48%),
+        linear-gradient(70deg, transparent 60%, rgba(212,175,55,0.25) 61%, transparent 62%);
+    }
+    .eye {
+      position: absolute;
+      top: 36%;
+      width: 20px;
+      height: 12px;
+      background: radial-gradient(ellipse at center, #fff 0%, var(--gold) 65%, rgba(212,175,55,0.2) 100%);
+      border-radius: 55% 55% 60% 60% / 70% 70% 55% 55%;
+      box-shadow: 0 0 8px rgba(212,175,55,0.9);
+      animation: eyeGlow 3s ease-in-out infinite;
+    }
+    .eye.left { left: 16%; transform: rotate(-6deg); }
+    .eye.right { right: 16%; transform: rotate(6deg) scaleX(-1); animation-delay: 0.3s; }
+    @keyframes eyeGlow {
+      0%, 100% { box-shadow: 0 0 6px rgba(212,175,55,0.7); }
+      50% { box-shadow: 0 0 12px rgba(212,175,55,1); }
+    }
+    .unit-tag {
+      display: inline-block;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212,175,55,0.6);
+      border-radius: 3px;
+      padding: 3px 7px;
+      background: rgba(200,16,46,0.12);
+    }
+    .alias {
+      margin: 8px 0 0;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #f6efe0;
+      text-shadow: 0 0 14px rgba(200,16,46,0.7), 0 0 2px var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+    .designation {
+      margin: 6px 0 0;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--gold);
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+    .divider {
+      margin: 16px 0 14px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent 70%);
+      position: relative;
+      z-index: 1;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+    .skills li {
+      padding: 6px 11px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(212,175,55,0.55);
+      border-radius: 3px;
+      color: var(--gold);
+      background: rgba(200,16,46,0.1);
+    }
+    .footer {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      border-top: 1px solid rgba(212,175,55,0.3);
+      padding-top: 10px;
+      z-index: 1;
+    }
+    .footer .pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--suit);
+      box-shadow: 0 0 8px var(--suit);
+    }
+    .footer-left { display: flex; align-items: center; gap: 6px; }
+  </style>
+  <div class="web-overlay"></div>
+  <div class="mote m1"></div>
+  <div class="mote m2"></div>
+  <div class="mote m3"></div>
+  <div class="mote m4"></div>
+  <div class="mote m5"></div>
+  <div class="bracket tl"></div>
+  <div class="bracket br"></div>
+  <div class="header-row">
+    <div class="reactor">
+      <div class="hood"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+    </div>
+    <div>
+      <span class="unit-tag">Field Unit</span>
+    </div>
+  </div>
+  <h1 class="alias">NOVA 07</h1>
+  <p class="designation">CLEARANCE: MULTIVERSAL</p>
+  <div class="divider"></div>
+  <ul class="skills">
+    <li>Cinematography</li>
+    <li>Video Editing</li>
+    <li>Coding – HTML/CSS</li>
+    <li>Gaming</li>
+  </ul>
+  <div class="footer">
+    <div class="footer-left"><span class="pulse"></span>Spider-Society</div>
+    <span>Earth-1610</span>
+  </div>
+</div>
