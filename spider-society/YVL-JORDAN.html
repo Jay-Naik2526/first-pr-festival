@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spider-ID Card</title>
+</head>
+<body style="margin:0; padding:40px; background:#050505; display:flex; justify-content:center;">
+
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="JORDAN"
+  data-alias="NIGHT-WEAVER"
+  data-github="YVL-JORDAN"
+  data-suit="#E6222B"
+>
+  <style>
+    /* ── Your suit starts here ──────────────────────────────── */
+    .spider-card {
+      --suit: #e6222b;      /* red — primary */
+      --suit-deep: #4a0509; /* deep red, for shadows */
+      --ink: #050505;       /* black base */
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, sans-serif;
+      color: #f2eeee;
+      background: radial-gradient(circle at 30% 0%, var(--suit-deep), var(--ink) 70%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* crosshatch webbing, subtle */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.05) 0 1px,
+          transparent 1px 14px
+        ),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 14px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* thin red trim */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(230, 34, 43, 0.35);
+      border-radius: 13px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* ── proper spiderweb, radiating from the top corner ── */
+    .web-bg {
+      position: absolute;
+      top: -90px;
+      right: -90px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      z-index: 0;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(230, 34, 43, 0.16) 0deg 1.2deg,
+          transparent 1.2deg 15deg
+        ),
+        repeating-radial-gradient(
+          circle at center,
+          rgba(230, 34, 43, 0.18) 0px 1px,
+          transparent 1px 24px
+        );
+      opacity: 0.9;
+    }
+
+    /* strand the crawler walks along */
+    .strand {
+      position: absolute;
+      top: 96px;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(230, 34, 43, 0.55) 20%, rgba(230, 34, 43, 0.55) 80%, transparent);
+      z-index: 1;
+    }
+
+    /* ── a little motion: a small spider crawling the strand ── */
+    .crawler {
+      position: absolute;
+      top: 88px;
+      left: 18px;
+      width: 18px;
+      height: 18px;
+      z-index: 2;
+      animation: crawl 6s ease-in-out infinite alternate;
+    }
+
+    .crawler svg { width: 100%; height: 100%; }
+    .crawler .body { fill: var(--ink); stroke: var(--suit); stroke-width: 4; }
+    .crawler .leg { stroke: var(--suit); stroke-width: 3; fill: none; stroke-linecap: round; }
+
+    @keyframes crawl {
+      0%   { transform: translateX(0) translateY(0); }
+      45%  { transform: translateX(120px) translateY(-2px); }
+      50%  { transform: translateX(126px) translateY(1px); }
+      100% { transform: translateX(240px) translateY(0); }
+    }
+
+    .top-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow: 0 0 22px rgba(230, 34, 43, 0.55);
+    }
+
+    /* ── spider emblem, matching-theme mark in place of the eyes ── */
+    .emblem {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--suit);
+      border-radius: 10px;
+      box-shadow: 0 0 14px rgba(230, 34, 43, 0.45);
+    }
+
+    .emblem svg { width: 34px; height: 34px; }
+    .emblem .leg { stroke: var(--suit); stroke-width: 3; fill: none; stroke-linecap: round; }
+    .emblem .body { fill: var(--suit); }
+
+    .alias {
+      position: relative;
+      z-index: 2;
+      margin: 16px 0 2px;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(230, 34, 43, 0.6);
+    }
+
+    .name {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    .handle {
+      position: relative;
+      z-index: 2;
+      margin-top: 4px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+
+    .skills {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 1px solid var(--suit);
+      border-radius: 999px;
+      background: rgba(230, 34, 43, 0.14);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+    }
+
+    .footer .dot { color: var(--suit); }
+  </style>
+
+  <div class="web-bg"></div>
+  <div class="strand"></div>
+  <div class="crawler">
+    <svg viewBox="0 0 20 20">
+      <path class="leg" d="M8 9 C4 7, 2 7, 0 5"/>
+      <path class="leg" d="M8 10 C3 10, 1 11, -1 12"/>
+      <path class="leg" d="M8 11 C4 13, 2 14, 0 16"/>
+      <path class="leg" d="M12 9 C16 7, 18 7, 20 5"/>
+      <path class="leg" d="M12 10 C17 10, 19 11, 21 12"/>
+      <path class="leg" d="M12 11 C16 13, 18 14, 20 16"/>
+      <ellipse class="body" cx="10" cy="7" rx="3" ry="2.4"/>
+      <ellipse class="body" cx="10" cy="12" rx="4.5" ry="4"/>
+    </svg>
+  </div>
+
+  <div class="top-row">
+    <!-- Put avatar.jpg in the same folder as this HTML file -->
+    <img class="avatar" src="avatar.jpg" alt="" />
+
+    <div class="emblem">
+      <svg viewBox="0 0 40 40">
+        <path class="leg" d="M17 18 C10 14, 5 14, 0 10"/>
+        <path class="leg" d="M17 20 C9 20, 4 21, -1 23"/>
+        <path class="leg" d="M17 22 C10 27, 6 29, 1 33"/>
+        <path class="leg" d="M23 18 C30 14, 35 14, 40 10"/>
+        <path class="leg" d="M23 20 C31 20, 36 21, 41 23"/>
+        <path class="leg" d="M23 22 C30 27, 34 29, 39 33"/>
+        <ellipse class="body" cx="20" cy="15" rx="5" ry="4"/>
+        <ellipse class="body" cx="20" cy="24" rx="8" ry="7"/>
+      </svg>
+    </div>
+  </div>
+
+  <h1 class="alias">Night-Weaver</h1>
+  <p class="name">Jordan</p>
+  <p class="handle">@YVL-JORDAN</p>
+
+  <ul class="skills">
+    <li>Nocturnal Baller</li>
+    <li>Spidey-Sense: Full Stack</li>
+    <li>Web-Slinger</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Earth-1610 <span class="dot">●</span></span>
+  </div>
+</div>
+
+</body>
+</html>
