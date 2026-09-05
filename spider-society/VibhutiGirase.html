@@ -1,0 +1,1543 @@
+<!--
+  SPIDER-ID CARD — VIBHUTI GIRASE
+  MULTIVERSE // SPIDER IDENTIFICATION ARTIFACT
+
+  FILE:
+  VibhutiGirase.html
+
+  IMAGE:
+  spiderman.jpg
+
+  RULES:
+  1. 320 x 440 only
+  2. Internal CSS only
+  3. No JavaScript
+  4. Keep all four data-* attributes
+-->
+
+<div
+  class="spider-card"
+  data-name="Vibhuti Girase"
+<<<<<<< HEAD
+  data-alias="FANTOMM"
+=======
+  data-alias="FANTOM"
+>>>>>>> symbiote
+  data-github="VibhutiGirase"
+  data-suit="#E62429"
+>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CORE CARD
+   ========================================================= */
+
+.spider-card {
+
+  --red: #e62429;
+  --red-hot: #ff4b51;
+  --black: #050507;
+  --white: #f5f3ef;
+
+  width: 320px;
+  height: 440px;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(230,36,41,.18),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(230,36,41,.12),
+      transparent 35%
+    ),
+    #050507;
+
+  color: var(--white);
+
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 14px;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  isolation: isolate;
+
+  box-shadow:
+    0 0 30px rgba(230,36,41,.15);
+
+  animation:
+    cardPulse 4s ease-in-out infinite;
+}
+
+
+@keyframes cardPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(230,36,41,.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 38px rgba(230,36,41,.28);
+  }
+
+}
+
+
+/* =========================================================
+   OUTER FRAME
+   ========================================================= */
+
+.spider-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 8px;
+
+  border:
+    1px solid rgba(255,255,255,.14);
+
+  pointer-events: none;
+
+  z-index: 50;
+}
+
+
+.spider-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -50%;
+
+  background:
+
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 18px,
+      rgba(255,255,255,.025) 19px,
+      transparent 20px
+    ),
+
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 18px,
+      rgba(255,255,255,.02) 19px,
+      transparent 20px
+    );
+
+  transform:
+    rotate(14deg);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   MOVING WEB
+   ========================================================= */
+
+.web {
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  left: -40px;
+  top: 45px;
+
+  border-radius: 50%;
+
+  background:
+
+    repeating-radial-gradient(
+      circle,
+      transparent 0 17px,
+      rgba(255,255,255,.065) 18px 19px,
+      transparent 20px 37px
+    ),
+
+    repeating-conic-gradient(
+      transparent 0deg 14deg,
+      rgba(255,255,255,.045) 15deg 16deg,
+      transparent 17deg 29deg
+    );
+
+  opacity: .42;
+
+  z-index: 1;
+
+  animation:
+    webSpin 18s linear infinite;
+}
+
+
+@keyframes webSpin {
+
+  from {
+    transform:
+      rotate(0deg)
+      scale(1);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      scale(1.05);
+  }
+
+}
+
+
+/* =========================================================
+   GIANT BACKGROUND TEXT
+   ========================================================= */
+
+.background-word {
+
+  position: absolute;
+
+  left: -28px;
+  top: 78px;
+
+  font-size: 76px;
+
+  font-weight: 950;
+
+  letter-spacing: -7px;
+
+  color: transparent;
+
+  -webkit-text-stroke:
+    1px rgba(255,255,255,.055);
+
+  white-space: nowrap;
+
+  transform:
+    rotate(-5deg);
+
+  z-index: 3;
+
+  animation:
+    ghostMove 7s ease-in-out infinite;
+}
+
+
+@keyframes ghostMove {
+
+  0%,
+  100% {
+    transform:
+      translateX(0)
+      rotate(-5deg);
+  }
+
+  50% {
+    transform:
+      translateX(7px)
+      rotate(-4deg);
+  }
+
+}
+
+
+/* =========================================================
+   TOP INFORMATION
+   ========================================================= */
+
+.topline {
+
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+
+  top: 17px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  z-index: 25;
+
+  font:
+    7px ui-monospace,
+    monospace;
+
+  letter-spacing: 1.5px;
+
+  color:
+    rgba(255,255,255,.6);
+}
+
+
+.topline .active {
+
+  color:
+    var(--red-hot);
+
+}
+
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.warning {
+
+  position: absolute;
+
+  right: -35px;
+  top: 35px;
+
+  width: 125px;
+
+  padding: 4px 0;
+
+  text-align: center;
+
+  background:
+    var(--red);
+
+  color:
+    #050507;
+
+  font:
+    800 7px ui-monospace,
+    monospace;
+
+  letter-spacing: 1.3px;
+
+  transform:
+    rotate(42deg);
+
+  z-index: 35;
+
+  animation:
+    warningPulse 1.8s ease-in-out infinite,
+    warningGlitch 6s steps(1,end) infinite;
+}
+
+
+@keyframes warningPulse {
+
+  0%,
+  100% {
+    filter:
+      brightness(.85);
+  }
+
+  50% {
+    filter:
+      brightness(1.35);
+  }
+
+}
+
+
+@keyframes warningGlitch {
+
+  0%,
+  91%,
+  100% {
+    transform:
+      rotate(42deg)
+      translate(0);
+  }
+
+  92% {
+    transform:
+      rotate(42deg)
+      translate(-4px,1px);
+  }
+
+  93% {
+    transform:
+      rotate(42deg)
+      translate(4px,-1px);
+  }
+
+}
+
+
+/* =========================================================
+   SPIDER-MAN IMAGE PANEL
+   ========================================================= */
+
+.portrait {
+
+  position: absolute;
+
+  left: 27px;
+  right: 27px;
+
+  top: 54px;
+
+  height: 214px;
+
+  overflow: hidden;
+
+  background:
+    #08090b;
+
+  border:
+    1px solid rgba(255,255,255,.3);
+
+  clip-path:
+    polygon(
+      0 0,
+      92% 0,
+      100% 9%,
+      100% 100%,
+      0 100%
+    );
+
+  z-index: 8;
+
+  box-shadow:
+    0 0 30px rgba(230,36,41,.18);
+}
+
+
+/*
+  IMPORTANT:
+  Keep spiderman.jpg in the same folder as this HTML.
+*/
+
+.portrait img {
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position:
+    30% center;
+
+  transform:
+    scale(1.04);
+
+  filter:
+    contrast(1.12)
+    saturate(1.08)
+    brightness(.9);
+
+  animation:
+    imageZoom 7s ease-in-out infinite alternate;
+}
+
+
+@keyframes imageZoom {
+
+  from {
+    transform:
+      scale(1.04)
+      translate(0,0);
+  }
+
+  to {
+    transform:
+      scale(1.11)
+      translate(-2px,-2px);
+  }
+
+}
+
+
+/* =========================================================
+   IMAGE CINEMATIC OVERLAY
+   ========================================================= */
+
+.portrait::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.05),
+      transparent 35%,
+      rgba(0,0,0,.12) 60%,
+      rgba(0,0,0,.72)
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(230,36,41,.14),
+      transparent 35%,
+      transparent 70%,
+      rgba(230,36,41,.08)
+    );
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MOVING SCAN LINE
+   ========================================================= */
+
+.portrait::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: -4px;
+
+  height: 2px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--red),
+      white,
+      var(--red),
+      transparent
+    );
+
+  box-shadow:
+    0 0 15px var(--red);
+
+  z-index: 6;
+
+  animation:
+    imageScan 3s linear infinite;
+}
+
+
+@keyframes imageScan {
+
+  0% {
+    top: -5px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: .8;
+  }
+
+  100% {
+    top: 218px;
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   IMAGE DATA
+   ========================================================= */
+
+.image-data {
+
+  position: absolute;
+
+  left: 10px;
+  bottom: 10px;
+
+  z-index: 12;
+
+  font:
+    6px/1.5 ui-monospace,
+    monospace;
+
+  letter-spacing: 1px;
+
+  color:
+    rgba(255,255,255,.72);
+}
+
+
+.image-data b {
+
+  color:
+    var(--red-hot);
+}
+
+
+/* =========================================================
+   SCANNER RING
+   ========================================================= */
+
+.scanring {
+
+  position: absolute;
+
+  width: 184px;
+  height: 184px;
+
+  left: 68px;
+  top: 69px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255,255,255,.17);
+
+  box-shadow:
+
+    0 0 0 10px rgba(230,36,41,.035),
+    0 0 0 24px rgba(230,36,41,.025);
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  animation:
+    ringRotate 8s linear infinite;
+}
+
+
+.scanring::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -8px;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed rgba(230,36,41,.55);
+}
+
+
+.scanring::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 28px;
+  height: 2px;
+
+  background:
+    var(--red);
+
+  top: 50%;
+  right: -14px;
+
+  box-shadow:
+    0 0 12px var(--red);
+}
+
+
+@keyframes ringRotate {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   IMAGE CORNER MARKERS
+   ========================================================= */
+
+.marker {
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border:
+    1px solid var(--red);
+
+  z-index: 25;
+
+  animation:
+    markerBlink 2.2s ease-in-out infinite;
+}
+
+
+.marker::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 29px;
+  height: 1px;
+
+  background:
+    var(--red);
+
+  left: -6px;
+  top: 8px;
+}
+
+
+.marker::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+  height: 29px;
+
+  background:
+    var(--red);
+
+  left: 8px;
+  top: -6px;
+}
+
+
+.m1 {
+
+  left: 18px;
+  top: 91px;
+}
+
+
+.m2 {
+
+  right: 18px;
+  top: 235px;
+
+  transform:
+    rotate(90deg);
+
+  animation-delay:
+    .5s;
+}
+
+
+@keyframes markerBlink {
+
+  0%,
+  65%,
+  100% {
+    opacity: .3;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: .35;
+  }
+
+}
+
+
+/* =========================================================
+   SIDE TEXT
+   ========================================================= */
+
+.side-text {
+
+  position: absolute;
+
+  left: 7px;
+  top: 145px;
+
+  writing-mode:
+    vertical-rl;
+
+  font:
+    6px ui-monospace,
+    monospace;
+
+  letter-spacing:
+    1.5px;
+
+  color:
+    rgba(255,255,255,.25);
+
+  z-index: 18;
+}
+
+
+.side-text.right {
+
+  left: auto;
+
+  right: 7px;
+
+  top: 140px;
+
+  color:
+    rgba(230,36,41,.55);
+}
+
+
+/* =========================================================
+   IDENTITY
+   ========================================================= */
+
+.identity {
+
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+
+  top: 281px;
+
+  z-index: 28;
+}
+
+
+.identity h1 {
+
+  margin: 0;
+
+  font-size: 39px;
+
+  line-height: .8;
+
+  font-weight: 950;
+
+  letter-spacing: -2px;
+
+  color:
+    var(--white);
+
+  text-shadow:
+    3px 0 var(--red),
+    0 0 20px rgba(230,36,41,.25);
+
+  animation:
+    nameGlitch 6s steps(1,end) infinite;
+}
+
+
+@keyframes nameGlitch {
+
+  0%,
+  86%,
+  100% {
+    transform:
+      translateX(0);
+  }
+
+  87% {
+    transform:
+      translateX(5px);
+  }
+
+  88% {
+    transform:
+      translateX(-3px);
+  }
+
+  89% {
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+.real-name {
+
+  margin:
+    7px 0 0;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    .5px;
+}
+
+
+.github {
+
+  margin:
+    3px 0 0;
+
+  font:
+    9px ui-monospace,
+    monospace;
+
+  color:
+    rgba(255,255,255,.4);
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+
+  position: absolute;
+
+  right: 20px;
+  top: 287px;
+
+  text-align: right;
+
+  z-index: 28;
+
+  font:
+    6px/1.55 ui-monospace,
+    monospace;
+
+  letter-spacing:
+    1px;
+
+  color:
+    var(--red-hot);
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skills {
+
+  position: absolute;
+
+  left: 20px;
+  top: 348px;
+
+  display: flex;
+
+  gap: 5px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  z-index: 30;
+}
+
+
+.skills li {
+
+  padding:
+    5px 8px;
+
+  border:
+    1px solid rgba(230,36,41,.58);
+
+  background:
+    rgba(230,36,41,.09);
+
+  font:
+    7px ui-monospace,
+    monospace;
+
+  letter-spacing:
+    .7px;
+
+  animation:
+    skillFloat 3.5s ease-in-out infinite;
+}
+
+
+.skills li:nth-child(2) {
+  animation-delay:
+    .25s;
+}
+
+
+.skills li:nth-child(3) {
+  animation-delay:
+    .5s;
+}
+
+
+@keyframes skillFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-3px);
+  }
+
+}
+
+
+/* =========================================================
+   DATA BARS
+   ========================================================= */
+
+.data-bars {
+
+  position: absolute;
+
+  right: 20px;
+  top: 335px;
+
+  width: 30px;
+
+  z-index: 30;
+}
+
+
+.data-bars i {
+
+  display: block;
+
+  height: 2px;
+
+  margin:
+    4px 0;
+
+  background:
+    rgba(255,255,255,.2);
+
+  animation:
+    barPulse 1.6s ease-in-out infinite;
+}
+
+
+.data-bars i:nth-child(1) {
+
+  width: 100%;
+
+  background:
+    var(--red);
+}
+
+
+.data-bars i:nth-child(2) {
+
+  width: 68%;
+
+  animation-delay:
+    .2s;
+}
+
+
+.data-bars i:nth-child(3) {
+
+  width: 88%;
+
+  animation-delay:
+    .4s;
+}
+
+
+.data-bars i:nth-child(4) {
+
+  width: 48%;
+
+  animation-delay:
+    .6s;
+}
+
+
+@keyframes barPulse {
+
+  0%,
+  100% {
+    opacity: .35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   GLITCH BLOCKS
+   ========================================================= */
+
+.glitch {
+
+  position: absolute;
+
+  height: 2px;
+
+  background:
+    var(--red);
+
+  z-index: 40;
+
+  animation:
+    glitchMove 4s steps(1,end) infinite;
+}
+
+
+.g1 {
+
+  width: 20px;
+
+  left: 22px;
+  top: 270px;
+}
+
+
+.g2 {
+
+  width: 9px;
+
+  right: 24px;
+  top: 298px;
+
+  animation-delay:
+    1.2s;
+}
+
+
+.g3 {
+
+  width: 14px;
+
+  right: 48px;
+  bottom: 63px;
+
+  animation-delay:
+    2.4s;
+}
+
+
+@keyframes glitchMove {
+
+  0%,
+  74%,
+  100% {
+
+    opacity: .25;
+
+    transform:
+      translateX(0);
+  }
+
+  75% {
+
+    opacity: 1;
+
+    transform:
+      translateX(8px);
+  }
+
+  76% {
+
+    opacity: .35;
+
+    transform:
+      translateX(-5px);
+  }
+
+  77% {
+
+    opacity: .9;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.bottom-data {
+
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+
+  bottom: 15px;
+
+  height: 21px;
+
+  border-top:
+    1px solid rgba(255,255,255,.14);
+
+  display: flex;
+
+  align-items: end;
+
+  justify-content: space-between;
+
+  z-index: 35;
+
+  font:
+    6px ui-monospace,
+    monospace;
+
+  letter-spacing:
+    1.2px;
+
+  color:
+    rgba(255,255,255,.4);
+}
+
+
+.bottom-data span:first-child {
+
+  color:
+    var(--red);
+}
+
+
+/* =========================================================
+   HARDWARE CORNERS
+   ========================================================= */
+
+.hardware {
+
+  position: absolute;
+
+  width: 21px;
+  height: 21px;
+
+  z-index: 60;
+}
+
+
+.hardware::before,
+.hardware::after {
+
+  content: "";
+
+  position: absolute;
+
+  background:
+    var(--red);
+}
+
+
+.hardware::before {
+
+  width: 21px;
+  height: 1px;
+
+  left: 0;
+  top: 0;
+}
+
+
+.hardware::after {
+
+  width: 1px;
+  height: 21px;
+
+  left: 0;
+  top: 0;
+}
+
+
+.h1 {
+
+  left: 13px;
+  top: 13px;
+}
+
+
+.h2 {
+
+  right: 13px;
+  top: 13px;
+
+  transform:
+    rotate(90deg);
+}
+
+
+.h3 {
+
+  right: 13px;
+  bottom: 13px;
+
+  transform:
+    rotate(180deg);
+}
+
+
+.h4 {
+
+  left: 13px;
+  bottom: 13px;
+
+  transform:
+    rotate(270deg);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .spider-card,
+  .spider-card *,
+  .spider-card *::before,
+  .spider-card *::after {
+
+    animation:
+      none !important;
+  }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     BACKGROUND
+     ========================================================= -->
+
+<div class="web"></div>
+
+<div class="background-word">
+  SPIDER
+</div>
+
+
+<!-- =========================================================
+     TOP BAR
+     ========================================================= -->
+
+<div class="topline">
+
+  <span>
+    SPIDER-ID // VG-001
+  </span>
+
+  <span class="active">
+    ● SIGNAL ACTIVE
+  </span>
+
+</div>
+
+
+<!-- =========================================================
+     WARNING
+     ========================================================= -->
+
+<div class="warning">
+  ANOMALOUS SIGNATURE
+</div>
+
+
+<!-- =========================================================
+     SPIDER-MAN IMAGE
+     ========================================================= -->
+
+<div class="portrait">
+
+  <img
+    src="spiderman.jpg"
+    alt=""
+  />
+
+  <div class="image-data">
+
+    VISUAL CORE<br>
+
+    <b>EARTH-1610</b><br>
+
+    IMAGE LOCK // 99.8%
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     SCANNER
+     ========================================================= -->
+
+<div class="scanring"></div>
+
+
+<!-- =========================================================
+     IMAGE MARKERS
+     ========================================================= -->
+
+<div class="marker m1"></div>
+
+<div class="marker m2"></div>
+
+
+<!-- =========================================================
+     SIDE INFORMATION
+     ========================================================= -->
+
+<div class="side-text">
+  MULTIVERSE ACCESS // VECTOR 42.1610
+</div>
+
+<div class="side-text right">
+  SPIDER-SOCIETY // IDENTITY CHANNEL
+</div>
+
+
+<!-- =========================================================
+     MAIN NAME
+     ========================================================= -->
+
+<div class="identity">
+
+  <h1>
+    VIBHUTI
+  </h1>
+
+  <p class="real-name">
+    Vibhuti Girase
+  </p>
+
+  <p class="github">
+    @VibhutiGirase
+  </p>
+
+</div>
+
+
+<!-- =========================================================
+     STATUS
+     ========================================================= -->
+
+<div class="status">
+
+  BIO-MATCH<br>
+  100% VERIFIED<br>
+  STATUS: ACTIVE
+
+</div>
+
+
+<!-- =========================================================
+     SKILLS
+     ========================================================= -->
+
+<ul class="skills">
+
+  <li>
+    PYTHON
+  </li>
+
+  <li>
+    C++
+  </li>
+
+  <li>
+    AI / ML
+  </li>
+
+</ul>
+
+
+<!-- =========================================================
+     DATA BARS
+     ========================================================= -->
+
+<div class="data-bars">
+
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+
+</div>
+
+
+<!-- =========================================================
+     GLITCH
+     ========================================================= -->
+
+<div class="glitch g1"></div>
+
+<div class="glitch g2"></div>
+
+<div class="glitch g3"></div>
+
+
+<!-- =========================================================
+     HARDWARE CORNERS
+     ========================================================= -->
+
+<div class="hardware h1"></div>
+
+<div class="hardware h2"></div>
+
+<div class="hardware h3"></div>
+
+<div class="hardware h4"></div>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<div class="bottom-data">
+
+  <span>
+    SPIDER-SOCIETY
+  </span>
+
+  <span>
+    EARTH-1610 // VG-01
+  </span>
+
+</div>
+
+</div> 
