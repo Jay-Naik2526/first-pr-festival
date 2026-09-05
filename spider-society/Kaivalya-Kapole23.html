@@ -1,0 +1,328 @@
+<!-- SPIDER-ID CARD — Kaivalya Kapole -->
+<div
+  class="spider-card"
+  data-name="Kaivalya Kapole"
+  data-alias="Web Weaver"
+  data-github="Kaivalya-Kapole23"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --suit: #e62429;
+      --blue: #3aa0ff;
+      --ink: #05050a;
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: #eef0f5;
+      background:
+        radial-gradient(circle at 25% -10%, rgba(230,36,41,0.35), transparent 55%),
+        radial-gradient(circle at 100% 110%, rgba(58,160,255,0.25), transparent 55%),
+        var(--ink);
+      border: 1px solid rgba(230,36,41,0.5);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* photo background, anchored toward the bottom of the card */
+    .bg-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(180deg, rgba(5,5,10,0.97) 0%, rgba(5,5,10,0.75) 30%, rgba(5,5,10,0.15) 60%, rgba(5,5,10,0.15) 100%),
+        url("https://www.sonypictures.in/sites/india/files/2022-04/AMAZINGSPIDERMANTHE_International_En.jpg");
+      background-size: cover, cover;
+      background-position: center, center bottom;
+      background-repeat: no-repeat, no-repeat;
+      opacity: 0.9;
+    }
+
+    /* layered web texture */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      z-index: 1;
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 22px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 22px),
+        repeating-radial-gradient(circle at 100% 0%, rgba(230,36,41,0.10) 0 2px, transparent 2px 34px);
+      animation: webDrift 14s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes webDrift {
+      0%   { transform: translate(0,0); }
+      50%  { transform: translate(-6px, 4px); }
+      100% { transform: translate(0,0); }
+    }
+
+    /* faint corner glow pulse */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      box-shadow: inset 0 0 60px rgba(230,36,41,0.15);
+      animation: pulseGlow 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: inset 0 0 40px rgba(230,36,41,0.10); }
+      50%      { box-shadow: inset 0 0 70px rgba(58,160,255,0.18); }
+    }
+
+    .top-row {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .id-text { min-width: 0; }
+    .eyebrow {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--blue);
+      opacity: 0.8;
+      margin: 0 0 3px;
+    }
+    .alias {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1.05;
+      background: linear-gradient(90deg, #ffffff, var(--suit) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+    .name {
+      margin: 4px 0 0;
+      font-size: 13px;
+      opacity: 0.8;
+      overflow-wrap: anywhere;
+    }
+    .handle {
+      margin-top: 3px;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 11px;
+      color: var(--blue);
+      opacity: 0.9;
+      overflow-wrap: anywhere;
+    }
+
+    /* spider emblem, css-drawn */
+    .emblem {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 3;
+      width: 26px;
+      height: 26px;
+      opacity: 0.85;
+    }
+    .emblem::before, .emblem::after {
+      content: "";
+      position: absolute;
+      background: var(--suit);
+    }
+    .emblem::before {
+      /* body */
+      left: 11px;
+      top: 6px;
+      width: 4px;
+      height: 14px;
+      border-radius: 3px;
+      box-shadow: 0 0 6px rgba(230,36,41,0.9);
+    }
+    .emblem::after {
+      /* legs, via layered gradients simulating spread lines */
+      left: 0;
+      top: 12px;
+      width: 26px;
+      height: 2px;
+      background: transparent;
+      background-image:
+        linear-gradient(var(--suit), var(--suit)),
+        linear-gradient(var(--suit), var(--suit)),
+        linear-gradient(var(--suit), var(--suit)),
+        linear-gradient(var(--suit), var(--suit));
+      background-size: 11px 2px;
+      background-repeat: no-repeat;
+      background-position: 0 -6px, 15px -6px, 0 6px, 15px 6px;
+      transform-origin: center;
+    }
+
+    .divider {
+      position: relative;
+      z-index: 3;
+      height: 1px;
+      margin: 16px 0 14px;
+      background: linear-gradient(90deg, transparent, rgba(230,36,41,0.6), rgba(58,160,255,0.6), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    /* two tiny floating particles, tucked into the empty space at the divider's ends */
+    .divider::before, .divider::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      top: -2px;
+      animation: particleFloat 6s ease-in-out infinite;
+    }
+    .divider::before {
+      left: 0;
+      background: var(--suit);
+      box-shadow: 0 0 8px 2px rgba(230,36,41,0.9);
+    }
+    .divider::after {
+      right: 0;
+      background: var(--blue);
+      box-shadow: 0 0 8px 2px rgba(58,160,255,0.9);
+      animation-delay: 3s;
+    }
+    @keyframes particleFloat {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50%      { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* one large, quiet geometric panel anchored in the back corner for depth — purely decorative, sits behind all text */
+    .panel-3d {
+      position: absolute;
+      top: -45px;
+      right: -45px;
+      width: 160px;
+      height: 160px;
+      z-index: 1;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(230,36,41,0.32), rgba(58,160,255,0.20));
+      border: 1px solid rgba(230,36,41,0.4);
+      transform: rotate(40deg) skewX(-6deg);
+      box-shadow: 0 0 32px rgba(230,36,41,0.22), inset 0 0 24px rgba(58,160,255,0.14);
+      pointer-events: none;
+    }
+
+    .section-label {
+      position: relative;
+      z-index: 3;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: rgba(238,240,245,0.5);
+      margin: 0 0 8px;
+    }
+
+    .skills {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0;
+      list-style: none;
+      margin: 0;
+      perspective: 400px;
+    }
+    .skills li {
+      padding: 6px 11px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: 8px;
+      color: #f4f5f8;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(230,36,41,0.5);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.35), inset 0 0 8px rgba(230,36,41,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .skills li:nth-child(even) {
+      border-color: rgba(58,160,255,0.55);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.35), inset 0 0 8px rgba(58,160,255,0.15);
+    }
+    .skills li:hover {
+      transform: translateY(-2px) rotateX(8deg);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.45), 0 0 10px rgba(230,36,41,0.5);
+    }
+
+    .footer {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 16px;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: ui-monospace, monospace;
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(238,240,245,0.7);
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding-top: 9px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .footer .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--blue);
+    }
+    .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 6px var(--blue);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.3; }
+    }
+  </style>
+
+  <div class="bg-photo"></div>
+  <div class="panel-3d"></div>
+  <div class="emblem"></div>
+
+  <div class="top-row">
+    <div class="id-text">
+      <p class="eyebrow">DEVELOPER ID</p>
+      <h1 class="alias">Web Weaver</h1>
+      <p class="name">Kaivalya Kapole</p>
+      <p class="handle">@Kaivalya-Kapole23</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">STACK</p>
+  <ul class="skills">
+    <li>C</li>
+    <li>Python</li>
+    <li>Git</li>
+    <li>GitHub</li>
+    <li>GitHub Desktop</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span class="status">Online</span>
+  </div>
+</div>
