@@ -1,0 +1,425 @@
+<!--
+  SPIDER-ID CARD — Harshita Zope // Earth-05 // Git-Verse
+-->
+<div
+  class="spider-card"
+  data-name="Harshita Zope"
+  data-alias="The Weaver"
+  data-github="tihsrax7"
+  data-suit="#ff1e3c"
+>
+  <style>
+    .spider-card {
+      --suit: #ff1e3c;
+      --hot: #ff5066;
+      --volt: #2e7bff;
+      --voltL: #6fb0ff;
+      --steel: #c3c9d4;
+      --ink: #08080a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      font-family: ui-monospace, "JetBrains Mono", monospace;
+      color: #e8e6e3;
+      background:
+        radial-gradient(circle at 72% 14%, rgba(255,30,60,.22), transparent 44%),
+        radial-gradient(circle at 50% 90%, rgba(46,123,255,.18), transparent 55%),
+        radial-gradient(circle at 28% 0%, #1c040a, var(--ink) 72%);
+      border: 2px solid var(--suit);
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      perspective: 950px;
+      box-shadow: inset 0 0 44px rgba(255,30,60,.14);
+    }
+
+    .spider-card::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255,255,255,.045) 0 1px, transparent 1px 15px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,.045) 0 1px, transparent 1px 15px);
+      pointer-events: none; z-index: 1;
+    }
+    .spider-card::after {
+      content: "";
+      position: absolute; inset: 3px; border-radius: 11px;
+      background:
+        linear-gradient(90deg, transparent 0%, var(--suit) 11%, transparent 24%) top/220% 2px no-repeat,
+        linear-gradient(90deg, transparent 0%, var(--volt) 11%, transparent 24%) bottom/220% 2px no-repeat,
+        linear-gradient(180deg, transparent 0%, var(--suit) 11%, transparent 24%) left/2px 220% no-repeat,
+        linear-gradient(180deg, transparent 0%, var(--volt) 11%, transparent 24%) right/2px 220% no-repeat;
+      animation: current 3.4s linear infinite;
+      pointer-events: none; z-index: 12;
+    }
+    @keyframes current {
+      0%   { background-position: -120% 0, 220% 100%, 0 -120%, 100% 220%; }
+      100% { background-position: 220% 0, -120% 100%, 0 220%, 100% -120%; }
+    }
+
+    .stage {
+      position: absolute;
+      left: 24px; right: 24px; top: 12px;
+      height: 288px; z-index: 5;
+      transform-style: preserve-3d;
+      animation: hover 3.8s ease-in-out infinite;
+    }
+    @keyframes hover {
+      0%,100% { transform: translateY(-5px); }
+      50%     { transform: translateY(5px); }
+    }
+    .spin {
+      position: absolute; inset: 0;
+      transform-style: preserve-3d;
+      animation: spin 16s linear infinite;
+    }
+    @keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+    .slab {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, #262b33, #0a0b0e 45%, #191d23);
+      transform: translateZ(-5px);
+      clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px),
+                         calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+    }
+    .slab::after {
+      content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(90deg, var(--suit) 0 5px, transparent 5px 12px,
+                                            var(--volt) 12px 16px, transparent 16px 30px);
+      opacity: .5; animation: eflow 2s linear infinite;
+    }
+    @keyframes eflow { to { background-position: 30px 0; } }
+
+    .side {
+      position: absolute; inset: 0;
+      backface-visibility: hidden;
+      overflow: hidden;
+      background: linear-gradient(158deg, rgba(13,14,19,.97), rgba(5,6,9,.99));
+      padding: 11px 12px;
+      clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px),
+                         calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+      box-shadow: inset 0 0 26px rgba(255,30,60,.09);
+    }
+    .side.back { transform: rotateY(180deg); }
+
+    .frame {
+      position: absolute; inset: 3px; pointer-events: none; z-index: 8;
+      clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px),
+                         calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+      box-shadow: inset 0 0 0 2px rgba(255,30,60,.55), inset 0 0 0 3px rgba(0,0,0,.6),
+                  inset 0 0 0 5px rgba(195,201,212,.28);
+    }
+    .frame.inner {
+      inset: 8px;
+      box-shadow: inset 0 0 0 1px rgba(46,123,255,.4);
+    }
+
+    .brk { position: absolute; width: 15px; height: 15px; border: 2px solid rgba(195,201,212,.6); z-index: 9; }
+    .brk.tl { top: 5px; left: 5px; border-right: 0; border-bottom: 0; }
+    .brk.tr { top: 5px; right: 5px; border-left: 0; border-bottom: 0; }
+    .brk.bl { bottom: 5px; left: 5px; border-right: 0; border-top: 0; }
+    .brk.br { bottom: 5px; right: 5px; border-left: 0; border-top: 0; }
+
+    .bolt { position: absolute; width: 4px; height: 4px; border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #9aa1ad, #3c4149);
+            box-shadow: 0 0 3px #000; z-index: 9; }
+    .bolt.b1 { top: 8px; left: 28px; }  .bolt.b2 { top: 8px; right: 28px; }
+    .bolt.b3 { bottom: 8px; left: 28px; } .bolt.b4 { bottom: 8px; right: 28px; }
+    .bolt.b5 { top: 50%; left: 5px; }    .bolt.b6 { top: 50%; right: 5px; }
+
+    .rail {
+      position: absolute; width: 7px; height: 54px; z-index: 9;
+      background: linear-gradient(180deg, #3a404a, #0e1014);
+      border: 1px solid #4e545e;
+    }
+    .rail.lft { left: 1px; top: 82px; }
+    .rail.rgt { right: 1px; top: 150px; }
+    .rail::after {
+      content: ""; position: absolute; left: 2px; top: 4px; bottom: 4px; width: 2px;
+      background: var(--suit); box-shadow: 0 0 6px var(--suit);
+    }
+    .rail.rgt::after { background: var(--volt); box-shadow: 0 0 6px var(--volt); }
+
+    .wire { position: absolute; left: 8px; right: 8px; height: 1.5px; z-index: 7;
+            background: linear-gradient(90deg, transparent, var(--suit), transparent);
+            background-size: 220% 100%; animation: wire 2.8s linear infinite; }
+    .wire.w1 { top: 26px; }
+    .wire.w2 { bottom: 24px; animation-direction: reverse;
+               background-image: linear-gradient(90deg, transparent, var(--volt), transparent); }
+    @keyframes wire { 0% { background-position: 220% 0; } 100% { background-position: -120% 0; } }
+
+    .cracks { position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .55; }
+
+    .cnt { position: relative; z-index: 6; }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 11px; }
+    .traits { font-size: 6.5px; line-height: 1.85; letter-spacing: .9px; opacity: .62; margin: 0; }
+    .tag { font-size: 7.5px; letter-spacing: 1px; color: var(--suit);
+           border: 1px solid var(--suit); border-radius: 4px; padding: 2px 6px;
+           background: rgba(255,30,60,.1); box-shadow: 0 0 8px rgba(255,30,60,.25); }
+    .quote { position: absolute; right: 14px; top: 62px; width: 62px; z-index: 7;
+             font-size: 6px; line-height: 1.6; color: var(--voltL); opacity: .85; text-align: right; }
+
+    .id { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+    .avatar { width: 46px; height: 46px; border-radius: 8px; object-fit: cover; flex-shrink: 0;
+              border: 2px solid var(--suit); box-shadow: 0 0 14px rgba(255,30,60,.6); }
+    .alias { margin: 0; font-size: 16px; line-height: 1; letter-spacing: .5px;
+             color: var(--suit); text-transform: uppercase; text-shadow: 0 0 12px rgba(255,30,60,.7); }
+    .name { margin: 3px 0 0; font-size: 9.5px; opacity: .88; }
+    .handle { margin: 2px 0 0; font-size: 7.5px; opacity: .5; }
+
+    .mission { margin-top: 7px; padding: 5px 7px; font-size: 7px; letter-spacing: .6px;
+               border-left: 2px solid var(--suit); background: rgba(255,30,60,.07);
+               display: flex; align-items: center; gap: 4px; }
+    .caret { width: 5px; height: 8px; background: var(--suit);
+             box-shadow: 0 0 7px var(--suit); animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .bio { margin: 6px 0 0; font-size: 6.5px; line-height: 1.65; opacity: .58; max-width: 150px; }
+
+    .label { margin-top: 7px; font-size: 7px; letter-spacing: 1px; color: var(--suit); font-weight: 700; }
+    .skills { display: flex; flex-wrap: wrap; gap: 3.5px; margin: 4px 0 0; padding: 0; list-style: none; }
+    .skills li { padding: 3px 7px; font-size: 6.5px; border-radius: 999px;
+                 border: 1px solid rgba(46,123,255,.55); color: #bcdcff; background: rgba(20,45,75,.3); }
+    .skills li.hot { border-color: var(--suit); color: #ffb3c0; background: rgba(255,30,60,.13);
+                     box-shadow: 0 0 8px rgba(255,30,60,.18); }
+    .motto { margin-top: 7px; font-size: 6px; letter-spacing: .6px; opacity: .5; }
+
+    .hood { position: absolute; right: -8px; top: 20px; width: 100px; height: 122px; z-index: 3;
+            opacity: .6; filter: drop-shadow(0 0 5px var(--suit)) drop-shadow(0 0 14px rgba(255,30,60,.7)); }
+
+    .bk { position: absolute; inset: 0; z-index: 6; display: flex; flex-direction: column;
+          align-items: center; justify-content: center; padding: 18px; text-align: center; }
+    .bkT { font-size: 9.5px; letter-spacing: 1.6px; font-weight: 800; color: var(--suit);
+           text-shadow: 0 0 10px rgba(255,30,60,.7); }
+    .bkSp { width: 124px; height: 134px; margin: 8px 0 6px;
+            filter: drop-shadow(0 0 5px var(--suit)) drop-shadow(0 0 18px rgba(255,30,60,.9));
+            animation: glow 3s ease-in-out infinite; }
+    @keyframes glow { 0%,100% { opacity: .85; } 50% { opacity: 1; } }
+    .bk1 { font-size: 8px; letter-spacing: 1px; line-height: 1.7; opacity: .8; }
+    .bk2 { font-size: 7px; letter-spacing: 1.6px; color: var(--voltL); margin-top: 7px; }
+
+    .base { position: absolute; left: 0; right: 0; bottom: 0; height: 132px; z-index: 4; }
+    .ring { position: absolute; left: 50%; border-radius: 50%; transform: translateX(-50%); }
+    .ring.r1 { width: 296px; height: 78px; bottom: 18px;
+               background: linear-gradient(180deg, #2a3039, #090b0e);
+               border: 2px solid rgba(255,30,60,.38); box-shadow: 0 12px 32px rgba(0,0,0,.9); }
+    .ring.r2 { width: 232px; height: 60px; bottom: 32px;
+               background: linear-gradient(180deg, #15181e, #08090c);
+               border: 1.5px solid rgba(46,123,255,.45); }
+    .ring.r3 { width: 170px; height: 44px; bottom: 42px;
+               background: #07080a; border: 1.5px solid rgba(255,30,60,.5); }
+    .grid { position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%);
+            width: 158px; height: 40px; z-index: 2; opacity: .5; }
+    .core { position: absolute; left: 50%; bottom: 46px; transform: translateX(-50%);
+            width: 134px; height: 34px; border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(255,40,70,.8), rgba(46,123,255,.3) 55%, transparent 75%);
+            animation: pulse 3s ease-in-out infinite; filter: blur(1px); }
+    @keyframes pulse {
+      0%,100% { opacity: .6; transform: translateX(-50%) scale(.92); }
+      50%     { opacity: 1;  transform: translateX(-50%) scale(1.08); }
+    }
+    .sweep { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+             width: 296px; height: 78px; border-radius: 50%;
+             background: conic-gradient(from 0deg, transparent 0deg, var(--suit) 24deg, transparent 58deg,
+                          transparent 168deg, var(--volt) 198deg, transparent 238deg);
+             -webkit-mask: radial-gradient(ellipse, transparent 60%, #000 66%, #000 74%, transparent 80%);
+             mask: radial-gradient(ellipse, transparent 60%, #000 66%, #000 74%, transparent 80%);
+             animation: sweep 5s linear infinite; opacity: .95; }
+    @keyframes sweep { to { transform: translateX(-50%) rotate(360deg); } }
+
+    .blk { position: absolute; width: 12px; height: 27px;
+           background: linear-gradient(180deg, #424953, #0d0f14); border: 1px solid #50565f; }
+    .blk.p1 { left: 14px;  bottom: 30px; transform: skewY(13deg); }
+    .blk.p2 { left: 50px;  bottom: 40px; transform: skewY(10deg); }
+    .blk.p3 { left: 92px;  bottom: 47px; transform: skewY(6deg); }
+    .blk.p4 { right: 14px; bottom: 30px; transform: skewY(-13deg); }
+    .blk.p5 { right: 50px; bottom: 40px; transform: skewY(-10deg); }
+    .blk.p6 { right: 92px; bottom: 47px; transform: skewY(-6deg); }
+    .blk::after { content: ""; position: absolute; left: 4px; top: 3px; bottom: 3px; width: 2px;
+                  background: var(--suit); box-shadow: 0 0 6px var(--suit); }
+    .blk.p3::after, .blk.p6::after { background: var(--volt); box-shadow: 0 0 6px var(--volt); }
+
+    .beam { position: absolute; left: 50%; bottom: 54px; transform: translateX(-50%);
+            width: 114px; height: 98px;
+            background: radial-gradient(ellipse at bottom, rgba(255,30,60,.34), rgba(46,123,255,.1) 55%, transparent 75%);
+            animation: pulse 3s ease-in-out infinite; z-index: 1; pointer-events: none; }
+    .emblem { position: absolute; left: 50%; bottom: 48px;
+              transform: translateX(-50%) scaleY(.42); width: 92px; height: 99px; z-index: 3;
+              filter: drop-shadow(0 0 5px var(--suit)) drop-shadow(0 0 16px rgba(255,30,60,.85)); }
+    .refl { position: absolute; left: 50%; bottom: 2px; transform: translateX(-50%);
+            width: 250px; height: 22px; z-index: 0;
+            background: radial-gradient(ellipse, rgba(255,30,60,.4), rgba(46,123,255,.16) 50%, transparent 72%);
+            filter: blur(6px); }
+    .plate { position: absolute; left: 50%; bottom: 9px; transform: translateX(-50%);
+             width: 224px; text-align: center; z-index: 5;
+             border-top: 1px solid rgba(255,30,60,.3); padding-top: 5px; }
+    .plate .t1 { font-size: 11.5px; font-weight: 800; letter-spacing: 1.4px;
+                 color: var(--suit); text-shadow: 0 0 10px rgba(255,30,60,.95); }
+    .plate .t2 { font-size: 6px; letter-spacing: 1.8px; opacity: .45; margin-top: 3px; }
+  </style>
+
+  <div class="stage">
+    <div class="spin">
+      <div class="slab"></div>
+
+      <div class="side front">
+        <svg class="cracks" viewBox="0 0 272 288" aria-hidden="true">
+          <g fill="none" stroke="rgba(120,170,255,.3)" stroke-width=".7">
+            <path d="M14 30 L64 66 L46 108 L86 136 L64 180"/>
+            <path d="M0 82 L46 108 L26 150 L78 172"/>
+            <path d="M64 66 L120 40 L158 76"/>
+          </g>
+          <g fill="none" stroke="rgba(255,60,90,.32)" stroke-width=".7">
+            <path d="M8 148 L66 126 L108 158 L88 204 L134 224"/>
+            <path d="M66 126 L82 78 L134 66"/>
+            <path d="M108 158 L162 142"/>
+          </g>
+        </svg>
+
+        <div class="frame"></div>
+        <div class="frame inner"></div>
+        <span class="brk tl"></span><span class="brk tr"></span>
+        <span class="brk bl"></span><span class="brk br"></span>
+        <span class="bolt b1"></span><span class="bolt b2"></span><span class="bolt b3"></span>
+        <span class="bolt b4"></span><span class="bolt b5"></span><span class="bolt b6"></span>
+        <span class="rail lft"></span><span class="rail rgt"></span>
+        <span class="wire w1"></span><span class="wire w2"></span>
+
+        <svg class="hood" viewBox="0 0 220 260" aria-hidden="true">
+          <path d="M110 12 C62 16 34 58 38 116 C41 158 60 196 86 216 L142 216
+                   C170 198 190 160 192 116 C196 58 158 8 110 12 Z"
+                fill="#12040a" stroke="#ff1e3c" stroke-width="3"/>
+          <path d="M110 18 C68 22 42 60 46 116 C48 154 66 188 88 210"
+                fill="none" stroke="#ff5066" stroke-width="3.6" stroke-linecap="round"/>
+          <path d="M110 18 C152 16 186 58 184 116 C182 154 164 188 140 210"
+                fill="none" stroke="#ff5066" stroke-width="4" stroke-linecap="round"/>
+          <path d="M58 128 C62 84 88 58 116 56 C148 54 172 84 174 126"
+                fill="none" stroke="#ff1e3c" stroke-width="2.4" opacity=".85"/>
+          <path d="M86 208 C106 220 138 220 156 208"
+                fill="none" stroke="#ff1e3c" stroke-width="2.2" opacity=".7"/>
+          <path d="M112 68 C146 66 168 92 166 126 C164 162 142 186 112 184
+                   C84 182 64 156 64 122 C64 92 84 70 112 68 Z"
+                fill="#0a0206" stroke="#ff1e3c" stroke-width="2.2"/>
+          <path d="M68 126 C68 94 86 74 112 72" fill="none" stroke="#ff8a9c" stroke-width="2" opacity=".8"/>
+          <path d="M160 100 C168 112 168 134 162 148" fill="none" stroke="#ff5066" stroke-width="1.6" opacity=".6"/>
+          <path d="M102 126 L124 96 C142 86 160 98 161 118 C162 138 148 150 130 146 Z" fill="#fff5f6"/>
+          <path d="M102 126 L124 96 C142 86 160 98 161 118 C162 138 148 150 130 146 Z"
+                fill="none" stroke="#ff1e3c" stroke-width="2.6"/>
+        </svg>
+
+        <div class="cnt">
+          <div class="top">
+            <p class="traits">STUDENT<br>DEVELOPER<br>EXPLORER<br>PROBLEM SOLVER<br>MULTIVERSE CITIZEN</p>
+            <span class="tag">EARTH-05</span>
+          </div>
+
+          <div class="id">
+            <img class="avatar" src="https://github.com/tihsrax7.png" alt="" />
+            <div>
+              <h1 class="alias">The Weaver</h1>
+              <p class="name">Harshita Zope</p>
+              <p class="handle">@tihsrax7 &middot; NMIMS</p>
+            </div>
+          </div>
+
+          <div class="mission">BUILDING MY OWN MULTIVERSE...<span class="caret"></span></div>
+          <p class="bio">First-year CS student at NMIMS. Exploring app development, cybersecurity and everything that excites me.</p>
+
+          <p class="label">// TECH STACK</p>
+          <ul class="skills">
+            <li>UI/UX</li><li>Flutter</li><li>Kotlin</li><li>Cybersecurity</li><li>Git + GitHub</li>
+          </ul>
+          <p class="label">// EXPERTISE</p>
+          <ul class="skills">
+            <li class="hot">Prompt Engineering</li><li class="hot">Harness Eng (WIP)</li>
+          </ul>
+          <p class="motto">"WITH GREAT CURIOSITY COMES GREAT CODE."</p>
+        </div>
+
+        <p class="quote">"SAME CURIOSITY. DIFFERENT UNIVERSES."</p>
+      </div>
+
+      <div class="side back">
+        <div class="frame"></div>
+        <div class="frame inner"></div>
+        <span class="brk tl"></span><span class="brk tr"></span>
+        <span class="brk bl"></span><span class="brk br"></span>
+        <span class="bolt b1"></span><span class="bolt b2"></span><span class="bolt b3"></span>
+        <span class="bolt b4"></span><span class="bolt b5"></span><span class="bolt b6"></span>
+        <span class="rail lft"></span><span class="rail rgt"></span>
+        <span class="wire w1"></span><span class="wire w2"></span>
+
+        <div class="bk">
+          <div class="bkT">HARSHITA // GIT-VERSE</div>
+          <svg class="bkSp" viewBox="0 0 400 430" aria-hidden="true">
+            <g fill="#ff1e3c">
+              <polygon points="232,150 316,92 352,20 344,44 314,114 240,164"/>
+              <polygon points="240,176 328,140 394,74 388,96 326,158 246,192"/>
+              <polygon points="238,206 320,238 360,372 346,362 306,256 232,226"/>
+              <polygon points="230,234 292,290 314,424 300,414 280,302 224,252"/>
+              <g transform="translate(400,0) scale(-1,1)">
+                <polygon points="232,150 316,92 352,20 344,44 314,114 240,164"/>
+                <polygon points="240,176 328,140 394,74 388,96 326,158 246,192"/>
+                <polygon points="238,206 320,238 360,372 346,362 306,256 232,226"/>
+                <polygon points="230,234 292,290 314,424 300,414 280,302 224,252"/>
+              </g>
+              <polygon points="186,132 176,92 170,64 182,96 194,130"/>
+              <polygon points="214,132 224,92 230,64 218,96 206,130"/>
+              <polygon points="200,126 222,138 233,160 226,184 200,198 174,184 167,160 178,138"/>
+              <polygon points="200,192 227,210 231,252 218,290 200,326 182,290 169,252 173,210"/>
+            </g>
+          </svg>
+          <div class="bk1">DIFFERENT UNIVERSES.<br>SAME CURIOSITY.</div>
+          <div class="bk2">STATUS: BUILDING</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="base">
+    <div class="refl"></div>
+    <div class="beam"></div>
+    <div class="ring r1"></div>
+    <div class="sweep"></div>
+    <div class="ring r2"></div>
+    <div class="ring r3"></div>
+    <svg class="grid" viewBox="0 0 158 40" aria-hidden="true">
+      <g fill="none" stroke="rgba(120,170,255,.35)" stroke-width=".6">
+        <ellipse cx="79" cy="20" rx="60" ry="15"/>
+        <ellipse cx="79" cy="20" rx="38" ry="9.5"/>
+        <ellipse cx="79" cy="20" rx="18" ry="4.5"/>
+        <line x1="19" y1="20" x2="139" y2="20"/>
+        <line x1="38" y1="8" x2="120" y2="32"/>
+        <line x1="38" y1="32" x2="120" y2="8"/>
+        <line x1="79" y1="5" x2="79" y2="35"/>
+      </g>
+    </svg>
+    <div class="core"></div>
+    <span class="blk p1"></span><span class="blk p2"></span><span class="blk p3"></span>
+    <span class="blk p4"></span><span class="blk p5"></span><span class="blk p6"></span>
+
+    <svg class="emblem" viewBox="0 0 400 430" aria-hidden="true">
+      <g fill="#ff1e3c">
+        <polygon points="232,150 316,92 352,20 344,44 314,114 240,164"/>
+        <polygon points="240,176 328,140 394,74 388,96 326,158 246,192"/>
+        <polygon points="238,206 320,238 360,372 346,362 306,256 232,226"/>
+        <polygon points="230,234 292,290 314,424 300,414 280,302 224,252"/>
+        <g transform="translate(400,0) scale(-1,1)">
+          <polygon points="232,150 316,92 352,20 344,44 314,114 240,164"/>
+          <polygon points="240,176 328,140 394,74 388,96 326,158 246,192"/>
+          <polygon points="238,206 320,238 360,372 346,362 306,256 232,226"/>
+          <polygon points="230,234 292,290 314,424 300,414 280,302 224,252"/>
+        </g>
+        <polygon points="186,132 176,92 170,64 182,96 194,130"/>
+        <polygon points="214,132 224,92 230,64 218,96 206,130"/>
+        <polygon points="200,126 222,138 233,160 226,184 200,198 174,184 167,160 178,138"/>
+        <polygon points="200,192 227,210 231,252 218,290 200,326 182,290 169,252 173,210"/>
+      </g>
+    </svg>
+
+    <div class="plate">
+      <div class="t1">INTO THE GIT-VERSE</div>
+      <div class="t2">// A BRIGHTER BRANCH AHEAD //</div>
+    </div>
+  </div>
+</div>
