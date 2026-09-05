@@ -1,0 +1,203 @@
+<div
+  class="spider-card"
+  data-name="Himanshu Rathod"
+  data-alias="Miles Morales"
+  data-suit="#ff2d55"
+  data-github="rathodhimanshu0707-droid"
+ 
+
+>
+  <style>
+    .spider-card {
+      --suit: #ff2d55;
+      --blue: #00d9ff;
+      --ink: #080b16;
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      padding: 22px;
+      color: #f7fbff;
+      font-family: Arial, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 86% 9%, rgba(0, 217, 255, .25), transparent 24%),
+        radial-gradient(circle at 10% 85%, rgba(255, 45, 85, .25), transparent 30%),
+        linear-gradient(145deg, #151a32, var(--ink) 56%, #160811);
+      border: 2px solid var(--suit);
+      border-radius: 20px;
+      box-shadow: 0 0 0 2px #05060c, 0 16px 35px rgba(0, 0, 0, .55);
+    }
+
+    .spider-card::before,
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .spider-card::before {
+      inset: -70px;
+      opacity: .5;
+      background:
+        repeating-radial-gradient(ellipse at 50% 48%, transparent 0 17px, rgba(210, 239, 255, .18) 18px 19px, transparent 20px 34px),
+        repeating-conic-gradient(from 0deg at 50% 48%, transparent 0 17deg, rgba(210, 239, 255, .13) 18deg 19deg, transparent 20deg 35deg);
+      transform: rotate(-12deg);
+    }
+
+    .spider-card::after {
+      width: 155px;
+      height: 155px;
+      right: -58px;
+      bottom: 54px;
+      border: 2px solid rgba(0, 217, 255, .75);
+      border-radius: 50%;
+      box-shadow: 0 0 24px rgba(0, 217, 255, .5), inset 0 0 26px rgba(0, 217, 255, .15);
+    }
+
+    .topline, .identity, .skills, .footer, .spider-mark {
+      position: relative;
+      z-index: 1;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--blue);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 88px;
+      height: 88px;
+      margin-top: 18px;
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--suit);
+      box-shadow: 0 0 0 4px rgba(0, 217, 255, .17), 0 0 20px rgba(255, 45, 85, .65);
+    }
+
+    .avatar-wrap::after {
+      content: "🕷";
+      position: absolute;
+      right: -6px;
+      bottom: -4px;
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      color: #090a12;
+      background: var(--blue);
+      font-size: 17px;
+      box-shadow: 0 0 14px var(--blue);
+    }
+
+    .alias {
+      margin: 16px 0 3px;
+      font-size: 31px;
+      line-height: .92;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 3px 3px 0 var(--suit), 0 0 20px rgba(255, 45, 85, .45);
+    }
+
+    .name {
+      margin: 8px 0 0;
+      color: #dce6f4;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .handle {
+      margin: 4px 0 0;
+      color: var(--blue);
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 6px 9px;
+      border: 1px solid rgba(0, 217, 255, .7);
+      border-radius: 4px;
+      background: rgba(0, 217, 255, .08);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+
+    .spider-mark {
+      margin-top: 22px;
+      font-size: 57px;
+      line-height: 1;
+      color: var(--suit);
+      text-shadow: 0 0 18px rgba(255, 45, 85, .75);
+      transform: rotate(-12deg);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 17px;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      color: #b9c6d6;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+  </style>
+
+  <div class="topline">
+    <span>Spider-Society // Verified</span>
+    <span>Earth-616</span>
+  </div>
+
+  <div class="identity">
+    <div class="avatar-wrap">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/266242750?v=4&size=64" alt="Your GitHub avatar" />
+    </div>
+
+    <h1 class="alias">Spider-Byte</h1>
+    <p class="name">Himanshu Rathod</p>
+    <p class="handle">rathodhimanshu0707-droid</p>
+  </div>
+
+  <ul class="skills">
+    <li>Code Sense</li>
+    <li>Web Slinging</li>
+    <li>Bug Hunter</li>
+    <li>Git Mastery</li>
+  </ul>
+
+  <div class="spider-mark">🕷</div>
+
+  <div class="footer">
+    <span>With Great Code</span>
+    <span>Level 01</span>
+  </div>
+</div>
