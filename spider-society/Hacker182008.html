@@ -1,0 +1,1170 @@
+```html
+<!--
+  SPIDER-ID CARD — PREMIUM SYMBIOTE EDITION
+
+  File name:
+  Hacker182008.html
+
+  RULES:
+  - Internal CSS only
+  - No JavaScript
+  - 320 x 440 card
+  - Keep all four data attribute
+-->
+
+<div
+  class="spider-card"
+  data-name="Aryan Prajapati"
+  data-alias="Doctor Octopus"
+  data-github="Hacker182008"
+  data-suit="#008000"
+>
+ 
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+.spider-card {
+  --red: #e62429;
+  --bright-red: #ff3038;
+  --black: #020203;
+  --dark: #09090b;
+  --white: #f5f5f5;
+
+  width: 320px;
+  height: 440px;
+
+  padding: 20px;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  color: var(--white);
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 75% 15%,
+      rgba(230,36,41,.25),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(230,36,41,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #19191b 0%,
+      #09090b 42%,
+      #010101 100%
+    );
+
+  border:
+    1px solid rgba(255,45,50,.8);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.9),
+    0 0 35px rgba(230,36,41,.18),
+    inset 0 0 40px rgba(255,255,255,.025);
+
+  animation: cardGlow 5s ease-in-out infinite;
+}
+
+/* =====================================================
+   MOVING WEB
+   ===================================================== */
+
+.spider-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  left: -210px;
+  top: -220px;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0 19px,
+      rgba(255,255,255,.055) 20px 21px,
+      transparent 22px 40px
+    );
+
+  opacity: .65;
+
+  transform: rotate(10deg);
+
+  animation:
+    webRotate 30s linear infinite;
+
+  pointer-events: none;
+
+  z-index: -3;
+}
+
+/* =====================================================
+   SYMBIOTE ENERGY
+   ===================================================== */
+
+.spider-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -130px;
+  bottom: -110px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,30,40,.38),
+      rgba(150,0,5,.12) 38%,
+      transparent 72%
+    );
+
+  filter: blur(5px);
+
+  animation:
+    symbiotePulse 4s ease-in-out infinite alternate;
+
+  pointer-events: none;
+
+  z-index: -2;
+}
+
+/* =====================================================
+   TOP BAR
+   ===================================================== */
+
+.topbar {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+.brand {
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #777;
+}
+
+.status {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+
+  color:
+    var(--bright-red);
+}
+
+.status-dot {
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    var(--bright-red);
+
+  box-shadow:
+    0 0 6px var(--bright-red),
+    0 0 16px var(--bright-red);
+
+  animation:
+    statusPulse 1.4s ease-in-out infinite;
+}
+
+/* =====================================================
+   SPIDER EMBLEM
+   ===================================================== */
+
+.emblem-wrap {
+
+  width: 130px;
+  height: 130px;
+
+  margin:
+    17px auto 0;
+
+  position: relative;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+.emblem-ring {
+
+  position: absolute;
+
+  inset: 4px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255,255,255,.14);
+
+  box-shadow:
+    0 0 30px
+    rgba(230,36,41,.12);
+
+  animation:
+    ringFloat 4s ease-in-out infinite;
+}
+
+.emblem-ring::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 9px;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed
+    rgba(230,36,41,.5);
+
+  animation:
+    ringSpin 12s linear infinite;
+}
+
+/* =====================================================
+   SPIDER SYMBOL
+   ===================================================== */
+
+.emblem {
+
+  width: 86px;
+  height: 86px;
+
+  position: relative;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #29292b,
+      #09090a 62%,
+      #000 100%
+    );
+
+  box-shadow:
+    inset 0 0 25px #000,
+    0 0 25px rgba(230,36,41,.22);
+
+  animation:
+    emblemFloat 4s ease-in-out infinite;
+}
+
+/* Body */
+
+.emblem::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 24px;
+  height: 38px;
+
+  left: 50%;
+  top: 26px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:
+    48% 48% 43% 43%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #9b9b9d,
+      #fff 40%,
+      #bcbdbf 70%,
+      #fff
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(255,255,255,.6);
+}
+
+/* Legs */
+
+.emblem::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  left: 15px;
+  top: 15px;
+
+  border-left:
+    3px solid #eee;
+
+  border-right:
+    3px solid #eee;
+
+  transform:
+    skewY(-14deg);
+
+  opacity: .95;
+
+  box-shadow:
+
+    -15px 7px 0 -1px #eee,
+
+     15px 7px 0 -1px #eee,
+
+    -19px 19px 0 -2px #eee,
+
+     19px 19px 0 -2px #eee;
+}
+
+/* =====================================================
+   IDENTITY
+   ===================================================== */
+
+.alias {
+
+  position: relative;
+
+  z-index: 10;
+
+  margin:
+    11px 0 3px;
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  font-weight: 950;
+
+  letter-spacing:
+    2px;
+
+  text-transform:
+    uppercase;
+
+  color:
+    #fff;
+
+  text-shadow:
+    0 0 12px
+    rgba(230,36,41,.35);
+
+  animation:
+    titlePulse 3.5s ease-in-out infinite;
+}
+
+.name {
+
+  position: relative;
+
+  z-index: 10;
+
+  margin: 0;
+
+  font-size: 12px;
+
+  letter-spacing:
+    1px;
+
+  color:
+    #aaa;
+}
+
+.handle {
+
+  position: relative;
+
+  z-index: 10;
+
+  margin:
+    4px 0 0;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size: 10px;
+
+  color:
+    #666;
+}
+
+/* =====================================================
+   DIVIDER
+   ===================================================== */
+
+.divider {
+
+  height: 1px;
+
+  margin:
+    12px 0 11px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--red),
+      rgba(255,255,255,.35),
+      var(--red),
+      transparent
+    );
+
+  animation:
+    dividerGlow 2.5s ease-in-out infinite;
+}
+
+/* =====================================================
+   ABILITIES
+   ===================================================== */
+
+.section-title {
+
+  margin-bottom:
+    7px;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size:
+    7px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    3px;
+
+  color:
+    #666;
+}
+
+.skills {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    5px;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  list-style:
+    none;
+}
+
+.skills li {
+
+  padding:
+    5px 8px;
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size:
+    9px;
+
+  color:
+    #ddd;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(230,36,41,.17),
+      rgba(255,255,255,.025)
+    );
+
+  border:
+    1px solid
+    rgba(230,36,41,.45);
+
+  border-radius:
+    4px;
+
+  animation:
+    skillFloat 4s ease-in-out infinite;
+}
+
+.skills li:nth-child(2) {
+  animation-delay:
+    .3s;
+}
+
+.skills li:nth-child(3) {
+  animation-delay:
+    .6s;
+}
+
+.skills li:nth-child(4) {
+  animation-delay:
+    .9s;
+}
+
+/* =====================================================
+   SYMBIOTE TENDRILS
+   ===================================================== */
+
+.tendril {
+
+  position:
+    absolute;
+
+  height:
+    1px;
+
+  transform-origin:
+    left center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(230,36,41,.9),
+      transparent
+    );
+
+  opacity:
+    .5;
+
+  pointer-events:
+    none;
+}
+
+.t1 {
+
+  width:
+    150px;
+
+  left:
+    -35px;
+
+  bottom:
+    94px;
+
+  transform:
+    rotate(24deg);
+
+  animation:
+    tendrilOne 5s ease-in-out infinite;
+}
+
+.t2 {
+
+  width:
+    125px;
+
+  right:
+    -35px;
+
+  top:
+    205px;
+
+  transform:
+    rotate(145deg);
+
+  animation:
+    tendrilTwo 4s ease-in-out infinite;
+}
+
+.t3 {
+
+  width:
+    90px;
+
+  right:
+    -20px;
+
+  bottom:
+    130px;
+
+  transform:
+    rotate(155deg);
+
+  animation:
+    tendrilTwo 6s ease-in-out infinite reverse;
+}
+
+/* =====================================================
+   SCANNER
+   ===================================================== */
+
+.scan {
+
+  position:
+    absolute;
+
+  left:
+    -10%;
+
+  top:
+    -20px;
+
+  width:
+    120%;
+
+  height:
+    2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,30,40,.9),
+      transparent
+    );
+
+  box-shadow:
+    0 0 15px
+    rgba(255,30,40,.6);
+
+  opacity:
+    .4;
+
+  animation:
+    scanner 6s linear infinite;
+
+  pointer-events:
+    none;
+
+  z-index:
+    20;
+}
+
+/* =====================================================
+   PARTICLES
+   ===================================================== */
+
+.particle {
+
+  position:
+    absolute;
+
+  width:
+    2px;
+
+  height:
+    2px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--bright-red);
+
+  box-shadow:
+    0 0 8px
+    var(--bright-red);
+
+  opacity:
+    .35;
+
+  animation:
+    particleFloat 5s ease-in-out infinite;
+}
+
+.p1 {
+  left: 27px;
+  top: 190px;
+}
+
+.p2 {
+  right: 30px;
+  top: 270px;
+  animation-delay: 1s;
+}
+
+.p3 {
+  left: 70px;
+  bottom: 100px;
+  animation-delay: 2s;
+}
+
+.p4 {
+  right: 80px;
+  bottom: 155px;
+  animation-delay: 3s;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+
+  position:
+    absolute;
+
+  left:
+    20px;
+
+  right:
+    20px;
+
+  bottom:
+    15px;
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  padding-top:
+    9px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.09);
+
+  font-family:
+    ui-monospace,
+    monospace;
+
+  font-size:
+    7px;
+
+  letter-spacing:
+    2px;
+
+  color:
+    #555;
+}
+
+.earth {
+
+  color:
+    var(--red);
+
+  opacity:
+    .85;
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes cardGlow {
+
+  0%,100% {
+    box-shadow:
+      0 25px 70px rgba(0,0,0,.9),
+      0 0 25px rgba(230,36,41,.12),
+      inset 0 0 40px rgba(255,255,255,.025);
+  }
+
+  50% {
+    box-shadow:
+      0 25px 70px rgba(0,0,0,.9),
+      0 0 45px rgba(230,36,41,.3),
+      inset 0 0 40px rgba(255,255,255,.04);
+  }
+}
+
+@keyframes webRotate {
+
+  from {
+    transform:
+      rotate(10deg)
+      scale(1.1);
+  }
+
+  to {
+    transform:
+      rotate(370deg)
+      scale(1.1);
+  }
+}
+
+@keyframes symbiotePulse {
+
+  from {
+    transform:
+      scale(.8);
+    opacity:
+      .3;
+  }
+
+  to {
+    transform:
+      scale(1.2);
+    opacity:
+      .85;
+  }
+}
+
+@keyframes statusPulse {
+
+  0%,100% {
+    transform:
+      scale(.7);
+    opacity:
+      .3;
+  }
+
+  50% {
+    transform:
+      scale(1.25);
+    opacity:
+      1;
+  }
+}
+
+@keyframes ringFloat {
+
+  0%,100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-4px);
+  }
+}
+
+@keyframes ringSpin {
+
+  from {
+    transform:
+      rotate(0);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes emblemFloat {
+
+  0%,100% {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-4px)
+      scale(1.025);
+  }
+}
+
+@keyframes titlePulse {
+
+  0%,100% {
+    text-shadow:
+      0 0 7px
+      rgba(230,36,41,.1);
+  }
+
+  50% {
+    text-shadow:
+      0 0 13px
+      rgba(230,36,41,.55),
+      0 0 28px
+      rgba(230,36,41,.18);
+  }
+}
+
+@keyframes dividerGlow {
+
+  0%,100% {
+    opacity:
+      .4;
+  }
+
+  50% {
+    opacity:
+      1;
+  }
+}
+
+@keyframes skillFloat {
+
+  0%,100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-2px);
+  }
+}
+
+@keyframes tendrilOne {
+
+  0%,100% {
+    transform:
+      rotate(24deg)
+      scaleX(.8);
+  }
+
+  50% {
+    transform:
+      rotate(30deg)
+      scaleX(1.15);
+  }
+}
+
+@keyframes tendrilTwo {
+
+  0%,100% {
+    transform:
+      rotate(145deg)
+      scaleX(.8);
+  }
+
+  50% {
+    transform:
+      rotate(137deg)
+      scaleX(1.15);
+  }
+}
+
+@keyframes scanner {
+
+  0% {
+    top:
+      -20px;
+    opacity:
+      0;
+  }
+
+  10% {
+    opacity:
+      .5;
+  }
+
+  90% {
+    opacity:
+      .5;
+  }
+
+  100% {
+    top:
+      460px;
+    opacity:
+      0;
+  }
+}
+
+@keyframes particleFloat {
+
+  0%,100% {
+    transform:
+      translate(0,0);
+    opacity:
+      .2;
+  }
+
+  50% {
+    transform:
+      translate(8px,-16px);
+    opacity:
+      .9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .spider-card *,
+  .spider-card::before,
+  .spider-card::after {
+
+    animation:
+      none !important;
+  }
+}
+
+</style>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+  <span class="brand">
+    SPIDER-SOCIETY
+  </span>
+
+  <span class="status">
+
+    <span class="status-dot"></span>
+
+    SYMBIOTE ACTIVE
+
+  </span>
+
+</div>
+
+
+<!-- SCANNER -->
+
+<div class="scan"></div>
+
+
+<!-- PARTICLES -->
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+
+
+<!-- SYMBIOTE TENDRILS -->
+
+<div class="tendril t1"></div>
+<div class="tendril t2"></div>
+<div class="tendril t3"></div>
+
+
+<!-- SPIDER EMBLEM -->
+
+<div class="emblem-wrap">
+
+  <div class="emblem-ring"></div>
+
+  <div class="emblem"></div>
+
+</div>
+
+
+<!-- IDENTITY -->
+
+<h1 class="alias">
+    Doctor Octopus
+</h1>
+
+<p class="name">
+  Aryan Prajapati
+</p>
+
+<p class="handle">
+  @Hacker182008
+</p>
+
+
+<!-- DIVIDER -->
+
+<div class="divider"></div>
+
+
+<!-- ABILITIES -->
+
+<div class="section">
+
+  <div class="section-title">
+    SYMBIOTE ABILITIES
+  </div>
+
+  <ul class="skills">
+
+    <li>PYTHON</li>
+
+    <li>C</li>
+
+    <li>SQL</li>
+
+    <li>GITHUB</li>
+
+  </ul>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+  <span>
+    SPIDER-ID // 001
+  </span>
+
+  <span class="earth">
+    EARTH-616
+  </span>
+
+</div>
+
+</div>
+```
