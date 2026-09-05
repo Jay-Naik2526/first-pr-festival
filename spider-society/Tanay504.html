@@ -1,0 +1,304 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+-->
+<div
+  class="spider-card"
+  data-name="Tanay Rathore"
+  data-alias="Dr Banner"
+  data-github="Tanay504"
+  data-suit="#E62429"
+  style="--suit:#E62429;"
+>
+  <style>
+    /* ── Dr Banner suit: gamma-green core, spider-red containment field ── */
+    .spider-card {
+      --suit: #E62429;          /* set inline above from data-suit */
+      --gamma: #3ddc74;
+      --bg-0: #07090a;
+      --bg-1: #0e1611;
+      --ink: #f2ede2;
+      --muted: rgba(242, 237, 226, 0.56);
+      --line: rgba(242, 237, 226, 0.14);
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px 22px;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(61, 220, 116, 0.16), transparent 42%),
+        linear-gradient(165deg, var(--bg-1) 0%, var(--bg-0) 60%);
+      border: 1px solid rgba(242, 237, 226, 0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Comic halftone burst, anchored behind the hero name — subject-appropriate,
+       not a generic decorative gradient wash. */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -40px -40px auto auto;
+      width: 220px;
+      height: 220px;
+      background-image: radial-gradient(rgba(230, 36, 41, 0.5) 1.4px, transparent 1.6px);
+      background-size: 9px 9px;
+      -webkit-mask-image: radial-gradient(circle at 70% 30%, black 0%, transparent 68%);
+      mask-image: radial-gradient(circle at 70% 30%, black 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* thin containment-field hazard band along the left edge */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--suit) 0 6px,
+        var(--gamma) 6px 12px
+      );
+      opacity: 0.85;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding-left: 8px;
+    }
+
+    /* ── Header: hex-clipped avatar + identity ───────────────── */
+    .id-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar-frame {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      flex: 0 0 auto;
+    }
+
+    .avatar-frame::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      background: conic-gradient(from 120deg, var(--suit), var(--gamma), var(--suit));
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .avatar {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      display: block;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .identity {
+      min-width: 0;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .handle {
+      margin: 3px 0 0;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 11.5px;
+      color: var(--gamma);
+    }
+
+    .handle::before {
+      content: "@";
+      opacity: 0.6;
+    }
+
+    /* ── Hero alias ───────────────────────────────────────────── */
+    .alias {
+      margin: 16px 0 0;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.5px;
+      background: linear-gradient(100deg, var(--ink) 30%, var(--gamma) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .field-tag {
+      margin: 6px 0 0;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+
+    /* ── Flavor line, comic-caption style ────────────────────── */
+    .caption {
+      margin: 14px 0 0;
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--muted);
+      border-left: 2px solid var(--line);
+      padding-left: 10px;
+      line-height: 1.4;
+    }
+
+    /* ── Skills as hex tiles, not generic pills ──────────────── */
+    .skills {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      flex: 1;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 6px;
+      background: rgba(61, 220, 116, 0.08);
+      border: 1px solid var(--line);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    /* ── Gamma stability gauge — a real stat, not decoration ─── */
+    .gauge {
+      margin-top: 16px;
+    }
+
+    .gauge-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .gauge-track {
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(242, 237, 226, 0.1);
+      overflow: hidden;
+    }
+
+    .gauge-fill {
+      height: 100%;
+      width: 82%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--gamma), var(--suit));
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .footer {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gamma);
+      box-shadow: 0 0 0 0 rgba(61, 220, 116, 0.6);
+      animation: pulse 2.4s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(61, 220, 116, 0.55); }
+      70%  { box-shadow: 0 0 0 7px rgba(61, 220, 116, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(61, 220, 116, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .status-dot { animation: none; }
+    }
+  </style>
+
+  <div class="card-body">
+    <div class="id-row">
+      <div class="avatar-frame">
+        <img class="avatar" src="https://github.com/Tanay504.png" alt="Tanay504 avatar" />
+      </div>
+      <div class="identity">
+        <p class="name">Tanay Rathore</p>
+        <p class="handle">Tanay504</p>
+      </div>
+    </div>
+
+    <h1 class="alias">Dr Banner</h1>
+    <p class="field-tag">FIELD DESIGNATION · GAMMA-CLASS</p>
+
+    <p class="caption">"Smart, calm, and dangerous only when the math demands it."</p>
+
+    <ul class="skills">
+      <li>Knowledge</li>
+      <li>Intellect</li>
+      <li>Power</li>
+    </ul>
+
+    <div class="gauge">
+      <div class="gauge-label">
+        <span>GAMMA STABILITY</span>
+        <span>82%</span>
+      </div>
+      <div class="gauge-track"><div class="gauge-fill"></div></div>
+    </div>
+
+    <div class="footer">
+      <span class="status"><span class="status-dot"></span>Spider-Society</span>
+      <span>Earth-1610</span>
+    </div>
+  </div>
+</div>
