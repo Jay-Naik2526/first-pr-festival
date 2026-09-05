@@ -1,0 +1,481 @@
+<!--
+  SPIDER-ID CARD — Spider-Man themed suit
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags.
+  4. Everything fits inside 320 x 440.
+  5. Keep the four data- attributes on .spider-card.
+-->
+<div
+  class="spider-card"
+<<<<<<< HEAD
+  data-name="spider man "
+=======
+  data-name="Peter Parker"
+>>>>>>> symbiote
+  data-alias="Thanos"
+  data-github="rudranayee95"
+  data-suit="#E62429"
+>
+<<<<<<< HEAD
+  <style> 
+=======
+  <style>
+>>>>>>> symbiote
+    .spider-card {
+      --red: #e62429;
+      --red-dark: #7f0d12;
+      --blue: #1769d1;
+      --gold: #f5c518;
+      --white: #f4f4f4;
+      --ink: #03050a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 16px 18px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% 12%, rgba(230,36,41,.32), transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(23,105,209,.34), transparent 40%),
+        linear-gradient(155deg, #160308 0%, #05060a 48%, #020711 100%);
+      border: 2px solid var(--red);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 0 0 1px rgba(245,197,24,.35),
+        0 0 26px rgba(230,36,41,.35),
+        inset 0 0 35px rgba(0,0,0,.55);
+    }
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -60px;
+      background:
+        repeating-radial-gradient(circle at 50% 0,
+          transparent 0 25px,
+          rgba(255,255,255,.055) 26px 27px,
+          transparent 28px 48px),
+        repeating-linear-gradient(45deg,
+          transparent 0 15px,
+          rgba(255,255,255,.035) 16px 17px);
+      transform: rotate(5deg);
+      pointer-events: none;
+      opacity: .7;
+    }
+
+    .web {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      opacity: .25;
+      pointer-events: none;
+      background:
+        repeating-radial-gradient(circle,
+          transparent 0 17px,
+          rgba(255,255,255,.8) 18px 19px,
+          transparent 20px 30px),
+        repeating-conic-gradient(from 0deg,
+          rgba(255,255,255,.8) 0 1deg,
+          transparent 1deg 15deg);
+    }
+
+    .web.tl {
+      left: -78px;
+      top: -75px;
+    }
+
+    .web.br {
+      right: -78px;
+      bottom: -76px;
+      opacity: .18;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .live {
+      color: #48ff88;
+      text-shadow: 0 0 7px #48ff88;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 84px;
+      height: 94px;
+      flex: 0 0 84px;
+      padding: 3px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--red), var(--gold), var(--blue));
+      box-shadow: 0 0 18px rgba(230,36,41,.45);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 12px;
+      border: 2px solid #05060a;
+      background: #111;
+    }
+
+    .spider-badge {
+      position: absolute;
+      right: -7px;
+      bottom: -7px;
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #05060a;
+      border: 1px solid var(--gold);
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(245,197,24,.35);
+    }
+
+    .codename {
+      font-family: ui-monospace, monospace;
+      color: var(--gold);
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .alias {
+      margin: 3px 0 0;
+      color: var(--red);
+      font-size: 27px;
+      line-height: .95;
+      font-weight: 900;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(230,36,41,.7);
+      -webkit-text-stroke: .5px rgba(255,255,255,.18);
+    }
+
+    .name {
+      margin: 7px 0 0;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .handle {
+      margin: 2px 0 0;
+      color: #73a9ff;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+    }
+
+    .divider {
+      height: 2px;
+      margin: 8px 0;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--blue), transparent);
+    }
+
+    .mission {
+      border: 1px solid rgba(245,197,24,.3);
+      border-left: 3px solid var(--red);
+      background: rgba(255,255,255,.035);
+      border-radius: 9px;
+      padding: 6px 8px;
+      font-size: 9px;
+      line-height: 1.25;
+    }
+
+    .mission b {
+      color: var(--gold);
+      font-family: ui-monospace, monospace;
+      letter-spacing: 1px;
+      font-size: 8px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 7px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 5px 3px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      background: rgba(0,0,0,.2);
+    }
+
+    .stat .value {
+      color: var(--gold);
+      font: 800 11px ui-monospace, monospace;
+    }
+
+    .stat .label {
+      margin-top: 1px;
+      font-size: 7px;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      opacity: .6;
+    }
+
+    .section-title {
+      margin: 7px 0 4px;
+      color: var(--gold);
+      font: 700 8px ui-monospace, monospace;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .powers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 8px;
+    }
+
+    .power {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 8px;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+
+    .track {
+      flex: 1;
+      height: 4px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 3px 7px;
+      border: 1px solid rgba(230,36,41,.8);
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(230,36,41,.22), rgba(23,105,209,.18));
+      font-size: 8.5px;
+      font-weight: 650;
+    }
+
+    .status {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #55ff91;
+      font-size: 8.5px;
+      font-family: ui-monospace, monospace;
+    }
+
+    .pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #55ff91;
+      box-shadow: 0 0 8px #55ff91;
+    }
+
+    .footer {
+      margin-top: 5px;
+      padding-top: 5px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      display: flex;
+      justify-content: space-between;
+      color: var(--gold);
+      font: 8px ui-monospace, monospace;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: .75;
+    }
+
+    .barcode {
+      height: 10px;
+      display: flex;
+      align-items: flex-end;
+      gap: 1px;
+      margin-top: 4px;
+      opacity: .45;
+    }
+
+    .barcode span {
+      display: block;
+      width: 2px;
+      background: var(--gold);
+    }
+  </style>
+
+  <div class="web tl"></div>
+  <div class="web br"></div>
+
+  <div class="card-inner">
+    <div class="topbar">
+      <span><span class="live">●</span> S.H.I.E.L.D. FIELD ID</span>
+      <span>SPDR-001</span>
+    </div>
+
+    <div class="hero">
+      <div class="photo-frame">
+        <img
+          class="avatar"
+          src="https://github.com/rudranayee95.png"
+          alt="Spider-Man"
+        />
+        <div class="spider-badge">🕸️</div>
+      </div>
+
+      <div>
+        <div class="codename">Authorized Codename</div>
+        <h1 class="alias">Spider-Man</h1>
+        <p class="name">Peter Parker</p>
+        <p class="handle">@rudranayee95</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="mission">
+      <b>PRIMARY DIRECTIVE</b><br />
+      Protect the city. Help people. Do the right thing — even when it's difficult.
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="value">STR 07</div>
+        <div class="label">Strength</div>
+      </div>
+
+      <div class="stat">
+        <div class="value">AGI 10</div>
+        <div class="label">Agility</div>
+      </div>
+
+      <div class="stat">
+        <div class="value">INT 09</div>
+        <div class="label">Science</div>
+      </div>
+    </div>
+
+    <div class="section-title">Power Systems</div>
+
+    <div class="powers">
+      <div class="power">
+        Web Fluid
+        <div class="track">
+          <div class="fill" style="width:92%"></div>
+        </div>
+      </div>
+
+      <div class="power">
+        Spider-Sense
+        <div class="track">
+          <div class="fill" style="width:98%"></div>
+        </div>
+      </div>
+
+      <div class="power">
+        Stamina
+        <div class="track">
+          <div class="fill" style="width:86%"></div>
+        </div>
+      </div>
+
+      <div class="power">
+        Reflexes
+        <div class="track">
+          <div class="fill" style="width:96%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Abilities / Equipment</div>
+
+    <ul class="skills">
+      <li>Wall-Crawling</li>
+      <li>Web-Shooters</li>
+      <li>Spider-Sense</li>
+      <li>Super Reflexes</li>
+      <li>Genius IQ</li>
+      <li>Web Swing</li>
+    </ul>
+
+    <div class="status">
+      <span class="pulse"></span>
+      ACTIVE — FRIENDLY NEIGHBORHOOD DUTY
+    </div>
+
+    <div class="footer">
+      <span>Spider-Society</span>
+      <span>Earth-616</span>
+    </div>
+
+    <div class="barcode">
+      <span style="height:100%"></span>
+      <span style="height:55%"></span>
+      <span style="height:90%"></span>
+      <span style="height:40%"></span>
+      <span style="height:100%"></span>
+      <span style="height:70%"></span>
+      <span style="height:50%"></span>
+      <span style="height:100%"></span>
+      <span style="height:80%"></span>
+      <span style="height:35%"></span>
+      <span style="height:100%"></span>
+      <span style="height:60%"></span>
+      <span style="height:90%"></span>
+      <span style="height:45%"></span>
+      <span style="height:100%"></span>
+      <span style="height:70%"></span>
+      <span style="height:50%"></span>
+      <span style="height:100%"></span>
+      <span style="height:65%"></span>
+      <span style="height:85%"></span>
+    </div>
+  </div>
+</div>
