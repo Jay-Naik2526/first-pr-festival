@@ -1,0 +1,539 @@
+<!--
+  SPIDER-ID CARD — GWEN STACY // TECH VARIANT
+  Style: Chrome + Y2K + Vintage Marvel Tech Interface
+-->
+
+<div
+  class="spider-card"
+  data-name="Gwen Stacy"
+  data-alias="Spider-Gwen"
+  data-github="n1shthadev"
+  data-suit="#d9d9e3"
+>
+  <style>
+    /* ─────────────────────────────────────────────
+       GWEN STACY // EARTH-65 TECH ID
+    ───────────────────────────────────────────── */
+
+    .spider-card {
+      --chrome-light: #ffffff;
+      --chrome-mid: #a7a9b8;
+      --chrome-dark: #3c3d4c;
+      --pink: #ff4fa3;
+      --cyan: #58e6ff;
+      --purple: #8f6bff;
+      --ink: #08080d;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+
+      font-family: "Arial Narrow", "Helvetica Neue", system-ui, sans-serif;
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 85% 10%,
+          rgba(255, 79, 163, 0.22),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(88, 230, 255, 0.16),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #050509,
+          #161621 48%,
+          #08080d
+        );
+
+      border: 2px solid transparent;
+      border-radius: 10px;
+
+      box-shadow:
+        inset 0 0 30px rgba(255, 255, 255, 0.04),
+        0 0 25px rgba(255, 79, 163, 0.18);
+
+      isolation: isolate;
+    }
+
+    /* ── CHROME BORDER ─────────────────────────── */
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      border-radius: 10px;
+
+      background: linear-gradient(
+        135deg,
+        var(--chrome-light),
+        var(--chrome-dark) 20%,
+        var(--chrome-light) 45%,
+        #555667 70%,
+        white
+      );
+
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* ── OLD TECH SCREEN SCANLINES ─────────────── */
+
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0px,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    /* ── DECORATIVE WEB GRID ───────────────────── */
+
+    .web-grid {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -75px;
+      top: -75px;
+
+      border-radius: 50%;
+
+      background:
+        repeating-radial-gradient(
+          circle,
+          transparent 0 18px,
+          rgba(255, 255, 255, 0.09) 19px 20px
+        );
+
+      opacity: 0.65;
+      transform: rotate(18deg);
+      pointer-events: none;
+    }
+
+    /* ── TOP SYSTEM BAR ────────────────────────── */
+
+    .system-bar {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+
+      color: var(--chrome-mid);
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+
+      background: var(--pink);
+      box-shadow: 0 0 8px var(--pink);
+    }
+
+    /* ── PROFILE SECTION ───────────────────────── */
+
+    .profile {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar-frame {
+      position: relative;
+      width: 86px;
+      height: 86px;
+      flex-shrink: 0;
+    }
+
+    .avatar-frame::before,
+    .avatar-frame::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: var(--pink);
+      z-index: 2;
+    }
+
+    .avatar-frame::before {
+      top: -4px;
+      left: -4px;
+      border-top: 2px solid;
+      border-left: 2px solid;
+    }
+
+    .avatar-frame::after {
+      right: -4px;
+      bottom: -4px;
+      border-right: 2px solid;
+      border-bottom: 2px solid;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+
+      object-fit: cover;
+      border-radius: 50%;
+
+      border: 2px solid var(--chrome-mid);
+
+      filter: grayscale(15%) contrast(1.08);
+
+      box-shadow:
+        0 0 0 3px rgba(255, 79, 163, 0.18),
+        0 0 20px rgba(88, 230, 255, 0.22);
+    }
+
+    .identity {
+      min-width: 0;
+    }
+
+    .alias {
+      margin: 0;
+
+      font-size: 24px;
+      line-height: 0.9;
+
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+
+      background: linear-gradient(
+        180deg,
+        white,
+        #898b9d 45%,
+        white 70%
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .name {
+      margin: 7px 0 0;
+
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--pink);
+      text-transform: uppercase;
+    }
+
+    .handle {
+      margin: 5px 0 0;
+
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* ── HOLOGRAPHIC DIVIDER ───────────────────── */
+
+    .divider {
+      position: relative;
+      z-index: 3;
+
+      height: 1px;
+      margin: 18px 0;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--pink),
+        var(--cyan),
+        transparent
+      );
+    }
+
+    /* ── SKILLS HUD ────────────────────────────── */
+
+    .skills-title {
+      position: relative;
+      z-index: 3;
+
+      margin-bottom: 10px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+
+      letter-spacing: 2px;
+      color: var(--chrome-mid);
+
+      text-transform: uppercase;
+    }
+
+    .skills {
+      position: relative;
+      z-index: 3;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      position: relative;
+
+      padding: 9px 12px;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.025)
+        );
+
+      border-left: 2px solid var(--pink);
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .skills li:nth-child(2) {
+      border-left-color: var(--cyan);
+    }
+
+    .skills li:nth-child(3) {
+      border-left-color: var(--purple);
+    }
+
+    .skills li::after {
+      content: "///";
+      position: absolute;
+      right: 10px;
+
+      color: rgba(255, 255, 255, 0.2);
+
+      font-family: ui-monospace, monospace;
+    }
+
+    /* ── SUBTLE Y2K HEART DETAILS ──────────────── */
+
+    .heart {
+      position: absolute;
+      z-index: 2;
+
+      font-family: Arial, sans-serif;
+      color: var(--pink);
+
+      text-shadow:
+        0 0 8px rgba(255, 79, 163, 0.8);
+
+      opacity: 0.7;
+    }
+
+    .heart-one {
+      right: 24px;
+      top: 125px;
+      font-size: 15px;
+      transform: rotate(12deg);
+    }
+
+    .heart-two {
+      left: 22px;
+      bottom: 63px;
+      font-size: 10px;
+      color: var(--cyan);
+    }
+
+    /* ── TECH DATA PANEL ───────────────────────── */
+
+    .data-panel {
+      position: absolute;
+      z-index: 3;
+
+      left: 20px;
+      right: 20px;
+      bottom: 42px;
+
+      display: flex;
+      justify-content: space-between;
+
+      padding: 8px 0;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.38);
+
+      text-transform: uppercase;
+    }
+
+    .data-panel strong {
+      color: var(--chrome-light);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ────────────────────────────────── */
+
+    .footer {
+      position: absolute;
+      z-index: 3;
+
+      left: 20px;
+      right: 20px;
+      bottom: 16px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+    .earth {
+      color: var(--cyan);
+    }
+
+    /* ── OLD MARVEL TECH SERIAL ────────────────── */
+
+    .serial {
+      position: absolute;
+      z-index: 3;
+
+      right: -22px;
+      top: 205px;
+
+      transform: rotate(90deg);
+
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+
+      letter-spacing: 2px;
+
+      color: rgba(255, 255, 255, 0.25);
+    }
+  </style>
+
+  <!-- BACKGROUND WEB -->
+  <div class="web-grid"></div>
+
+  <!-- SUBTLE Y2K HEART DETAILS -->
+  <div class="heart heart-one">♡</div>
+  <div class="heart heart-two">♥</div>
+
+  <!-- OLD MARVEL TECH SERIAL -->
+  <div class="serial">GWEN-65 // ACTIVE</div>
+
+  <!-- SYSTEM HEADER -->
+  <div class="system-bar">
+    <span>SPIDER-SOCIETY // ID</span>
+
+    <span class="status">
+      <span class="status-dot"></span>
+      ONLINE
+    </span>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="profile">
+
+    <div class="avatar-frame">
+      <img
+        class="avatar"
+        src="https://github.com/n1shthadev.png"
+        alt="Gwen Stacy"
+      />
+    </div>
+
+    <div class="identity">
+      <h1 class="alias">Spider-Gwen</h1>
+
+      <p class="name">Gwen Stacy</p>
+
+      <p class="handle">@n1shthadev</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <div class="skills-title">
+    /// Core Abilities
+  </div>
+
+  <ul class="skills">
+    <li>Event Management</li>
+    <li>Debating</li>
+    <li>Coding</li>
+  </ul>
+
+  <!-- TECH DATA -->
+  <div class="data-panel">
+    <span>Suit <strong>Chrome-65</strong></span>
+    <span>Class <strong>Tech</strong></span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span class="earth">Earth-65</span>
+  </div>
+
+</div>
