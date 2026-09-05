@@ -1,0 +1,355 @@
+.avatar-logo {
+  width: 84px;
+  height: 84px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 2px solid var(--suit);
+  background:
+    radial-gradient(circle at center, #42080b 0%, #170204 55%, #050506 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 22px rgba(230, 36, 41, 0.55);
+}
+
+.avatar-logo::before,
+.avatar-logo::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 1px;
+  background: var(--suit);
+  opacity: 0.35;
+}
+
+.avatar-logo::before {
+  transform: rotate(45deg);
+}
+
+.avatar-logo::after {
+  transform: rotate(-45deg);
+}
+
+.spider-symbol {
+  color: var(--suit);
+  font-size: 38px;
+  line-height: 30px;
+  text-shadow: 0 0 12px var(--suit);
+  z-index: 2;
+}
+
+.avatar-logo span {
+  margin-top: 7px;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #fff;
+  z-index: 2;
+}.avatar-logo {
+  width: 84px;
+  height: 84px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  border: 2px solid var(--suit);
+  background:
+    radial-gradient(circle at center, #42080b 0%, #170204 55%, #050506 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 22px rgba(230, 36, 41, 0.55);
+}
+
+.avatar-logo::before,
+.avatar-logo::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 1px;
+  background: var(--suit);
+  opacity: 0.35;
+}
+
+.avatar-logo::before {
+  transform: rotate(45deg);
+}
+
+.avatar-logo::after {
+  transform: rotate(-45deg);
+}
+
+.spider-symbol {
+  color: var(--suit);
+  font-size: 38px;
+  line-height: 30px;
+  text-shadow: 0 0 12px var(--suit);
+  z-index: 2;
+}
+
+.avatar-logo span {
+  margin-top: 7px;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #fff;
+  z-index: 2;
+}<div
+  class="spider-card"
+<<<<<<< HEAD
+  data-name="Gaur18"
+  data-alias="Noxious"
+=======
+  data-name="Vansh Gaur"
+  data-alias="Green Goblin"
+>>>>>>> symbiote
+  data-github="VanshGaur18"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --suit: #e62429;
+      --ink: #08080a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, sans-serif;
+      color: #e8e6e3;
+      background:
+        radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 70%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Spider web background */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
+        );
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    .active {
+      color: var(--suit);
+      opacity: 1;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      margin-top: 18px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow: 0 0 22px rgba(230, 36, 41, 0.5);
+    }
+
+    .alias {
+      margin: 14px 0 2px;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    .handle {
+      margin-top: 4px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+
+    .tagline {
+      margin: 16px 0 0;
+      padding-left: 10px;
+      border-left: 2px solid var(--suit);
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: 0.8;
+    }
+
+    .section {
+      margin-top: 16px;
+    }
+
+    .section-title {
+      margin-bottom: 8px;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--suit);
+      text-transform: uppercase;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 9px;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      border: 1px solid var(--suit);
+      border-radius: 999px;
+      background: rgba(230, 36, 41, 0.12);
+    }
+
+    .stats {
+      display: flex;
+      gap: 8px;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 7px 4px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 7px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      color: var(--suit);
+    }
+
+    .stat span {
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+    }
+  </style>
+
+  <div class="content">
+
+    <div class="top">
+      <span>SPIDER-SOCIETY</span>
+      <span class="active">● ACTIVE</span>
+    </div>
+
+    <img
+      class="avatar"
+      src="https://github.com/VanshGaur18.png"
+      alt="Vansh Gaur"
+    />
+
+    <h1 class="alias">NOXIOUS</h1>
+
+    <p class="name">Vansh Gaur</p>
+
+    <p class="handle">@VanshGaur18</p>
+
+    <p class="tagline">
+      Silent code. Sharp instincts. One web at a time.
+    </p>
+
+    <div class="section">
+      <div class="section-title">Core Abilities</div>
+
+      <ul class="skills">
+        <li>C / C++</li>
+        <li>Python</li>
+        <li>Web Tech</li>
+        <li>AI</li>
+        <li>Algorithms</li>
+        <li>Engineering</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Spider Metrics</div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>92</strong>
+          <span>Reflex</span>
+        </div>
+
+        <div class="stat">
+          <strong>88</strong>
+          <span>Logic</span>
+        </div>
+
+        <div class="stat">
+          <strong>95</strong>
+          <span>Adapt</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>EARTH-1610</span>
+    <span>NOXIOUS</span>
+  </div>
+
+</div>
