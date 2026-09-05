@@ -1,0 +1,323 @@
+```html
+<div
+  class="spider-card"
+  data-name="Bhakti Parmar"
+  data-alias="Bhakti Parmar"
+  data-github="parmarbhakti75-ship-it"
+  data-suit="#FF69B4"
+>
+  <style>
+    .spider-card {
+      --suit: #00f5ff;
+      --pink: #FF69B4;
+      --purple: #7b2cff;
+      --ink: #03030b;
+      --glass: rgba(255,255,255,.055);
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      font-family: system-ui, sans-serif;
+      color: #f4fbff;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(255,43,214,.22), transparent 30%),
+        radial-gradient(circle at 10% 85%, rgba(0,245,255,.18), transparent 35%),
+        linear-gradient(145deg, #09001a, #02030b 55%, #071522);
+      border: 2px solid var(--suit);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 0 20px rgba(0,245,255,.35),
+        inset 0 0 35px rgba(123,44,255,.12);
+    }
+
+    /* DIMENSIONAL WEB */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      background:
+        repeating-radial-gradient(
+          circle at 50% 0%,
+          transparent 0 20px,
+          rgba(0,245,255,.10) 21px 22px,
+          transparent 23px 42px
+        );
+      opacity: .65;
+      transform: perspective(300px) rotateX(58deg);
+      pointer-events: none;
+    }
+
+    .spider-card::after {
+      content: "✦  SPIDER-BYTE  ✦";
+      position: absolute;
+      right: -30px;
+      top: 112px;
+      color: rgba(255,43,214,.16);
+      font-size: 10px;
+      letter-spacing: 4px;
+      transform: rotate(90deg);
+      pointer-events: none;
+    }
+
+    .top-line {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+    }
+
+    .status {
+      color: #5dff9b;
+      text-shadow: 0 0 8px #5dff9b;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      z-index: 2;
+      margin-top: 13px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow:
+        0 0 12px var(--suit),
+        0 0 30px rgba(0,245,255,.35);
+    }
+
+    .avatar-info {
+      flex: 1;
+    }
+
+    .dimension {
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      color: var(--pink);
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+
+    .alias {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: white;
+      text-shadow:
+        2px 0 var(--pink),
+        -2px 0 var(--suit);
+    }
+
+    .name {
+      margin: 5px 0 0;
+      font-size: 11px;
+      color: #b8c8d5;
+    }
+
+    .handle {
+      margin: 3px 0 0;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      color: var(--suit);
+      opacity: .75;
+    }
+
+    .section {
+      position: relative;
+      z-index: 2;
+      margin-top: 14px;
+      padding: 10px;
+      background: var(--glass);
+      border: 1px solid rgba(0,245,255,.18);
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+    }
+
+    .section-title {
+      margin-bottom: 7px;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--pink);
+      text-transform: uppercase;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 4px 8px;
+      font-size: 10px;
+      color: #eaffff;
+      border: 1px solid rgba(0,245,255,.55);
+      border-radius: 999px;
+      background: rgba(0,245,255,.07);
+    }
+
+    .skill-special {
+      border-color: var(--pink) !important;
+      color: #ffb9f2 !important;
+      background: rgba(255,43,214,.08) !important;
+    }
+
+    .sense {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sense-label {
+      width: 70px;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      color: #b9c9d5;
+    }
+
+    .meter {
+      flex: 1;
+      height: 7px;
+      border: 1px solid rgba(0,245,255,.5);
+      border-radius: 10px;
+      padding: 1px;
+    }
+
+    .meter-fill {
+      width: 94%;
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--purple), var(--pink), var(--suit));
+      box-shadow: 0 0 9px var(--suit);
+    }
+
+    .sense-value {
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      color: var(--suit);
+    }
+
+    .quote {
+      position: relative;
+      z-index: 2;
+      margin: 12px 2px 0;
+      font-size: 11px;
+      line-height: 1.35;
+      color: #c9d6df;
+      font-style: italic;
+    }
+
+    .quote strong {
+      color: white;
+      font-style: normal;
+    }
+
+    .footer {
+      position: absolute;
+      z-index: 3;
+      left: 20px;
+      right: 20px;
+      bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      border-top: 1px solid rgba(255,255,255,.13);
+      padding-top: 8px;
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+      letter-spacing: 1.3px;
+      color: #71818c;
+      text-transform: uppercase;
+    }
+
+    .footer b {
+      color: var(--suit);
+      font-weight: 500;
+    }
+
+    .web-icon {
+      color: var(--pink);
+      font-size: 18px;
+      text-shadow: 0 0 12px var(--pink);
+    }
+  </style>
+
+  <div class="top-line">
+    <span>SPIDER-SOCIETY // ID-1610</span>
+    <span class="status">● ACTIVE</span>
+  </div>
+
+  <div class="avatar-wrap">
+    <img
+      class="avatar"
+      src="https://github.com/parmarbhakti75-ship-it.png"
+      alt="Bhakti Parmar"
+    />
+
+    <div class="avatar-info">
+      <div class="dimension">SPIDER-BYTE</div>
+      <h1 class="jupiter">Bhakti Parmar</h1>
+      <p class="name">1st Year MBA Tech • Creative Coder</p>
+      <p class="handle">@parmarbhakti75-ship-it</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">⚡ Spider Abilities</div>
+
+    <ul class="skills">
+      <li class="skill-special">CREATIVITY</li>
+      <li>CODE</li>
+      <li>DESIGN</li>
+      <li>WEB WEAVING</li>
+      <li>VISUAL CRAFT</li>
+      <li>BASKETBALL</li>
+      <li>LEARNING</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🕷 Spider Sense</div>
+
+    <div class="sense">
+      <span class="sense-label">SENSE LEVEL</span>
+
+      <div class="meter">
+        <div class="meter-fill"></div>
+      </div>
+
+      <span class="sense-value">HIGH</span>
+    </div>
+  </div>
+
+  <p class="quote">
+    <strong>“Always learning. Always creating.”</strong><br>
+    Weaving ideas into code, design & visual experiences.
+  </p>
+
+  <div class="footer">
+    <span>DIMENSION : <b>CREATIVE</b></span>
+    <span>EARTH-1610</span>
+  </div>
+</div>
+```
