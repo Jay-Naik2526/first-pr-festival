@@ -1,0 +1,501 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+```html
+<div
+  class="spider-card"
+  data-name="Satwik Biswal"
+  data-alias="Xatwik Biswal"
+  data-github="SatwikBiswal-Dacoderia"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --suit: #e62429;
+      --suit-dark: #8f0710;
+      --ink: #030305;
+      --white: #f5f5f5;
+      --blue: #10243f;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+
+      color: var(--white);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 22px;
+
+      background:
+        radial-gradient(
+          circle at 75% 18%,
+          rgba(230, 36, 41, 0.38),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 15% 90%,
+          rgba(14, 46, 85, 0.45),
+          transparent 38%
+        ),
+        linear-gradient(
+          145deg,
+          #180204 0%,
+          #050506 45%,
+          #010102 100%
+        );
+
+      box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.75),
+        inset 0 0 0 1px rgba(255,255,255,0.08),
+        inset 0 0 35px rgba(230,36,41,0.08);
+
+      isolation: isolate;
+    }
+
+    /* Cinematic red glow */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -80px;
+      top: -75px;
+
+      border-radius: 50%;
+
+      background: var(--suit);
+
+      filter: blur(55px);
+      opacity: 0.22;
+
+      z-index: -1;
+    }
+
+    /* Spider-web surface */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+
+      background:
+        repeating-radial-gradient(
+          circle at 50% 45%,
+          transparent 0 18px,
+          rgba(255,255,255,0.075) 19px 20px,
+          transparent 21px 38px
+        ),
+        repeating-conic-gradient(
+          from 0deg at 50% 45%,
+          rgba(255,255,255,0.06) 0deg 1deg,
+          transparent 1deg 15deg
+        );
+
+      opacity: 0.45;
+      transform: rotate(-8deg) scale(1.1);
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        rgba(0,0,0,0.55) 65%,
+        transparent
+      );
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Top identity row */
+    .identity {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-wrap {
+      width: 76px;
+      height: 76px;
+      padding: 3px;
+      flex-shrink: 0;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(145deg, #ff5257, #700006 55%, #130001);
+
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.16),
+        0 10px 25px rgba(0,0,0,0.7),
+        0 0 30px rgba(230,36,41,0.28);
+
+      transform: perspective(500px) rotateY(-7deg);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+      object-fit: cover;
+
+      border-radius: 15px;
+
+      filter:
+        contrast(1.12)
+        saturate(1.15);
+
+      background: #090909;
+    }
+
+    .identity-text {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.48);
+    }
+
+    .alias {
+      margin: 0;
+
+      font-size: 24px;
+      line-height: 0.95;
+      letter-spacing: -0.8px;
+
+      text-transform: uppercase;
+
+      color: #fff;
+
+      text-shadow:
+        0 2px 12px rgba(230,36,41,0.4),
+        0 0 1px #fff;
+    }
+
+    .alias span {
+      color: var(--suit);
+    }
+
+    .name {
+      margin: 7px 0 0;
+
+      font-size: 11px;
+      font-weight: 500;
+
+      color: rgba(255,255,255,0.62);
+    }
+
+    .handle {
+      margin: 3px 0 0;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* Holographic divider */
+    .divider {
+      height: 1px;
+      margin: 18px 0 14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(230,36,41,0.8),
+          rgba(255,255,255,0.3),
+          transparent
+        );
+
+      box-shadow: 0 0 12px rgba(230,36,41,0.3);
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      padding: 9px 6px;
+
+      text-align: center;
+
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.08),
+          rgba(255,255,255,0.025)
+        );
+
+      box-shadow:
+        inset 0 1px rgba(255,255,255,0.07),
+        0 8px 15px rgba(0,0,0,0.2);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 14px;
+      line-height: 1;
+
+      color: var(--suit);
+
+      text-shadow: 0 0 10px rgba(230,36,41,0.35);
+    }
+
+    .stat small {
+      display: block;
+      margin-top: 5px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.42);
+    }
+
+    /* Skills */
+    .section-label {
+      margin: 15px 0 7px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.38);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 9px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 0.3px;
+
+      color: rgba(255,255,255,0.82);
+
+      border: 1px solid rgba(230,36,41,0.48);
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(230,36,41,0.18),
+          rgba(230,36,41,0.035)
+        );
+
+      box-shadow:
+        inset 0 1px rgba(255,255,255,0.06),
+        0 3px 10px rgba(0,0,0,0.25);
+    }
+
+    /* Spider emblem */
+    .emblem {
+      position: absolute;
+      right: 18px;
+      bottom: 48px;
+
+      width: 92px;
+      height: 92px;
+
+      opacity: 0.9;
+
+      filter:
+        drop-shadow(0 8px 12px rgba(0,0,0,0.8))
+        drop-shadow(0 0 16px rgba(230,36,41,0.3));
+
+      transform: rotate(-8deg);
+    }
+
+    .emblem::before {
+      content: "🕷";
+      position: absolute;
+      inset: 0;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 67px;
+
+      filter:
+        grayscale(1)
+        brightness(1.8);
+
+      opacity: 0.8;
+    }
+
+    /* Bottom status panel */
+    .footer {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-top: 9px;
+
+      border-top: 1px solid rgba(255,255,255,0.1);
+
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.38);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+
+      background: #36e37b;
+
+      box-shadow: 0 0 8px #36e37b;
+    }
+
+    .earth {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Tiny cinematic highlights */
+    .shine {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          115deg,
+          transparent 25%,
+          rgba(255,255,255,0.07) 38%,
+          transparent 48%
+        );
+
+      pointer-events: none;
+      z-index: 5;
+    }
+  </style>
+
+  <div class="shine"></div>
+ 
+
+  <div class="identity">
+    <div class="avatar-wrap">
+      <img
+        class="avatar"
+        src="https://github.com/SatwikBiswal-dacoderia.png"
+        alt="GitHub avatar"
+      />
+    </div>
+
+    <div class="identity-text">
+      <p class="eyebrow">Spider-Society // Classified</p>
+
+      <h1 class="alias">
+        SPIDER<span>BYTE</span>
+      </h1>
+
+      <p class="name">Satwik Biswal</p>
+      <p class="handle">SatwikBiswal-dacoderia</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>∞</strong>
+      <small>Web Power</small>
+    </div>
+
+    <div class="stat">
+      <strong>99</strong>
+      <small>Agility</small>
+    </div>
+
+    <div class="stat">
+      <strong>24/7</strong>
+      <small>Online</small>
+    </div>
+  </div>
+
+  <p class="section-label">Abilities</p>
+
+  <ul class="skills">
+    <li>FULL STACK</li>
+    <li>AI / ML</li>
+    <li>OPEN SOURCE</li>
+    <li>WEB CRAWL</li>
+    <li>UI/UX</li>
+  </ul>
+
+  <div class="emblem"></div>
+
+  <div class="footer">
+    <span class="status">
+      <i class="status-dot"></i>
+      Spider Online
+    </span>
+
+    <span class="earth">EARTH-1610</span>
+  </div>
+</div>
+```
