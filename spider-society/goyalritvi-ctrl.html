@@ -1,0 +1,880 @@
+<div
+  class="spider-card"
+  data-name="Ritvi Goyal"
+  data-alias="NULLSPIDER"
+  data-github="goyalritvi-ctrl"
+  data-suit="#d7192f"
+>
+  <style>
+    .spider-card {
+      --red: #d7192f;
+      --white: #eeeae3;
+      --muted: #777570;
+      --dark: #080909;
+      --line: rgba(238, 234, 227, 0.18);
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+
+      padding: 17px 18px;
+
+      color: var(--white);
+      background:
+        radial-gradient(
+          circle at 50% 26%,
+          rgba(215, 25, 47, 0.10),
+          transparent 31%
+        ),
+        radial-gradient(
+          circle at 0% 100%,
+          rgba(215, 25, 47, 0.07),
+          transparent 30%
+        ),
+        #080909;
+
+      border: 1px solid rgba(238, 234, 227, 0.45);
+      border-radius: 16px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.025),
+        0 12px 35px rgba(0,0,0,0.35);
+    }
+
+    /* ================================
+       OUTER RED ACCENT
+    ================================= */
+
+    .spider-card .red-edge {
+      position: absolute;
+      inset: 3px;
+
+      border: 1px solid rgba(215, 25, 47, 0.75);
+      border-radius: 13px;
+
+      pointer-events: none;
+    }
+
+    /* ================================
+       SUBTLE PAPER / GRAIN EFFECT
+    ================================= */
+
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.018) 0px,
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    .header {
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      height: 34px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .society {
+      font-family: Georgia, serif;
+
+      font-size: 11px;
+      letter-spacing: 2.8px;
+
+      text-transform: uppercase;
+    }
+
+    .society span {
+      color: var(--red);
+    }
+
+    .subtitle {
+      margin-top: 4px;
+
+      font-family: monospace;
+      font-size: 5.5px;
+      letter-spacing: 2px;
+
+      color: var(--muted);
+    }
+
+    .earth {
+      text-align: right;
+
+      font-family: monospace;
+      font-size: 6px;
+      letter-spacing: 1.6px;
+
+      color: var(--muted);
+    }
+
+    .earth strong {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--white);
+
+      font-family: Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: normal;
+    }
+
+    /* ================================
+       SPIDER WEB / RADAR
+    ================================= */
+
+    .web {
+      position: absolute;
+
+      width: 225px;
+      height: 225px;
+
+      left: 48px;
+      top: 52px;
+
+      border-radius: 50%;
+
+      opacity: 0.65;
+
+      background:
+        repeating-radial-gradient(
+          circle,
+          transparent 0px,
+          transparent 17px,
+          rgba(238,234,227,0.13) 18px,
+          transparent 19px
+        );
+
+      border: 1px solid rgba(238,234,227,0.12);
+    }
+
+    .web::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      border-radius: 50%;
+
+      background:
+        conic-gradient(
+          from 0deg,
+          transparent 0deg 10deg,
+          rgba(238,234,227,0.11) 10deg 11deg,
+          transparent 11deg 30deg,
+          rgba(238,234,227,0.11) 30deg 31deg,
+          transparent 31deg 50deg,
+          rgba(238,234,227,0.11) 50deg 51deg,
+          transparent 51deg 70deg,
+          rgba(238,234,227,0.11) 70deg 71deg,
+          transparent 71deg 90deg,
+          rgba(238,234,227,0.11) 90deg 91deg,
+          transparent 91deg
+        );
+
+      border-radius: 50%;
+    }
+
+    /* ================================
+       SPIDER EMBLEM
+    ================================= */
+
+    .spider {
+      position: absolute;
+
+      z-index: 4;
+
+      top: 82px;
+      left: 112px;
+
+      width: 98px;
+      height: 105px;
+    }
+
+    .body {
+      position: absolute;
+
+      left: 42px;
+      top: 28px;
+
+      width: 15px;
+      height: 38px;
+
+      background: var(--red);
+
+      border-radius: 50% 50% 45% 45%;
+
+      box-shadow:
+        0 0 18px rgba(215,25,47,0.22);
+    }
+
+    .head {
+      position: absolute;
+
+      left: 40px;
+      top: 17px;
+
+      width: 19px;
+      height: 19px;
+
+      background: var(--red);
+
+      border-radius: 50%;
+    }
+
+    .leg {
+      position: absolute;
+
+      width: 51px;
+      height: 3px;
+
+      background: var(--red);
+
+      transform-origin: right center;
+    }
+
+    .l1 {
+      left: 0;
+      top: 37px;
+      transform: rotate(28deg);
+    }
+
+    .l2 {
+      left: 0;
+      top: 49px;
+      transform: rotate(12deg);
+    }
+
+    .l3 {
+      left: 0;
+      top: 61px;
+      transform: rotate(-10deg);
+    }
+
+    .l4 {
+      left: 3px;
+      top: 73px;
+      transform: rotate(-29deg);
+    }
+
+    .r1 {
+      left: 56px;
+      top: 37px;
+      transform: rotate(-28deg);
+      transform-origin: left center;
+    }
+
+    .r2 {
+      left: 56px;
+      top: 49px;
+      transform: rotate(-12deg);
+      transform-origin: left center;
+    }
+
+    .r3 {
+      left: 56px;
+      top: 61px;
+      transform: rotate(10deg);
+      transform-origin: left center;
+    }
+
+    .r4 {
+      left: 53px;
+      top: 73px;
+      transform: rotate(29deg);
+      transform-origin: left center;
+    }
+
+    /* ================================
+       SIDE TEXT
+    ================================= */
+
+    .side-left {
+      position: absolute;
+
+      left: 8px;
+      top: 112px;
+
+      writing-mode: vertical-rl;
+
+      font-family: monospace;
+      font-size: 5.5px;
+      letter-spacing: 2px;
+
+      color: rgba(238,234,227,0.42);
+
+      text-transform: uppercase;
+
+      z-index: 5;
+    }
+
+    .side-right {
+      position: absolute;
+
+      right: 9px;
+      top: 122px;
+
+      writing-mode: vertical-rl;
+
+      font-family: Georgia, serif;
+      font-size: 7px;
+      letter-spacing: 3px;
+
+      color: rgba(238,234,227,0.32);
+
+      z-index: 5;
+    }
+
+    /* ================================
+       IDENTITY
+    ================================= */
+
+    .identity {
+      position: absolute;
+
+      z-index: 5;
+
+      left: 18px;
+      right: 18px;
+
+      top: 208px;
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+
+      font-family: monospace;
+      font-size: 6px;
+      letter-spacing: 2.5px;
+
+      color: var(--muted);
+
+      text-transform: uppercase;
+    }
+
+    .alias {
+      margin: 0;
+
+      color: var(--white);
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 35px;
+      line-height: 0.92;
+
+      letter-spacing: -1.8px;
+
+      font-weight: 400;
+    }
+
+    .alias::first-letter {
+      color: var(--red);
+    }
+
+    .name {
+      margin: 7px 0 0;
+
+      font-size: 13px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+    }
+
+    .github {
+      margin: 4px 0 0;
+
+      font-family: monospace;
+      font-size: 7px;
+      letter-spacing: 1px;
+
+      color: var(--muted);
+    }
+
+    /* ================================
+       DIVIDER
+    ================================= */
+
+    .divider {
+      position: absolute;
+
+      z-index: 5;
+
+      left: 18px;
+      right: 18px;
+      top: 280px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red),
+          rgba(238,234,227,0.25),
+          transparent
+        );
+    }
+
+    /* ================================
+       SKILLS
+    ================================= */
+
+    .skills-title {
+      position: absolute;
+
+      z-index: 5;
+
+      top: 291px;
+      left: 18px;
+
+      font-family: monospace;
+      font-size: 6px;
+
+      letter-spacing: 2px;
+
+      color: var(--muted);
+
+      text-transform: uppercase;
+    }
+
+    .skills {
+      position: absolute;
+
+      z-index: 5;
+
+      top: 305px;
+      left: 18px;
+      right: 18px;
+
+      display: flex;
+      gap: 5px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      flex: 1;
+
+      height: 34px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid rgba(238,234,227,0.17);
+
+      background: rgba(255,255,255,0.015);
+
+      font-family: monospace;
+      font-size: 6px;
+      letter-spacing: 0.6px;
+
+      color: rgba(238,234,227,0.75);
+    }
+
+    .skills li:first-child {
+      border-color: rgba(215,25,47,0.65);
+    }
+
+    .symbol {
+      margin-bottom: 3px;
+
+      font-size: 10px;
+
+      color: var(--red);
+    }
+
+    /* ================================
+       DATA
+    ================================= */
+
+    .data {
+      position: absolute;
+
+      z-index: 5;
+
+      top: 351px;
+
+      left: 18px;
+      right: 18px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .data-item {
+      height: 27px;
+
+      padding-top: 6px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .data-item:nth-child(odd) {
+      border-right: 1px solid var(--line);
+      padding-right: 9px;
+    }
+
+    .data-item:nth-child(even) {
+      padding-left: 9px;
+    }
+
+    .data-item span {
+      display: block;
+
+      font-family: monospace;
+      font-size: 5px;
+      letter-spacing: 1.5px;
+
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .data-item strong {
+      display: block;
+
+      margin-top: 2px;
+
+      font-family: monospace;
+      font-size: 7px;
+      letter-spacing: 1.2px;
+
+      color: var(--white);
+      font-weight: normal;
+    }
+
+    .red {
+      color: var(--red) !important;
+    }
+
+    /* ================================
+       BARCODE
+    ================================= */
+
+    .barcode {
+      position: absolute;
+
+      z-index: 5;
+
+      left: 18px;
+      bottom: 16px;
+
+      width: 75px;
+      height: 18px;
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--white) 0px,
+          var(--white) 1px,
+          transparent 1px,
+          transparent 3px,
+          var(--white) 3px,
+          var(--white) 4px,
+          transparent 4px,
+          transparent 6px
+        );
+
+      opacity: 0.65;
+    }
+
+    .barcode-label {
+      position: absolute;
+
+      z-index: 5;
+
+      left: 18px;
+      bottom: 8px;
+
+      font-family: monospace;
+      font-size: 4.5px;
+      letter-spacing: 1.5px;
+
+      color: var(--muted);
+    }
+
+    /* ================================
+       FOOTER
+    ================================= */
+
+    .footer {
+      position: absolute;
+
+      z-index: 5;
+
+      right: 18px;
+      bottom: 17px;
+
+      text-align: right;
+
+      font-family: monospace;
+      font-size: 5.5px;
+      line-height: 1.8;
+
+      letter-spacing: 1.5px;
+
+      color: var(--muted);
+    }
+
+    .footer strong {
+      color: var(--red);
+
+      font-size: 6px;
+
+      font-weight: normal;
+    }
+
+    /* ================================
+       CORNER DETAILS
+    ================================= */
+
+    .corner {
+      position: absolute;
+
+      z-index: 6;
+
+      width: 9px;
+      height: 9px;
+
+      border-color: var(--red);
+      border-style: solid;
+
+      opacity: 0.9;
+    }
+
+    .c1 {
+      top: 10px;
+      left: 10px;
+
+      border-width: 1px 0 0 1px;
+    }
+
+    .c2 {
+      top: 10px;
+      right: 10px;
+
+      border-width: 1px 1px 0 0;
+    }
+
+    .c3 {
+      bottom: 10px;
+      left: 10px;
+
+      border-width: 0 0 1px 1px;
+    }
+
+    .c4 {
+      bottom: 10px;
+      right: 10px;
+
+      border-width: 0 1px 1px 0;
+    }
+
+    /* ================================
+       SMALL RED MARK
+    ================================= */
+
+    .mark {
+      position: absolute;
+
+      z-index: 5;
+
+      right: 18px;
+      top: 47px;
+
+      width: 19px;
+      height: 2px;
+
+      background: var(--red);
+    }
+  </style>
+
+  <!-- Decorative elements -->
+  <div class="red-edge"></div>
+
+  <div class="corner c1"></div>
+  <div class="corner c2"></div>
+  <div class="corner c3"></div>
+  <div class="corner c4"></div>
+
+  <div class="mark"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="society">
+        SPIDER <span>/</span> SOCIETY
+      </div>
+
+      <div class="subtitle">
+        MULTIVERSE COLLECTIVE
+      </div>
+    </div>
+
+    <div class="earth">
+      EARTH
+      <strong>1610</strong>
+    </div>
+  </div>
+
+  <!-- Spider web -->
+  <div class="web"></div>
+
+  <!-- Spider emblem -->
+  <div class="spider">
+    <div class="head"></div>
+    <div class="body"></div>
+
+    <div class="leg l1"></div>
+    <div class="leg l2"></div>
+    <div class="leg l3"></div>
+    <div class="leg l4"></div>
+
+    <div class="leg r1"></div>
+    <div class="leg r2"></div>
+    <div class="leg r3"></div>
+    <div class="leg r4"></div>
+  </div>
+
+  <!-- Side typography -->
+  <div class="side-left">
+    CODE / CREATE / EXPLORE / REPEAT
+  </div>
+
+  <div class="side-right">
+    SAME MINDS / DIFFERENT WORLDS
+  </div>
+
+  <!-- Main identity -->
+  <div class="identity">
+
+    <p class="eyebrow">
+      Spider Identity / 001
+    </p>
+
+    <h1 class="alias">
+      NULLSPIDER
+    </h1>
+
+    <p class="name">
+      Ritvi Goyal
+    </p>
+
+    <p class="github">
+      @goyalritvi-ctrl
+    </p>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Skills -->
+  <div class="skills-title">
+    Selected Modules
+  </div>
+
+  <ul class="skills">
+    <li>
+      <span class="symbol">&lt;/&gt;</span>
+      HTML
+    </li>
+
+    <li>
+      <span class="symbol">~</span>
+      CSS
+    </li>
+
+    <li>
+      <span class="symbol">⌘</span>
+      PYTHON
+    </li>
+
+    <li>
+      <span class="symbol">●</span>
+      GITHUB
+    </li>
+
+    <li>
+      <span class="symbol">∞</span>
+      AI / ML
+    </li>
+  </ul>
+
+  <!-- Data -->
+  <div class="data">
+
+    <div class="data-item">
+      <span>Universe</span>
+      <strong class="red">EARTH-1610</strong>
+    </div>
+
+    <div class="data-item">
+      <span>Status</span>
+      <strong class="red">ACTIVE</strong>
+    </div>
+
+    <div class="data-item">
+      <span>Access Level</span>
+      <strong>SPIDER</strong>
+    </div>
+
+    <div class="data-item">
+      <span>Class</span>
+      <strong>WEB / CODE</strong>
+    </div>
+
+  </div>
+
+  <!-- Barcode -->
+  <div class="barcode"></div>
+
+  <div class="barcode-label">
+    SPIDER-SOCIETY // 001
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>
+      DIFFERENT UNIVERSES
+    </div>
+
+    <strong>
+      SAME CURIOSITY
+    </strong>
+  </div>
+
+</div>
