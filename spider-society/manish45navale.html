@@ -1,0 +1,135 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="Your Name"
+  data-alias="Your Spider-Alias"
+  data-github="your-github-username"
+  data-suit="#E62429"
+>
+  <style>
+    /* ── Your suit starts here ──────────────────────────────── */
+    .spider-card {
+      --suit: #e62429;
+      --ink: #08080a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, sans-serif;
+      color: #e8e6e3;
+      background: radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 70%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Webbing, drawn with two repeating gradients. Delete it if you like. */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
+        ),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 14px);
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow: 0 0 22px rgba(230, 36, 41, 0.5);
+    }
+
+    .alias {
+      margin: 14px 0 2px;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    .handle {
+      margin-top: 4px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 1px solid var(--suit);
+      border-radius: 999px;
+      background: rgba(230, 36, 41, 0.12);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+    }
+  </style>
+
+  <!-- Swap the username in this URL for your own -->
+  <img class="avatar" src="https://github.com/your-github-username.png" alt="" />
+
+  <h1 class="alias">Your Spider-Alias</h1>
+  <p class="name">Your Name</p>
+  <p class="handle">@your-github-username</p>
+
+  <ul class="skills">
+    <li>Skill One</li>
+    <li>Skill Two</li>
+    <li>Skill Three</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Earth-1610</span>
+  </div>
+</div>
