@@ -1,14 +1,7 @@
 {
-  "name": "MOKSHIT",
-  "alias": "ITACHI",
-  "skills": [
-    "AI / ML",
-    "PYTHON",
-    "C++",
-    "WEB DEV",
-    "GIT",
-    "PROBLEM SOLVING"
-  ],
-  "suitColor": "#E62429",
+  "name": "mokshitdoshi",
+  "alias": "DR.DOOM",
+  "skills": ["GAMER", "HACKER", "STEALTH", "WEB-SLINGER", "SHADOW", "STRATEGIST"],
+  "suitColor": "#3B3F42",
   "githubUsername": "mokshitdoshi"
 }
