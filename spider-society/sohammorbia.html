@@ -1,0 +1,836 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="Soham"
+  data-alias="Ghost-Spider"
+  data-github="spider-hero"
+  data-suit="#00f2fe"
+>
+  <style>
+    /* ── SPIDER-VERSE PREMIUM CARD ───────────────────── */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .spider-card {
+      --suit: #00f2fe;
+      --accent: #ff007f;
+      --purple: #8b5cf6;
+      --dark: #080812;
+
+      width: 320px;
+      height: 440px;
+      padding: 16px;
+
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: white;
+
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(0, 242, 254, 0.22),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(255, 0, 127, 0.25),
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(139, 92, 246, 0.18),
+          transparent 45%
+        ),
+        linear-gradient(145deg, #15152b, #070710);
+
+      border-radius: 22px;
+      border: 2px solid rgba(0, 242, 254, 0.8);
+
+      box-shadow:
+        0 0 15px rgba(0, 242, 254, 0.35),
+        0 0 40px rgba(255, 0, 127, 0.18),
+        inset 0 0 30px rgba(0, 0, 0, 0.8);
+
+      transition: all 0.4s ease;
+    }
+
+    /* Hover Effect */
+
+    .spider-card:hover {
+      transform: translateY(-6px) scale(1.01);
+
+      box-shadow:
+        0 0 25px rgba(0, 242, 254, 0.6),
+        0 0 60px rgba(255, 0, 127, 0.3),
+        inset 0 0 30px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Animated Grid */
+
+    .spider-card::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(0, 242, 254, 0.07) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 242, 254, 0.07) 1px,
+          transparent 1px
+        );
+
+      background-size: 18px 18px;
+
+      opacity: 0.6;
+
+      pointer-events: none;
+    }
+
+    /* Large Spider Watermark */
+
+    .spider-card::after {
+      content: "🕷";
+
+      position: absolute;
+
+      right: -20px;
+      bottom: -35px;
+
+      font-size: 180px;
+
+      color: rgba(255, 0, 127, 0.08);
+
+      transform: rotate(-15deg);
+
+      pointer-events: none;
+    }
+
+    /* ── HEADER ───────────────────── */
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+
+      object-fit: cover;
+
+      border-radius: 14px;
+
+      border: 2px solid var(--suit);
+
+      box-shadow:
+        0 0 10px var(--suit),
+        0 0 24px rgba(0, 242, 254, 0.35);
+
+      transition: 0.4s;
+    }
+
+    .avatar:hover {
+      transform: rotate(4deg) scale(1.06);
+
+      box-shadow:
+        0 0 16px var(--accent),
+        0 0 32px var(--suit);
+    }
+
+    /* Status Badge */
+
+    .status-badge {
+      position: absolute;
+
+      bottom: -3px;
+      right: -5px;
+
+      padding: 2px 5px;
+
+      border-radius: 5px;
+
+      font-size: 6.5px;
+      font-weight: 900;
+
+      letter-spacing: 0.8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff007f,
+          #ff4d6d
+        );
+
+      box-shadow:
+        0 0 10px #ff007f;
+
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 6px #ff007f;
+      }
+
+      50% {
+        box-shadow: 0 0 16px #ff007f;
+      }
+    }
+
+    /* ── TEXT ───────────────────── */
+
+    .header-info {
+      flex: 1;
+    }
+
+    .alias {
+      margin: 0;
+
+      font-size: 18px;
+      font-weight: 1000;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.8px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #00f2fe,
+          #ff007f
+        );
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+
+      text-shadow:
+        0 0 12px rgba(0, 242, 254, 0.4);
+    }
+
+    .name {
+      margin: 2px 0 0;
+
+      font-size: 11px;
+
+      color: var(--suit);
+
+      font-weight: 700;
+    }
+
+    .handle {
+      margin-top: 1px;
+
+      font-family: monospace;
+
+      font-size: 8.5px;
+
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* ── PRIMARY DUTY ───────────────────── */
+
+    .primary-duty {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 8px;
+      padding: 6px 10px;
+
+      border-radius: 10px;
+
+      background: rgba(255, 255, 255, 0.05);
+
+      border: 1px solid rgba(0, 242, 254, 0.25);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .duty-label {
+      display: block;
+
+      font-family: monospace;
+
+      font-size: 7.5px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.2px;
+
+      color: var(--suit);
+
+      text-transform: uppercase;
+    }
+
+    .duty-text {
+      margin: 2px 0 0;
+
+      font-size: 9.5px;
+
+      font-weight: 600;
+
+      color: #ffffff;
+
+      line-height: 1.25;
+    }
+
+    /* ── POWERS & STATS (2x2 GRID) ───────────────────── */
+
+    .stats-container {
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 8px;
+
+      padding: 8px 10px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.02)
+        );
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+      backdrop-filter: blur(12px);
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 6px;
+    }
+
+    .powers-title {
+      font-family: monospace;
+
+      font-size: 8.5px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.2px;
+
+      color: var(--accent);
+
+      text-transform: uppercase;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 6px 8px;
+    }
+
+    .stat-group {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 3px;
+    }
+
+    .stat-label {
+      display: flex;
+
+      justify-content: space-between;
+
+      font-family: monospace;
+
+      font-size: 7.5px;
+
+      font-weight: bold;
+
+      letter-spacing: 0.4px;
+
+      color: #e5e7eb;
+    }
+
+    /* STAT BAR BACKGROUND */
+
+    .stat-bar {
+      width: 100%;
+      height: 6px;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      box-shadow:
+        inset 0 1px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* WEB FLUID BAR */
+
+    .stat-fill-web {
+      width: 85%;
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #00f2fe,
+          #4facfe,
+          #8b5cf6
+        );
+
+      box-shadow:
+        0 0 8px #00f2fe;
+
+      position: relative;
+
+      animation: loadWeb 1.5s ease;
+    }
+
+    /* STAMINA BAR */
+
+    .stat-fill-stamina {
+      width: 92%;
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ff007f,
+          #ff5e62,
+          #ffb347
+        );
+
+      box-shadow:
+        0 0 8px #ff007f;
+
+      position: relative;
+
+      animation: loadStamina 1.7s ease;
+    }
+
+    /* SPIDEY SENSE BAR */
+
+    .stat-fill-sense {
+      width: 98%;
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #8b5cf6,
+          #a855f7,
+          #ec4899
+        );
+
+      box-shadow:
+        0 0 8px #8b5cf6;
+
+      position: relative;
+
+      animation: loadSense 1.8s ease;
+    }
+
+    /* REFLEXES BAR */
+
+    .stat-fill-reflexes {
+      width: 95%;
+      height: 100%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          #00f2fe,
+          #00c6ff,
+          #0072ff
+        );
+
+      box-shadow:
+        0 0 8px #00f2fe;
+
+      position: relative;
+
+      animation: loadReflexes 1.9s ease;
+    }
+
+    /* Shine Animation */
+
+    .stat-fill-web::after,
+    .stat-fill-stamina::after,
+    .stat-fill-sense::after,
+    .stat-fill-reflexes::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -50%;
+
+      width: 40%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.8),
+          transparent
+        );
+
+      transform: skewX(-25deg);
+
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -50%;
+      }
+
+      100% {
+        left: 120%;
+      }
+    }
+
+    @keyframes loadWeb {
+      from { width: 0; }
+      to { width: 85%; }
+    }
+
+    @keyframes loadStamina {
+      from { width: 0; }
+      to { width: 92%; }
+    }
+
+    @keyframes loadSense {
+      from { width: 0; }
+      to { width: 98%; }
+    }
+
+    @keyframes loadReflexes {
+      from { width: 0; }
+      to { width: 95%; }
+    }
+
+    /* ── SKILLS / POWERS ───────────────────── */
+
+    .skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 4px;
+
+      padding: 0;
+
+      margin-top: 6px;
+
+      list-style: none;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .skills li {
+      padding: 3px 6px;
+
+      border-radius: 6px;
+
+      font-size: 8px;
+
+      font-weight: 700;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 242, 254, 0.16),
+          rgba(139, 92, 246, 0.15)
+        );
+
+      border:
+        1px solid rgba(0, 242, 254, 0.3);
+
+      color: #e9fcff;
+
+      box-shadow:
+        0 0 6px rgba(0, 242, 254, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .skills li:hover {
+      transform: translateY(-2px);
+
+      background:
+        linear-gradient(
+          135deg,
+          #00f2fe,
+          #8b5cf6
+        );
+
+      color: #070710;
+
+      box-shadow:
+        0 0 12px #00f2fe;
+    }
+
+    /* ── FOOTER ───────────────────── */
+
+    .footer {
+      position: absolute;
+
+      left: 16px;
+      right: 16px;
+
+      bottom: 10px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-top: 5px;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.12);
+
+      font-family: monospace;
+
+      font-size: 8px;
+
+      letter-spacing: 1.2px;
+
+      color:
+        rgba(255, 255, 255, 0.5);
+
+      z-index: 2;
+    }
+
+    .footer-badge {
+      padding: 2.5px 6px;
+
+      border-radius: 5px;
+
+      color: white;
+
+      font-weight: bold;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ff007f,
+          #8b5cf6
+        );
+
+      box-shadow:
+        0 0 8px rgba(255, 0, 127, 0.5);
+    }
+  </style>
+
+  <!-- HEADER -->
+
+  <div class="card-header">
+
+    <div class="avatar-wrapper">
+
+      <img
+        class="avatar"
+        src="https://imgs.search.brave.com/QZXw2Txm1VzZFCgxVdt00Bl_TezwoOf83C1PYv_ErHA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93MC5w/ZWFrcHguY29tL3dh/bGxwYXBlci83ODYv/MzkwL0hELXdhbGxw/YXBlci1zcGlkZXJt/YW4tdmVub20tYWN0/aW9uLWNvb2wtZW50/ZXJ0YWlubWVudC1t/b3ZpZS1uZXctdGh1/bWJuYWlsLmpwZw"
+        alt="Spider-Man"
+      />
+
+      <span class="status-badge">
+        Active
+      </span>
+
+    </div>
+
+    <div class="header-info">
+
+      <h1 class="alias">
+<<<<<<< HEAD
+        Jon Snow
+=======
+        Knull
+>>>>>>> symbiote
+      </h1>
+
+      <p class="name">
+        Jamie Lannister
+      </p>
+
+      <p class="handle">
+        sohammorbia
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- PRIMARY DUTY -->
+
+  <div class="primary-duty">
+
+    <span class="duty-label">Primary Duty</span>
+
+    <p class="duty-text">
+      Patrolling New York City & neutralizing multiversal threats in Sector 4.
+    </p>
+
+  </div>
+
+  <!-- POWERS & STATS (2x2 GRID) -->
+
+  <div class="stats-container">
+
+    <span class="powers-title">⚡ Powers & Stats</span>
+
+    <div class="stats-grid">
+
+      <div class="stat-group">
+
+        <div class="stat-label">
+
+          <span>Web Fluid</span>
+
+          <span>85%</span>
+
+        </div>
+
+        <div class="stat-bar">
+
+          <div class="stat-fill-web"></div>
+
+        </div>
+
+      </div>
+
+      <div class="stat-group">
+
+        <div class="stat-label">
+
+          <span>Stamina</span>
+
+          <span>92%</span>
+
+        </div>
+
+        <div class="stat-bar">
+
+          <div class="stat-fill-stamina"></div>
+
+        </div>
+
+      </div>
+
+      <div class="stat-group">
+
+        <div class="stat-label">
+
+          <span>Spidey Sense</span>
+
+          <span>98%</span>
+
+        </div>
+
+        <div class="stat-bar">
+
+          <div class="stat-fill-sense"></div>
+
+        </div>
+
+      </div>
+
+      <div class="stat-group">
+
+        <div class="stat-label">
+
+          <span>Reflexes</span>
+
+          <span>95%</span>
+
+        </div>
+
+        <div class="stat-bar">
+
+          <div class="stat-fill-reflexes"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- POWERS & SKILLS TAGS -->
+
+  <ul class="skills">
+
+    <li>🕸 Web-Slinging</li>
+
+    <li>💥 Insane Strength</li>
+
+    <li>⚡ Spidey Mode</li>
+
+    <li>🧗 Wall-Crawling</li>
+
+  </ul>
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+
+    <span>
+      Spider-Society
+    </span>
+
+    <span class="footer-badge">
+      Earth-65
+    </span>
+
+  </div>
+
+</div>
