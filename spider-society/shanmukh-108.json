@@ -1,0 +1,15 @@
+{
+<<<<<<< HEAD
+  "name": "Your Name",
+  "alias": "Your Spider-Alias",
+  "skills": ["Skill One", "Skill Two", "Skill Three"],
+  "suitColor": "#E62429",
+  "githubUsername": "your-github-username"
+=======
+  "name": "shanmukh-108",
+  "alias": "carnage",
+  "skills": ["Spider sense", "wall crawl", "null strike"],
+  "suitColor": "#E62429",
+  "githubUsername": "shanmukh-108"
+>>>>>>> symbiote
+}
