@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "janika",
   "alias": "Gwen-git",
   "skills": ["Skill one", "Skill two", "Skill three"],
+=======
+  "name": "janikasoni2908",
+  "alias": "Venom",
+  "skills": ["Wall crawling", "Shapeshifting", "strength"],
+>>>>>>> symbiote
   "suitColor": "#E62429",
   "githubUsername": "janikasoni2908"
 }
