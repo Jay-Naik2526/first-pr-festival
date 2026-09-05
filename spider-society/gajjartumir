@@ -1,0 +1,406 @@
+<<<<<<< HEAD
+```html
+
+<!--
+
+  SPIDER-ID CARD — weave your own suit.
+
+
+
+  RULES
+
+  1. Rename this file to <your-github-username>.html
+
+  2. Internal CSS only — keep it inside the <style> block below.
+
+  3. No <script> tags. They are stripped and CI will reject them.
+
+  4. Everything must fit inside 320 x 440. That's the card.
+
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+
+
+  Everything else is yours. Go wild.
+
+-->
+
+<div
+
+  class="spider-card"
+
+  data-name="Tumir Gajjar18"
+
+  data-alias="Sadie Saink"
+
+  data-github="gajjartumir"
+
+  data-suit="#E62429"
+
+>
+
+  <style>
+
+    /* ── Your suit starts here ──────────────────────────────── */
+
+    .spider-card {
+
+      --suit: #e62429;
+
+      --ink: #08080a;
+
+
+
+      width: 320px;
+
+      height: 440px;
+
+      box-sizing: border-box;
+
+      padding: 22px;
+
+      font-family: system-ui, sans-serif;
+
+      color: #e8e6e3;
+
+      background: radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 70%);
+
+      border: 2px solid var(--suit);
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      position: relative;
+
+    }
+
+
+
+    /* Webbing, drawn with two repeating gradients. Delete it if you like. */
+
+    .spider-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background-image: repeating-linear-gradient(
+
+          45deg,
+
+          rgba(255, 255, 255, 0.06) 0 1px,
+
+          transparent 1px 14px
+
+        ),
+
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 14px);
+
+      pointer-events: none;
+
+    }
+
+
+
+    .avatar {
+
+      width: 84px;
+
+      height: 84px;
+
+      border-radius: 14px;
+
+      border: 2px solid var(--suit);
+
+      object-fit: cover;
+
+      box-shadow: 0 0 22px rgba(230, 36, 41, 0.5);
+
+    }
+
+
+
+    .alias {
+
+      margin: 14px 0 2px;
+
+      font-size: 26px;
+
+      line-height: 1.05;
+
+      letter-spacing: 0.5px;
+
+      color: var(--suit);
+
+      text-transform: uppercase;
+
+    }
+
+
+
+    .name {
+
+      margin: 0;
+
+      font-size: 14px;
+
+      opacity: 0.75;
+
+    }
+
+
+
+    .handle {
+
+      margin-top: 4px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 12px;
+
+      opacity: 0.55;
+
+    }
+
+
+
+    .skills {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 6px;
+
+      margin-top: 18px;
+
+      padding: 0;
+
+      list-style: none;
+
+    }
+
+
+
+    .skills li {
+
+      padding: 5px 10px;
+
+      font-size: 12px;
+
+      border: 1px solid var(--suit);
+
+      border-radius: 999px;
+
+      background: rgba(230, 36, 41, 0.12);
+
+    }
+
+
+
+    .footer {
+
+      position: absolute;
+
+      left: 22px;
+
+      right: 22px;
+
+      bottom: 18px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      opacity: 0.45;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+      padding-top: 10px;
+
+    }
+
+  </style>
+
+
+
+  <!-- Swap the username in this URL for your own -->
+
+  <img class="avatar" src="https://github.com/your-github-username.png" alt="" />
+
+
+
+  <h1 class="alias">Sadie Saink</h1>
+
+  <p class="name">Tumir Gajjar18</p>
+
+  <p class="handle">@gajjartumir</p>
+
+
+
+  <ul class="skills">
+
+    <li>Skill One</li>
+
+    <li>Skill Two</li>
+
+    <li>Skill Three</li>
+
+  </ul>
+
+
+
+  <div class="footer">
+
+    <span>Spider-Society</span>
+
+    <span>Earth-1610</span>
+
+  </div>
+
+=======
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+-->
+<div
+  class="spider-card"
+  data-name="Tumir Gajjar"
+  data-alias="Thanos"
+  data-github="null-pointer-hero"
+  data-suit="#FF3D6E"
+>
+  <style>
+    .spider-card {
+      --suit: #FF3D6E;
+      --ink: #14020a;
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      font-family: system-ui, sans-serif;
+      color: #e8e6e3;
+      background: radial-gradient(circle at 30% 0%, #3a021a, var(--ink) 70%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
+        ),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 14px);
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      box-shadow: 0 0 22px rgba(255, 61, 110, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    .alias {
+      margin: 12px 0 2px;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .name { margin: 0; font-size: 14px; opacity: 0.75; position: relative; z-index: 1; }
+    .handle { margin-top: 4px; font-family: ui-monospace, monospace; font-size: 12px; opacity: 0.55; position: relative; z-index: 1; }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills li {
+      padding: 5px 10px;
+      font-size: 11.5px;
+      border: 1px solid var(--suit);
+      border-radius: 999px;
+      background: rgba(255, 61, 110, 0.12);
+    }
+
+    .asterisk { margin: 8px 0 0; font-size: 10px; opacity: 0.4; font-style: italic; position: relative; z-index: 1; }
+
+    .footer {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+      z-index: 1;
+    }
+  </style>
+
+  <svg class="avatar" viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg">
+    <rect width="84" height="84" rx="14" fill="#14020a"/>
+    <rect x="12" y="12" width="60" height="60" rx="10" fill="none" stroke="#FF3D6E" stroke-width="3" stroke-dasharray="6 5"/>
+    <text x="42" y="50" font-size="20" text-anchor="middle" fill="#FF3D6E" font-family="ui-monospace,monospace">404</text>
+  </svg>
+
+  <h1 class="alias">Thanos</h1>
+  <p class="name">Tumir Gajjar</p>
+  <p class="handle">gajjartumir</p>
+
+  <ul class="skills">
+    <li>Super-Strength</li>
+    <li>Intelligence and Resourcefulness</li>
+    <li>Catches Bugs (Literally)</li>
+    <li>Renders in Wrong Universe</li>
+  </ul>
+  <p class="asterisk">*please refresh and try again</p>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Earth-NaN</span>
+  </div>
+>>>>>>> sybiolte
+</div>
