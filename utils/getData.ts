@@ -1,4 +1,6 @@
+// @ts-expect-error Node typings are not included in the client-side project.
 import fs from "fs";
+// @ts-expect-error Node typings are not included in the client-side project.
 import path from "path";
 
 /**
