@@ -1,0 +1,303 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="kamakshi thakkar"
+  data-alias="harry potter"
+  data-github="kamakshithakkar80"
+  data-suit="#E62429"
+>
+  <style>
+    /* ── Your suit starts here ──────────────────────────────── */
+    .spider-card {
+      --suit: #e62429;
+      --ink: #08080a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, sans-serif;
+      color: #e8e6e3;
+      background: radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 70%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Webbing, drawn with two repeating gradients. Delete it if you like. */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
+        ),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 14px);
+      pointer-events: none;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow: 0 0 22px rgba(230, 36, 41, 0.5);
+    }
+
+    .alias {
+      margin: 14px 0 2px;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    .handle {
+      margin-top: 4px;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 1px solid var(--suit);
+      border-radius: 999px;
+      background: rgba(230, 36, 41, 0.12);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+    }
+  </style>
+
+  <!-- Swap the username in this URL for your own -->
+  <img class="avatar" src="https://github.com/your-github-username.png" alt="" />
+
+  <h1 class="alias">Dr doom</h1>
+  <p class="name">kamakshi thakkar</p>
+  <p class="handle">kamakshithakkar80</p>
+
+  <ul class="skills">
+    <li>Skill One</li>
+    <li>Skill Two</li>
+    <li>Skill Three</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Earth-1610</span>
+  </div>
+</div>
+<div
+  class="spider-card"s
+  data-name="kamakshi thakkar"
+  data-alias="harry potter"
+  data-github="kamakshithakkar80"
+  data-suit="#E62429"
+>
+  <style>
+    /* ── Gryffindor-Spider Hybrid Suit ───────────────────────── */
+    .spider-card {
+      --suit: #d32f2f;
+      --gold: #d4af37;
+      --ink: #0a080d;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #f3f3f3;
+      background: radial-gradient(circle at 50% 0%, #2c0b0e 0%, var(--ink) 75%);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(211, 47, 47, 0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Webbing + Arcane Radial Glow */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 12px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 12px);
+      pointer-events: none;
+    }
+
+    .header-layout {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.25);
+    }
+
+    .titles {
+      flex: 1;
+    }
+
+    .alias {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #fff 30%, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: 4px 0 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #b0aeb5;
+      letter-spacing: 0.2px;
+    }
+
+    .handle {
+      margin-top: 2px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 11px;
+      color: var(--suit);
+      font-weight: 600;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+      margin: 18px 0;
+    }
+
+    .section-label {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #e5e5e5;
+      border: 1px solid rgba(211, 47, 47, 0.4);
+      border-radius: 6px;
+      background: rgba(211, 47, 47, 0.1);
+      backdrop-filter: blur(4px);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8a8594;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+
+    .footer-highlight {
+      color: var(--gold);
+    }
+  </style>
+
+  <div class="header-layout">
+    <img class="avatar" src="https://github.com/kamakshithakkar80.png" alt="Kamakshi Thakkar" />
+    <div class="titles">
+      <h1 class="alias">harry potter</h1>
+      <p class="name">kamakshi thakkar</p>
+      <p class="handle">kamakshithakkar80</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Abilities & Specializations</div>
+  <ul class="skills">
+    <li>Defense Magic</li>
+    <li>Web-Slinging</li>
+    <li>Python</li>
+    <li>JavaScript</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span class="footer-highlight">Earth-5972</span>
+  </div>
+</div>
