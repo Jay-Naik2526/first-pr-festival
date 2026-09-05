@@ -1,0 +1,549 @@
+<div
+  class="spider-card"
+  data-name="Tanvi"
+  data-alias="SpiderNova"
+  data-github="TANVI10104907"
+  data-suit="#A855F7"
+>
+  <style>
+    .spider-card {
+      --suit: #a855f7;
+      --cyan: #22d3ee;
+      --pink: #f472b6;
+      --dark: #05020b;
+      --white: #f8fafc;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+
+      padding: 18px;
+
+      font-family: system-ui, sans-serif;
+      color: var(--white);
+
+      background:
+        radial-gradient(
+          circle at 85% 12%,
+          rgba(168,85,247,.30),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 15% 80%,
+          rgba(34,211,238,.16),
+          transparent 30%
+        ),
+        linear-gradient(145deg,#08030f,#020106 70%);
+
+      border: 1px solid rgba(168,85,247,.9);
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 25px rgba(168,85,247,.22),
+        inset 0 0 35px rgba(168,85,247,.06);
+    }
+
+
+    /* ───────── DIMENSION GRID ───────── */
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -100px;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 17px,
+          rgba(255,255,255,.025) 18px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 17px,
+          rgba(255,255,255,.025) 18px
+        );
+
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+
+    /* ───────── GLITCH MARKS ───────── */
+
+    .spider-card::after {
+      content: "///  //  ///";
+      position: absolute;
+
+      right: 15px;
+      bottom: 78px;
+
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: 4px;
+
+      color: var(--cyan);
+      opacity: .45;
+    }
+
+
+    .top {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+    .society {
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+
+      color: var(--cyan);
+    }
+
+
+    .status {
+      padding: 4px 7px;
+
+      border: 1px solid rgba(34,211,238,.5);
+      border-radius: 5px;
+
+      font-family: monospace;
+      font-size: 7px;
+      letter-spacing: 1px;
+
+      color: var(--cyan);
+
+      background: rgba(34,211,238,.05);
+    }
+
+
+    /* ───────── AVATAR ───────── */
+
+    .avatar-zone {
+      position: relative;
+
+      width: 105px;
+      height: 105px;
+
+      margin-top: 18px;
+    }
+
+
+    .avatar {
+      width: 86px;
+      height: 86px;
+
+      border-radius: 50%;
+      object-fit: cover;
+
+      border: 2px solid var(--suit);
+
+      box-shadow:
+        0 0 12px var(--suit),
+        0 0 30px rgba(168,85,247,.35);
+
+      position: relative;
+      z-index: 3;
+    }
+
+
+    .orbit {
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      top: -7px;
+      left: -7px;
+
+      border: 1px dashed rgba(34,211,238,.55);
+      border-radius: 50%;
+
+      transform: rotate(25deg);
+    }
+
+
+    .orbit::after {
+      content: "";
+
+      position: absolute;
+
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: var(--cyan);
+
+      top: 4px;
+      left: 50%;
+
+      box-shadow: 0 0 10px var(--cyan);
+    }
+
+
+    /* ───────── IDENTITY ───────── */
+
+    .identity {
+      position: absolute;
+
+      left: 130px;
+      top: 72px;
+    }
+
+
+    .dimension {
+      font-family: monospace;
+
+      font-size: 8px;
+      letter-spacing: 3px;
+
+      color: var(--pink);
+    }
+
+
+    .alias {
+      margin: 5px 0 0;
+
+      font-size: 31px;
+      line-height: .95;
+
+      letter-spacing: -1px;
+
+      color: white;
+
+      text-transform: uppercase;
+
+      text-shadow:
+        2px 0 var(--cyan),
+        -2px 0 rgba(244,114,182,.45);
+    }
+
+
+    .name {
+      margin: 7px 0 0;
+
+      font-family: monospace;
+
+      font-size: 11px;
+
+      color: #cbd5e1;
+    }
+
+
+    .handle {
+      margin: 3px 0;
+
+      font-family: monospace;
+
+      font-size: 8px;
+
+      color: #64748b;
+    }
+
+
+    /* ───────── DIVIDER ───────── */
+
+    .divider {
+      position: relative;
+
+      margin-top: 13px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--suit),
+          var(--cyan),
+          transparent
+        );
+    }
+
+
+    /* ───────── POWER CORE ───────── */
+
+    .core {
+      margin-top: 13px;
+
+      padding: 10px;
+
+      border: 1px solid rgba(168,85,247,.28);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(168,85,247,.09),
+          rgba(34,211,238,.03)
+        );
+
+      clip-path: polygon(
+        0 0,
+        96% 0,
+        100% 25%,
+        100% 100%,
+        0 100%
+      );
+    }
+
+
+    .core-title {
+      font-family: monospace;
+
+      font-size: 8px;
+      letter-spacing: 2px;
+
+      color: var(--cyan);
+    }
+
+
+    .core-text {
+      margin-top: 4px;
+
+      font-size: 10px;
+
+      color: #cbd5e1;
+    }
+
+
+    /* ───────── SKILLS ───────── */
+
+    .section {
+      margin-top: 13px;
+    }
+
+
+    .section-title {
+      font-family: monospace;
+
+      font-size: 8px;
+      letter-spacing: 2px;
+
+      color: #94a3b8;
+    }
+
+
+    .skills {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 6px;
+
+      margin: 7px 0 0;
+
+      padding: 0;
+
+      list-style: none;
+    }
+
+
+    .skills li {
+      position: relative;
+
+      padding: 7px 8px;
+
+      font-size: 9px;
+
+      color: #e9d5ff;
+
+      border: 1px solid rgba(168,85,247,.35);
+
+      background: rgba(168,85,247,.055);
+
+      border-radius: 5px;
+    }
+
+
+    .skills li::before {
+      content: "◆";
+
+      margin-right: 5px;
+
+      font-size: 6px;
+
+      color: var(--cyan);
+    }
+
+
+    /* ───────── MULTIVERSE DATA ───────── */
+
+    .data {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-top: 14px;
+
+      font-family: monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 1px;
+
+      color: #64748b;
+    }
+
+
+    .data span {
+      color: #cbd5e1;
+    }
+
+
+    /* ───────── FOOTER ───────── */
+
+    .footer {
+      position: absolute;
+
+      left: 18px;
+      right: 18px;
+      bottom: 13px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-top: 8px;
+
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      font-family: monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 1.5px;
+
+      color: #475569;
+    }
+
+
+    .footer b {
+      color: var(--suit);
+    }
+  </style>
+
+
+  <div class="top">
+    <div class="society">
+      SPIDER-SOCIETY // IDENTIFICATION
+    </div>
+
+    <div class="status">
+      ● ONLINE
+    </div>
+  </div>
+
+
+  <div class="avatar-zone">
+
+    <div class="orbit"></div>
+
+    <img
+      class="avatar"
+      src="https://github.com/TANVI10104907.png"
+      alt="Tanvi"
+    />
+
+  </div>
+
+
+  <div class="identity">
+
+    <div class="dimension">
+      DIMENSION // 101
+    </div>
+
+    <h1 class="alias">
+      SPIDERNOVA
+    </h1>
+
+    <p class="name">
+      TANVI
+    </p>
+
+    <p class="handle">
+      @TANVI10104907
+    </p>
+
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <div class="core">
+
+    <div class="core-title">
+      ◈ CORE ABILITY
+    </div>
+
+    <div class="core-text">
+      Turning ideas into experiences
+      that people remember.
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <div class="section-title">
+      // POWER MODULES
+    </div>
+
+    <ul class="skills">
+
+      <li>dark magic</li>
+
+      <li>burnt face</li>
+
+      <li>super natural powers</li>
+
+      <li>Marketing</li>
+
+    </ul>
+
+  </div>
+
+
+  <div class="data">
+
+    <div>
+      CLASS
+      <span>CREATOR</span>
+    </div>
+
+    <div>
+      THREAT
+      <span>UNKNOWN</span>
+    </div>
+
+    <div>
+      STATUS
+      <span>ACTIVE</span>
+    </div>
+
+  </div>
+
+
+  <div class="footer">
+
+    <span>
+      SPIDER-SOCIETY
+    </span>
+
+    <b>
+      MULTIVERSE ACCESS // GRANTED
+    </b>
+
+  </div>
+
+</div>
