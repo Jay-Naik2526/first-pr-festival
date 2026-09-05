@@ -1,0 +1,276 @@
+<div class="spider-card" data-name="Poorvanshu Singh" data-alias="Spider-Monk">
+  <style>
+    .spider-card {
+      --red: #e23636;
+      --blue: #0a1931;
+      --cyan: #36f3ff;
+      --venom: #8cff45;
+      --gold: #ffd166;
+      --ink: #030712;
+
+      width: 340px;
+      min-height: 470px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: Inter, system-ui, sans-serif;
+      color: #f8fafc;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 2px solid rgba(226, 54, 54, 0.95);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(226, 54, 54, 0.35), transparent 28%),
+        radial-gradient(circle at 90% 85%, rgba(54, 243, 255, 0.20), transparent 32%),
+        linear-gradient(145deg, #061225 0%, #0a1931 45%, #030712 100%);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.45),
+        0 0 34px rgba(226, 54, 54, 0.35);
+      isolation: isolate;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .spider-card:hover {
+      transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+      box-shadow:
+        0 34px 80px rgba(0, 0, 0, 0.6),
+        0 0 46px rgba(226, 54, 54, 0.55);
+    }
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 1px, transparent 1px 24px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,0.07) 0 1px, transparent 1px 24px);
+      animation: webMove 9s linear infinite;
+      opacity: 0.7;
+      z-index: -2;
+    }
+
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 35%,
+        rgba(255,255,255,0.18) 45%,
+        transparent 56%,
+        transparent 100%
+      );
+      transform: translateX(-120%);
+      animation: suitShine 4.5s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes webMove {
+      from { transform: translate3d(0, 0, 0) rotate(0deg); }
+      to { transform: translate3d(28px, 28px, 0) rotate(2deg); }
+    }
+
+    @keyframes suitShine {
+      0%, 45% { transform: translateX(-130%); }
+      70%, 100% { transform: translateX(130%); }
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--red), var(--cyan), var(--venom));
+      box-shadow: 0 0 28px rgba(226, 54, 54, 0.65);
+      animation: pulseFrame 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulseFrame {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.35); }
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      object-fit: cover;
+      display: block;
+      background: #111827;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.8px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .alias {
+      margin: 18px 0 4px;
+      font-size: 34px;
+      line-height: 0.95;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: var(--red);
+      text-shadow:
+        2px 2px 0 #000,
+        0 0 18px rgba(226, 54, 54, 0.7);
+      position: relative;
+      z-index: 2;
+    }
+
+    .name,
+    .handle {
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .handle a {
+      color: #93c5fd;
+      text-decoration: none;
+      font: 700 13px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .handle a:hover {
+      color: var(--cyan);
+    }
+
+    .power-meter {
+      margin: 22px 0 18px;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.14);
+      position: relative;
+      z-index: 2;
+    }
+
+    .power-meter span {
+      display: block;
+      width: 88%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), var(--gold), var(--venom));
+      animation: charge 2.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes charge {
+      from { width: 68%; filter: brightness(1); }
+      to { width: 96%; filter: brightness(1.35); }
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skills li {
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.2px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(15, 23, 42, 0.66);
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .skills li:hover {
+      transform: translateY(-3px) scale(1.04);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .skills li.danger {
+      color: var(--venom);
+      border-color: rgba(140, 255, 69, 0.55);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 13px;
+      border-top: 1px dashed rgba(255,255,255,0.25);
+      font: 900 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #fecaca;
+      z-index: 2;
+    }
+  </style>
+
+  <div class="top-row">
+    <div class="avatar-wrap">
+      <img
+        class="avatar"
+        src="https://github.com/bagalalaa.png?size=240"
+        alt="Spider-Pooru GitHub avatar"
+      />
+    </div>
+
+    <div>
+      <div class="badge">Earth-1610 Recruit</div>
+      <p class="name">Poorvanshu Singh</p>
+      <p class="handle">
+        <a href="https://github.com/bagalalaa" target="_blank">@bagalalaa</a>
+      </p>
+    </div>
+  </div>
+
+  <h1 class="alias">Spider-Pooru</h1>
+
+  <div class="power-meter">
+    <span></span>
+  </div>
+
+  <ul class="skills">
+    <li>Web Blast</li>
+    <li>HTML & CSS</li>
+    <li>Java</li>
+    <li>Python</li>
+    <li>VS Code Sense</li>
+    <li>GitHub Swing</li>
+    <li>8-Mob Fiesta</li>
+    <li class="danger">Poison Orbs</li>
+    <li>Bug Takedown</li>
+    <li>Web Dev</li>
+    <li>Code Reflex</li>
+    <li>Night Mode</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Threat LVL: Crazy</span>
+  </div>
+</div>
