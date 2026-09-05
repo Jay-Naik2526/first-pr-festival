@@ -1,0 +1,445 @@
+<!--
+  SPIDER-VERSE DEVELOPER ID
+  Rename this file to: your-github-username.html
+  No JavaScript required.
+-->
+
+<div
+  class="spider-card"
+  data-name="Arjun Aarya"
+  data-alias="Scorpian"
+  data-github="your-github-username"
+  data-suit="#8B5CF6"
+>
+  <style>
+    .spider-card {
+      --suit: #8B5CF6;
+      --dark: #07070b;
+      --panel: rgba(255, 255, 255, 0.06);
+      --text: #f4f4f6;
+      --muted: #9a9aa5;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      padding: 18px;
+      border-radius: 20px;
+
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+
+      background:
+        radial-gradient(circle at 80% 0%, rgba(230,36,41,.28), transparent 32%),
+        radial-gradient(circle at 0% 100%, rgba(230,36,41,.16), transparent 35%),
+        linear-gradient(135deg, #111116, #050506 70%);
+
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 0 0 1px rgba(230,36,41,.15),
+        0 18px 50px rgba(0,0,0,.7);
+    }
+
+    /* Animated-looking web/grid pattern without JavaScript */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .35;
+      pointer-events: none;
+
+      background:
+        repeating-linear-gradient(
+          45deg,
+          transparent 0,
+          transparent 12px,
+          rgba(255,255,255,.035) 13px,
+          transparent 14px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent 0,
+          transparent 12px,
+          rgba(255,255,255,.035) 13px,
+          transparent 14px
+        );
+    }
+
+    /* Decorative glowing orb */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -70px;
+      bottom: 20px;
+      border-radius: 50%;
+      background: var(--suit);
+      filter: blur(75px);
+      opacity: .12;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+    }
+
+    /* TOP BAR */
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #d7d7dd;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--suit);
+      box-shadow: 0 0 10px var(--suit);
+    }
+
+    /* PROFILE */
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 18px;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 76px;
+      height: 76px;
+      flex-shrink: 0;
+    }
+
+    .avatar-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 18px;
+      background: linear-gradient(
+        135deg,
+        var(--suit),
+        transparent 55%
+      );
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: #111;
+    }
+
+    .identity {
+      min-width: 0;
+    }
+
+    .alias {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .alias span {
+      color: var(--suit);
+    }
+
+    .name {
+      margin: 6px 0 2px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .handle {
+      margin: 0;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      color: var(--suit);
+    }
+
+    /* DIVIDER */
+
+    .divider {
+      height: 1px;
+      margin: 18px 0 14px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--suit),
+        transparent
+      );
+      opacity: .65;
+    }
+
+    /* ID SECTION */
+
+    .id-panel {
+      padding: 11px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .label {
+      display: block;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .id-number {
+      font-family: ui-monospace, monospace;
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: var(--text);
+    }
+
+    .id-number strong {
+      color: var(--suit);
+    }
+
+    /* SKILLS */
+
+    .section-title {
+      margin: 16px 0 9px;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 8px;
+      border-radius: 6px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+
+      color: #e9e9ed;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .skills li:first-child {
+      border-color: var(--suit);
+      box-shadow: inset 0 0 12px rgba(230,36,41,.12);
+    }
+
+    /* POWER LEVELS */
+
+    .stats {
+      margin-top: 15px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .stat {
+      display: grid;
+      grid-template-columns: 65px 1fr 24px;
+      align-items: center;
+      gap: 7px;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      color: var(--muted);
+    }
+
+    .bar {
+      height: 4px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,.08);
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(
+        90deg,
+        var(--suit),
+        #ff7b7f
+      );
+      box-shadow: 0 0 10px rgba(230,36,41,.5);
+    }
+
+    .value {
+      text-align: right;
+      color: var(--text);
+    }
+
+    /* SPIDER MARK */
+
+    .spider-mark {
+      position: absolute;
+      right: 14px;
+      bottom: 39px;
+      font-size: 50px;
+      line-height: 1;
+      color: var(--suit);
+      opacity: .12;
+      transform: rotate(-12deg);
+      filter: drop-shadow(0 0 12px var(--suit));
+    }
+
+    /* FOOTER */
+
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding: 10px 18px 13px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.4px;
+      color: var(--muted);
+    }
+
+    .verified {
+      color: var(--suit);
+    }
+  </style>
+
+  <div class="content">
+
+    <div class="top">
+      <span>SPIDER-VERSE // DEV-ID</span>
+
+      <span class="status">
+        <span class="dot"></span>
+        VERIFIED
+      </span>
+    </div>
+
+    <div class="profile">
+
+      <div class="avatar-wrap">
+        <!-- Change username here -->
+        <img
+          class="avatar"
+          src="https://avatars.githubusercontent.com/u/70001557?v=4&size=64"
+          alt="GitHub Avatar"
+        />
+      </div>
+
+      <div class="identity">
+        <h1 class="alias">
+          CODE <span>WEAVER</span>
+        </h1>
+
+        <p class="name">Arjun Aarya</p>
+
+        <p class="handle">@arjun2604</p>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="id-panel">
+      <span class="label">MULTIVERSE DEVELOPER ID</span>
+
+      <div class="id-number">
+        SPDR-<strong>1610</strong>-AARYA
+      </div>
+    </div>
+
+    <div class="section-title">
+      // CORE ABILITIES
+    </div>
+
+    <ul class="skills">
+      <li>C Programming</li>
+      <li>Problem Solving</li>
+      <li>GitHub</li>
+      <li>AI / ML</li>
+      <li>VLSI</li>
+    </ul>
+
+    <div class="section-title">
+      // SYSTEM STATS
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <span>CODING</span>
+        <div class="bar">
+          <div class="fill" style="width: 88%;"></div>
+        </div>
+        <span class="value">88</span>
+      </div>
+
+      <div class="stat">
+        <span>CREATIVITY</span>
+        <div class="bar">
+          <div class="fill" style="width: 94%;"></div>
+        </div>
+        <span class="value">94</span>
+      </div>
+
+      <div class="stat">
+        <span>SPIDER-SENSE</span>
+        <div class="bar">
+          <div class="fill" style="width: 99%;"></div>
+        </div>
+        <span class="value">99</span>
+      </div>
+
+    </div>
+
+    <div class="spider-mark">🕷</div>
+
+    <div class="footer">
+      <span>EARTH-1610</span>
+      <span class="verified">● ACTIVE</span>
+      <span>GH-2026</span>
+    </div>
+
+  </div>
+</div>
