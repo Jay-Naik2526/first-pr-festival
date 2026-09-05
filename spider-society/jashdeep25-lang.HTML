@@ -1,0 +1,294 @@
+<!--
+  SPIDER-ID CARD — "Nightloop" build (red suit, rotating emblem)
+-->
+<div
+  class="spider-card"
+  data-name="Jash Prajapati"
+  data-alias="Nightloop"
+  data-github="jashdeep25-lang"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --suit: #e62429;
+      --suit-dim: #8f1c1f;
+      --ink: #05070a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, sans-serif;
+      color: #e8f6f2;
+      background: radial-gradient(circle at 75% 0%, #250608, var(--ink) 65%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 40px rgba(230, 36, 41, 0.15) inset;
+    }
+
+    /* Circuit-web instead of classic webbing */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(230, 36, 41, 0.05) 0 1px, transparent 1px 22px),
+        repeating-linear-gradient(90deg, rgba(230, 36, 41, 0.05) 0 1px, transparent 1px 22px);
+      pointer-events: none;
+    }
+
+    /* Scanline glitch pulse across the card */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 40px;
+      top: -40px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(230, 36, 41, 0.18),
+        transparent
+      );
+      animation: scan 4.5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes scan {
+      0% { top: -40px; }
+      100% { top: 440px; }
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-wrap {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      padding: 3px;
+      background: conic-gradient(var(--suit), var(--suit-dim), var(--suit));
+      flex-shrink: 0;
+      animation: spin 6s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+    }
+
+    .avatar svg {
+      width: 62%;
+      height: 62%;
+      animation: spin-back 6s linear infinite;
+    }
+
+    @keyframes spin-back {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    .id-block {
+      min-width: 0;
+    }
+
+    .alias {
+      margin: 0 0 2px;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      color: var(--suit);
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(230, 36, 41, 0.6);
+    }
+
+    .name {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    .handle {
+      margin-top: 2px;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      color: var(--suit-dim);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--suit);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--suit);
+      box-shadow: 0 0 8px var(--suit);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .tagline {
+      position: relative;
+      z-index: 1;
+      margin: 18px 0 0;
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      font-style: italic;
+      color: #ffd6d6;
+      border-left: 2px solid var(--suit);
+      background: rgba(230, 36, 41, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 8px 4px;
+      border: 1px solid var(--suit-dim);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 16px;
+      color: var(--suit);
+    }
+
+    .stat span {
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    .skills {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 10px;
+      font-size: 11px;
+      border: 1px solid var(--suit);
+      border-radius: 999px;
+      background: rgba(230, 36, 41, 0.1);
+      color: var(--suit);
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+      z-index: 1;
+    }
+  </style>
+
+  <div class="top-row">
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 8
+                   C 68 14, 78 30, 76 46
+                   C 74 60, 64 66, 50 68
+                   C 36 66, 26 60, 24 46
+                   C 22 30, 32 14, 50 8 Z"
+                fill="none" stroke="var(--suit)" stroke-width="3"/>
+          <path d="M50 12 C 60 20, 64 34, 60 46 C 57 55, 50 58, 50 58"
+                fill="none" stroke="var(--suit)" stroke-width="2" opacity="0.85"/>
+          <path d="M50 12 C 40 20, 36 34, 40 46 C 43 55, 50 58, 50 58"
+                fill="none" stroke="var(--suit)" stroke-width="2" opacity="0.85"/>
+          <path d="M50 16 L50 54 M38 22 L50 32 M62 22 L50 32 M32 34 L50 40 M68 34 L50 40 M32 46 L50 48 M68 46 L50 48"
+                stroke="var(--suit)" stroke-width="1.4" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="id-block">
+      <h1 class="alias">Nightloop</h1>
+      <p class="name">VILLAN</p>
+      <p class="handle">@jashdeep25-lang</p>
+      <p class="status"><span class="status-dot"></span>Suit Online</p>
+    </div>
+  </div>
+
+  <p class="tagline">"Every bug is a thread. Pull gently, the whole web tells you where it's stuck."</p>
+
+  <div class="stats">
+    <div class="stat"><b>03:14</b><span>Bug Kill</span></div>
+    <div class="stat"><b>∞</b><span>Uptime</span></div>
+    <div class="stat"><b>7</b><span>Realities</span></div>
+  </div>
+
+  <ul class="skills">
+    <li>Python</li>
+    <li>C</li>
+    <li>Wall-Compiling</li>
+    <li>Glitch-Sense</li>
+    <li>Thread Refactor</li>
+    <li>Silent Deploy</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Earth-3301</span>
+  </div>
+</div>
