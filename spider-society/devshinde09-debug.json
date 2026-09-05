@@ -1,7 +1,15 @@
 {
   "name": "Devang shinde",
+<<<<<<< HEAD
   "alias": "Weaver Supreme",
   "skills": [ "c programing lang","reverse engineering","web development"],
   "suitColor": "#c29b40",
   "githubUsername": "devshinde09-debug"
 }
+=======
+  "alias": "Green goblin",
+  "skills": ["c programming language", "reverse engeneering"],
+  "suitColor": "#008080",
+  "githubUsername": "devshinde09-dubug"
+}
+>>>>>>> symbiote
