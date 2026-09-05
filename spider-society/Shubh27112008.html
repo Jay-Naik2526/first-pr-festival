@@ -1,0 +1,299 @@
+<!--
+  SPIDER-ID CARD
+  Rename to <your-github-username>.html before submitting.
+-->
+<div
+  class="spider-card"
+  data-name="Major Iqbal"
+  data-alias="Major Iqbal"
+  data-github="Shubh27112008"
+  data-suit="#1A1A1A"
+>
+<style>
+  /* ── Tokens ─────────────────────────────────────────────── */
+  .spider-card {
+    --suit: #D6001C;       /* classic spider-red */
+    --web-blue: #1C6DD0;   /* under-suit blue */
+    --ink: #060608;        /* void black */
+    --paper: #f2ede2;      /* aged comic paper */
+
+    width: 320px;
+    height: 440px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: var(--paper);
+    background: var(--ink);
+    border: 3px solid var(--suit);
+    box-shadow: 0 0 0 1px #000, 0 0 30px rgba(214,0,28,0.35);
+  }
+
+  /* Comic halftone dots, fading toward the bottom */
+  .spider-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px);
+    background-size: 7px 7px;
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 78%);
+            mask-image: linear-gradient(to bottom, black, transparent 78%);
+    pointer-events: none;
+  }
+
+  /* Radiating web-lines from the top-left corner */
+  .web-rays {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 260px;
+    height: 260px;
+    background:
+      repeating-conic-gradient(from 0deg at 0% 0%,
+        rgba(214,0,28,0.28) 0deg 1.4deg,
+        transparent 1.4deg 15deg);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .web-arcs {
+    position: absolute;
+    top: -110px;
+    left: -110px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06) inset,
+      0 0 0 40px rgba(255,255,255,0.045) inset,
+      0 0 0 80px rgba(255,255,255,0.035) inset,
+      0 0 0 130px rgba(255,255,255,0.025) inset;
+    pointer-events: none;
+  }
+
+  /* Venom-style drip along the bottom edge */
+  .venom-drip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 46px;
+    background: #050506;
+    clip-path: polygon(
+      0% 0%, 6% 30%, 11% 8%, 17% 45%, 23% 15%, 29% 55%, 35% 10%,
+      42% 60%, 49% 20%, 56% 70%, 63% 25%, 70% 50%, 77% 12%,
+      84% 65%, 91% 18%, 96% 40%, 100% 0%, 100% 100%, 0% 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Thin web-shooter reticle, top-right */
+  .reticle {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid rgba(242,237,226,0.5);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+  .reticle::before,
+  .reticle::after {
+    content: "";
+    position: absolute;
+    background: rgba(242,237,226,0.5);
+  }
+  .reticle::before { top: 50%; left: -6px; right: -6px; height: 1px; transform: translateY(-50%); }
+  .reticle::after  { left: 50%; top: -6px; bottom: -6px; width: 1px; transform: translateX(-50%); }
+
+  /* ── Content ────────────────────────────────────────────── */
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 22px 0;
+  }
+
+  .kicker {
+    font-family: ui-monospace, 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--web-blue);
+    opacity: 0.85;
+  }
+
+  .alias {
+    margin: 6px 0 0;
+    font-size: 34px;
+    line-height: 0.95;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: var(--suit);
+    text-shadow:
+      2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+      3px 3px 0 rgba(0,0,0,0.7);
+    max-width: 240px;
+  }
+
+  .name-row {
+    margin-top: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--paper);
+  }
+  .handle {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--web-blue);
+    opacity: 0.9;
+  }
+
+  .quote {
+    margin: 16px 0 0;
+    padding-left: 10px;
+    border-left: 2px solid var(--suit);
+    font-size: 11.5px;
+    font-style: italic;
+    line-height: 1.4;
+    color: rgba(242,237,226,0.75);
+    max-width: 250px;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .skills li {
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--paper);
+    border: 1px solid var(--suit);
+    border-radius: 3px;
+    background: linear-gradient(180deg, rgba(214,0,28,0.22), rgba(214,0,28,0.06));
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+
+  /* Spider emblem watermark, drawn from CSS shapes only */
+  .emblem {
+    position: absolute;
+    right: -16px;
+    bottom: 34px;
+    width: 118px;
+    height: 118px;
+    opacity: 0.16;
+    z-index: 1;
+  }
+  .emblem .body {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 26px;
+    height: 44px;
+    background: var(--paper);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .emblem .head {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 16px;
+    height: 16px;
+    background: var(--paper);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .emblem .leg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 58px;
+    height: 3px;
+    background: var(--paper);
+    transform-origin: 0 50%;
+  }
+  .emblem .leg:nth-child(3) { transform: translate(0,-50%) rotate(20deg); }
+  .emblem .leg:nth-child(4) { transform: translate(0,-50%) rotate(45deg); }
+  .emblem .leg:nth-child(5) { transform: translate(0,-50%) rotate(70deg); }
+  .emblem .leg:nth-child(6) { transform: translate(0,-50%) rotate(-160deg); }
+  .emblem .leg:nth-child(7) { transform: translate(0,-50%) scaleX(-1) rotate(20deg); }
+  .emblem .leg:nth-child(8) { transform: translate(0,-50%) scaleX(-1) rotate(45deg); }
+  .emblem .leg:nth-child(9) { transform: translate(0,-50%) scaleX(-1) rotate(70deg); }
+  .emblem .leg:nth-child(10) { transform: translate(0,-50%) scaleX(-1) rotate(-160deg); }
+
+  .footer {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 15px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: ui-monospace, monospace;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    color: rgba(242,237,226,0.55);
+  }
+  .footer .thwip {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    color: var(--suit);
+    letter-spacing: 1px;
+    opacity: 0.85;
+  }
+</style>
+
+  <div class="web-rays"></div>
+  <div class="web-arcs"></div>
+  <div class="reticle"></div>
+
+  <div class="content">
+    <div class="kicker">SPIDER-SOCIETY // FIELD ID</div>
+    <h1 class="alias">The Red<br>Weaver</h1>
+
+    <div class="name-row">
+      <p class="name">Shubh Bhatnagar</p>
+      <span class="handle">@Shubh27112008</span>
+    </div>
+
+    <p class="quote">"Whatever life holds in store for me, I will never forget these words: with great power comes great responsibility."</p>
+
+    <ul class="skills">
+      <li>Web-Slinging</li>
+      <li>Full-Stack JS</li>
+      <li>Debug-Sense</li>
+      <li>Good at Time management</li>
+      <li>Quick Grasper</li>
+      <li>Confident Speaker</li>
+    </ul>
+  </div>
+
+  <div class="emblem">
+    <div class="leg"></div><div class="leg"></div><div class="leg"></div><div class="leg"></div>
+    <div class="leg"></div><div class="leg"></div><div class="leg"></div><div class="leg"></div>
+    <div class="head"></div>
+    <div class="body"></div>
+  </div>
+
+  <div class="venom-drip"></div>
+
+  <div class="footer">
+    <span>EARTH-1610</span>
+    <span class="thwip">*THWIP*</span>
+  </div>
+</div>
