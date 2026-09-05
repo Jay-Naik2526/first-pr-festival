@@ -1,0 +1,485 @@
+```html
+<!--
+  SPIDER-ID CARD — GitHub Edition
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only.
+  3. No <script> tags.
+  4. Everything must fit inside 320 x 440.
+  5. Keep the four data- attributes on .spider-card.
+-->
+
+<div
+  class="spider-card"
+  data-name="Your Name"
+  data-alias="Your Spider-Alias"
+  data-github="your-github-username"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --red: #e62429;
+      --dark-red: #8b1014;
+      --blue: #071a3d;
+      --black: #050507;
+      --white: #f5f5f5;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 18px;
+
+      position: relative;
+      overflow: hidden;
+
+      font-family: system-ui, sans-serif;
+      color: var(--white);
+
+      background:
+        radial-gradient(
+          circle at 50% 38%,
+          rgba(230,36,41,.24),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #020205 10%,
+          #071a3d 52%,
+          #020205 100%
+        );
+
+      border: 2px solid var(--red);
+      border-radius: 18px;
+
+      box-shadow:
+        0 0 12px rgba(230,36,41,.55),
+        inset 0 0 35px rgba(230,36,41,.13);
+    }
+
+    /* Comic-book dots */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.13) 1px,
+          transparent 1px
+        );
+
+      background-size: 8px 8px;
+      opacity: .25;
+
+      pointer-events: none;
+    }
+
+    /* Spider-web decoration */
+    .spider-card::after {
+      content: "";
+
+      position: absolute;
+      width: 190px;
+      height: 190px;
+
+      right: -95px;
+      top: -95px;
+
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 18px rgba(255,255,255,.025),
+        0 0 0 38px rgba(255,255,255,.02),
+        0 0 0 58px rgba(255,255,255,.018);
+
+      pointer-events: none;
+    }
+
+    /* GitHub / card number */
+    .card-number {
+      position: absolute;
+      top: 11px;
+      left: 14px;
+
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: 900;
+
+      line-height: .8;
+
+      color: var(--red);
+
+      text-shadow:
+        0 0 10px rgba(230,36,41,.7);
+
+      z-index: 5;
+    }
+
+    .card-number small {
+      display: block;
+      margin-top: 4px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+      letter-spacing: 1px;
+
+      color: #aaa;
+    }
+
+    /* Avatar */
+    .avatar-wrap {
+      position: relative;
+      z-index: 3;
+
+      width: 88px;
+      height: 88px;
+
+      margin: 26px auto 0;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 3px solid var(--red);
+
+      background: #08080a;
+
+      box-shadow:
+        0 0 0 4px rgba(230,36,41,.1),
+        0 0 25px rgba(230,36,41,.7);
+    }
+
+    /* Animated web ring */
+    .avatar-wrap::before {
+      content: "";
+
+      position: absolute;
+      inset: -8px;
+
+      border: 1px dashed rgba(255,255,255,.5);
+      border-radius: 50%;
+
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Name */
+    .alias {
+      position: relative;
+      z-index: 3;
+
+      margin: 13px 0 2px;
+
+      text-align: center;
+
+      font-size: 25px;
+      line-height: 1;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      color: var(--red);
+
+      text-shadow:
+        2px 2px 0 #050507,
+        0 0 14px rgba(230,36,41,.7);
+    }
+
+    .name {
+      position: relative;
+      z-index: 3;
+
+      margin: 5px 0 1px;
+
+      text-align: center;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      color: #eee;
+    }
+
+    .handle {
+      position: relative;
+      z-index: 3;
+
+      margin: 3px 0;
+
+      text-align: center;
+
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+
+      color: #aaa;
+    }
+
+    /* GitHub status */
+    .status {
+      position: relative;
+      z-index: 3;
+
+      width: fit-content;
+
+      margin: 7px auto 5px;
+      padding: 4px 10px;
+
+      border: 1px solid rgba(230,36,41,.55);
+      border-radius: 999px;
+
+      background: rgba(230,36,41,.08);
+
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+
+      color: #ddd;
+    }
+
+    .status-dot {
+      display: inline-block;
+
+      width: 6px;
+      height: 6px;
+
+      margin-right: 5px;
+
+      border-radius: 50%;
+
+      background: #32d74b;
+
+      box-shadow: 0 0 7px #32d74b;
+    }
+
+    /* Divider */
+    .divider {
+      position: relative;
+      z-index: 3;
+
+      height: 10px;
+      margin: 2px 0 5px;
+    }
+
+    .divider::before {
+      content: "";
+
+      position: absolute;
+
+      left: 8%;
+      right: 8%;
+      top: 50%;
+
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+
+    .divider span {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      padding: 0 8px;
+
+      background: #07152e;
+
+      color: var(--red);
+
+      font-size: 13px;
+    }
+
+    /* GitHub skills */
+    .skills {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      gap: 7px;
+
+      margin: 5px 0 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 6px 10px;
+
+      border: 1px solid rgba(230,36,41,.65);
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(230,36,41,.2),
+          rgba(0,0,0,.35)
+        );
+
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      font-weight: 700;
+
+      color: #eee;
+
+      transition: .25s ease;
+    }
+
+    .skills li:hover {
+      transform: translateY(-3px);
+
+      border-color: var(--red);
+
+      box-shadow:
+        0 0 12px rgba(230,36,41,.6);
+    }
+
+    /* Giant spider watermark */
+    .spider {
+      position: absolute;
+
+      left: 50%;
+      bottom: 42px;
+
+      transform: translateX(-50%);
+
+      font-size: 65px;
+
+      opacity: .08;
+
+      filter: drop-shadow(
+        0 0 12px rgba(230,36,41,.8)
+      );
+
+      z-index: 1;
+    }
+
+    /* Bottom playing-card corner */
+    .card-number-bottom {
+      position: absolute;
+
+      right: 13px;
+      bottom: 11px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+
+      transform: rotate(180deg);
+
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: 900;
+
+      line-height: .8;
+
+      color: var(--red);
+
+      z-index: 5;
+    }
+
+    .card-number-bottom small {
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+
+      display: flex;
+      justify-content: space-between;
+
+      padding-top: 7px;
+
+      border-top: 1px solid rgba(255,255,255,.14);
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+
+      color: #999;
+
+      z-index: 4;
+    }
+
+    .footer .github {
+      color: var(--red);
+      font-weight: 800;
+    }
+  </style>
+
+  <!-- Card corner -->
+  <div class="card-number">
+    A
+    <small>DEV</small>
+  </div>
+
+  <!-- GitHub avatar -->
+  <div class="avatar-wrap">
+    <img
+      class="avatar"
+      src="https://github.com/your-github-username.png"
+      alt="GitHub avatar"
+    />
+  </div>
+
+  <!-- Identity -->
+  <h1 class="alias">Your Spider-Alias</h1>
+
+  <p class="name">Your Name</p>
+
+  <p class="handle">@your-github-username</p>
+
+  <!-- Developer status -->
+  <div class="status">
+    <span class="status-dot"></span>
+    BUILDING THE WEB
+  </div>
+
+  <div class="divider">
+    <span>✦</span>
+  </div>
+
+  <!-- Developer skills -->
+  <ul class="skills">
+    <li>C</li>
+    <li>Python</li>
+    <li>OpenCV</li>
+  </ul>
+
+  <!-- Spider watermark -->
+  <div class="spider">🕷️</div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="github">GitHub</span>
+    <span>Spider-Society</span>
+  </div>
+
+  <!-- Bottom card corner -->
+  <div class="card-number-bottom">
+    A
+    <small>♠</small>
+  </div>
+</div>
+```
