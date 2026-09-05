@@ -1,7 +1,14 @@
 {
+<<<<<<< HEAD
   "name": "None -2024",
   "alias": "Iron Man",
   "skills": ["Skill One", "Skill Two", "Skill Three"],
   "suitColor": "#E62429",
+=======
+  "name": "Manav Sodhani",
+  "alias": "Dr. Doom",
+  "skills": ["dark magic", "Smashed Thor", "burnt face"],
+  "suitColor": "#dde663",
+>>>>>>> symbiote
   "githubUsername": "sodhanimanav-source"
 }
