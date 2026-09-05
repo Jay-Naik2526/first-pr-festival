@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "Rahul 148",
   "alias": "mysterio",
   "skills": ["c programming", "reverse enginnering", "problem solving " "git&github"]
+=======
+  "name": "Rahulraj-collab",
+  "alias": "mysterio"",
+  "skills": ["c programming language", "reverse engineering", "typing skills"],
+>>>>>>> symbiote
   "suitColor": "#E62429",
   "githubUsername": "Rahulraj-collab"
 }
