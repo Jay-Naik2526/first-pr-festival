@@ -1,0 +1,19 @@
+{
+    "name": "Piyush Patil",
+    "alias": "Spideronair",
+    "github": "piyushlp78",
+    "suit": "#8b7fa8",
+    "avatar": "piyushlp78-avatar.jpg",
+    "id_tag": "Case File — Web-Slinger",
+    "quote": "Every city's got shadows. I just happen to hang from mine.",
+    "skills": [
+        "Shadow Debugging",
+        "Silent-Ops Deployment",
+        "Full-Stack Web-Slinging",
+        "Noir Deduction"
+    ],
+    "footer": {
+        "left": "Spider-Society",
+        "right": "Earth-90214"
+    }
+}

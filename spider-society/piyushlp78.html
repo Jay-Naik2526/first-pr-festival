@@ -1,0 +1,176 @@
+<!--
+  SPIDER-ID CARD — piyushlp78
+-->
+<div class="spider-card" data-name="Piyush Patil" data-alias="Spideronair" data-github="piyushlp78" data-suit="#8b7fa8">
+    <style>
+        /* ── Noir suit ───────────────────────────────────────────── */
+        .spider-card {
+            --suit: #8b7fa8;
+            --ink: #0a0a0c;
+            --bone: #d8d3c8;
+
+            width: 320px;
+            height: 440px;
+            box-sizing: border-box;
+            padding: 22px;
+            font-family: 'Courier New', ui-monospace, monospace;
+            color: var(--bone);
+            background:
+                radial-gradient(circle at 25% -10%, rgba(139, 127, 168, 0.25), transparent 55%),
+                linear-gradient(180deg, #050506, var(--ink) 60%, #030303);
+            border: 2px solid var(--suit);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            filter: grayscale(0.35) contrast(1.05);
+        }
+
+        /* Film grain / rain streaks, noir-style */
+        .spider-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(100deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 60px),
+                repeating-linear-gradient(95deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 34px);
+            pointer-events: none;
+        }
+
+        /* Web cracks, faint */
+        .spider-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(60deg, rgba(216, 211, 200, 0.04) 0 1px, transparent 1px 22px),
+                repeating-linear-gradient(-60deg, rgba(216, 211, 200, 0.04) 0 1px, transparent 1px 22px);
+            pointer-events: none;
+        }
+
+        .top-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 78px;
+            height: 78px;
+            border-radius: 6px;
+            border: 2px solid var(--suit);
+            object-fit: cover;
+            filter: grayscale(1) contrast(1.15) brightness(0.9);
+            box-shadow: 0 0 18px rgba(139, 127, 168, 0.45);
+        }
+
+        .id-tag {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin: 0 0 6px;
+        }
+
+        .alias {
+            margin: 12px 0 2px;
+            font-size: 27px;
+            line-height: 1.05;
+            letter-spacing: 1px;
+            color: var(--bone);
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(139, 127, 168, 0.6);
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.65;
+            position: relative;
+            z-index: 1;
+        }
+
+        .handle {
+            margin-top: 4px;
+            font-size: 11px;
+            opacity: 0.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote {
+            margin: 14px 0 0;
+            font-size: 11px;
+            font-style: italic;
+            opacity: 0.55;
+            border-left: 2px solid var(--suit);
+            padding-left: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 0;
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills li {
+            padding: 5px 10px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--suit);
+            border-radius: 2px;
+            background: rgba(139, 127, 168, 0.1);
+            color: var(--bone);
+        }
+
+        .footer {
+            position: absolute;
+            left: 22px;
+            right: 22px;
+            bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            border-top: 1px solid rgba(216, 211, 200, 0.15);
+            padding-top: 10px;
+            z-index: 1;
+        }
+    </style>
+
+    <p class="id-tag">Case File — Web-Slinger</p>
+
+    <div class="top-row">
+        <img class="avatar" src="data:image/jpeg;base64,PASTE_YOUR_PHOTO_BASE64_HERE" alt="" />
+        <div>
+            <h1 class="alias">Spideronair</h1>
+            <p class="name">Piyush Patil</p>
+            <p class="handle">@piyushlp78</p>
+        </div>
+    </div>
+
+    <p class="quote">"Every city's got shadows. I just happen to hang from mine."</p>
+
+    <ul class="skills">
+        <li>Shadow Debugging</li>
+        <li>Silent-Ops Deployment</li>
+        <li>Full-Stack Web-Slinging</li>
+        <li>Noir Deduction</li>
+    </ul>
+
+    <div class="footer">
+        <span>Spider-Society</span>
+        <span>Earth-90214</span>
+    </div>
+</div>
