@@ -11,570 +11,533 @@
   Everything else is yours. Go wild.
 -->
 
-```html
 <!--
-  SPIDER-ID CARD — EARTH-26038
-  Tanishq Pagare // Dark Spider-Verse Edition
+  SPIDER-ID CARD — CINEMATIC SPIDER-VERSE
+  EARTH-26038
 
-  Rules respected:
-  - 320 x 440 card
-  - Internal CSS only
-  - No JavaScript
-  - Required data-* attributes preserved
+  RULES:
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only
+  3. No <script> tags
+  4. Everything fits inside 320 x 440
+  5. Keep the four data-* attributes on .spider-card
+-->
+
+<!--
+  FUTURISTIC SPIDER-ID CARD
+  Name: Tanishq Pagare
+  GitHub: tanishqpagare371
+
+  Card size: 320 x 440
 -->
 
 <div
   class="spider-card"
   data-name="Tanishq Pagare"
-  data-alias="The Dark Weaver"
+  data-alias="SPIDER-371"
   data-github="tanishqpagare371"
   data-suit="#E62429"
 >
   <style>
-    /* ─────────────────────────────────────────────
-       DARK SPIDER-VERSE // EARTH-26038
-       ───────────────────────────────────────────── */
-
     .spider-card {
       --red: #e62429;
-      --dark-red: #8e1116;
-      --cream: #f4ead3;
-      --black: #09090b;
-      --grey: #18181b;
+      --cyan: #00eaff;
+      --white: #f4f7ff;
 
       width: 320px;
       height: 440px;
       box-sizing: border-box;
+
       position: relative;
       overflow: hidden;
 
-      padding: 18px;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: var(--white);
 
-      color: var(--cream);
-      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      border: 2px solid var(--red);
+      border-radius: 18px;
 
-      background:
-        radial-gradient(
-          circle at 82% 18%,
-          rgba(230, 36, 41, 0.28),
-          transparent 28%
-        ),
-        linear-gradient(
-          145deg,
-          #050505 0%,
-          #111113 52%,
-          #09090b 100%
-        );
+      background: #020307;
 
-      border: 4px solid var(--red);
       box-shadow:
-        8px 8px 0 #000,
-        0 0 0 2px var(--cream),
-        0 0 30px rgba(230, 36, 41, 0.35);
-
-      transform: rotate(-0.4deg);
+        0 0 20px rgba(230, 36, 41, 0.45),
+        0 0 45px rgba(0, 234, 255, 0.15);
     }
 
-    /* ───────── HALFTONE BACKGROUND ───────── */
+    /* ───────── SPIDER-MAN MAIN BACKGROUND ───────── */
 
-    .spider-card::before {
-      content: "";
+    .spider-bg {
       position: absolute;
+
       inset: 0;
 
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      z-index: 0;
+
+      filter:
+        contrast(1.15)
+        saturate(1.15);
+
+      transform: scale(1.03);
+    }
+
+    /* ───────── DARK CINEMATIC OVERLAY ───────── */
+
+    .cinematic-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(0, 0, 0, 0.05) 25%,
+          rgba(0, 0, 0, 0.25) 48%,
+          rgba(0, 0, 0, 0.88) 100%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.7),
+          transparent 65%
+        );
+    }
+
+    /* ───────── CYBER GRID ───────── */
+
+    .grid {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 2;
+
       background-image:
-        radial-gradient(
-          rgba(244, 234, 211, 0.18) 1.3px,
-          transparent 1.3px
+        linear-gradient(
+          rgba(0, 234, 255, 0.055) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 234, 255, 0.055) 1px,
+          transparent 1px
         );
 
-      background-size: 9px 9px;
-
-      opacity: 0.28;
-      mix-blend-mode: screen;
+      background-size: 18px 18px;
 
       pointer-events: none;
     }
 
-    /* Red comic panel */
+    /* ───────── FUTURISTIC SCANLINES ───────── */
 
-    .spider-card::after {
-      content: "";
-
+    .scanlines {
       position: absolute;
 
-      width: 220px;
-      height: 220px;
+      inset: 0;
 
-      right: -95px;
-      top: -70px;
+      z-index: 3;
 
       background:
         repeating-linear-gradient(
-          45deg,
-          transparent 0 9px,
-          rgba(230, 36, 41, 0.32) 10px 11px
+          0deg,
+          transparent 0px,
+          transparent 4px,
+          rgba(255, 255, 255, 0.025) 5px
         );
-
-      border: 3px solid rgba(230, 36, 41, 0.5);
-
-      transform: rotate(18deg);
 
       pointer-events: none;
     }
 
-    /* ───────── TOP BAR ───────── */
+    /* ───────── TOP HUD ───────── */
 
-    .top-bar {
-      position: relative;
-      z-index: 5;
+    .top-hud {
+      position: absolute;
+
+      top: 17px;
+      left: 18px;
+      right: 18px;
 
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      padding-bottom: 8px;
-
-      border-bottom: 2px solid var(--cream);
+      z-index: 5;
 
       font-family: monospace;
-      font-size: 9px;
-      font-weight: bold;
-      letter-spacing: 1.4px;
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
     }
 
-    .classified {
-      color: var(--red);
+    .status {
+      color: #00ff88;
+
+      padding: 5px 8px;
+
+      border: 1px solid rgba(0, 255, 136, 0.5);
+
+      background: rgba(0, 0, 0, 0.45);
+
+      text-shadow:
+        0 0 8px rgba(0, 255, 136, 0.8);
     }
 
-    .earth {
-      color: var(--cream);
+    .status::before {
+      content: "●";
+
+      margin-right: 5px;
     }
 
-    /* ───────── COMIC BURST ───────── */
+    .id {
+      color: var(--cyan);
 
-    .burst {
-      position: absolute;
+      padding: 5px 8px;
 
-      right: -6px;
-      top: 82px;
+      background: rgba(0, 0, 0, 0.45);
 
-      width: 72px;
-      height: 72px;
-
-      background: var(--red);
-
-      clip-path: polygon(
-        50% 0%,
-        61% 25%,
-        82% 5%,
-        77% 32%,
-        100% 29%,
-        78% 49%,
-        98% 63%,
-        72% 65%,
-        78% 93%,
-        56% 72%,
-        42% 100%,
-        39% 71%,
-        12% 84%,
-        29% 59%,
-        0% 51%,
-        28% 41%,
-        9% 18%,
-        37% 28%
-      );
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      color: var(--cream);
-
-      font-family: Impact, sans-serif;
-      font-size: 11px;
-      text-align: center;
-
-      transform: rotate(12deg);
-
-      z-index: 4;
-
-      box-shadow: 4px 4px 0 #000;
+      border: 1px solid rgba(0, 234, 255, 0.35);
     }
 
-    /* ───────── AVATAR ───────── */
-
-    .avatar-frame {
-      position: relative;
-      z-index: 4;
-
-      width: 92px;
-      height: 92px;
-
-      margin-top: 16px;
-
-      transform: rotate(-3deg);
-
-      background: var(--cream);
-
-      padding: 5px;
-
-      box-shadow:
-        6px 6px 0 var(--red),
-        10px 10px 0 #000;
-    }
+    /* ───────── GITHUB AVATAR ───────── */
 
     .avatar {
-      width: 100%;
-      height: 100%;
+      position: absolute;
 
-      display: block;
+      top: 58px;
+      left: 20px;
+
+      width: 62px;
+      height: 62px;
 
       object-fit: cover;
 
-      border: 3px solid var(--black);
+      border-radius: 10px;
 
-      filter:
-        grayscale(25%)
-        contrast(1.2);
+      border: 2px solid var(--cyan);
+
+      z-index: 6;
+
+      box-shadow:
+        0 0 15px rgba(0, 234, 255, 0.55),
+        0 0 30px rgba(230, 36, 41, 0.35);
     }
 
-    /* ───────── ALIAS ───────── */
+    /* ───────── IDENTITY PANEL ───────── */
+
+    .identity {
+      position: absolute;
+
+      left: 20px;
+      right: 20px;
+
+      bottom: 105px;
+
+      z-index: 6;
+
+      padding: 13px 14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.45)
+        );
+
+      border-left: 3px solid var(--red);
+
+      border-top: 1px solid rgba(0, 234, 255, 0.3);
+
+      border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+
+      box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.5);
+    }
 
     .alias {
-      position: relative;
-      z-index: 5;
+      margin: 0;
 
-      margin: 16px 0 0;
+      font-size: 27px;
 
-      max-width: 260px;
+      line-height: 1;
 
-      font-size: 30px;
-      line-height: 0.92;
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      color: var(--red);
 
       text-transform: uppercase;
 
-      color: var(--cream);
-
-      letter-spacing: 0.5px;
-
       text-shadow:
-        3px 3px 0 var(--red),
-        6px 6px 0 #000;
-
-      transform: skew(-4deg);
-    }
-
-    .alias span {
-      color: var(--red);
-    }
-
-    /* ───────── NAME ───────── */
-
-    .identity {
-      position: relative;
-      z-index: 5;
-
-      margin-top: 7px;
-
-      display: flex;
-      align-items: center;
-      gap: 8px;
+        0 0 8px rgba(230, 36, 41, 0.8),
+        2px 2px 0 rgba(0, 234, 255, 0.25);
     }
 
     .name {
-      margin: 0;
+      margin: 7px 0 0;
 
-      font-family: Arial, sans-serif;
       font-size: 13px;
-      font-weight: 900;
 
-      color: var(--cream);
+      font-weight: 600;
+
+      letter-spacing: 2px;
 
       text-transform: uppercase;
     }
 
     .handle {
-      margin: 0;
+      margin: 4px 0 0;
 
       font-family: monospace;
-      font-size: 9px;
 
-      color: #aaa;
+      font-size: 10px;
+
+      color: var(--cyan);
+
+      opacity: 0.85;
     }
 
     /* ───────── SKILLS ───────── */
 
     .skills-title {
-      position: relative;
-      z-index: 5;
-
-      display: inline-block;
-
-      margin-top: 14px;
-      margin-bottom: 6px;
-
-      padding: 3px 7px;
-
-      color: var(--black);
-      background: var(--cream);
+      margin-top: 10px;
 
       font-family: monospace;
-      font-size: 9px;
-      font-weight: bold;
 
-      letter-spacing: 1px;
+      font-size: 8px;
 
-      transform: rotate(-2deg);
+      letter-spacing: 2px;
+
+      color: var(--cyan);
     }
 
     .skills {
-      position: relative;
-      z-index: 5;
-
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 5px;
 
-      margin: 0;
+      margin: 6px 0 0;
+
       padding: 0;
 
       list-style: none;
     }
 
     .skills li {
-      padding: 5px 8px;
-
-      color: var(--cream);
-
-      background: var(--dark-red);
-
-      border: 2px solid var(--cream);
+      padding: 4px 8px;
 
       font-family: monospace;
+
       font-size: 9px;
-      font-weight: bold;
 
-      text-transform: uppercase;
+      color: white;
 
-      box-shadow: 3px 3px 0 #000;
+      background: rgba(230, 36, 41, 0.2);
 
-      transform: skew(-7deg);
+      border: 1px solid rgba(0, 234, 255, 0.45);
+
+      border-radius: 3px;
     }
 
-    .skills li:nth-child(2) {
-      background: var(--red);
-      color: #fff;
-      transform: skew(5deg);
-    }
-
-    .skills li:nth-child(3) {
-      background: var(--grey);
-    }
-
-    .skills li:nth-child(4) {
-      background: var(--cream);
-      color: var(--black);
-    }
-
-    /* ───────── COMIC WORDS ───────── */
-
-    .thwip {
-      position: absolute;
-
-      left: -5px;
-      bottom: 68px;
-
-      color: var(--cream);
-
-      font-family: Impact, sans-serif;
-      font-size: 20px;
-
-      letter-spacing: 1px;
-
-      transform: rotate(-12deg);
-
-      text-shadow:
-        2px 2px 0 var(--red),
-        4px 4px 0 #000;
-
-      z-index: 3;
-    }
-
-    .krak {
-      position: absolute;
-
-      right: 8px;
-      bottom: 92px;
-
-      color: var(--red);
-
-      font-family: Impact, sans-serif;
-      font-size: 22px;
-
-      transform: rotate(8deg);
-
-      text-shadow:
-        2px 2px 0 var(--cream),
-        4px 4px 0 #000;
-
-      z-index: 3;
-    }
-
-    /* ───────── WEB LINES ───────── */
-
-    .web {
-      position: absolute;
-
-      right: -20px;
-      bottom: 30px;
-
-      width: 145px;
-      height: 145px;
-
-      border-radius: 50%;
-
-      opacity: 0.28;
-
-      background:
-        repeating-radial-gradient(
-          circle,
-          transparent 0 15px,
-          var(--cream) 16px 17px,
-          transparent 18px 29px
-        ),
-        repeating-conic-gradient(
-          from 0deg,
-          transparent 0deg 14deg,
-          var(--cream) 15deg 16deg,
-          transparent 17deg 29deg
-        );
-
-      z-index: 1;
-    }
-
-    /* ───────── FOOTER ───────── */
+    /* ───────── SPIDER-SOCIETY FOOTER ───────── */
 
     .footer {
       position: absolute;
 
-      left: 18px;
-      right: 18px;
-      bottom: 13px;
+      left: 20px;
+      right: 20px;
 
-      z-index: 8;
+      bottom: 18px;
+
+      z-index: 6;
 
       display: flex;
+
       justify-content: space-between;
-      align-items: center;
 
-      padding-top: 7px;
+      padding-top: 9px;
 
-      border-top: 2px solid var(--cream);
+      border-top:
+        1px solid rgba(255, 255, 255, 0.25);
 
       font-family: monospace;
+
       font-size: 8px;
-      font-weight: bold;
 
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
 
-      color: var(--cream);
+      color: rgba(255, 255, 255, 0.65);
     }
 
-    .status {
+    .earth {
       color: var(--red);
+
+      text-shadow:
+        0 0 8px rgba(230, 36, 41, 0.7);
     }
 
-    /* ───────── SPIDER-SENSE ANIMATION ───────── */
+    /* ───────── CORNER HUD MARKERS ───────── */
 
-    .avatar-frame::after {
-      content: "";
-
+    .corner {
       position: absolute;
 
-      inset: -7px;
+      width: 18px;
+      height: 18px;
 
-      border: 2px solid var(--red);
+      z-index: 7;
 
-      opacity: 0;
+      border-color: var(--cyan);
 
-      animation: spiderSense 2.8s infinite;
+      opacity: 0.9;
     }
 
-    @keyframes spiderSense {
-      0% {
-        transform: scale(0.92);
-        opacity: 0;
-      }
+    .tl {
+      top: 8px;
+      left: 8px;
 
-      35% {
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: scale(1.18);
-        opacity: 0;
-      }
+      border-top: 1px solid;
+      border-left: 1px solid;
     }
 
-    /* ───────── PRINT / REDUCED MOTION FRIENDLY ───────── */
+    .tr {
+      top: 8px;
+      right: 8px;
 
-    @media (prefers-reduced-motion: reduce) {
-      .avatar-frame::after {
-        animation: none;
-      }
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .bl {
+      bottom: 8px;
+      left: 8px;
+
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .br {
+      bottom: 8px;
+      right: 8px;
+
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+
+    /* ───────── SCAN BAR ───────── */
+
+    .scan-bar {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: 88px;
+
+      height: 1px;
+
+      z-index: 7;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          transparent
+        );
+
+      box-shadow:
+        0 0 12px var(--cyan);
     }
   </style>
 
-  <div class="top-bar">
-    <span class="classified">SPIDER-SOCIETY // CLASSIFIED</span>
-    <span class="earth">26038</span>
+  <!-- MAIN SPIDER-MAN BACKGROUND -->
+  <img
+    class="spider-bg"
+    src="https://upload.wikimedia.org/wikipedia/commons/3/36/Spider-Man_%28cropped%29.jpg"
+    alt="Spider-Man"
+  />
+
+  <!-- CINEMATIC OVERLAY -->
+  <div class="cinematic-overlay"></div>
+
+  <!-- FUTURISTIC GRID -->
+  <div class="grid"></div>
+
+  <!-- SCANLINES -->
+  <div class="scanlines"></div>
+
+  <!-- HUD CORNERS -->
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner bl"></span>
+  <span class="corner br"></span>
+
+  <!-- TOP HUD -->
+  <div class="top-hud">
+    <div class="status">
+      SYSTEM ONLINE
+    </div>
+
+    <div class="id">
+      SPIDER-ID // T371
+    </div>
   </div>
 
-  <div class="burst">
-    THWIP!
-  </div>
+  <!-- YOUR GITHUB AVATAR -->
+  <img
+    class="avatar"
+    src="https://github.com/tanishqpagare371.png"
+    alt="Tanishq Pagare"
+  />
 
-  <div class="avatar-frame">
-    <img
-      class="avatar"
-      src="https://github.com/tanishqpagare371.png"
-      alt="Tanishq Pagare"
-    />
-  </div>
-
-  <h1 class="alias">
-    THE <span>DARK</span><br />
-    WEAVER
-  </h1>
-
+  <!-- IDENTITY -->
   <div class="identity">
-    <p class="name">Tanishq Pagare</p>
-    <p class="handle">@tanishqpagare371</p>
+
+    <h1 class="alias">
+      SPIDER-371
+    </h1>
+
+    <p class="name">
+      venum
+    </p>
+
+    <p class="handle">
+      @tanishqpagare371
+    </p>
+
+    <div class="skills-title">
+      CORE ABILITIES // SCAN
+    </div>
+
+    <ul class="skills">
+      <li>Skill One</li>
+      <li>skill two</li>
+      <li>Skill Three</li>
+    </ul>
+
   </div>
 
-  <div class="skills-title">
-    SPIDER ABILITIES
-  </div>
+  <!-- SCAN BAR -->
+  <div class="scan-bar"></div>
 
-  <ul class="skills">
-    <li>AI / ML</li>
-    <li>WEB DEV</li>
-    <li>PYTHON</li>
-    <li>UI / UX</li>
-    <li>PROBLEM SOLVING</li>
-  </ul>
-
-  <div class="thwip">THWIP!</div>
-  <div class="krak">KRAK!</div>
-
-  <div class="web"></div>
-
+  <!-- FOOTER -->
   <div class="footer">
-    <span>EARTH-26038</span>
-    <span class="status">● SPIDER ACTIVE</span>
+    <span>
+      SPIDER-SOCIETY
+    </span>
+
+    <span class="earth">
+      EARTH-1610
+    </span>
   </div>
+
 </div>
-```
-
-
