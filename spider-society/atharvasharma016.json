@@ -1,0 +1,15 @@
+{
+<<<<<<< HEAD
+  "name": "Dr atharva",
+  "alias": "spider bitch",
+  "skills": ["Skill One", "Skill Two", "Skill Three"],
+  "suitColor": "#E62429",
+  "githubUsername": "your-github-username"
+=======
+  "name": "Night-Weaver",
+  "alias": "Night-Weaver",
+  "skills": ["LEADERSHIP", "QUICK LEARNER", "GOOD AT SPORTS"],
+  "suitColor": "#1A1A1A",
+  "githubUsername": "Night-Weaver"
+>>>>>>> symbiote
+}
