@@ -1,7 +1,12 @@
 {
   "name": "Palakshi",
+<<<<<<< HEAD
   "alias": "palakshi",
   "skills": ["Skill One", "Skill Two", "Skill Three"],
+=======
+  "alias": "blackwidow",
+  "skills": ["skill one", "Skill Two", "Skill Three"],
+>>>>>>> symbiote
   "suitColor": "#E62429",
   "githubUsername": "palakshiverma"
 }
