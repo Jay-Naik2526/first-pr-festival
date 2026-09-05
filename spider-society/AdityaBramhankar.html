@@ -1,0 +1,531 @@
+<div
+  class="spider-card"
+  data-name="Aditya"
+  data-alias="goblin"
+  data-github="YOUR_GITHUB_USERNAME"
+  data-suit="#d7d9dc"
+>
+  <style>
+    .spider-card {
+      --suit: #d7d9dc;
+      --red: #e3262e;
+      --black: #070809;
+      --grey: #9da1a6;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+
+      position: relative;
+      overflow: hidden;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: #f2f2f2;
+
+      background:
+        radial-gradient(
+          circle at 75% 10%,
+          rgba(227, 38, 46, 0.16),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          #111315 0%,
+          #08090a 48%,
+          #030405 100%
+        );
+
+      border: 1px solid #303338;
+      border-radius: 20px;
+
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+    }
+
+    /* Subtle technical grid */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 24px 24px;
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 75%
+      );
+
+      pointer-events: none;
+    }
+
+    /* Red accent line */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+
+      top: 0;
+      left: 28px;
+      width: 80px;
+      height: 2px;
+
+      background: var(--red);
+
+      box-shadow: 0 0 14px rgba(227, 38, 46, 0.7);
+    }
+
+    .top {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .designation {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: #70747a;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      letter-spacing: 1px;
+      color: #7f8388;
+    }
+
+    .status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #63d48a;
+      box-shadow: 0 0 7px rgba(99, 212, 138, 0.8);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      z-index: 2;
+
+      width: 116px;
+      height: 116px;
+      margin-top: 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #35383c;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          #1c1f22 0%,
+          #0b0c0e 65%,
+          #050607 100%
+        );
+
+      box-shadow:
+        inset 0 0 25px rgba(255, 255, 255, 0.035),
+        0 0 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .avatar-wrap::before {
+      content: "";
+
+      position: absolute;
+      inset: 7px;
+
+      border: 1px solid #272a2e;
+      border-radius: 50%;
+    }
+
+    .avatar-wrap::after {
+      content: "";
+
+      position: absolute;
+      right: -4px;
+      bottom: 18px;
+
+      width: 18px;
+      height: 1px;
+
+      background: var(--red);
+
+      box-shadow:
+        -8px 5px 0 rgba(227, 38, 46, 0.45),
+        -15px 10px 0 rgba(227, 38, 46, 0.2);
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .identity {
+      position: relative;
+      z-index: 2;
+      margin-top: 15px;
+    }
+
+    .alias {
+      margin: 0;
+
+      font-size: 29px;
+      line-height: 1;
+
+      font-weight: 750;
+      letter-spacing: -1px;
+
+      color: #f4f4f4;
+    }
+
+    .alias span {
+      color: var(--red);
+    }
+
+    .name {
+      margin: 7px 0 0;
+
+      font-size: 12px;
+      letter-spacing: 0.5px;
+
+      color: #a8abb0;
+    }
+
+    .handle {
+      margin: 4px 0 0;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+
+      color: #666a70;
+    }
+
+    .divider {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      height: 1px;
+
+      margin: 15px 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          #3a3d41,
+          transparent
+        );
+    }
+
+    .section-label {
+      position: relative;
+      z-index: 2;
+
+      margin-bottom: 8px;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+
+      letter-spacing: 2px;
+      color: #64686d;
+
+      text-transform: uppercase;
+    }
+
+    .skills {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 7px 9px;
+
+      border: 1px solid #292c30;
+      border-radius: 7px;
+
+      background: rgba(255, 255, 255, 0.025);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+
+      color: #bfc2c6;
+
+      letter-spacing: 0.4px;
+    }
+
+    .skills li::before {
+      content: "•";
+      margin-right: 6px;
+
+      color: var(--red);
+    }
+
+    .quote {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 14px;
+      padding-left: 10px;
+
+      border-left: 2px solid var(--red);
+
+      font-size: 10px;
+      line-height: 1.45;
+
+      color: #8d9196;
+    }
+
+    .quote strong {
+      color: #d8dade;
+      font-weight: 500;
+    }
+
+    .footer {
+      position: absolute;
+      z-index: 2;
+
+      left: 20px;
+      right: 20px;
+      bottom: 16px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-top: 10px;
+
+      border-top: 1px solid #25282c;
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+      color: #5f6368;
+
+      text-transform: uppercase;
+    }
+
+    .footer b {
+      color: #999da2;
+      font-weight: 500;
+    }
+
+    .spider-mark {
+      position: absolute;
+      right: -30px;
+      bottom: 35px;
+
+      width: 125px;
+      height: 125px;
+
+      opacity: 0.035;
+
+      transform: rotate(-12deg);
+    }
+  </style>
+
+  <div class="top">
+    <div class="designation">SPIDER // ID-01</div>
+
+    <div class="status">
+      <span class="status-dot"></span>
+      ONLINE
+    </div>
+  </div>
+
+  <!-- Minimal futuristic spider avatar -->
+  <div class="avatar-wrap">
+    <svg
+      class="avatar"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- head -->
+      <path
+        d="M50 13
+           C34 13 24 26 24 45
+           C24 65 35 79 50 87
+           C65 79 76 65 76 45
+           C76 26 66 13 50 13Z"
+        fill="#0b0c0e"
+        stroke="#d7d9dc"
+        stroke-width="1.5"
+      />
+
+      <!-- mask -->
+      <path
+        d="M29 37
+           C35 25 43 20 50 20
+           C57 20 65 25 71 37
+           L65 60
+           C59 68 54 73 50 76
+           C46 73 41 68 35 60Z"
+        fill="#111316"
+        stroke="#383c40"
+        stroke-width="1"
+      />
+
+      <!-- left eye -->
+      <path
+        d="M32 38
+           C37 30 43 29 48 32
+           L43 46
+           C38 45 34 43 32 38Z"
+        fill="#e9eaec"
+      />
+
+      <!-- right eye -->
+      <path
+        d="M68 38
+           C63 30 57 29 52 32
+           L57 46
+           C62 45 66 43 68 38Z"
+        fill="#e9eaec"
+      />
+
+      <!-- eye shadows -->
+      <path
+        d="M36 37 L44 34"
+        stroke="#e3262e"
+        stroke-width="1"
+      />
+
+      <path
+        d="M64 37 L56 34"
+        stroke="#e3262e"
+        stroke-width="1"
+      />
+
+      <!-- web lines -->
+      <g
+        stroke="#6e7379"
+        stroke-width=".7"
+        fill="none"
+        opacity=".75"
+      >
+        <path d="M50 21 V74" />
+        <path d="M35 30 L50 50 L65 30" />
+        <path d="M29 43 L50 55 L71 43" />
+        <path d="M30 54 L50 62 L70 54" />
+        <path d="M35 65 L50 70 L65 65" />
+      </g>
+
+      <!-- central spider -->
+      <path
+        d="M50 47
+           C46 47 43 51 43 55
+           C43 59 46 61 50 61
+           C54 61 57 59 57 55
+           C57 51 54 47 50 47Z"
+        fill="#d7d9dc"
+      />
+
+      <!-- spider legs -->
+      <g
+        stroke="#d7d9dc"
+        stroke-width="1.2"
+        stroke-linecap="round"
+      >
+        <path d="M45 51 L37 47 L32 41" />
+        <path d="M44 54 L35 53 L28 48" />
+        <path d="M44 57 L35 60 L29 66" />
+
+        <path d="M55 51 L63 47 L68 41" />
+        <path d="M56 54 L65 53 L72 48" />
+        <path d="M56 57 L65 60 L71 66" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="identity">
+    <h1 class="alias">THE <span>WEAVER</span></h1>
+
+    <p class="name">Aditya</p>
+
+    <p class="handle">@YOUR_GITHUB_USERNAME</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Capabilities</div>
+
+  <ul class="skills">
+    <li>WEB ENGINEERING</li>
+    <li>PYTHON</li>
+    <li>GIT & GITHUB</li>
+    <li>PROBLEM SOLVING</li>
+  </ul>
+
+  <div class="quote">
+    <strong>“The web remembers everything.”</strong><br />
+    Build carefully. Break creatively.
+  </div>
+
+  <!-- Background spider symbol -->
+  <svg
+    class="spider-mark"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="3"
+      stroke-linecap="round"
+    >
+      <ellipse cx="50" cy="52" rx="12" ry="18" />
+      <path d="M42 45 L20 25 L10 27" />
+      <path d="M41 51 L17 43 L7 48" />
+      <path d="M41 59 L18 67 L9 77" />
+      <path d="M58 45 L80 25 L90 27" />
+      <path d="M59 51 L83 43 L93 48" />
+      <path d="M59 59 L82 67 L91 77" />
+    </g>
+  </svg>
+
+  <div class="footer">
+    <span>SPIDER-SOCIETY</span>
+    <b>EARTH-1610</b>
+  </div>
+</div>
