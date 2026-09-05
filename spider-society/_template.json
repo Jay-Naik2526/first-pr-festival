@@ -1,7 +1,14 @@
 {
+<<<<<<< HEAD
   "name": "Nikilesh Pakle",
   "alias": "Nikhilesh Pakle",
   "skills": ["Skill One", "Skill Two", "Skill Three"],
   "suitColor": "#E62429",
+=======
+  "name": "Nikhilesh Pakle",
+  "alias": "Dharmendra Kumar",
+  "skills": ["CODING","CYBERSEC", "WEB DEV" , "CSE" , "PROBLEM SOLVING" , "DEBBUGING"]
+ "suitColor": "#000000",
+>>>>>>> symbiote
   "githubUsername": "paklenikhilesh-cloud"
 }
