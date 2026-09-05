@@ -1,0 +1,1024 @@
+```html
+<div
+  class="spider-card"
+  data-name="Ammos"
+  data-alias="Ultimate Spider"
+  data-github="Sahil-Kachave"
+  data-suit="#00FFFF"
+>
+  <style>
+
+    /* =====================================================
+       AMMOS // SPIDER-VERSE
+       320 x 440
+       ===================================================== */
+
+    .spider-card {
+        box-shadow: 0 0 20px #00FFFF;
+      --red: #ff1744;
+      --cyan: #00f6ff;
+      --blue: #087cff;
+      --purple: #a855f7;
+      --white: #f8fbff;
+      --muted: #aeb8c7;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+
+      padding: 20px;
+
+      color: var(--white);
+      font-family: system-ui, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 80% 18%,
+          rgba(0,246,255,.16),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 20% 75%,
+          rgba(168,85,247,.13),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 45% 40%,
+          rgba(255,23,68,.16),
+          transparent 35%
+        ),
+        #030307;
+
+      border: 2px solid rgba(255,23,68,.85);
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 10px rgba(255,23,68,.75),
+        0 0 30px rgba(255,23,68,.3),
+        inset 0 0 45px rgba(255,23,68,.08);
+
+      isolation: isolate;
+    }
+
+
+    /* =====================================================
+       WEB BACKGROUND
+       ===================================================== */
+
+    .web {
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      left: -70px;
+      top: -30px;
+
+      background-image:
+        repeating-radial-gradient(
+          circle,
+          transparent 0 18px,
+          rgba(255,255,255,.055) 19px 20px
+        ),
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(255,255,255,.045) 0deg 1deg,
+          transparent 1deg 15deg
+        );
+
+      opacity: .55;
+      transform: rotate(8deg);
+
+      animation: webPulse 5s ease-in-out infinite;
+
+      z-index: 0;
+    }
+
+    @keyframes webPulse {
+      50% {
+        opacity: .8;
+      }
+    }
+
+
+    /* =====================================================
+       SCANNING LIGHT
+       ===================================================== */
+
+    .scan {
+      position: absolute;
+
+      width: 450px;
+      height: 2px;
+
+      left: -70px;
+      top: -30px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          white,
+          var(--red),
+          transparent
+        );
+
+      box-shadow:
+        0 0 8px var(--cyan),
+        0 0 18px var(--red);
+
+      opacity: .5;
+
+      transform: rotate(-20deg);
+
+      animation: scanMove 5s linear infinite;
+
+      z-index: 3;
+    }
+
+    @keyframes scanMove {
+      from {
+        top: -40px;
+      }
+
+      to {
+        top: 470px;
+      }
+    }
+
+
+    /* =====================================================
+       MOVING NEON BORDER
+       ===================================================== */
+
+    .energy {
+      position: absolute;
+      inset: 0;
+
+      border-radius: 20px;
+
+      border: 1px solid transparent;
+
+      box-shadow:
+        inset 0 0 10px rgba(0,246,255,.2);
+
+      pointer-events: none;
+
+      z-index: 20;
+    }
+
+
+    /* =====================================================
+       HUD CORNERS
+       ===================================================== */
+
+    .corner {
+      position: absolute;
+
+      width: 18px;
+      height: 18px;
+
+      z-index: 30;
+    }
+
+    .c1 {
+      top: 7px;
+      left: 7px;
+      border-top: 2px solid var(--cyan);
+      border-left: 2px solid var(--cyan);
+    }
+
+    .c2 {
+      top: 7px;
+      right: 7px;
+      border-top: 2px solid var(--red);
+      border-right: 2px solid var(--red);
+    }
+
+    .c3 {
+      bottom: 7px;
+      left: 7px;
+      border-bottom: 2px solid var(--red);
+      border-left: 2px solid var(--red);
+    }
+
+    .c4 {
+      bottom: 7px;
+      right: 7px;
+      border-bottom: 2px solid var(--cyan);
+      border-right: 2px solid var(--cyan);
+    }
+
+
+    /* =====================================================
+       TOP BAR
+       ===================================================== */
+
+    .topbar {
+      position: relative;
+      z-index: 10;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing: 1.4px;
+
+      color: rgba(255,255,255,.65);
+
+      opacity: 0;
+
+      animation: appear .5s forwards;
+
+      animation-delay: .2s;
+    }
+
+    .online {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      color: #66ffb0;
+    }
+
+    .online::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #66ffb0;
+
+      box-shadow:
+        0 0 7px #66ffb0,
+        0 0 14px #66ffb0;
+
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: .25;
+      }
+    }
+
+
+    /* =====================================================
+       SPIDER LOGO
+       ===================================================== */
+
+    .spider-logo {
+      position: absolute;
+
+      right: 13px;
+      top: 82px;
+
+      width: 110px;
+      height: 110px;
+
+      z-index: 2;
+
+      opacity: 0;
+
+      animation:
+        spiderIn 1s forwards,
+        spiderGlow 2s ease-in-out infinite;
+
+      animation-delay: .6s, 1.6s;
+    }
+
+    .body {
+      position: absolute;
+
+      left: 42px;
+      top: 38px;
+
+      width: 28px;
+      height: 45px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 25%,
+          #ffb0bd,
+          var(--red) 30%,
+          #65000f 75%
+        );
+
+      border: 1px solid #ff7188;
+
+      box-shadow:
+        0 0 8px var(--red),
+        0 0 18px var(--red),
+        0 0 38px var(--red);
+    }
+
+    .head {
+      position: absolute;
+
+      left: 46px;
+      top: 25px;
+
+      width: 20px;
+      height: 20px;
+
+      border-radius: 50%;
+
+      background: var(--red);
+
+      box-shadow:
+        0 0 8px var(--red),
+        0 0 20px var(--red);
+    }
+
+    .leg {
+      position: absolute;
+
+      width: 45px;
+      height: 3px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red),
+          #ff6c83,
+          var(--cyan)
+        );
+
+      box-shadow:
+        0 0 6px var(--red),
+        0 0 13px var(--red),
+        0 0 18px var(--cyan);
+
+      transform-origin: 0 50%;
+    }
+
+    .a { left: 48px; top: 41px; transform: rotate(205deg); }
+    .b { left: 46px; top: 47px; transform: rotate(185deg); }
+    .c { left: 46px; top: 54px; transform: rotate(160deg); }
+    .d { left: 48px; top: 61px; transform: rotate(140deg); }
+
+    .e { left: 63px; top: 41px; transform: rotate(-25deg); }
+    .f { left: 63px; top: 47px; transform: rotate(-5deg); }
+    .g { left: 63px; top: 54px; transform: rotate(20deg); }
+    .h { left: 61px; top: 61px; transform: rotate(40deg); }
+
+    @keyframes spiderIn {
+      from {
+        opacity: 0;
+        transform: scale(.4) rotate(-20deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    @keyframes spiderGlow {
+      50% {
+        filter:
+          brightness(1.4)
+          drop-shadow(0 0 15px var(--red));
+      }
+    }
+
+
+    /* =====================================================
+       AVATAR
+       ===================================================== */
+
+    .avatar-zone {
+      position: relative;
+
+      z-index: 10;
+
+      width: 76px;
+      height: 76px;
+
+      margin-top: 20px;
+
+      opacity: 0;
+
+      animation: avatarIn .7s forwards;
+
+      animation-delay: 1.3s;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+
+      object-fit: cover;
+
+      border-radius: 15px;
+
+      border: 2px solid var(--red);
+
+      box-shadow:
+        0 0 10px var(--red),
+        0 0 25px rgba(255,23,68,.6);
+    }
+
+    .avatar-zone::before {
+      content: "";
+
+      position: absolute;
+
+      inset: -7px;
+
+      border:
+        1px solid var(--cyan);
+
+      border-radius: 19px;
+
+      transform: rotate(6deg);
+
+      box-shadow:
+        0 0 10px rgba(0,246,255,.5);
+    }
+
+    .avatar-zone::after {
+      content: "";
+
+      position: absolute;
+
+      inset: -11px;
+
+      border:
+        1px dashed rgba(255,23,68,.5);
+
+      border-radius: 22px;
+
+      animation: rotate 7s linear infinite;
+    }
+
+    @keyframes avatarIn {
+      from {
+        opacity: 0;
+        transform: translateX(-25px) scale(.7);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    /* =====================================================
+       MAIN NAME — BIG + READABLE
+       ===================================================== */
+
+    .alias {
+      position: relative;
+
+      z-index: 10;
+
+      width: 170px;
+
+      margin: 15px 0 0;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 30px;
+
+      line-height: 1;
+
+      font-weight: 950;
+
+      letter-spacing: 3px;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      color: var(--white);
+
+      text-shadow:
+        2px 0 var(--red),
+        -2px 0 var(--cyan),
+        0 0 15px rgba(255,23,68,.8);
+
+      border-right: 2px solid var(--red);
+
+      opacity: 0;
+
+      animation:
+        typingAlias 1s steps(5) forwards,
+        cursor .6s step-end infinite;
+
+      animation-delay: 2s;
+    }
+
+    @keyframes typingAlias {
+      from {
+        width: 0;
+        opacity: 1;
+      }
+
+      to {
+        width: 170px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes cursor {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+
+    /* =====================================================
+       ROLE
+       ===================================================== */
+
+    .name {
+      position: relative;
+
+      z-index: 10;
+
+      width: 230px;
+
+      margin: 7px 0 0;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      letter-spacing: 1.8px;
+
+      color: var(--red);
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      border-right: 1px solid var(--red);
+
+      opacity: 0;
+
+      animation:
+        typingRole 1.2s steps(24) forwards;
+
+      animation-delay: 3.2s;
+    }
+
+    @keyframes typingRole {
+      from {
+        width: 0;
+        opacity: 1;
+      }
+
+      to {
+        width: 230px;
+        opacity: 1;
+      }
+    }
+
+
+    /* =====================================================
+       GITHUB
+       ===================================================== */
+
+    .handle {
+      position: relative;
+
+      z-index: 10;
+
+      width: 145px;
+
+      margin: 6px 0 0;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      letter-spacing: .7px;
+
+      color: var(--muted);
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      border-right: 1px solid var(--cyan);
+
+      opacity: 0;
+
+      animation:
+        typingHandle 1s steps(14) forwards;
+
+      animation-delay: 4.7s;
+    }
+
+    @keyframes typingHandle {
+      from {
+        width: 0;
+        opacity: 1;
+      }
+
+      to {
+        width: 145px;
+        opacity: 1;
+      }
+    }
+
+
+    /* =====================================================
+       DIVIDER
+       ===================================================== */
+
+    .divider {
+      position: relative;
+
+      z-index: 10;
+
+      width: 0;
+
+      height: 2px;
+
+      margin-top: 12px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red),
+          var(--cyan),
+          transparent
+        );
+
+      box-shadow:
+        0 0 8px var(--red),
+        0 0 12px var(--cyan);
+
+      animation: dividerIn .7s forwards;
+
+      animation-delay: 5.9s;
+    }
+
+    @keyframes dividerIn {
+      to {
+        width: 100%;
+      }
+    }
+
+
+    /* =====================================================
+       SKILLS — LARGE ENOUGH TO READ
+       ===================================================== */
+
+    .skills {
+      position: relative;
+
+      z-index: 10;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 7px;
+
+      margin: 12px 0 0;
+
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      width: fit-content;
+
+      padding: 7px 11px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .7px;
+
+      color: #f1fbff;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,23,68,.18),
+          rgba(0,246,255,.07)
+        );
+
+      border-left:
+        3px solid var(--red);
+
+      border-top:
+        1px solid rgba(255,255,255,.08);
+
+      border-right:
+        1px solid rgba(0,246,255,.4);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.06);
+
+      border-radius: 4px;
+
+      box-shadow:
+        0 0 10px rgba(255,23,68,.08),
+        inset 0 0 12px rgba(255,23,68,.04);
+
+      opacity: 0;
+
+      transform: translateX(-20px);
+
+      animation:
+        skillIn .5s forwards;
+    }
+
+    .skills li:nth-child(1) {
+      animation-delay: 6.3s;
+    }
+
+    .skills li:nth-child(2) {
+      animation-delay: 6.7s;
+
+      border-left-color: var(--cyan);
+    }
+
+    .skills li:nth-child(3) {
+      animation-delay: 7.1s;
+
+      border-left-color: var(--purple);
+    }
+
+    @keyframes skillIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+
+    /* =====================================================
+       SYSTEM PANEL
+       ===================================================== */
+
+    .system {
+      position: absolute;
+
+      left: 19px;
+      right: 19px;
+
+      bottom: 51px;
+
+      z-index: 10;
+
+      padding: 8px 10px;
+
+      border-left: 3px solid var(--cyan);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,246,255,.08),
+          rgba(255,255,255,.025)
+        );
+
+      opacity: 0;
+
+      animation: appear .6s forwards;
+
+      animation-delay: 7.7s;
+    }
+
+    .system-title {
+      margin: 0 0 4px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      color: var(--cyan);
+    }
+
+    .system-text {
+      margin: 0;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      font-weight: 600;
+
+      letter-spacing: .5px;
+
+      color: rgba(255,255,255,.55);
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+      position: absolute;
+
+      left: 19px;
+      right: 19px;
+
+      bottom: 16px;
+
+      z-index: 10;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      padding-top: 7px;
+
+      border-top:
+        1px solid rgba(255,255,255,.13);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      font-weight: 700;
+
+      letter-spacing: 1.4px;
+
+      color: rgba(255,255,255,.48);
+
+      opacity: 0;
+
+      animation: appear .5s forwards;
+
+      animation-delay: 8.1s;
+    }
+
+    .earth {
+      color: var(--red);
+
+      text-shadow:
+        0 0 8px var(--red);
+    }
+
+
+    /* =====================================================
+       APPEAR
+       ===================================================== */
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+
+
+  <!-- BACKGROUND -->
+  <div class="web"></div>
+  <div class="scan"></div>
+  <div class="energy"></div>
+
+
+  <!-- CORNERS -->
+  <div class="corner c1"></div>
+  <div class="corner c2"></div>
+  <div class="corner c3"></div>
+  <div class="corner c4"></div>
+
+
+  <!-- TOP HUD -->
+  <div class="topbar">
+    <span>SPIDER-ID // 00917</span>
+    <span class="online">ONLINE</span>
+  </div>
+
+
+  <!-- SPIDER -->
+  <div class="spider-logo">
+
+    <div class="head"></div>
+    <div class="body"></div>
+
+    <div class="leg a"></div>
+    <div class="leg b"></div>
+    <div class="leg c"></div>
+    <div class="leg d"></div>
+
+    <div class="leg e"></div>
+    <div class="leg f"></div>
+    <div class="leg g"></div>
+    <div class="leg h"></div>
+
+  </div>
+
+
+  <!-- PROFILE -->
+  <div class="avatar-zone">
+
+    <img
+      class="avatar"
+      src="https://github.com/Sahil-Kachave.png"
+      alt="Ammos"
+    />
+
+  </div>
+
+
+  <!-- IDENTITY -->
+  <h1 class="alias">AMMOS</h1>
+
+  <p class="name">
+    WEB-SLINGER // DEVELOPER
+  </p>
+
+  <p class="handle">
+    @Sahil-Kachave
+  </p>
+
+
+  <!-- DIVIDER -->
+  <div class="divider"></div>
+
+
+  <!-- SKILLS -->
+  <ul class="skills">
+
+    <li>
+      ◈ TRADING // MARKET OPS
+    </li>
+
+    <li>
+      ◈ FRONTEND + BACKEND
+    </li>
+
+    <li>
+      ◈ C++ · JAVA · PYTHON
+    </li>
+
+  </ul>
+
+
+  <!-- SYSTEM -->
+  <div class="system">
+
+    <p class="system-title">
+      // SPIDER-SOCIETY SYSTEM SCAN
+    </p>
+
+    <p class="system-text">
+      EARTH-1610-X &nbsp; • &nbsp;
+      CLASS: DEVELOPER &nbsp; • &nbsp;
+      STATUS: ACTIVE
+    </p>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+
+    <span>SPIDER-SOCIETY</span>
+
+    <span class="earth">
+      EARTH-1610
+    </span>
+
+  </div>
+
+</div>
+```
