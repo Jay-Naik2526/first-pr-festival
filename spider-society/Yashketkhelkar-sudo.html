@@ -3,20 +3,24 @@
 
   RULES
   1. Rename this file to <your-github-username>.html
-  2. Internal CSS only — keep it inside the <style> block.
-  3. No <script> tags.
-  4. Everything must fit inside 320 x 440.
-  5. Keep the four data- attributes on .spider-card.
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
 -->
 
 <div
   class="spider-card"
-  data-name="NACHi"
-  data-alias="Spider-Tom"
+  data-name="NACHI"
+  data-alias="Norman Osborn"
   data-github="Yashketkhelkar-sudo"
-  data-suit="#E72700"
+  data-suit="#1B5E20"
 >
   <style>
+    /* =========================================================
+       SPIDER-MAN RED/BLUE — NIGHT CITY THEME
+       ========================================================= */
+
     .spider-card {
       --suit: #ed1d24;
       --red: #ff3b3f;
@@ -30,7 +34,9 @@
       width: 320px;
       height: 440px;
       box-sizing: border-box;
+
       padding: 22px;
+
       position: relative;
       overflow: hidden;
 
@@ -38,22 +44,9 @@
       color: var(--white);
 
       background:
-        radial-gradient(
-          circle at 82% 8%,
-          rgba(255, 59, 63, 0.28),
-          transparent 26%
-        ),
-        radial-gradient(
-          circle at 4% 88%,
-          rgba(30, 63, 189, 0.24),
-          transparent 30%
-        ),
-        linear-gradient(
-          160deg,
-          #14141a 0%,
-          #0a0a0d 45%,
-          #030304 100%
-        );
+        radial-gradient(circle at 82% 8%, rgba(255, 59, 63, 0.28), transparent 26%),
+        radial-gradient(circle at 4% 88%, rgba(30, 63, 189, 0.24), transparent 30%),
+        linear-gradient(160deg, #14141a 0%, #0a0a0d 45%, #030304 100%);
 
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 26px;
@@ -73,7 +66,6 @@
           0 0 34px rgba(30, 63, 189, 0.1),
           inset 0 0 40px rgba(0, 0, 0, 0.75);
       }
-
       50% {
         box-shadow:
           0 0 28px rgba(255, 59, 63, 0.45),
@@ -82,238 +74,118 @@
       }
     }
 
+
+    /* subtle vignette for depth */
     .spider-card::before {
       content: "";
       position: absolute;
       inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 50% 40%,
-          transparent 55%,
-          rgba(0, 0, 0, 0.55) 100%
-        );
-
+      background: radial-gradient(circle at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
       pointer-events: none;
       z-index: 1;
     }
 
-    /* CITY SKYLINE */
+
+    /* =========================================================
+       BACKGROUND: glowing night skyline + spider glow
+       (original CSS shapes only — no copyrighted artwork)
+       ========================================================= */
 
     .bg-skyline {
       position: absolute;
-      left: -6px;
-      right: -6px;
-      bottom: -2px;
+      left: -6px; right: -6px; bottom: -2px;
       height: 120px;
       z-index: 1;
       pointer-events: none;
-
       background: #0a0a10;
-
       clip-path: polygon(
-        0% 100%,
-        0% 62%,
-        4% 62%,
-        4% 42%,
-        9% 42%,
-        9% 70%,
-        14% 70%,
-        14% 30%,
-        19% 30%,
-        19% 55%,
-        24% 55%,
-        24% 18%,
-        29% 18%,
-        29% 66%,
-        34% 66%,
-        34% 46%,
-        39% 46%,
-        39% 24%,
-        44% 24%,
-        44% 60%,
-        49% 60%,
-        49% 34%,
-        54% 34%,
-        54% 50%,
-        59% 50%,
-        59% 14%,
-        64% 14%,
-        64% 56%,
-        69% 56%,
-        69% 28%,
-        74% 28%,
-        74% 64%,
-        79% 64%,
-        79% 38%,
-        84% 38%,
-        84% 58%,
-        89% 58%,
-        89% 20%,
-        94% 20%,
-        94% 54%,
-        100% 54%,
-        100% 100%
+        0% 100%, 0% 62%, 4% 62%, 4% 42%, 9% 42%, 9% 70%,
+        14% 70%, 14% 30%, 19% 30%, 19% 55%, 24% 55%, 24% 18%,
+        29% 18%, 29% 66%, 34% 66%, 34% 46%, 39% 46%, 39% 24%,
+        44% 24%, 44% 60%, 49% 60%, 49% 34%, 54% 34%, 54% 50%,
+        59% 50%, 59% 14%, 64% 14%, 64% 56%, 69% 56%, 69% 28%,
+        74% 28%, 74% 64%, 79% 64%, 79% 38%, 84% 38%, 84% 58%,
+        89% 58%, 89% 20%, 94% 20%, 94% 54%, 100% 54%, 100% 100%
       );
-
-      filter:
-        drop-shadow(0 -2px 10px rgba(255, 59, 63, 0.22))
-        drop-shadow(0 -4px 18px rgba(63, 102, 255, 0.18));
-
+      filter: drop-shadow(0 -2px 10px rgba(255, 59, 63, 0.22))
+              drop-shadow(0 -4px 18px rgba(63, 102, 255, 0.18));
       animation: skyline-glow 4.5s ease-in-out infinite;
     }
 
     @keyframes skyline-glow {
       0%, 100% {
-        filter:
-          drop-shadow(0 -2px 8px rgba(255, 59, 63, 0.16))
-          drop-shadow(0 -4px 14px rgba(63, 102, 255, 0.12));
+        filter: drop-shadow(0 -2px 8px rgba(255, 59, 63, 0.16))
+                drop-shadow(0 -4px 14px rgba(63, 102, 255, 0.12));
       }
-
       50% {
-        filter:
-          drop-shadow(0 -3px 16px rgba(255, 59, 63, 0.36))
-          drop-shadow(0 -6px 26px rgba(63, 102, 255, 0.28));
+        filter: drop-shadow(0 -3px 16px rgba(255, 59, 63, 0.36))
+                drop-shadow(0 -6px 26px rgba(63, 102, 255, 0.28));
       }
     }
 
-    /* WINDOWS */
-
     .bg-windows {
       position: absolute;
-      left: -6px;
-      right: -6px;
-      bottom: -2px;
+      left: -6px; right: -6px; bottom: -2px;
       height: 120px;
       z-index: 1;
       pointer-events: none;
-
       background-image:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255, 59, 63, 0.5) 0px,
-          rgba(255, 59, 63, 0.5) 2px,
-          transparent 2px,
-          transparent 14px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          rgba(63, 102, 255, 0.45) 0px,
-          rgba(63, 102, 255, 0.45) 2px,
-          transparent 2px,
-          transparent 12px
-        );
-
+        repeating-linear-gradient(90deg, rgba(255, 59, 63, 0.5) 0px, rgba(255, 59, 63, 0.5) 2px, transparent 2px, transparent 14px),
+        repeating-linear-gradient(0deg, rgba(63, 102, 255, 0.45) 0px, rgba(63, 102, 255, 0.45) 2px, transparent 2px, transparent 12px);
       clip-path: polygon(
-        0% 100%,
-        0% 62%,
-        4% 62%,
-        4% 42%,
-        9% 42%,
-        9% 70%,
-        14% 70%,
-        14% 30%,
-        19% 30%,
-        19% 55%,
-        24% 55%,
-        24% 18%,
-        29% 18%,
-        29% 66%,
-        34% 66%,
-        34% 46%,
-        39% 46%,
-        39% 24%,
-        44% 24%,
-        44% 60%,
-        49% 60%,
-        49% 34%,
-        54% 34%,
-        54% 50%,
-        59% 50%,
-        59% 14%,
-        64% 14%,
-        64% 56%,
-        69% 56%,
-        69% 28%,
-        74% 28%,
-        74% 64%,
-        79% 64%,
-        79% 38%,
-        84% 38%,
-        84% 58%,
-        89% 58%,
-        89% 20%,
-        94% 20%,
-        94% 54%,
-        100% 54%,
-        100% 100%
+        0% 100%, 0% 62%, 4% 62%, 4% 42%, 9% 42%, 9% 70%,
+        14% 70%, 14% 30%, 19% 30%, 19% 55%, 24% 55%, 24% 18%,
+        29% 18%, 29% 66%, 34% 66%, 34% 46%, 39% 46%, 39% 24%,
+        44% 24%, 44% 60%, 49% 60%, 49% 34%, 54% 34%, 54% 50%,
+        59% 50%, 59% 14%, 64% 14%, 64% 56%, 69% 56%, 69% 28%,
+        74% 28%, 74% 64%, 79% 64%, 79% 38%, 84% 38%, 84% 58%,
+        89% 58%, 89% 20%, 94% 20%, 94% 54%, 100% 54%, 100% 100%
       );
-
       opacity: 0.45;
       mix-blend-mode: screen;
-
       animation: windows-twinkle 2.4s ease-in-out infinite;
     }
 
     @keyframes windows-twinkle {
-      0%, 100% {
-        opacity: 0.3;
-      }
-
-      50% {
-        opacity: 0.6;
-      }
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
     }
-
-    /* SPIDER EMBLEM */
 
     .bg-emblem {
       position: absolute;
-      top: -14px;
-      right: -6px;
-      width: 130px;
-      height: 130px;
+      top: -14px; right: -6px;
+      width: 130px; height: 130px;
       z-index: 1;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+      display: flex; align-items: center; justify-content: center;
       font-size: 78px;
       color: rgba(255, 59, 63, 0.45);
-
-      filter:
-        blur(1px)
-        drop-shadow(0 0 16px rgba(255, 59, 63, 0.45))
-        drop-shadow(0 0 30px rgba(63, 102, 255, 0.3));
-
+      filter: blur(1px) drop-shadow(0 0 16px rgba(255, 59, 63, 0.45)) drop-shadow(0 0 30px rgba(63, 102, 255, 0.3));
       opacity: 0.5;
       pointer-events: none;
-
       animation: emblem-glow 4.5s ease-in-out infinite;
     }
 
     @keyframes emblem-glow {
       0%, 100% {
         opacity: 0.35;
-
-        filter:
-          blur(1px)
-          drop-shadow(0 0 10px rgba(255, 59, 63, 0.35))
-          drop-shadow(0 0 20px rgba(63, 102, 255, 0.22));
+        filter: blur(1px) drop-shadow(0 0 10px rgba(255, 59, 63, 0.35)) drop-shadow(0 0 20px rgba(63, 102, 255, 0.22));
       }
-
       50% {
         opacity: 0.6;
-
-        filter:
-          blur(1px)
-          drop-shadow(0 0 20px rgba(255, 59, 63, 0.6))
-          drop-shadow(0 0 38px rgba(63, 102, 255, 0.42));
+        filter: blur(1px) drop-shadow(0 0 20px rgba(255, 59, 63, 0.6)) drop-shadow(0 0 38px rgba(63, 102, 255, 0.42));
       }
     }
 
-    /* WEB */
+
+    /* =========================================================
+       WEBS: glowing spider-web strands (original CSS pattern,
+       radiating from the top-right corner)
+       ========================================================= */
+
+    /* =========================================================
+       WEBS: glowing spider-web strands (original CSS pattern,
+       covering the full card)
+       ========================================================= */
 
     .bg-web {
       position: absolute;
@@ -329,6 +201,7 @@
         );
 
       opacity: 0.5;
+
       animation: web-glow 4.2s ease-in-out infinite;
     }
 
@@ -336,7 +209,6 @@
       content: "";
       position: absolute;
       inset: 0;
-
       background-image:
         repeating-radial-gradient(
           circle at 50% 35%,
@@ -346,40 +218,37 @@
     }
 
     @keyframes web-glow {
-      0%, 100% {
-        opacity: 0.35;
-      }
-
-      50% {
-        opacity: 0.6;
-      }
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.6; }
     }
 
-    /* CONTENT */
+
+    /* =========================================================
+       CONTENT LAYER
+       ========================================================= */
 
     .content {
       position: relative;
       z-index: 2;
       height: 100%;
-
       display: flex;
       flex-direction: column;
     }
 
-    /* HEADER */
+
+    /* =========================================================
+       TOP HEADER
+       ========================================================= */
 
     .top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       margin-bottom: 14px;
-
       font-family: ui-monospace, monospace;
       font-size: 8px;
       letter-spacing: 2px;
       text-transform: uppercase;
-
       color: var(--gray);
     }
 
@@ -387,7 +256,6 @@
       display: flex;
       align-items: center;
       gap: 6px;
-
       color: var(--red);
     }
 
@@ -395,35 +263,20 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-
       background: var(--red);
-
-      box-shadow:
-        0 0 6px var(--red),
-        0 0 12px var(--red);
-
+      box-shadow: 0 0 6px var(--red), 0 0 12px var(--red);
       animation: dot-pulse 1.6s ease-in-out infinite;
     }
 
     @keyframes dot-pulse {
-      0%, 100% {
-        box-shadow:
-          0 0 4px var(--red),
-          0 0 8px var(--red);
-
-        opacity: 0.75;
-      }
-
-      50% {
-        box-shadow:
-          0 0 8px var(--red),
-          0 0 18px var(--red);
-
-        opacity: 1;
-      }
+      0%, 100% { box-shadow: 0 0 4px var(--red), 0 0 8px var(--red); opacity: 0.75; }
+      50% { box-shadow: 0 0 8px var(--red), 0 0 18px var(--red); opacity: 1; }
     }
 
-    /* AVATAR */
+
+    /* =========================================================
+       AVATAR
+       ========================================================= */
 
     .avatar-area {
       position: relative;
@@ -434,92 +287,59 @@
     .avatar-ring {
       position: absolute;
       inset: -6px;
-
       border-radius: 50%;
       border: 1px dashed rgba(63, 102, 255, 0.55);
-
       animation: ring-spin 12s linear infinite;
     }
 
     @keyframes ring-spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .avatar {
       width: 78px;
       height: 78px;
-
       display: block;
-
       border-radius: 50%;
       object-fit: cover;
-
       border: 2px solid var(--red);
-
       background: #0a0a0a;
-
-      box-shadow:
-        0 0 15px rgba(255, 59, 63, 0.4),
-        0 0 30px rgba(255, 59, 63, 0.12);
-
+      box-shadow: 0 0 15px rgba(255, 59, 63, 0.4), 0 0 30px rgba(255, 59, 63, 0.12);
       animation: avatar-glow 3.2s ease-in-out infinite;
     }
 
     @keyframes avatar-glow {
-      0%, 100% {
-        box-shadow:
-          0 0 14px rgba(255, 59, 63, 0.35),
-          0 0 26px rgba(255, 59, 63, 0.1);
-      }
-
-      50% {
-        box-shadow:
-          0 0 22px rgba(255, 59, 63, 0.65),
-          0 0 44px rgba(255, 59, 63, 0.26);
-      }
+      0%, 100% { box-shadow: 0 0 14px rgba(255, 59, 63, 0.35), 0 0 26px rgba(255, 59, 63, 0.1); }
+      50% { box-shadow: 0 0 22px rgba(255, 59, 63, 0.65), 0 0 44px rgba(255, 59, 63, 0.26); }
     }
 
     .spider-symbol {
       position: absolute;
       right: -4px;
       bottom: -4px;
-
       width: 30px;
       height: 30px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       border-radius: 50%;
-
       background: var(--blue);
       border: 2px solid var(--black);
-
       font-size: 16px;
-
       box-shadow: 0 0 10px rgba(63, 102, 255, 0.6);
-
       animation: symbol-glow 3.2s ease-in-out infinite;
     }
 
     @keyframes symbol-glow {
-      0%, 100% {
-        box-shadow: 0 0 8px rgba(63, 102, 255, 0.45);
-      }
-
-      50% {
-        box-shadow: 0 0 16px rgba(63, 102, 255, 0.9);
-      }
+      0%, 100% { box-shadow: 0 0 8px rgba(63, 102, 255, 0.45); }
+      50% { box-shadow: 0 0 16px rgba(63, 102, 255, 0.9); }
     }
 
-    /* IDENTITY */
+
+    /* =========================================================
+       NAME / ALIAS
+       ========================================================= */
 
     .identity {
       margin-top: 10px;
@@ -527,102 +347,77 @@
 
     .alias {
       margin: 0;
-
       font-size: 27px;
       line-height: 0.95;
       font-weight: 950;
       letter-spacing: -1px;
-
       text-transform: uppercase;
-
       color: var(--white);
-
-      text-shadow:
-        2px 2px 0 var(--dark-red),
-        4px 4px 0 rgba(255, 59, 63, 0.12);
+      text-shadow: 2px 2px 0 var(--dark-red), 4px 4px 0 rgba(255, 59, 63, 0.12);
     }
 
     .alias span {
       color: var(--bright-blue);
-
       animation: text-glow 3.2s ease-in-out infinite;
     }
 
     @keyframes text-glow {
-      0%, 100% {
-        text-shadow:
-          0 0 6px rgba(63, 102, 255, 0.4),
-          0 0 14px rgba(63, 102, 255, 0.18);
-      }
-
-      50% {
-        text-shadow:
-          0 0 12px rgba(63, 102, 255, 0.9),
-          0 0 26px rgba(63, 102, 255, 0.5);
-      }
+      0%, 100% { text-shadow: 0 0 6px rgba(63, 102, 255, 0.4), 0 0 14px rgba(63, 102, 255, 0.18); }
+      50% { text-shadow: 0 0 12px rgba(63, 102, 255, 0.9), 0 0 26px rgba(63, 102, 255, 0.5); }
     }
 
     .name {
       margin: 6px 0 0;
-
       font-size: 12px;
       letter-spacing: 1px;
-
       color: #d0d0d0;
     }
 
     .handle {
       margin: 3px 0 0;
-
       font-family: ui-monospace, monospace;
       font-size: 10px;
-
       color: var(--red);
       opacity: 0.85;
     }
 
-    /* DIVIDER */
+
+    /* =========================================================
+       DIVIDER
+       ========================================================= */
 
     .divider {
       width: 100%;
       height: 1px;
-
       margin: 13px 0 11px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--red),
-          var(--blue),
-          transparent
-        );
+      background: linear-gradient(90deg, var(--red), var(--blue), transparent);
     }
 
-    /* LABEL */
+
+    /* =========================================================
+       SECTION LABEL
+       ========================================================= */
 
     .label {
       margin-bottom: 6px;
-
       font-family: ui-monospace, monospace;
       font-size: 8px;
       letter-spacing: 2px;
-
       text-transform: uppercase;
-
       color: var(--red);
     }
 
-    /* SKILLS */
+
+    /* =========================================================
+       SKILLS
+       ========================================================= */
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-
       gap: 6px;
-
       margin: 0;
       padding: 0;
-
       list-style: none;
     }
 
@@ -630,218 +425,138 @@
       display: flex;
       align-items: center;
       gap: 6px;
-
       padding: 5px 10px 5px 8px;
-
       font-family: ui-monospace, monospace;
       font-size: 9px;
       font-weight: 600;
-
       color: #fff;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255, 59, 63, 0.85),
-          rgba(140, 15, 18, 0.85)
-        );
-
+      background: linear-gradient(135deg, rgba(255, 59, 63, 0.85), rgba(140, 15, 18, 0.85));
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 20px;
-
-      box-shadow:
-        0 0 10px rgba(255, 59, 63, 0.4),
-        inset 0 0 6px rgba(255, 255, 255, 0.08);
-
+      box-shadow: 0 0 10px rgba(255, 59, 63, 0.4), inset 0 0 6px rgba(255, 255, 255, 0.08);
       animation: chip-glow 3.4s ease-in-out infinite;
     }
 
     .skills li::before {
       content: "";
-
       width: 4px;
       height: 4px;
-
       border-radius: 50%;
-
       background: #fff;
-
       box-shadow: 0 0 4px #fff;
-
       flex-shrink: 0;
     }
 
     .skills li.blue {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(63, 102, 255, 0.9),
-          rgba(30, 63, 189, 0.85)
-        );
-
-      box-shadow:
-        0 0 10px rgba(63, 102, 255, 0.45),
-        inset 0 0 6px rgba(255, 255, 255, 0.08);
-
-      animation: chip-glow-blue 3.4s ease-in-out infinite;
+      background: linear-gradient(135deg, rgba(63, 102, 255, 0.9), rgba(30, 63, 189, 0.85));
+      box-shadow: 0 0 10px rgba(63, 102, 255, 0.45), inset 0 0 6px rgba(255, 255, 255, 0.08);
     }
 
     @keyframes chip-glow {
-      0%, 100% {
-        box-shadow:
-          0 0 8px rgba(255, 59, 63, 0.3),
-          inset 0 0 6px rgba(255, 255, 255, 0.06);
-      }
+      0%, 100% { box-shadow: 0 0 8px rgba(255, 59, 63, 0.3), inset 0 0 6px rgba(255, 255, 255, 0.06); }
+      50% { box-shadow: 0 0 14px rgba(255, 59, 63, 0.55), inset 0 0 6px rgba(255, 255, 255, 0.1); }
+    }
 
-      50% {
-        box-shadow:
-          0 0 14px rgba(255, 59, 63, 0.55),
-          inset 0 0 6px rgba(255, 255, 255, 0.1);
-      }
+    .skills li.blue {
+      animation: chip-glow-blue 3.4s ease-in-out infinite;
     }
 
     @keyframes chip-glow-blue {
-      0%, 100% {
-        box-shadow:
-          0 0 8px rgba(63, 102, 255, 0.35),
-          inset 0 0 6px rgba(255, 255, 255, 0.06);
-      }
-
-      50% {
-        box-shadow:
-          0 0 14px rgba(63, 102, 255, 0.6),
-          inset 0 0 6px rgba(255, 255, 255, 0.1);
-      }
+      0%, 100% { box-shadow: 0 0 8px rgba(63, 102, 255, 0.35), inset 0 0 6px rgba(255, 255, 255, 0.06); }
+      50% { box-shadow: 0 0 14px rgba(63, 102, 255, 0.6), inset 0 0 6px rgba(255, 255, 255, 0.1); }
     }
 
-    /* STATS */
+
+    /* =========================================================
+       SPIDER DATA
+       ========================================================= */
 
     .stats {
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 7px;
-
       margin-top: 13px;
     }
 
     .stat {
       padding: 7px 9px;
-
       background: rgba(255, 255, 255, 0.04);
-
       border-radius: 8px;
-
       border-top: 2px solid var(--red);
-
-      box-shadow:
-        inset 0 0 12px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
     }
 
-    .stat.blue {
-      border-top: 2px solid var(--bright-blue);
-    }
+    .stat.blue { border-top: 2px solid var(--bright-blue); }
 
     .stat-label {
       font-family: ui-monospace, monospace;
-
       font-size: 7px;
       letter-spacing: 1.5px;
-
       text-transform: uppercase;
-
       color: var(--red);
     }
 
-    .stat.blue .stat-label {
-      color: var(--bright-blue);
-    }
+    .stat.blue .stat-label { color: var(--bright-blue); }
 
     .stat-value {
       margin-top: 3px;
-
       font-size: 11px;
       font-weight: 700;
-
       color: var(--white);
     }
 
-    /* QUOTE */
+
+    /* =========================================================
+       QUOTE
+       ========================================================= */
 
     .quote {
       margin-top: 12px;
-
       padding: 8px 10px;
-
       background: rgba(255, 255, 255, 0.03);
-
       border-left: 2px solid var(--bright-blue);
-
       border-radius: 0 8px 8px 0;
-
       font-size: 10px;
       line-height: 1.35;
-
       font-style: italic;
-
       color: #bdbdbd;
     }
 
-    /* FOOTER */
+
+    /* =========================================================
+       FOOTER — glowing signal bar
+       ========================================================= */
 
     .footer {
       position: relative;
       z-index: 3;
-
       margin-top: auto;
       padding-top: 12px;
     }
 
     .signal-line {
       position: relative;
-
       width: 100%;
       height: 1px;
-
       background: rgba(255, 255, 255, 0.12);
-
       overflow: hidden;
-
       margin-bottom: 9px;
     }
 
     .signal-line::after {
       content: "";
-
       position: absolute;
-
       top: 0;
       left: -40%;
-
       width: 40%;
       height: 100%;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          var(--red),
-          var(--blue),
-          transparent
-        );
-
+      background: linear-gradient(90deg, transparent, var(--red), var(--blue), transparent);
       animation: signal-scan 2.8s linear infinite;
     }
 
     @keyframes signal-scan {
-      0% {
-        left: -40%;
-      }
-
-      100% {
-        left: 100%;
-      }
+      0% { left: -40%; }
+      100% { left: 100%; }
     }
 
     .footer-tags {
@@ -852,62 +567,56 @@
 
     .footer-pill {
       font-family: ui-monospace, monospace;
-
       font-size: 8px;
       letter-spacing: 1.5px;
-
       text-transform: uppercase;
-
       padding: 4px 10px;
-
       border-radius: 20px;
     }
 
     .footer-pill.red {
       color: var(--red);
-
       border: 1px solid rgba(255, 59, 63, 0.5);
-
-      box-shadow:
-        0 0 8px rgba(255, 59, 63, 0.25);
+      box-shadow: 0 0 8px rgba(255, 59, 63, 0.25);
     }
 
     .footer-pill.blue {
       color: var(--bright-blue);
-
       border: 1px solid rgba(63, 102, 255, 0.5);
-
-      box-shadow:
-        0 0 8px rgba(63, 102, 255, 0.28);
+      box-shadow: 0 0 8px rgba(63, 102, 255, 0.28);
     }
+
   </style>
 
-  <!-- BACKGROUND -->
 
+  <!-- =========================================================
+       BACKGROUND: glowing night-city skyline + spider emblem
+       (original CSS shapes only — no copyrighted artwork)
+       ========================================================= -->
   <div class="bg-skyline"></div>
   <div class="bg-windows"></div>
   <div class="bg-web"></div>
   <div class="bg-emblem">🕷</div>
 
-  <!-- CARD CONTENT -->
+
+  <!-- =========================================================
+       CARD CONTENT
+       ========================================================= -->
 
   <div class="content">
 
     <!-- HEADER -->
-
     <div class="top">
-
       <div class="active">
         <span class="active-dot"></span>
         ACTIVE
       </div>
 
       <div>SPIDER-ID // 1610</div>
-
     </div>
 
-    <!-- PROFILE IMAGE -->
 
+    <!-- PROFILE IMAGE -->
     <div class="avatar-area">
 
       <div class="avatar-ring"></div>
@@ -924,8 +633,8 @@
 
     </div>
 
-    <!-- IDENTITY -->
 
+    <!-- IDENTITY -->
     <div class="identity">
 
       <h1 class="alias">
@@ -942,12 +651,12 @@
 
     </div>
 
-    <!-- DIVIDER -->
 
+    <!-- DIVIDER -->
     <div class="divider"></div>
 
-    <!-- SKILLS -->
 
+    <!-- SKILLS -->
     <div class="label">
       // WEB-SLINGING SKILLS
     </div>
@@ -960,8 +669,8 @@
       <li>AI / ML</li>
     </ul>
 
-    <!-- SPIDER DATA -->
 
+    <!-- SPIDER DATA -->
     <div class="stats">
 
       <div class="stat">
@@ -981,35 +690,25 @@
 
       <div class="stat blue">
         <div class="stat-label">Suit</div>
-        <div class="stat-value">Andrew</div>
+        <div class="stat-value">Peter</div>
       </div>
 
     </div>
+
 
     <!-- QUOTE -->
-
     <div class="quote">
-      "Great Power comes with Great responsibility."
+      "Great powers comes with Great Responsibility."
     </div>
 
-    <!-- FOOTER -->
 
+    <!-- FOOTER: glowing signal bar -->
     <div class="footer">
-
       <div class="signal-line"></div>
-
       <div class="footer-tags">
-
-        <span class="footer-pill red">
-          Spider-Society
-        </span>
-
-        <span class="footer-pill blue">
-          Keep Moving
-        </span>
-
+        <span class="footer-pill red">Spider-Society</span>
+        <span class="footer-pill blue">Keep Moving</span>
       </div>
-
     </div>
 
   </div>
