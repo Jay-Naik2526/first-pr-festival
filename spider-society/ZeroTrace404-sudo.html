@@ -1,0 +1,279 @@
+
+<!--
+  SPIDER-ID CARD — ZeroTrace404-sudo
+-->
+
+<div
+  class="spider-card"
+  data-name="ZeroTrace404-sudo"
+  data-alias="Spider-Byte"
+  data-github="ZeroTrace404-sudo"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --suit: #e62429;
+      --suit-bright: #ff4650;
+      --ink: #050507;
+      --muted: #a8a8ad;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 22px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f2f2f2;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(230, 36, 41, 0.22), transparent 32%),
+        radial-gradient(circle at 10% 85%, rgba(230, 36, 41, 0.10), transparent 35%),
+        linear-gradient(145deg, #16070a 0%, var(--ink) 55%, #08080b 100%);
+      border: 2px solid var(--suit);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 0 25px rgba(230, 36, 41, 0.18),
+        inset 0 0 35px rgba(230, 36, 41, 0.05);
+    }
+
+    /* Spider-web texture */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.055) 0 1px,
+          transparent 1px 18px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(255, 255, 255, 0.055) 0 1px,
+          transparent 1px 18px
+        );
+      transform: rotate(8deg);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    /* Red scanner line */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 18px;
+      width: 2px;
+      height: 120px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--suit),
+        transparent
+      );
+      opacity: 0.8;
+    }
+
+    .header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .society {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .status {
+      padding: 4px 7px;
+      border: 1px solid rgba(230, 36, 41, 0.7);
+      border-radius: 4px;
+      color: var(--suit-bright);
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+
+    .profile {
+      position: relative;
+      z-index: 1;
+      margin-top: 22px;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 14px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      background: #0b0b0d;
+      box-shadow:
+        0 0 22px rgba(230, 36, 41, 0.45),
+        0 0 5px rgba(255, 70, 80, 0.8);
+    }
+
+    .alias {
+      margin: 15px 0 3px;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: var(--suit-bright);
+      text-transform: uppercase;
+      text-shadow: 0 0 14px rgba(230, 36, 41, 0.35);
+    }
+
+    .name {
+      margin: 0;
+      font-size: 14px;
+      color: #dedee1;
+    }
+
+    .handle {
+      margin: 5px 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      color: #8f8f96;
+    }
+
+    .divider {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 1px;
+      margin: 18px 0 14px;
+      background: linear-gradient(
+        90deg,
+        var(--suit),
+        rgba(230, 36, 41, 0.15),
+        transparent
+      );
+    }
+
+    .section-label {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 9px;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #77777e;
+      text-transform: uppercase;
+    }
+
+    .skills {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 6px 10px;
+      font-family: ui-monospace, monospace;
+      font-size: 10px;
+      color: #eeeeef;
+      border: 1px solid rgba(230, 36, 41, 0.7);
+      border-radius: 5px;
+      background: rgba(230, 36, 41, 0.09);
+    }
+
+    .identity {
+      position: relative;
+      z-index: 1;
+      margin-top: 17px;
+      padding: 10px 12px;
+      border-left: 2px solid var(--suit);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .identity p {
+      margin: 3px 0;
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      color: #8d8d94;
+    }
+
+    .identity strong {
+      color: #dddde1;
+      font-weight: 500;
+    }
+
+    .footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 17px;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 10px;
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      color: #77777e;
+      text-transform: uppercase;
+    }
+
+    .footer span:last-child {
+      color: var(--suit-bright);
+    }
+  </style>
+
+  <div class="header">
+    <span class="society">Spider-Society // ID</span>
+    <span class="status">ACTIVE</span>
+  </div>
+
+  <div class="profile">
+    <img
+      class="avatar"
+      src="https://github.com/ZeroTrace404-sudo.png"
+      alt="ZeroTrace404-sudo"
+    />
+
+<<<<<<< HEAD
+    <h1 class="alias">Spider-Byte</h1>
+    <p class="name">Zero 404</p>
+=======
+    <h1 class="alias">Sandman</h1>
+    <p class="name">ZeroTrace404-sudo</p>
+>>>>>>> symbiote
+    <p class="handle">@ZeroTrace404-sudo</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">Primary Skills</p>
+
+  <ul class="skills">
+    <li>Python</li>
+    <li>Linux</li>
+    <li>Git</li>
+    <li>CyberSec</li>
+    <li>Web</li>
+    <li>Arduino</li>
+  </ul>
+
+  <div class="identity">
+    <p>IDENTITY <strong>SPIDER-BYTE</strong></p>
+    <p>DIMENSION <strong>EARTH-404</strong></p>
+    <p>STATUS <strong>ONLINE</strong></p>
+  </div>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Earth-404</span>
+  </div>
+</div>
