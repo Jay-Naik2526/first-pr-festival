@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spider-ID Card</title>
+<style>
+  :root {
+    color-scheme: dark;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #050507;
+  }
+
+  /* ============ CARD SHELL ============ */
+  .spider-card {
+    --ink: #08080b;
+    --ink-2: #150910;
+    --crimson: #d81e3e;
+    --crimson-glow: rgba(216, 30, 62, 0.55);
+    --web: #eceef2;
+    --web-dim: #8a8b95;
+    --signal: #2dd4bf;
+
+    width: 320px;
+    height: 440px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--web);
+    background: radial-gradient(120% 90% at 15% 0%, var(--ink-2) 0%, var(--ink) 55%);
+    border: 1px solid rgba(216, 30, 62, 0.4);
+    border-radius: 6px;
+    box-shadow:
+      0 24px 48px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  }
+
+  /* Fine web-thread grid, drawn purely with layered gradients, drifting slowly like blown silk */
+  .spider-card::before {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    background-image:
+      linear-gradient(115deg, transparent 48%, rgba(216, 30, 62, 0.09) 49%, transparent 51%),
+      linear-gradient(65deg, transparent 48%, rgba(45, 212, 191, 0.07) 49%, transparent 51%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 26px);
+    background-size: 240% 240%, 240% 240%, 26px 26px, 26px 26px;
+    background-position: 0% 0%, 100% 100%, 0 0, 0 0;
+    animation: web-drift 14s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes web-drift {
+    0%   { background-position: 0% 0%,   100% 100%, 0 0,     0 0; }
+    100% { background-position: 100% 60%, 20% 40%,  52px 26px, -26px 52px; }
+  }
+
+  /* Radial web rings anchored top-left, like a corner web */
+  .spider-card::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background:
+      repeating-radial-gradient(circle at center, rgba(216,30,62,0.16) 0 1px, transparent 1px 18px);
+    -webkit-mask-image: conic-gradient(from 0deg, #000 0deg 95deg, transparent 95deg 360deg);
+            mask-image: conic-gradient(from 0deg, #000 0deg 95deg, transparent 95deg 360deg);
+    pointer-events: none;
+    transform-origin: 50% 50%;
+    animation: web-spin 22s linear infinite;
+  }
+
+  @keyframes web-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .spider-card:hover::after {
+    animation-duration: 6s;
+  }
+
+  /* ============ HEADER STRIP ============ */
+  .strip {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: linear-gradient(90deg, var(--crimson) 0%, #a4162d 100%);
+  }
+
+  .strip-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #1a0207;
+  }
+
+  .strip-code {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 10px;
+    color: rgba(10, 2, 4, 0.75);
+  }
+
+  /* ============ BODY ============ */
+  .body {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 18px 16px;
+    gap: 14px;
+  }
+
+  .id-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  /* Hexagonal photo mount */
+  .photo-mount {
+    flex: 0 0 auto;
+    width: 76px;
+    height: 88px;
+    position: relative;
+  }
+
+  .photo-mount .hex-frame {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(50% 0%, 100% 26%, 100% 74%, 50% 100%, 0% 74%, 0% 26%);
+    background: linear-gradient(160deg, var(--crimson), var(--signal));
+    padding: 2px;
+  }
+
+  .photo-mount .hex-inner {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 26%, 100% 74%, 50% 100%, 0% 74%, 0% 26%);
+    background: #17151b center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--web-dim);
+    text-align: center;
+    padding: 4px;
+  }
+
+  .id-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .alias {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    background: linear-gradient(180deg, #ffffff 0%, var(--web-dim) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    word-break: break-word;
+  }
+
+  .real-name {
+    margin: 6px 0 0;
+    font-size: 12.5px;
+    color: var(--web-dim);
+  }
+
+  .handle {
+    margin: 3px 0 0;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--signal);
+  }
+
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(216,30,62,0.5), transparent 80%);
+  }
+
+  /* ============ STATS ============ */
+  .stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 58px 1fr 26px;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: var(--web-dim);
+    animation: stat-glitch 4.5s infinite;
+  }
+
+  .stat-track {
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .stat-fill {
+    position: relative;
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--crimson), var(--signal));
+    overflow: hidden;
+    animation: stat-flicker 4.5s infinite;
+  }
+
+  .stat-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+    animation: stat-sheen 3.2s ease-in-out infinite;
+  }
+
+  .stat-value {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 10px;
+    color: var(--web);
+    text-align: right;
+    animation: stat-glitch 4.5s infinite;
+  }
+
+  /* Stagger each row so the four abilities don't glitch in unison */
+  .stat-row:nth-child(1) .stat-label,
+  .stat-row:nth-child(1) .stat-value,
+  .stat-row:nth-child(1) .stat-fill { animation-delay: 0s; }
+
+  .stat-row:nth-child(2) .stat-label,
+  .stat-row:nth-child(2) .stat-value,
+  .stat-row:nth-child(2) .stat-fill { animation-delay: 0.6s; }
+
+  .stat-row:nth-child(3) .stat-label,
+  .stat-row:nth-child(3) .stat-value,
+  .stat-row:nth-child(3) .stat-fill { animation-delay: 1.2s; }
+
+  .stat-row:nth-child(4) .stat-label,
+  .stat-row:nth-child(4) .stat-value,
+  .stat-row:nth-child(4) .stat-fill { animation-delay: 1.8s; }
+
+  @keyframes stat-sheen {
+    0%   { left: -50%; }
+    100% { left: 120%; }
+  }
+
+  @keyframes stat-flicker {
+    0%, 88%, 100% { opacity: 1; }
+    89%           { opacity: 0.35; }
+    90%           { opacity: 1; }
+    92%           { opacity: 0.5; }
+    93%           { opacity: 1; }
+  }
+
+  @keyframes stat-glitch {
+    0%, 88%, 100% {
+      transform: translate(0, 0);
+      text-shadow: none;
+    }
+    89% {
+      transform: translate(-1px, 1px);
+      text-shadow: 1px 0 var(--crimson), -1px 0 var(--signal);
+    }
+    90% {
+      transform: translate(1px, -1px);
+      text-shadow: -1px 0 var(--crimson), 1px 0 var(--signal);
+    }
+    92% {
+      transform: translate(-1px, 0);
+      text-shadow: 1px 0 var(--signal), -1px 0 var(--crimson);
+    }
+    93% {
+      transform: translate(0, 0);
+      text-shadow: none;
+    }
+  }
+
+  /* ============ TRAIT TAGS ============ */
+  .traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .traits li {
+    padding: 4px 9px;
+    font-size: 9.5px;
+    color: var(--web);
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 12px 18px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Mock scan code: layered bar + dot grid so it reads as
+     "scan me" without depicting a real, decodable symbology */
+  .scan-mock {
+    display: grid;
+    grid-template-columns: repeat(7, 3px);
+    grid-auto-rows: 3px;
+    gap: 2px;
+  }
+
+  .scan-mock span {
+    background: var(--web);
+    opacity: 0.85;
+  }
+  .scan-mock span:nth-child(3n) { opacity: 0.25; }
+  .scan-mock span:nth-child(5n) { opacity: 0.5; }
+  .scan-mock span:nth-child(7n) { opacity: 0.15; }
+
+  .issuer {
+    text-align: right;
+  }
+
+  .issuer-name {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--web-dim);
+  }
+
+  .issuer-sub {
+    margin-top: 2px;
+    font-size: 8.5px;
+    color: rgba(138, 139, 149, 0.6);
+  }
+</style>
+</head>
+<body>
+
+  <div
+    class="spider-card"
+    data-name="Your Name"
+    data-alias="Your Spider-Alias"
+    data-github="your-github-username"
+    data-accent="#D81E3E"
+  >
+
+    <div class="strip">
+      <span class="strip-title">WEB-SLINGER LICENSE</span>
+      <span class="strip-code">NO. 001610</span>
+    </div>
+
+    <div class="body">
+
+      <div class="id-row">
+        <div class="photo-mount">
+          <div class="hex-frame">
+            <div class="hex-inner">PHOTO</div>
+          </div>
+        </div>
+
+        <div class="id-text">
+          <h1 class="alias">Your Spider-Alias</h1>
+          <p class="real-name">Your Name</p>
+          <p class="handle">@your-github-username</p>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="stats">
+        <div class="stat-row">
+          <span class="stat-label">Agility</span>
+          <div class="stat-track"><div class="stat-fill" style="width: 90%;"></div></div>
+          <span class="stat-value">90</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Strength</span>
+          <div class="stat-track"><div class="stat-fill" style="width: 75%;"></div></div>
+          <span class="stat-value">75</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Web Fluid</span>
+          <div class="stat-track"><div class="stat-fill" style="width: 60%;"></div></div>
+          <span class="stat-value">60</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Wit</span>
+          <div class="stat-track"><div class="stat-fill" style="width: 95%;"></div></div>
+          <span class="stat-value">95</span>
+        </div>
+      </div>
+
+      <ul class="traits">
+        <li>Wall-Crawl</li>
+        <li>Spider-Sense</li>
+        <li>Night Ops</li>
+        <li>Open Source</li>
+      </ul>
+
+    </div>
+
+    <div class="footer">
+      <div class="scan-mock" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="issuer">
+        <div class="issuer-name">GHW-SOCIETY</div>
+        <div class="issuer-sub">Issued for verification only</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
