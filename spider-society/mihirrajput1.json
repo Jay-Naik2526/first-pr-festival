@@ -1,0 +1,671 @@
+{
+<<<<<<< HEAD
+  "name": "MR-EAGLEEYE",
+  "alias": "Bloodthirst",
+  "skills": ["vision code explore  repeat"],
+=======
+  "name": "mihirraput1",
+  "alias": "bloodthirst",
+  "skills": ["VISION CODE EXPLORE"],
+>>>>>>> symbiote
+  "suitColor": "#E62429",
+  "githubUsername": "mihirrajput1"
+}
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags.
+  4. Everything must fit inside 320 x 440.
+  5. Keep the four data- attributes on .spider-card.
+-->
+
+<div
+  class="spider-card"
+  data-name="mihirrajput1"
+  data-alias="MR-EAGLEEYE"
+  data-github="mihirrajput1"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --red: #e62429;
+      --blue: #00d9ff;
+      --deep-blue: #071525;
+      --purple: #6b19ff;
+      --black: #030407;
+      --white: #f5f5f5;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+
+      padding: 17px;
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--white);
+
+      background:
+        radial-gradient(
+          circle at 88% 8%,
+          rgba(0, 217, 255, .25),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 12% 92%,
+          rgba(107, 25, 255, .22),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 45% 25%,
+          rgba(230, 36, 41, .20),
+          transparent 38%
+        ),
+        linear-gradient(
+          145deg,
+          #150208 0%,
+          var(--black) 45%,
+          #050b16 100%
+        );
+
+      border: 2px solid var(--red);
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 0 1px rgba(0,217,255,.18),
+        0 0 28px rgba(230,36,41,.35),
+        inset 0 0 45px rgba(230,36,41,.07);
+    }
+
+    /* =========================
+       COMIC HALFTONE
+       ========================= */
+
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.55) 1px,
+          transparent 1px
+        );
+
+      background-size: 6px 6px;
+
+      opacity: .09;
+      pointer-events: none;
+    }
+
+    /* =========================
+       GIANT SPIDER WEB
+       ========================= */
+
+    .web {
+      position: absolute;
+      width: 290px;
+      height: 290px;
+
+      top: -145px;
+      right: -125px;
+
+      border-radius: 50%;
+
+      opacity: .20;
+
+      background:
+        repeating-radial-gradient(
+          circle,
+          transparent 0 21px,
+          rgba(255,255,255,.55) 22px 23px
+        );
+
+      transform: rotate(15deg);
+    }
+
+    .web::before,
+    .web::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      border-radius: 50%;
+
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          transparent 0deg 14deg,
+          rgba(255,255,255,.5) 15deg 16deg,
+          transparent 17deg 30deg
+        );
+    }
+
+    /* =========================
+       TOP HUD
+       ========================= */
+
+    .hud {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.4px;
+
+      color: rgba(255,255,255,.55);
+    }
+
+    .society {
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .online {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .online-dot {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: #43ff76;
+
+      box-shadow:
+        0 0 6px #43ff76,
+        0 0 12px #43ff76;
+    }
+
+    /* =========================
+       AVATAR
+       ========================= */
+
+    .avatar-area {
+      position: relative;
+      z-index: 3;
+
+      width: 104px;
+      height: 104px;
+
+      margin-top: 15px;
+    }
+
+    .avatar {
+      width: 94px;
+      height: 94px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border: 2px solid var(--red);
+
+      box-shadow:
+        0 0 0 4px rgba(230,36,41,.12),
+        0 0 20px rgba(230,36,41,.7);
+
+      filter:
+        contrast(1.08)
+        saturate(1.15);
+    }
+
+    /* Targeting circle */
+
+    .target {
+      position: absolute;
+      inset: -5px;
+
+      border: 1px dashed rgba(0,217,255,.65);
+      border-radius: 50%;
+    }
+
+    .target::before,
+    .target::after {
+      content: "";
+      position: absolute;
+
+      background: var(--blue);
+      opacity: .7;
+    }
+
+    .target::before {
+      width: 1px;
+      height: 114px;
+
+      top: -5px;
+      left: 50%;
+    }
+
+    .target::after {
+      width: 114px;
+      height: 1px;
+
+      left: -5px;
+      top: 50%;
+    }
+
+    /* =========================
+       NAME
+       ========================= */
+
+    .alias {
+      position: relative;
+      z-index: 3;
+
+      margin: 3px 0 0;
+
+      font-size: 30px;
+      line-height: .9;
+
+      font-weight: 950;
+
+      letter-spacing: -1.7px;
+
+      text-transform: uppercase;
+
+      color: #fff;
+
+      text-shadow:
+        3px 3px 0 var(--red),
+        6px 6px 0 rgba(0,217,255,.55);
+    }
+
+    .designation {
+      position: relative;
+      z-index: 3;
+
+      display: inline-block;
+
+      margin-top: 8px;
+      padding: 4px 7px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+      font-weight: 800;
+
+      letter-spacing: 1.1px;
+
+      color: var(--blue);
+
+      border: 1px solid rgba(0,217,255,.6);
+
+      background:
+        rgba(0,217,255,.07);
+    }
+
+    .name {
+      position: relative;
+      z-index: 3;
+
+      margin: 7px 0 0;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      color: rgba(255,255,255,.78);
+    }
+
+    .handle {
+      position: relative;
+      z-index: 3;
+
+      margin: 2px 0 0;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 10px;
+
+      color: rgba(255,255,255,.42);
+    }
+
+    /* =========================
+       ENERGY LINE
+       ========================= */
+
+    .energy {
+      position: relative;
+      z-index: 3;
+
+      height: 2px;
+
+      margin: 12px 0 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--red),
+          var(--blue),
+          transparent
+        );
+
+      box-shadow:
+        0 0 8px var(--red),
+        0 0 8px var(--blue);
+    }
+
+    /* =========================
+       SKILLS
+       ========================= */
+
+    .skills {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 5px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 8px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+      font-weight: 700;
+
+      letter-spacing: .5px;
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(230,36,41,.18),
+          rgba(0,217,255,.07)
+        );
+
+      border: 1px solid rgba(255,255,255,.2);
+
+      border-radius: 3px;
+
+      box-shadow:
+        inset 0 0 8px rgba(255,255,255,.03);
+    }
+
+    /* =========================
+       INTELLIGENCE PANEL
+       ========================= */
+
+    .intel {
+      position: relative;
+      z-index: 3;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr 1fr;
+
+      gap: 5px;
+
+      margin-top: 10px;
+    }
+
+    .intel-box {
+      padding: 7px 6px;
+
+      min-height: 38px;
+
+      background:
+        rgba(255,255,255,.035);
+
+      border-left:
+        2px solid var(--red);
+
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          100% 82%,
+          88% 100%,
+          0 100%
+        );
+    }
+
+    .intel-box:nth-child(2) {
+      border-left-color: var(--blue);
+    }
+
+    .intel-box:nth-child(3) {
+      border-left-color: var(--purple);
+    }
+
+    .intel-label {
+      font-family: ui-monospace, monospace;
+
+      font-size: 6px;
+
+      letter-spacing: .7px;
+
+      color: rgba(255,255,255,.35);
+    }
+
+    .intel-value {
+      margin-top: 2px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      color: rgba(255,255,255,.9);
+    }
+
+    /* =========================
+       MULTIVERSE COORDINATES
+       ========================= */
+
+    .coordinates {
+      position: relative;
+      z-index: 3;
+
+      margin-top: 8px;
+
+      padding: 7px 9px;
+
+      display: flex;
+      justify-content: space-between;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(230,36,41,.10),
+          transparent
+        );
+
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+
+      color: rgba(255,255,255,.42);
+    }
+
+    .coordinates strong {
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    .footer {
+      position: absolute;
+
+      z-index: 4;
+
+      left: 17px;
+      right: 17px;
+      bottom: 11px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      padding-top: 7px;
+
+      border-top:
+        1px solid rgba(255,255,255,.12);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 1px;
+
+      color: rgba(255,255,255,.35);
+    }
+
+    .footer .danger {
+      color: var(--red);
+    }
+
+    /* =========================
+       CORNER MARKS
+       ========================= */
+
+    .corner {
+      position: absolute;
+      z-index: 4;
+
+      width: 12px;
+      height: 12px;
+
+      border-color: var(--blue);
+      border-style: solid;
+
+      opacity: .7;
+    }
+
+    .corner.tl {
+      top: 8px;
+      left: 8px;
+
+      border-width: 2px 0 0 2px;
+    }
+
+    .corner.tr {
+      top: 8px;
+      right: 8px;
+
+      border-width: 2px 2px 0 0;
+    }
+
+    .corner.bl {
+      bottom: 8px;
+      left: 8px;
+
+      border-width: 0 0 2px 2px;
+    }
+
+    .corner.br {
+      bottom: 8px;
+      right: 8px;
+
+      border-width: 0 2px 2px 0;
+    }
+  </style>
+
+  <div class="web"></div>
+
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="hud">
+    <span class="society">SPIDER-SOCIETY // ID-01</span>
+
+    <span class="online">
+      <i class="online-dot"></i>
+      ONLINE
+    </span>
+  </div>
+
+  <div class="avatar-area">
+    <div class="target"></div>
+
+    <img
+      class="avatar"
+      src="https://github.com/mihirrajput1.png"
+      alt="Mihir Rajput"
+    />
+  </div>
+
+  <h1 class="alias">MR-EAGLEEYE</h1>
+
+  <div class="designation">
+    MULTIVERSE SCOUT // VISION UNIT
+  </div>
+
+  <p class="name">Mihir Rajput</p>
+
+  <p class="handle">@mihirrajput1</p>
+
+  <div class="energy"></div>
+
+  <ul class="skills">
+    <li>CODE</li>
+    <li>BUILD</li>
+    <li>DEBUG</li>
+    <li>VISION</li>
+    <li>EXPLORE</li>
+  </ul>
+
+  <div class="intel">
+    <div class="intel-box">
+      <div class="intel-label">VISION</div>
+      <div class="intel-value">EAGLE-EYE</div>
+    </div>
+
+    <div class="intel-box">
+      <div class="intel-label">STATUS</div>
+      <div class="intel-value">ACTIVE</div>
+    </div>
+
+    <div class="intel-box">
+      <div class="intel-label">THREAT</div>
+      <div class="intel-value">UNKNOWN</div>
+    </div>
+  </div>
+
+  <div class="coordinates">
+    <span>EARTH <strong>1610</strong></span>
+    <span>SECTOR <strong>MR-01</strong></span>
+    <span>SYNC <strong>99.8%</strong></span>
+  </div>
+
+  <div class="footer">
+    <span>SPIDER-SOCIETY</span>
+    <span class="danger">◉ MULTIVERSE ACTIVE</span>
+  </div>
+</div>
