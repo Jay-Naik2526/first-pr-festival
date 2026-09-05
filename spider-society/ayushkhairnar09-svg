@@ -1,0 +1,1230 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<<div class="spider-card"
+     data-name="Ayush Khairnar"
+     data-alias="Ghost Glitch"
+     data-github="spider-society/ayushkhairnar09.html"
+     data-suit="#ff1744">
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+
+    /* =========================================================
+       CORE
+       ========================================================= */
+
+    .spider-card {
+      --red: #ff1744;
+      --red2: #ff003c;
+      --blue: #00eaff;
+      --cyan: #00f0ff;
+      --pink: #ff2bd6;
+      --yellow: #ffe600;
+      --white: #f5f5f5;
+      --black: #050509;
+
+      width: 360px;
+      height: 500px;
+
+      position: relative;
+      overflow: hidden;
+
+      box-sizing: border-box;
+      padding: 24px;
+
+      color: var(--white);
+
+      background:
+        radial-gradient(
+          circle at 75% 18%,
+          rgba(255, 0, 55, .30),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(0, 234, 255, .20),
+          transparent 35%
+        ),
+        #050509;
+
+      border: 3px solid white;
+
+      font-family: "JetBrains Mono", monospace;
+
+      box-shadow:
+        9px 9px 0 var(--red),
+        -6px -6px 0 var(--blue);
+
+      isolation: isolate;
+    }
+
+
+    /* =========================================================
+       CRT SCANLINES
+       ========================================================= */
+
+    .spider-card::before {
+      content: "";
+
+      position: absolute;
+      inset: -50%;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          transparent 3px,
+          rgba(255,255,255,.035) 4px
+        );
+
+      animation: scan 8s linear infinite;
+
+      pointer-events: none;
+
+      z-index: 20;
+    }
+
+
+    /* =========================================================
+       DIMENSIONAL RED GLOW
+       ========================================================= */
+
+    .spider-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 280px;
+      height: 280px;
+
+      top: -150px;
+      right: -110px;
+
+      border-radius: 50%;
+
+      border: 2px solid rgba(255,23,68,.7);
+
+      box-shadow:
+        0 0 0 15px rgba(255,23,68,.08),
+        0 0 0 35px rgba(255,23,68,.05),
+        0 0 70px rgba(255,23,68,.35);
+
+      animation: portalPulse 3s ease-in-out infinite;
+
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       SPIDER WEB BACKGROUND
+       ========================================================= */
+
+    .web-network {
+      position: absolute;
+
+      width: 430px;
+      height: 430px;
+
+      top: -160px;
+      left: -120px;
+
+      border-radius: 50%;
+
+      opacity: .22;
+
+      background:
+        repeating-radial-gradient(
+          circle,
+          transparent 0px,
+          transparent 24px,
+          rgba(255,255,255,.25) 25px,
+          transparent 27px
+        );
+
+      z-index: 0;
+
+      transform: rotate(15deg);
+    }
+
+
+    /* =========================================================
+       SPIDER WEB STRANDS
+       ========================================================= */
+
+    .web-strand {
+      position: absolute;
+
+      height: 1px;
+
+      transform-origin: left center;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.65),
+          var(--blue),
+          transparent
+        );
+
+      opacity: .55;
+
+      z-index: 2;
+
+      pointer-events: none;
+    }
+
+    .strand-1 {
+      width: 260px;
+
+      top: 80px;
+      left: -70px;
+
+      transform: rotate(35deg);
+
+      animation: webFlicker 3s infinite;
+    }
+
+    .strand-2 {
+      width: 230px;
+
+      top: 120px;
+      right: -80px;
+
+      transform: rotate(-38deg);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--red),
+          rgba(255,255,255,.6),
+          transparent
+        );
+    }
+
+    .strand-3 {
+      width: 280px;
+
+      bottom: 100px;
+      left: -90px;
+
+      transform: rotate(-24deg);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--blue),
+          transparent
+        );
+    }
+
+
+    /* =========================================================
+       WEB CORNER
+       ========================================================= */
+
+    .web-corner {
+      position: absolute;
+
+      width: 210px;
+      height: 210px;
+
+      right: -105px;
+      bottom: -105px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(0,234,255,.35);
+
+      box-shadow:
+        0 0 0 18px transparent,
+        0 0 0 19px rgba(0,234,255,.28),
+
+        0 0 0 42px transparent,
+        0 0 0 43px rgba(0,234,255,.22),
+
+        0 0 0 66px transparent,
+        0 0 0 67px rgba(0,234,255,.16);
+
+      z-index: 1;
+    }
+
+
+    /* =========================================================
+       TOP BAR
+       ========================================================= */
+
+    .top-bar {
+      position: relative;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      z-index: 8;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .dimension {
+      padding: 5px 9px;
+
+      background: var(--red);
+
+      color: white;
+
+      transform: skew(-12deg);
+
+      box-shadow:
+        4px 4px 0 var(--blue);
+    }
+
+    .status {
+      color: var(--blue);
+
+      text-shadow:
+        0 0 8px var(--blue);
+    }
+
+
+    /* =========================================================
+       SPIDER-SENSE TARGET
+       ========================================================= */
+
+    .target {
+      position: absolute;
+
+      top: 65px;
+      right: 34px;
+
+      width: 115px;
+      height: 115px;
+
+      border: 1px solid rgba(255,23,68,.35);
+
+      clip-path: polygon(
+        50% 0,
+        100% 25%,
+        85% 100%,
+        15% 100%,
+        0 25%
+      );
+
+      z-index: 1;
+
+      animation: targetPulse 2.5s infinite;
+    }
+
+    .target::before,
+    .target::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 1px solid rgba(255,23,68,.5);
+
+      border-radius: 50%;
+    }
+
+    .target::before {
+      width: 70px;
+      height: 70px;
+    }
+
+    .target::after {
+      width: 30px;
+      height: 30px;
+    }
+
+
+    /* =========================================================
+       SPIDER SYMBOL
+       ========================================================= */
+
+    .spider-symbol {
+      position: relative;
+
+      width: 105px;
+      height: 105px;
+
+      margin: 25px auto 5px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 5;
+    }
+
+    .spider-symbol::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      border: 2px solid var(--red);
+
+      clip-path: polygon(
+        50% 0,
+        100% 25%,
+        85% 100%,
+        15% 100%,
+        0 25%
+      );
+
+      box-shadow:
+        inset 0 0 25px rgba(255,23,68,.25),
+        0 0 25px rgba(255,23,68,.35);
+    }
+
+
+    /* =========================================================
+       SPIDER ICON
+       ========================================================= */
+
+    .spider {
+      position: relative;
+
+      width: 48px;
+      height: 62px;
+
+      background: var(--red);
+
+      clip-path: polygon(
+        50% 0,
+        65% 18%,
+        72% 40%,
+        100% 52%,
+        74% 58%,
+        92% 82%,
+        67% 73%,
+        58% 100%,
+        50% 78%,
+        42% 100%,
+        33% 73%,
+        8% 82%,
+        26% 58%,
+        0 52%,
+        28% 40%,
+        35% 18%
+      );
+
+      filter:
+        drop-shadow(0 0 10px var(--red));
+
+      animation: spiderPulse 2s infinite;
+    }
+
+
+    /* =========================================================
+       WEB SHOOTER HUD
+       ========================================================= */
+
+    .web-shooter {
+      position: absolute;
+
+      top: 188px;
+      left: 20px;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid rgba(0,234,255,.55);
+
+      transform: rotate(45deg);
+
+      z-index: 6;
+    }
+
+    .web-shooter::before {
+      content: "WEB";
+
+      position: absolute;
+
+      left: -2px;
+      top: -15px;
+
+      transform: rotate(-45deg);
+
+      font-size: 7px;
+
+      color: var(--blue);
+
+      letter-spacing: 1px;
+    }
+
+    .web-shooter::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 10px;
+
+      border: 2px solid var(--red);
+
+      border-radius: 50%;
+    }
+
+
+    /* =========================================================
+       WEB SHOOT EFFECT
+       ========================================================= */
+
+    .web-shot {
+      position: absolute;
+
+      top: 208px;
+      left: 48px;
+
+      width: 115px;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          white,
+          transparent
+        );
+
+      transform: rotate(-15deg);
+
+      transform-origin: left;
+
+      opacity: .7;
+
+      z-index: 3;
+
+      animation: webShot 2.8s ease-in-out infinite;
+    }
+
+
+    /* =========================================================
+       IDENTITY
+       ========================================================= */
+
+    .alias {
+      position: relative;
+
+      margin: 10px 0 0;
+
+      font-family: "Archivo Black", Impact, sans-serif;
+
+      font-size: 39px;
+
+      line-height: .88;
+
+      text-transform: uppercase;
+
+      letter-spacing: -1px;
+
+      z-index: 8;
+
+      color: white;
+
+      transform: rotate(-2deg);
+
+      text-shadow:
+        4px 0 var(--red),
+        -4px 0 var(--blue),
+        0 8px 0 rgba(0,0,0,.7);
+
+      animation: titleGlitch 4s infinite;
+    }
+
+
+    .alias::after {
+      content: "GHOST GLITCH";
+
+      position: absolute;
+
+      left: 5px;
+      top: 0;
+
+      color: transparent;
+
+      -webkit-text-stroke:
+        1px var(--pink);
+
+      opacity: .4;
+
+      transform:
+        translate(6px,4px);
+
+      z-index: -1;
+    }
+
+
+    .real-name {
+      position: relative;
+
+      margin: 8px 0 0;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      color: var(--yellow);
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      z-index: 8;
+    }
+
+
+    .handle {
+      position: relative;
+
+      margin: 3px 0 0;
+
+      color: rgba(255,255,255,.55);
+
+      font-size: 10px;
+
+      z-index: 8;
+    }
+
+
+    /* =========================================================
+       SPIDER SENSE
+       ========================================================= */
+
+    .sense {
+      position: relative;
+
+      margin-top: 18px;
+
+      z-index: 8;
+    }
+
+    .sense-label {
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      color: var(--blue);
+    }
+
+    .sense-track {
+      position: relative;
+
+      height: 5px;
+
+      margin-top: 5px;
+
+      background:
+        rgba(255,255,255,.1);
+
+      overflow: hidden;
+    }
+
+    .sense-track::after {
+      content: "";
+
+      position: absolute;
+
+      width: 35%;
+
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--blue),
+          white,
+          var(--red)
+        );
+
+      animation:
+        senseScan 1.7s infinite;
+    }
+
+
+    /* =========================================================
+       POWER GRID
+       ========================================================= */
+
+    .powers {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 8px;
+
+      margin-top: 17px;
+
+      z-index: 8;
+    }
+
+    .power {
+      position: relative;
+
+      padding: 9px;
+
+      min-height: 47px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.08),
+          rgba(255,255,255,.02)
+        );
+
+      border:
+        1px solid rgba(255,255,255,.25);
+
+      overflow: hidden;
+    }
+
+    .power::before {
+      content: "";
+
+      position: absolute;
+
+      width: 35px;
+      height: 35px;
+
+      right: -12px;
+      top: -12px;
+
+      border:
+        1px solid var(--red);
+
+      transform:
+        rotate(45deg);
+    }
+
+    .power-number {
+      display: block;
+
+      font-size: 8px;
+
+      color: var(--red);
+
+      margin-bottom: 4px;
+    }
+
+    .power-name {
+      font-size: 10px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       SPIDER DNA
+       ========================================================= */
+
+    .dna {
+      position: absolute;
+
+      right: 9px;
+      top: 250px;
+
+      writing-mode: vertical-rl;
+
+      font-size: 7px;
+
+      letter-spacing: 3px;
+
+      color:
+        rgba(255,23,68,.55);
+
+      z-index: 4;
+
+      animation:
+        dnaBlink 2s infinite;
+    }
+
+
+    /* =========================================================
+       COMIC IMPACT LABEL
+       ========================================================= */
+
+    .comic-text {
+      position: absolute;
+
+      right: 17px;
+      bottom: 75px;
+
+      width: 90px;
+
+      padding: 7px;
+
+      background: var(--yellow);
+
+      color: #000;
+
+      font-family: "Archivo Black", sans-serif;
+
+      font-size: 9px;
+
+      text-align: center;
+
+      transform: rotate(5deg);
+
+      border: 2px solid #000;
+
+      box-shadow:
+        4px 4px 0 var(--red);
+
+      z-index: 10;
+    }
+
+
+    /* =========================================================
+       THWIP TEXT
+       ========================================================= */
+
+    .thwip {
+      position: absolute;
+
+      left: 10px;
+      bottom: 92px;
+
+      font-family:
+        "Archivo Black",
+        sans-serif;
+
+      font-size: 13px;
+
+      color: var(--blue);
+
+      transform:
+        rotate(-12deg);
+
+      text-shadow:
+        2px 2px 0 var(--red);
+
+      z-index: 7;
+
+      animation:
+        thwip 3s infinite;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .footer {
+      position: absolute;
+
+      left: 24px;
+      right: 24px;
+      bottom: 16px;
+
+      padding-top: 9px;
+
+      border-top:
+        1px dashed rgba(255,255,255,.25);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      z-index: 12;
+    }
+
+    .footer .earth {
+      color: var(--red);
+    }
+
+
+    /* =========================================================
+       ANIMATIONS
+       ========================================================= */
+
+    @keyframes scan {
+      from {
+        transform: translateY(-20%);
+      }
+
+      to {
+        transform: translateY(20%);
+      }
+    }
+
+    @keyframes portalPulse {
+
+      0%,100% {
+        transform: scale(.9);
+        opacity: .45;
+      }
+
+      50% {
+        transform: scale(1.12);
+        opacity: 1;
+      }
+
+    }
+
+    @keyframes targetPulse {
+
+      0%,100% {
+        opacity: .3;
+      }
+
+      50% {
+        opacity: .8;
+      }
+
+    }
+
+    @keyframes spiderPulse {
+
+      0%,100% {
+        filter:
+          drop-shadow(0 0 5px var(--red));
+      }
+
+      50% {
+        filter:
+          drop-shadow(0 0 22px var(--red));
+      }
+
+    }
+
+    @keyframes senseScan {
+
+      from {
+        left: -40%;
+      }
+
+      to {
+        left: 110%;
+      }
+
+    }
+
+    @keyframes webShot {
+
+      0%,100% {
+        opacity: .15;
+        transform:
+          rotate(-15deg)
+          scaleX(.5);
+      }
+
+      50% {
+        opacity: .8;
+        transform:
+          rotate(-15deg)
+          scaleX(1);
+      }
+
+    }
+
+    @keyframes webFlicker {
+
+      0%,100% {
+        opacity: .25;
+      }
+
+      50% {
+        opacity: .65;
+      }
+
+    }
+
+    @keyframes dnaBlink {
+
+      0%,100% {
+        opacity: .25;
+      }
+
+      50% {
+        opacity: .8;
+      }
+
+    }
+
+    @keyframes thwip {
+
+      0%,80%,100% {
+        opacity: .3;
+        transform: rotate(-12deg) scale(.95);
+      }
+
+      85% {
+        opacity: 1;
+        transform: rotate(-12deg) scale(1.1);
+      }
+
+    }
+
+    @keyframes titleGlitch {
+
+      0%,90%,100% {
+        transform: rotate(-2deg);
+      }
+
+      92% {
+        transform:
+          rotate(-2deg)
+          translate(-3px,1px);
+      }
+
+      94% {
+        transform:
+          rotate(-2deg)
+          translate(4px,-1px);
+      }
+
+      96% {
+        transform:
+          rotate(-2deg)
+          translate(-2px,0);
+      }
+
+    }
+
+  </style>
+
+
+  <!-- =====================================================
+       BACKGROUND SPIDER WEB
+       ===================================================== -->
+
+  <div class="web-network"></div>
+
+  <div class="web-strand strand-1"></div>
+  <div class="web-strand strand-2"></div>
+  <div class="web-strand strand-3"></div>
+
+  <div class="web-corner"></div>
+
+
+  <!-- =====================================================
+       SPIDER-SENSE TARGET
+       ===================================================== -->
+
+  <div class="target"></div>
+
+
+  <!-- =====================================================
+       TOP BAR
+       ===================================================== -->
+
+  <div class="top-bar">
+
+    <div class="dimension">
+      EARTH-50101
+    </div>
+
+    <div class="status">
+      ● SPIDER-SENSE ONLINE
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SPIDER EMBLEM
+       ===================================================== -->
+
+  <div class="spider-symbol">
+    <div class="spider"></div>
+  </div>
+
+
+  <!-- =====================================================
+       WEB SHOOTER
+       ===================================================== -->
+
+  <div class="web-shooter"></div>
+
+  <div class="web-shot"></div>
+
+
+  <!-- =====================================================
+       IDENTITY
+       ===================================================== -->
+
+  <h1 class="alias">
+    Ghost<br>
+    Glitch
+  </h1>
+
+  <div class="real-name">
+    AYUSH KHAIRNAR
+  </div>
+
+  <div class="handle">
+    @ayushkhairnar09
+  </div>
+
+
+  <!-- =====================================================
+       SPIDER DNA HUD
+       ===================================================== -->
+
+  <div class="dna">
+    SPIDER-DNA // GEN-01 // MUTATION-STABLE
+  </div>
+
+
+  <!-- =====================================================
+       SPIDER SENSE
+       ===================================================== -->
+
+  <div class="sense">
+
+    <div class="sense-label">
+
+      <span>
+        SPIDER-SENSE
+      </span>
+
+      <span>
+        99.9%
+      </span>
+
+    </div>
+
+    <div class="sense-track"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       POWERS
+       ===================================================== -->
+
+  <div class="powers">
+
+    <div class="power">
+
+      <span class="power-number">
+        01 // WEB
+      </span>
+
+      <span class="power-name">
+        Code Weaver
+      </span>
+
+    </div>
+
+
+    <div class="power">
+
+      <span class="power-number">
+        02 // SENSE
+      </span>
+
+      <span class="power-name">
+        Problem Solver
+      </span>
+
+    </div>
+
+
+    <div class="power">
+
+      <span class="power-number">
+        03 // GLITCH
+      </span>
+
+      <span class="power-name">
+        Creative Hacker
+      </span>
+
+    </div>
+
+
+    <div class="power">
+
+      <span class="power-number">
+        04 // SWING
+      </span>
+
+      <span class="power-name">
+        Full Stack
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       COMIC ELEMENTS
+       ===================================================== -->
+
+  <div class="thwip">
+    THWIP!
+  </div>
+
+
+  <div class="comic-text">
+
+    WITH GREAT<br>
+    CODE COMES<br>
+    GREAT POWER!
+
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <div class="footer">
+
+    <span>
+      SPIDER-SOCIETY // CLASSIFIED
+    </span>
+
+    <span class="earth">
+      GHOST-001
+    </span>
+
+  </div>
+
+</div>
