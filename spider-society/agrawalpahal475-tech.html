@@ -1,0 +1,520 @@
+<div
+  class="spider-card"
+  data-name="Pahal Agrawal"
+  data-alias="Spider"
+ 
+  data-github="agrawalpahal475-tech"
+  data-suit="#002D04"
+>     
+  <style>
+    .spider-card {
+      --red: hsl(126, 37%, 30%);
+      --cyan: hsl(186, 44%, 30%);
+      --pink: hsl(326, 72%, 42%);
+      --black: #050509;
+      --white: hsl(0, 4%, 48%);
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      padding: 19px;
+
+      font-family: system-ui, sans-serif;
+      color: var(--white);
+
+      background:
+        radial-gradient(circle at 85% 18%, rgba(255, 23, 68, .32), transparent 27%),
+        radial-gradient(circle at 10% 80%, rgba(0, 229, 255, .16), transparent 30%),
+        linear-gradient(135deg, #080008, #030307 55%, #08000b);
+
+      border: 2px solid var(--red);
+      border-radius: 18px;
+
+      box-shadow:
+        0 0 12px rgba(255, 23, 68, .55),
+        0 0 40px rgba(255, 23, 68, .16),
+        inset 0 0 30px rgba(255, 23, 68, .06);
+    }
+
+    /* ═══════ SPIDER WEB ═══════ */
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -205px;
+      top: -150px;
+
+      background:
+        repeating-radial-gradient(
+          circle,
+          transparent 0 27px,
+          rgba(255,255,255,.10) 28px 29px
+        );
+
+      border-radius: 50%;
+      transform: rotate(15deg);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    /* ═══════ COMIC HALFTONE ═══════ */
+
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        radial-gradient(rgba(255,255,255,.12) .7px, transparent .7px);
+
+      background-size: 7px 7px;
+      opacity: .08;
+      pointer-events: none;
+    }
+
+    /* ═══════ HEADER ═══════ */
+
+    .header {
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+    }
+
+    .society {
+      color: rgba(255,255,255,.48);
+    }
+
+    .online {
+      color: var(--cyan);
+    }
+
+    .online::before {
+      content: "●";
+      margin-right: 5px;
+      text-shadow: 0 0 7px var(--cyan);
+    }
+
+    /* ═══════ AVATAR ═══════ */
+
+    .avatar-box {
+      position: relative;
+      z-index: 5;
+
+      width: 82px;
+      height: 82px;
+      margin-top: 15px;
+      padding: 3px;
+
+      border: 1px solid var(--cyan);
+      border-radius: 50%;
+
+      background: rgba(0,229,255,.05);
+
+      box-shadow:
+        0 0 15px rgba(0,229,255,.25),
+        0 0 35px rgba(255,23,68,.18);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      object-fit: cover;
+      border-radius: 50%;
+
+      filter: contrast(1.1) saturate(1.15);
+    }
+
+    .avatar-box::before,
+    .avatar-box::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+    }
+
+    .avatar-box::before {
+      left: -5px;
+      top: -5px;
+      border-left: 2px solid var(--red);
+      border-top: 2px solid var(--red);
+    }
+
+    .avatar-box::after {
+      right: -5px;
+      bottom: -5px;
+      border-right: 2px solid var(--pink);
+      border-bottom: 2px solid var(--pink);
+    }
+
+    /* ═══════ IDENTITY ═══════ */
+
+    .tag {
+      position: relative;
+      z-index: 5;
+
+      margin: 12px 0 3px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+
+      color: var(--cyan);
+    }
+
+    .alias {
+      position: relative;
+      z-index: 5;
+
+      margin: 0;
+
+      font-size: 34px;
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -1px;
+
+      color: var(--red);
+
+      text-transform: uppercase;
+
+      text-shadow:
+        3px 0 var(--cyan),
+        0 0 18px rgba(255,23,68,.55);
+    }
+
+    .name {
+      position: relative;
+      z-index: 5;
+
+      margin: 8px 0 0;
+
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: 600;
+
+      color: rgba(255,255,255,.82);
+    }
+
+    /* ═══════ GLITCH CODE ═══════ */
+
+    .code-line {
+      position: relative;
+      z-index: 5;
+
+      margin-top: 7px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+
+      color: rgba(255,255,255,.42);
+    }
+
+    .code-line b {
+      color: var(--pink);
+    }
+
+    /* ═══════ POWER ═══════ */
+
+    .power {
+      position: relative;
+      z-index: 5;
+
+      margin-top: 14px;
+      padding: 9px 11px;
+
+      border-left: 3px solid var(--red);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,23,68,.15),
+          rgba(255,23,68,.02)
+        );
+
+      font-family: ui-monospace, monospace;
+    }
+
+    .power small {
+      display: block;
+
+      font-size: 7px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,.4);
+    }
+
+    .power strong {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: 11px;
+      letter-spacing: .5px;
+      color: white;
+    }
+
+    /* ═══════ SKILLS ═══════ */
+
+    .label {
+      position: relative;
+      z-index: 5;
+
+      margin: 14px 0 7px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+
+      color: rgba(255,255,255,.4);
+    }
+
+    .skills {
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 8px;
+
+      border: 1px solid rgba(255,23,68,.65);
+      border-radius: 4px;
+
+      background: rgba(255,23,68,.08);
+
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+      font-weight: 700;
+
+      color: rgba(255,255,255,.88);
+    }
+
+    .skills li::before {
+      content: "◆";
+      margin-right: 4px;
+      color: var(--red);
+      font-size: 6px;
+    }
+
+    /* ═══════ MULTIVERSE DATA ═══════ */
+
+    .stats {
+      position: relative;
+      z-index: 5;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5px;
+
+      margin-top: 13px;
+    }
+
+    .stat {
+      padding: 6px;
+
+      text-align: center;
+
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat small {
+      display: block;
+
+      font-family: ui-monospace, monospace;
+      font-size: 6px;
+      letter-spacing: 1px;
+
+      color: rgba(255,255,255,.35);
+    }
+
+    .stat b {
+      display: block;
+
+      margin-top: 2px;
+
+      font-family: ui-monospace, monospace;
+      font-size: 9px;
+
+      color: var(--cyan);
+    }
+
+    /* ═══════ BIG SPIDER SYMBOL ═══════ */
+
+    .spider {
+      position: absolute;
+      z-index: 1;
+
+      right: -18px;
+      bottom: 45px;
+
+      font-size: 125px;
+      line-height: 1;
+
+      opacity: .055;
+
+      filter: grayscale(1);
+      transform: rotate(-12deg);
+    }
+
+    /* ═══════ FOOTER ═══════ */
+
+    .footer {
+      position: absolute;
+      z-index: 6;
+
+      left: 19px;
+      right: 19px;
+      bottom: 14px;
+
+      display: flex;
+      justify-content: space-between;
+
+      padding-top: 8px;
+
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      font-family: ui-monospace, monospace;
+      font-size: 7px;
+      letter-spacing: 1.5px;
+
+      color: rgba(255,255,255,.35);
+    }
+
+    .footer span:last-child {
+      color: var(--red);
+    }
+
+    /* ═══════ CORNERS ═══════ */
+
+    .corner {
+      position: absolute;
+      z-index: 10;
+
+      width: 15px;
+      height: 15px;
+    }
+
+    .tl {
+      top: 9px;
+      left: 9px;
+      border-top: 1px solid var(--red);
+      border-left: 1px solid var(--red);
+    }
+
+    .tr {
+      top: 9px;
+      right: 9px;
+      border-top: 1px solid var(--cyan);
+      border-right: 1px solid var(--cyan);
+    }
+
+    .bl {
+      bottom: 9px;
+      left: 9px;
+      border-bottom: 1px solid var(--cyan);
+      border-left: 1px solid var(--cyan);
+    }
+
+    .br {
+      bottom: 9px;
+      right: 9px;
+      border-bottom: 1px solid var(--red);
+      border-right: 1px solid var(--red);
+    }
+  </style>
+
+  <!-- CORNER HUD -->
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="society">SPIDER-SOCIETY // 2099</span>
+    <span class="online">ACTIVE</span>
+  </div>
+
+  <!-- AVATAR -->
+  <div class="avatar-box">
+    <img
+      class="avatar"
+      src="https://github.com/SPIDERMAN.png"
+      alt=""
+    />
+  </div>
+
+  <!-- IDENTITY -->
+  <p class="tag">MULTIVERSE OPERATIVE // CSE</p>
+
+  <h1 class="alias">SPIDER-P</h1>
+
+  <p class="name">PAHAL AGRAWAL</p>
+
+  <p class="code-line">
+    GITHUB :: <b>@SPIDERMAN</b> // STATUS :: ONLINE
+  </p>
+
+  <!-- SPECIAL POWER -->
+  <div class="power">
+    <small>SPECIAL ABILITY</small>
+    <strong>DEBUGGING THE IMPOSSIBLE</strong>
+  </div>
+
+  <!-- SKILLS -->
+  <p class="label">WEB-SLINGING SKILLSET</p>
+
+  <ul class="skills">
+    <li>C</li>
+    <li>HTML / CSS</li>
+    <li>PROBLEM SOLVING</li>
+    <li>CREATIVITY</li>
+  </ul>
+
+  <!-- MULTIVERSE DATA -->
+  <div class="stats">
+    <div class="stat">
+      <small>EARTH</small>
+      <b>1610+</b>
+    </div>
+
+    <div class="stat">
+      <small>CLASS</small>
+      <b>CSE-01</b>
+    </div>
+
+    <div class="stat">
+      <small>THREAT</small>
+      <b>DEBUGGER</b>
+    </div>
+  </div>
+
+  <!-- DECORATIVE SPIDER -->
+  <div class="spider">🕷</div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>SPIDER-SOCIETY // ID: SP-P</span>
+    <span>CANON EVENT</span>
+  </div>
+</div>
