@@ -1,0 +1,29 @@
+<div
+  class="spider-card"
+  data-name="Your Name"
+  data-alias="Your Spider-Alias"
+  data-github="your-github-username"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --suit: #e62429;
+      width: 320px; height: 440px;
+      box-sizing: border-box; padding: 22px;
+      font-family: system-ui, sans-serif; color: #e8e6e3;
+      background: radial-gradient(circle at 30% 0%, #2a0508, #08080a 70%);
+      border: 2px solid var(--suit); border-radius: 18px;
+      overflow: hidden;
+    }
+    .alias { font-size: 26px; color: var(--suit); text-transform: uppercase; margin: 14px 0 2px; }
+    .name { font-size: 14px; opacity: .75; margin: 0; }
+    .skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; padding: 0; list-style: none; }
+    .skills li { padding: 5px 10px; font-size: 12px; border: 1px solid var(--suit); border-radius: 999px; }
+  </style>
+
+  <h1 class="alias">Your Spider-Alias</h1>
+  <p class="name">Your Name</p>
+  <ul class="skills">
+    <li>Skill One</li><li>Skill Two</li><li>Skill Three</li>
+  </ul>
+</div>
