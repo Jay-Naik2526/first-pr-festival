@@ -1,0 +1,195 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="Sairaj44"
+  data-alias="chota bheem"
+  data-github="sairaj-bhagwat17"
+  data-suit="#E62429"
+>
+  <style>
+    /* ── Your suit starts here ──────────────────────────────── */
+    .spider-card {
+      --suit: #e62429;
+      --gold: #ffd700;
+      --ink: #08080a;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 18px;
+      font-family: system-ui, sans-serif;
+      color: #e8e6e3;
+      background: 
+        linear-gradient(to right, rgba(8, 8, 10, 0.45) 0%, rgba(8, 8, 10, 0.85) 100%),
+        url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTqV6AvjCKTUbpAlRtIcgZsAUlkeb4L1RTmki_QbCEDZGdUi_zKr19bYI&s=10") center/cover no-repeat;
+      border: 3px solid var(--gold);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.05) 0 1px,
+          transparent 1px 14px
+        ),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 14px);
+      pointer-events: none;
+    }
+
+    .header-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+      flex-shrink: 0;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .alias {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--suit);
+      text-transform: lowercase;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .alias-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      object-fit: cover;
+      box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+    }
+
+    .name {
+      margin: 16px 0 0;
+      font-size: 18px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    .handle {
+      margin: 2px 0 0;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      opacity: 0.85;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Rearranged Skills layout into a two-column grid */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills li {
+      padding: 6px 8px;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #000;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      background: var(--gold);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Span the 5th item across both columns to balance out the grid */
+    .skills li:nth-child(5) {
+      grid-column: span 2;
+    }
+
+    .footer {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+      z-index: 1;
+    }
+  </style>
+
+  <div class="header-group">
+    <img class="avatar" src="https://thumbs.dreamstime.com/b/silhouette-writer-detective-54291834.jpg" alt="Detective Silhouette Avatar" />
+    <div class="info">
+      <h1 class="alias">chota bheem</h1>
+      <img 
+        class="alias-badge" 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRljuh7V-2rXRnPCeaHj6clo44bc96X6b7BfoOCAMtmUe1u5mZ7fGg-ZF8&s=10" 
+        alt="Badge" 
+      />
+    </div>
+  </div>
+
+  <p class="name">Sairaj44</p>
+  <p class="handle">sairaj-bhagwat17</p>
+
+  <ul class="skills">
+    <li>🔍 Noir Deduction</li>
+    <li>🎯 Sharp Shooter</li>
+    <li>🕶️ Stealth Ops</li>
+    <li>⚡ Glitch Hacking</li>
+    <li>🧠 1000 IQ Clue Solver</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society Earth-1610</span>
+  </div>
+</div>
