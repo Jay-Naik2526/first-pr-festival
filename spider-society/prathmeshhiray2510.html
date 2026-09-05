@@ -1,0 +1,308 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+-->
+<div
+  class="spider-card"
+  data-name="prathmeshhiray2510-stack"
+  data-alias="venom "
+  data-github="prathmeshhiray2510-stack"
+  data-suit="#E62429"
+>
+  <style>
+    /* ── The Dynamic Comic-Red Suit ──────────────────────────── */
+    @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Teko:wght@500;700&display=swap');
+
+    .spider-card {
+      --spidey-red: #E62429;
+      --spidey-dark: #6a040f;
+      --comic-black: #0d0d0d;
+      --web-white: #f5f5f5;
+      --spidey-gold: #FFD700;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 24px;
+      background: var(--spidey-red);
+      background-image: radial-gradient(circle at 50% 30%, transparent 30%, rgba(0, 0, 0, 0.6) 100%);
+      border: 4px solid var(--comic-black);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      
+      /* Comic panel pop-out shadow */
+      box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, border-color 0.3s;
+    }
+
+    /* Comic Halftone Overlay */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(rgba(0, 0, 0, 0.25) 2px, transparent 2.5px);
+      background-size: 8px 8px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Giant Radiating Web Background */
+    .background-web {
+      position: absolute;
+      inset: -50%;
+      background: 
+        repeating-conic-gradient(from 0deg at 50% 0%, transparent 0deg, transparent 10deg, rgba(0, 0, 0, 0.2) 10deg, rgba(0, 0, 0, 0.2) 12deg),
+        repeating-radial-gradient(circle at 50% 0%, transparent 0, transparent 30px, rgba(0, 0, 0, 0.2) 30px, rgba(0, 0, 0, 0.2) 34px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Card Hover Physics */
+    .spider-card:hover {
+      transform: translateY(-8px) rotate(-2deg) scale(1.02);
+      box-shadow: 14px 14px 0px rgba(0, 0, 0, 0.9), 0 0 25px var(--spidey-red);
+      border-color: var(--web-white);
+    }
+
+    /* ── The Swinging Avatar ── */
+    .swing-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 140px;
+      transform-origin: 50% 0; /* Hinged at the top center */
+      animation: swing 3.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+      z-index: 3;
+    }
+
+    .spider-card:hover .swing-wrapper {
+      /* Swings wildly when you trigger the Spider-Sense (hover) */
+      animation: swing-fast 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(-6deg); }
+      100% { transform: rotate(6deg); }
+    }
+
+    @keyframes swing-fast {
+      0% { transform: rotate(-16deg); }
+      100% { transform: rotate(16deg); }
+    }
+
+    /* The Web Thread */
+    .web-thread {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 60px;
+      background: var(--web-white);
+      box-shadow: 0 0 5px var(--web-white);
+    }
+
+    /* Avatar Group (Image + Spidey Sense) */
+    .avatar-group {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--comic-black);
+      box-shadow: 0 0 0 3px var(--web-white), 0 10px 20px rgba(0, 0, 0, 0.6);
+      background: var(--web-white);
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Spidey-Sense Tingles */
+    .spidey-sense {
+      position: absolute;
+      top: -10px;
+      font-family: 'Bangers', cursive;
+      font-size: 28px;
+      color: var(--spidey-gold);
+      text-shadow: 2px 2px 0 var(--comic-black), 0 0 10px var(--spidey-red);
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 1;
+    }
+
+    .sense-left { left: -32px; }
+    .sense-right { right: -32px; }
+
+    .spider-card:hover .spidey-sense {
+      opacity: 1;
+      animation: vibrate 0.1s infinite alternate;
+    }
+
+    @keyframes vibrate {
+      0% { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(-3px) scale(1.1); }
+    }
+
+    /* ── Content Layout ── */
+    .card-content {
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-zone {
+      margin-top: 135px; /* Pushed down to make room for the swinging avatar */
+      text-align: center;
+    }
+
+    .alias {
+      font-family: 'Bangers', cursive;
+      font-size: 42px;
+      line-height: 0.9;
+      margin: 0;
+      color: var(--web-white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transform: rotate(-3deg);
+      /* Extruded 3D Comic Text Effect */
+      text-shadow: 
+        -2px -2px 0 var(--comic-black),  
+         2px -2px 0 var(--comic-black),
+        -2px  2px 0 var(--comic-black),
+         2px  2px 0 var(--comic-black),
+         4px  4px 0 var(--comic-black),
+         6px  6px 0 var(--spidey-gold),
+         8px  8px 0 var(--comic-black);
+      transition: transform 0.2s;
+    }
+
+    .spider-card:hover .alias {
+      transform: rotate(-3deg) scale(1.05);
+    }
+
+    .name {
+      font-family: 'Teko', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      margin: 12px 0 0;
+      color: var(--comic-black);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: var(--spidey-gold);
+      display: inline-block;
+      padding: 0 10px;
+      transform: skewX(-10deg);
+      box-shadow: 3px 3px 0 var(--comic-black);
+    }
+
+    .handle {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--web-white);
+      opacity: 0.85;
+      margin: 8px 0 15px;
+      letter-spacing: 1px;
+    }
+
+    /* Dynamic Action Panels (Skills) */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: auto 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      font-family: 'Teko', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 2px 12px;
+      background: var(--comic-black);
+      color: var(--web-white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid var(--comic-black);
+      transform: skewX(-12deg);
+      box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.9);
+      transition: all 0.2s ease;
+    }
+
+    .spider-card:hover .skills li {
+      background: var(--web-white);
+      color: var(--comic-black);
+      border-color: var(--web-white);
+      box-shadow: 4px 4px 0 var(--comic-black);
+      transform: skewX(-12deg) translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Teko', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--comic-black);
+      border-top: 3px dashed rgba(0, 0, 0, 0.3);
+      padding-top: 8px;
+    }
+    
+    .issue {
+      background: var(--comic-black);
+      color: var(--web-white);
+      padding: 0 8px;
+      font-size: 14px;
+    }
+  </style>
+
+  <!-- The Background Web -->
+  <div class="background-web"></div>
+
+  <!-- The Swinging Avatar Element -->
+  <div class="swing-wrapper">
+    <div class="web-thread"></div>
+    <div class="avatar-group">
+      <!-- Spider Sense triggers on hover -->
+      <div class="spidey-sense sense-left">(((</div>
+      <img class="avatar" src="https://github.com/identicons/prathmesh.png" alt="Spider Avatar" />
+      <div class="spidey-sense sense-right">)))</div>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="text-zone">
+      <h1 class="alias">Scarlet<br>Weaver</h1>
+      <p class="name">Prathmesh Hiray</p>
+      <p class="handle">@prathmesh</p>
+    </div>
+
+    <ul class="skills">
+      <li>Web-Strike</li>
+      <li>Wall-Crawling</li>
+      <li>Acrobatics</li>
+      <li>Danger Sense</li>
+    </ul>
+
+    <div class="footer">
+      <span>Earth-1610</span>
+      <span class="issue">VOL. 1</span>
+    </div>
+  </div>
+</div>
+
