@@ -1,0 +1,187 @@
+<div
+  class="spider-card"
+  data-name="Manav Sodhani"
+  data-alias="Ghost Spider"
+  data-github="sodhanimanav-source"
+  data-suit="#00f0ff"
+>
+<style>
+  :root {
+    --suit-main: #00f0ff; 
+    --suit-accent: #ff0055; 
+    --ink-deep: #070913; 
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+  }
+
+  .spider-card {
+    width: 320px;
+    height: 440px;
+    box-sizing: border-box;
+    padding: 22px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--ink-deep);
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid rgba(0, 240, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), inset 0 0 20px rgba(255, 0, 85, 0.3);
+  }
+
+  /* 🕸️ FLYING SPIDER-MAN BACKGROUND (Animated GIF) 🕸️ */
+  .spider-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    /* Spider-Man swinging GIF */
+    background-image: url('https://media.giphy.com/media/xTiTnHvXHZxOA9hdqo/giphy.gif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35; /* Faded slightly so your text is readable */
+    mix-blend-mode: screen; /* Blends it with the neon theme */
+    pointer-events: none;
+  }
+
+  /* 🕸️ GLOWING WEB-SHOOTER EFFECT (CSS) 🕸️ */
+  .spider-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    
+    background: 
+      /* Web String 1: Cyan web shooting out */
+      linear-gradient(65deg, transparent 49%, rgba(0, 240, 255, 0.9) 49.5%, #ffffff 50%, rgba(0, 240, 255, 0.9) 50.5%, transparent 51%),
+      
+      /* Web String 2: Neon Pink web crossing */
+      linear-gradient(-45deg, transparent 49%, rgba(255, 0, 85, 0.9) 49.5%, #ffffff 50%, rgba(255, 0, 85, 0.9) 50.5%, transparent 51%),
+      
+      /* Web Rings */
+      repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 30px, rgba(255, 255, 255, 0.1) 31px, transparent 32px),
+      
+      /* Comic Vignette */
+      radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.8) 100%);
+      
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  }
+
+  /* All Content Elements (pushed above the background and webs) */
+  .avatar, .alias, .name, .handle, .skills, .footer {
+    position: relative;
+    z-index: 3; /* Top priority */
+  }
+
+  .avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to bottom, var(--suit-accent) 0%, var(--suit-main) 100%) 1;
+    box-shadow: 
+      -4px -4px 0 rgba(255, 0, 85, 0.6),
+      4px 4px 0 rgba(0, 240, 255, 0.6),
+      0 0 15px rgba(255, 255, 255, 0.4);
+  }
+
+  .alias {
+    margin: 14px 0 2px;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 
+      -2px -2px 0 var(--suit-accent),
+      2px 2px 0 var(--suit-main),
+      0 0 10px #000000; /* Dark shadow added for better readability over the GIF */
+    transform: rotate(-2deg); 
+  }
+
+  .name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary); /* Changed to pure white to stand out */
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+
+  .handle {
+    margin-top: 4px;
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--suit-main);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    font-weight: bold;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .skills li {
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6); /* Darker background so tags pop */
+    border: 1px solid var(--suit-main);
+    box-shadow: 2px 2px 0 var(--suit-accent), 0 0 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+  }
+
+  .footer {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #cccccc;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    padding-top: 12px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+
+  .footer span:last-child {
+    color: var(--suit-main);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--suit-main), 0 2px 4px rgba(0,0,0,1);
+  }
+
+</style>
+
+<img class="avatar" src="https://github.com/sodhanimanav-source.png" alt="Manav's Avatar" />
+
+<h1 class="alias">Ghost Spider</h1>
+<p class="name">Manav Sodhani</p>
+<p class="handle">@sodhanimanav-source</p>
+
+<ul class="skills">
+  <li>Web-Slinging</li>
+  <li>Open Source</li>
+  <li>Git-Verse</li>
+</ul>
+
+<div class="footer">
+  <span>Spider-Society</span>
+  <span>Earth-1610</span>
+</div>
+</div>
