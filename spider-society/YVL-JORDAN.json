@@ -1,0 +1,7 @@
+{
+  "name": "Your Name",
+  "alias": "Your Spider-Alias",
+  "skills": ["Skill One", "Skill Two", "Skill Three"],
+  "suitColor": "#800080",
+  "githubUsername": "your-github-username"
+}
