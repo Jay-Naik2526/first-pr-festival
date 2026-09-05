@@ -1,0 +1,1253 @@
+<!--
+  ============================================================
+  SPIDER-ID CARD — MAHIKA JAIN
+  ============================================================
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only.
+  3. No <script> tags.
+  4. Everything fits inside 320 x 440.
+  5. Keep the four data-attributes on .spider-card.
+  ============================================================
+-->
+
+<div
+  class="spider-card"
+  data-name="Mahika Jain"
+  data-alias="Web Weaver"
+  data-github="mahikajain"
+  data-suit="#E62429"
+>
+
+<style>
+
+/* ============================================================
+   MAIN CARD
+   ============================================================ */
+
+.spider-card {
+  --red: #e62429;
+  --red2: #ff3b42;
+  --dark-red: #650b10;
+  --black: #030405;
+  --white: #f4f4f4;
+
+  width: 320px;
+  height: 440px;
+
+  box-sizing: border-box;
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 13px;
+
+  color: var(--white);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 48% 18%,
+      rgba(230,36,41,.18),
+      transparent 25%
+    ),
+    repeating-linear-gradient(
+      115deg,
+      rgba(255,255,255,.025) 0px,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px,
+      transparent 8px
+    ),
+    linear-gradient(
+      145deg,
+      #07090b 0%,
+      #120406 48%,
+      #030405 100%
+    );
+
+  border: 2px solid var(--red);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 5px var(--red),
+    0 0 14px rgba(230,36,41,.75),
+    0 0 28px rgba(230,36,41,.25),
+    inset 0 0 35px rgba(230,36,41,.08);
+}
+
+
+/* ============================================================
+   INNER BORDER
+   ============================================================ */
+
+.spider-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border: 1px solid rgba(255,65,70,.45);
+
+  border-radius: 13px;
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+
+/* ============================================================
+   BACKGROUND DIAGONAL WEB THREADS
+   ============================================================ */
+
+.bg-thread {
+  position: absolute;
+
+  width: 380px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(230,36,41,.4),
+    transparent
+  );
+
+  opacity: .45;
+
+  transform-origin: center;
+
+  pointer-events: none;
+}
+
+.t1 {
+  top: 70px;
+  left: -30px;
+  transform: rotate(20deg);
+}
+
+.t2 {
+  top: 130px;
+  left: -30px;
+  transform: rotate(-18deg);
+}
+
+.t3 {
+  top: 200px;
+  left: -30px;
+  transform: rotate(17deg);
+}
+
+.t4 {
+  top: 270px;
+  left: -30px;
+  transform: rotate(-15deg);
+}
+
+.t5 {
+  top: 340px;
+  left: -30px;
+  transform: rotate(12deg);
+}
+
+
+/* ============================================================
+   TOP LEFT SPIDER WEB
+   ============================================================ */
+
+.web-left {
+  position: absolute;
+
+  width: 135px;
+  height: 135px;
+
+  left: -62px;
+  top: -55px;
+
+  border-radius: 50%;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0px,
+      transparent 10px,
+      rgba(255,255,255,.16) 11px,
+      transparent 12px
+    );
+
+  opacity: .7;
+
+  transform: rotate(10deg);
+
+  z-index: 1;
+}
+
+.web-left::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255,255,255,.17) 0deg 1deg,
+      transparent 1deg 30deg
+    );
+}
+
+
+/* ============================================================
+   BOTTOM RIGHT WEB
+   ============================================================ */
+
+.web-corner {
+  position: absolute;
+
+  width: 210px;
+  height: 210px;
+
+  right: -105px;
+  bottom: -110px;
+
+  border-radius: 50%;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0px,
+      transparent 12px,
+      rgba(255,255,255,.17) 13px,
+      transparent 14px
+    );
+
+  opacity: .65;
+
+  z-index: 1;
+}
+
+.web-corner::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255,255,255,.15) 0deg 1deg,
+      transparent 1deg 30deg
+    );
+}
+
+
+/* ============================================================
+   LARGE CENTRAL WEB
+   ============================================================ */
+
+.central-web {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  left: -15px;
+  top: 125px;
+
+  border-radius: 50%;
+
+  opacity: .30;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0px,
+      transparent 16px,
+      rgba(255,255,255,.20) 17px,
+      transparent 18px
+    );
+
+  z-index: 2;
+
+  transform: rotate(8deg);
+}
+
+.central-web::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255,255,255,.18) 0deg 1deg,
+      transparent 1deg 22.5deg
+    );
+}
+
+
+/* ============================================================
+   GLOWING WEB NODES
+   ============================================================ */
+
+.node {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--red2);
+
+  box-shadow:
+    0 0 5px var(--red2),
+    0 0 11px rgba(230,36,41,.7);
+
+  z-index: 6;
+}
+
+.n1 { top: 91px; left: 82px; }
+.n2 { top: 112px; right: 45px; }
+.n3 { top: 165px; left: 43px; }
+.n4 { top: 205px; right: 31px; }
+.n5 { top: 260px; left: 49px; }
+.n6 { top: 315px; right: 38px; }
+.n7 { top: 360px; left: 62px; }
+.n8 { bottom: 54px; right: 76px; }
+
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+
+.content {
+  position: relative;
+
+  z-index: 10;
+}
+
+
+/* ============================================================
+   PROFILE HEADER
+   ============================================================ */
+
+.profile {
+  height: 74px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  padding: 3px 5px 7px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(230,36,41,.75);
+}
+
+
+/* ============================================================
+   AVATAR
+   ============================================================ */
+
+.avatar {
+  width: 65px;
+  height: 65px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+  border: 2px solid var(--red);
+
+  background: #111;
+
+  box-shadow:
+    0 0 7px rgba(230,36,41,.85),
+    0 0 15px rgba(230,36,41,.30);
+}
+
+
+/* ============================================================
+   NAME
+   ============================================================ */
+
+.identity {
+  padding-top: 1px;
+}
+
+.name {
+  margin: 0;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  font-weight: 950;
+
+  letter-spacing: .2px;
+
+  text-transform: uppercase;
+
+  color: #fff;
+
+  text-shadow:
+    2px 2px 0 #58080c;
+}
+
+.alias {
+  margin: 5px 0 1px;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+
+  color: var(--red);
+
+  text-transform: uppercase;
+}
+
+.handle {
+  margin: 0;
+
+  font-family: monospace;
+
+  font-size: 8px;
+
+  color: #aaa;
+}
+
+
+/* ============================================================
+   SPIDER EMBLEM
+   ============================================================ */
+
+.spider {
+  position: absolute;
+
+  top: 8px;
+  right: 12px;
+
+  width: 45px;
+  height: 58px;
+
+  z-index: 15;
+
+  filter:
+    drop-shadow(0 0 5px var(--red));
+}
+
+.spider-head {
+  position: absolute;
+
+  left: 16px;
+  top: 3px;
+
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background: var(--red);
+}
+
+.spider-body {
+  position: absolute;
+
+  left: 13px;
+  top: 14px;
+
+  width: 19px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: var(--red);
+}
+
+.spider-leg {
+  position: absolute;
+
+  width: 25px;
+  height: 2px;
+
+  background: var(--red);
+
+  border-radius: 2px;
+
+  transform-origin: left center;
+}
+
+.sl1 {
+  left: 17px;
+  top: 18px;
+  transform: rotate(150deg);
+}
+
+.sl2 {
+  left: 15px;
+  top: 23px;
+  transform: rotate(170deg);
+}
+
+.sl3 {
+  left: 15px;
+  top: 29px;
+  transform: rotate(190deg);
+}
+
+.sl4 {
+  left: 17px;
+  top: 35px;
+  transform: rotate(210deg);
+}
+
+.sr1 {
+  left: 28px;
+  top: 18px;
+  transform: rotate(30deg);
+}
+
+.sr2 {
+  left: 29px;
+  top: 23px;
+  transform: rotate(10deg);
+}
+
+.sr3 {
+  left: 29px;
+  top: 29px;
+  transform: rotate(-10deg);
+}
+
+.sr4 {
+  left: 28px;
+  top: 35px;
+  transform: rotate(-30deg);
+}
+
+
+/* ============================================================
+   SPIDER SOCIETY
+   ============================================================ */
+
+.society {
+  height: 30px;
+
+  margin: 4px 4px 7px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-bottom: 1px solid rgba(230,36,41,.65);
+
+  color: var(--red);
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.society span {
+  margin: 0 8px;
+
+  font-size: 7px;
+}
+
+
+/* ============================================================
+   INFORMATION PANELS
+   ============================================================ */
+
+.section {
+  position: relative;
+
+  height: 55px;
+
+  margin: 6px 4px 0;
+
+  padding: 7px 9px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(85,9,14,.58),
+      rgba(5,5,7,.85)
+    );
+
+  border: 1px solid rgba(255,255,255,.13);
+
+  border-left: 3px solid var(--red);
+
+  border-radius: 5px 9px 9px 5px;
+
+  box-shadow:
+    inset 0 0 13px rgba(230,36,41,.06);
+}
+
+
+/* ============================================================
+   COMIC PANEL CORNER
+   ============================================================ */
+
+.section::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 29px;
+  height: 29px;
+
+  border-top: 1px solid rgba(230,36,41,.55);
+
+  transform: skewX(-45deg);
+
+  opacity: .8;
+}
+
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+
+.section-title {
+  margin: 0 0 5px;
+
+  color: var(--red);
+
+  font-family: monospace;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.section-title::before {
+  content: "◆";
+
+  margin-right: 7px;
+
+  font-size: 6px;
+}
+
+
+/* ============================================================
+   TAGS
+   ============================================================ */
+
+.items {
+  display: flex;
+
+  gap: 7px;
+
+  flex-wrap: wrap;
+}
+
+.item {
+  padding: 3px 9px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  color: #f3f3f3;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(230,36,41,.16),
+      rgba(230,36,41,.03)
+    );
+
+  border: 1px solid rgba(230,36,41,.85);
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 0 4px rgba(230,36,41,.12);
+}
+
+
+/* ============================================================
+   SMALL SPIDER FIGURES
+   ============================================================ */
+
+.mini-spider {
+  position: absolute;
+
+  width: 30px;
+  height: 38px;
+
+  z-index: 7;
+
+  transform: scale(.65);
+
+  filter:
+    drop-shadow(0 0 4px rgba(230,36,41,.7));
+}
+
+.mini-body {
+  position: absolute;
+
+  width: 14px;
+  height: 21px;
+
+  left: 8px;
+  top: 8px;
+
+  border-radius: 50%;
+
+  background: var(--red);
+}
+
+.mini-head {
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  left: 10.5px;
+  top: 2px;
+
+  border-radius: 50%;
+
+  background: var(--red);
+}
+
+.mini-leg {
+  position: absolute;
+
+  width: 18px;
+  height: 2px;
+
+  background: var(--red);
+
+  transform-origin: left center;
+}
+
+.ml1 {
+  left: 10px;
+  top: 11px;
+  transform: rotate(150deg);
+}
+
+.ml2 {
+  left: 9px;
+  top: 16px;
+  transform: rotate(175deg);
+}
+
+.ml3 {
+  left: 9px;
+  top: 21px;
+  transform: rotate(200deg);
+}
+
+.mr1 {
+  left: 20px;
+  top: 11px;
+  transform: rotate(30deg);
+}
+
+.mr2 {
+  left: 21px;
+  top: 16px;
+  transform: rotate(5deg);
+}
+
+.mr3 {
+  left: 21px;
+  top: 21px;
+  transform: rotate(-20deg);
+}
+
+
+/* Spider positions */
+
+.spider-one {
+  top: 175px;
+  left: 158px;
+  transform: rotate(-12deg) scale(.72);
+}
+
+.spider-two {
+  top: 292px;
+  right: 23px;
+  transform: rotate(17deg) scale(.72);
+}
+
+.spider-three {
+  top: 230px;
+  right: 76px;
+  transform: rotate(-25deg) scale(.55);
+}
+
+
+/* ============================================================
+   WEB THREADS AROUND PANELS
+   ============================================================ */
+
+.panel-thread {
+  position: absolute;
+
+  height: 1px;
+
+  background: rgba(255,255,255,.28);
+
+  transform-origin: left center;
+
+  z-index: 5;
+}
+
+.pt1 {
+  width: 120px;
+  top: 190px;
+  left: 30px;
+  transform: rotate(25deg);
+}
+
+.pt2 {
+  width: 105px;
+  top: 222px;
+  right: 25px;
+  transform: rotate(-25deg);
+}
+
+.pt3 {
+  width: 135px;
+  top: 280px;
+  left: 20px;
+  transform: rotate(-17deg);
+}
+
+.pt4 {
+  width: 115px;
+  top: 330px;
+  right: 25px;
+  transform: rotate(17deg);
+}
+
+
+/* ============================================================
+   ABILITY
+   ============================================================ */
+
+.ability {
+  margin-top: 7px;
+
+  text-align: center;
+
+  font-family: monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+
+  color: #777;
+
+  text-transform: uppercase;
+}
+
+.ability strong {
+  color: var(--red);
+}
+
+
+/* ============================================================
+   LOWER WEB TEXTURE
+   ============================================================ */
+
+.lower-glow {
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+
+  top: 345px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(230,36,41,.5),
+      transparent
+    );
+
+  opacity: .35;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  position: absolute;
+
+  left: 15px;
+  right: 15px;
+  bottom: 8px;
+
+  z-index: 25;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-top: 6px;
+
+  border-top: 1px solid rgba(255,255,255,.12);
+
+  font-family: monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+
+  color: #777;
+
+  text-transform: uppercase;
+}
+
+.footer .red {
+  color: var(--red);
+
+  font-weight: bold;
+}
+
+</style>
+
+
+<!-- ============================================================
+     BACKGROUND ELEMENTS
+     ============================================================ -->
+
+<div class="web-left"></div>
+
+<div class="web-corner"></div>
+
+<div class="central-web"></div>
+
+<div class="bg-thread t1"></div>
+<div class="bg-thread t2"></div>
+<div class="bg-thread t3"></div>
+<div class="bg-thread t4"></div>
+<div class="bg-thread t5"></div>
+
+
+<!-- WEB NODES -->
+
+<div class="node n1"></div>
+<div class="node n2"></div>
+<div class="node n3"></div>
+<div class="node n4"></div>
+<div class="node n5"></div>
+<div class="node n6"></div>
+<div class="node n7"></div>
+<div class="node n8"></div>
+
+
+<!-- PANEL THREADS -->
+
+<div class="panel-thread pt1"></div>
+<div class="panel-thread pt2"></div>
+<div class="panel-thread pt3"></div>
+<div class="panel-thread pt4"></div>
+
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+
+<div class="content">
+
+
+  <!-- PROFILE HEADER -->
+
+  <div class="profile">
+
+    <img
+      class="avatar"
+      src="https://github.com/mahikajain.png"
+      alt="Mahika Jain"
+    />
+
+    <div class="identity">
+
+      <h1 class="name">
+        Mahika Jain
+      </h1>
+
+      <p class="alias">
+        Web Weaver
+      </p>
+
+      <p class="handle">
+        @mahikajain
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       SPIDER EMBLEM
+       ========================================================= -->
+
+  <div class="spider">
+
+    <div class="spider-head"></div>
+
+    <div class="spider-body"></div>
+
+    <div class="spider-leg sl1"></div>
+    <div class="spider-leg sl2"></div>
+    <div class="spider-leg sl3"></div>
+    <div class="spider-leg sl4"></div>
+
+    <div class="spider-leg sr1"></div>
+    <div class="spider-leg sr2"></div>
+    <div class="spider-leg sr3"></div>
+    <div class="spider-leg sr4"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       SPIDER SOCIETY
+       ========================================================= -->
+
+  <div class="society">
+
+    <span>✦</span>
+
+    Spider Society
+
+    <span>✦</span>
+
+  </div>
+
+
+  <!-- =========================================================
+       SKILLS
+       ========================================================= -->
+
+  <div class="section">
+
+    <h2 class="section-title">
+      Skills
+    </h2>
+
+    <div class="items">
+
+      <span class="item">
+        Python
+      </span>
+
+      <span class="item">
+        Java
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       HOBBIES
+       ========================================================= -->
+
+  <div class="section">
+
+    <h2 class="section-title">
+      Hobbies
+    </h2>
+
+    <div class="items">
+
+      <span class="item">
+        Art
+      </span>
+
+      <span class="item">
+        Sketching
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       EXPERIENCE
+       ========================================================= -->
+
+  <div class="section">
+
+    <h2 class="section-title">
+      Experience
+    </h2>
+
+    <div class="items">
+
+      <span class="item">
+        Web Projects
+      </span>
+
+      <span class="item">
+        Team Work
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       MINI SPIDER 1
+       ========================================================= -->
+
+  <div class="mini-spider spider-one">
+
+    <div class="mini-head"></div>
+
+    <div class="mini-body"></div>
+
+    <div class="mini-leg ml1"></div>
+    <div class="mini-leg ml2"></div>
+    <div class="mini-leg ml3"></div>
+
+    <div class="mini-leg mr1"></div>
+    <div class="mini-leg mr2"></div>
+    <div class="mini-leg mr3"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       MINI SPIDER 2
+       ========================================================= -->
+
+  <div class="mini-spider spider-two">
+
+    <div class="mini-head"></div>
+
+    <div class="mini-body"></div>
+
+    <div class="mini-leg ml1"></div>
+    <div class="mini-leg ml2"></div>
+    <div class="mini-leg ml3"></div>
+
+    <div class="mini-leg mr1"></div>
+    <div class="mini-leg mr2"></div>
+    <div class="mini-leg mr3"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       MINI SPIDER 3
+       ========================================================= -->
+
+  <div class="mini-spider spider-three">
+
+    <div class="mini-head"></div>
+
+    <div class="mini-body"></div>
+
+    <div class="mini-leg ml1"></div>
+    <div class="mini-leg ml2"></div>
+    <div class="mini-leg ml3"></div>
+
+    <div class="mini-leg mr1"></div>
+    <div class="mini-leg mr2"></div>
+    <div class="mini-leg mr3"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       ABILITY
+       ========================================================= -->
+
+  <div class="ability">
+
+    <strong>Ability:</strong>
+
+    &nbsp; Create &nbsp;•&nbsp; Learn &nbsp;•&nbsp; Build
+
+  </div>
+
+
+</div>
+
+
+<!-- LOWER GLOW -->
+
+<div class="lower-glow"></div>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
+<div class="footer">
+
+  <span class="red">
+    SPIDER-ID // 001
+  </span>
+
+  <span>
+    EARTH-65
+  </span>
+
+</div>
+
+
+</div>
