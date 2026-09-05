@@ -1,0 +1,624 @@
+<!--
+  SPIDER-ID CARD — weave your own suit.
+
+  RULES
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only — keep it inside the <style> block below.
+  3. No <script> tags. They are stripped and CI will reject them.
+  4. Everything must fit inside 320 x 440. That's the card.
+  5. Keep the four data- attributes on .spider-card — the roster reads them.
+
+  Everything else is yours. Go wild.
+-->
+<div
+  class="spider-card"
+  data-name="Mirage29"
+  data-alias="Gwen"
+  data-github="janikasoni2908"
+  data-suit="#E62429"
+>
+  <style>
+    /* ── Your suit starts here ──────────────────────────────── */
+    @keyframes chromaticGlitch {
+      0%, 92%, 100% {
+        text-shadow: -1.5px 0 rgba(0, 240, 255, 0.65), 1.5px 0 rgba(255, 42, 133, 0.75), 0 0 16px rgba(255, 42, 133, 0.4);
+        transform: none;
+      }
+      93% {
+        text-shadow: -3.5px 0 #00f0ff, 3.5px 0 #ff2a85, 0 0 22px #ffffff;
+        transform: skewX(-4deg) scale(1.02);
+      }
+      95% {
+        text-shadow: 2.5px 0 #00f0ff, -2.5px 0 #ff2a85;
+        transform: skewX(3deg);
+      }
+      97% {
+        text-shadow: -1.5px 0 rgba(0, 240, 255, 0.65), 1.5px 0 rgba(255, 42, 133, 0.75);
+        transform: none;
+      }
+    }
+
+    @keyframes spiderSenseWave {
+      0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.96);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.06);
+        filter: drop-shadow(0 0 6px #ffe600) drop-shadow(0 0 10px #ff2a85);
+      }
+    }
+
+    @keyframes spiderSwing {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(6deg); }
+    }
+
+    @keyframes thwipPulse {
+      0% { transform: rotate(11deg) scale(0.96); }
+      100% { transform: rotate(15deg) scale(1.04); }
+    }
+
+    @keyframes beaconBlink {
+      0%, 100% { opacity: 0.4; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 10px #00f0ff; }
+    }
+
+    .spider-card {
+      --suit: #e62429;
+      --suit-glow: rgba(230, 36, 41, 0.45);
+      --spider-blue: #00d2ff;
+      --gwen-pink: #ff2a85;
+      --comic-yellow: #ffe600;
+      --ink: #060609;
+      --card-bg: radial-gradient(circle at 82% 8%, #36050b 0%, #17060f 40%, var(--ink) 85%);
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 18px 20px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #f1f3f5;
+      background: var(--card-bg);
+      border: 2px solid var(--suit);
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 
+        0 14px 35px rgba(0, 0, 0, 0.8),
+        0 0 28px rgba(230, 36, 41, 0.3),
+        inset 0 0 18px rgba(230, 36, 41, 0.15);
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+    }
+
+    .spider-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.85),
+        0 0 40px rgba(230, 36, 41, 0.45),
+        0 0 20px rgba(255, 42, 133, 0.3),
+        inset 0 0 22px rgba(255, 42, 133, 0.2);
+    }
+
+    /* Prismatic Holographic Foil Sheen on Hover */
+    .spider-card::after {
+      content: "";
+      position: absolute;
+      inset: -120%;
+      background: linear-gradient(
+        115deg,
+        transparent 40%,
+        rgba(0, 210, 255, 0.12) 47%,
+        rgba(255, 42, 133, 0.22) 50%,
+        rgba(255, 230, 0, 0.14) 53%,
+        transparent 60%
+      );
+      transform: rotate(25deg) translateY(-100%);
+      transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .spider-card:hover::after {
+      transform: rotate(25deg) translateY(100%);
+    }
+
+    /* Ambient Comic Ben-Day Dots & Suit Webbing */
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 100% 0%, transparent 24px, rgba(230, 36, 41, 0.14) 25px, transparent 26px, transparent 55px, rgba(230, 36, 41, 0.12) 56px, transparent 57px, transparent 95px, rgba(230, 36, 41, 0.1) 96px, transparent 97px, transparent 145px, rgba(230, 36, 41, 0.08) 146px, transparent 147px),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 16px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 16px);
+      background-size: 8px 8px, 100% 100%, 100% 100%, 100% 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Corner Webs */
+    .corner-web {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .web-tr {
+      top: 0;
+      right: 0;
+      width: 140px;
+      height: 140px;
+      color: var(--gwen-pink);
+      filter: drop-shadow(0 0 5px rgba(255, 42, 133, 0.5));
+    }
+
+    .web-bl {
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      color: var(--suit);
+      filter: drop-shadow(0 0 5px rgba(230, 36, 41, 0.45));
+    }
+
+    /* THWIP! Comic Sound Effect Sticker */
+    .thwip-sticker {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--comic-yellow);
+      color: #08080a;
+      font-family: Impact, "Arial Black", system-ui, sans-serif;
+      font-style: italic;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      padding: 2px 7px;
+      border: 1.5px solid #08080a;
+      border-radius: 3px;
+      box-shadow: 2px 2px 0px var(--suit);
+      z-index: 6;
+      animation: thwipPulse 2.8s ease-in-out infinite alternate;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Dangling Spider on Web Thread */
+    .dangling-spider {
+      position: absolute;
+      top: 0;
+      right: 88px;
+      width: 22px;
+      height: 68px;
+      z-index: 4;
+      pointer-events: none;
+      animation: spiderSwing 4.2s ease-in-out infinite alternate;
+      transform-origin: top center;
+    }
+
+    /* Stylized Spider Emblem Background Watermark */
+    .spider-emblem-bg {
+      position: absolute;
+      right: -25px;
+      bottom: 25px;
+      width: 200px;
+      height: 240px;
+      fill: none;
+      stroke: rgba(230, 36, 41, 0.08);
+      stroke-width: 2.5;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Foreground Content Layout */
+    .card-content {
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Row: Status Badge */
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .multiverse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--spider-blue);
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      border-radius: 12px;
+      padding: 3px 8px;
+      box-shadow: 0 0 8px rgba(0, 210, 255, 0.2);
+    }
+
+    .beacon-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--spider-blue);
+      border-radius: 50%;
+      animation: beaconBlink 2s ease-in-out infinite;
+    }
+
+    /* Avatar & Spider-Sense Waves */
+    .identity-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 2px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 74px;
+      height: 74px;
+      flex-shrink: 0;
+    }
+
+    .spider-sense-fx {
+      position: absolute;
+      inset: -10px;
+      width: 94px;
+      height: 94px;
+      pointer-events: none;
+      z-index: 1;
+      animation: spiderSenseWave 2.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .avatar {
+      position: relative;
+      width: 74px;
+      height: 74px;
+      border-radius: 16px;
+      border: 2px solid var(--suit);
+      object-fit: cover;
+      box-shadow: 0 0 16px var(--suit-glow), 0 0 2px rgba(255, 255, 255, 0.6);
+      background: #150307;
+      display: block;
+      z-index: 2;
+    }
+
+    .mask-badge {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      width: 22px;
+      height: 22px;
+      background: #09090e;
+      border: 1.5px solid var(--gwen-pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px rgba(255, 42, 133, 0.6);
+      z-index: 3;
+    }
+
+    .mask-badge svg {
+      width: 13px;
+      height: 13px;
+      fill: var(--gwen-pink);
+    }
+
+    /* Names & Subtitles */
+    .name-block {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .alias {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #ffffff;
+      animation: chromaticGlitch 5s ease-in-out infinite;
+    }
+
+    .suit-tag {
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gwen-pink);
+      margin-top: 3px;
+      opacity: 0.9;
+    }
+
+    .name {
+      margin: 4px 0 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .name-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--suit);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--suit);
+    }
+
+    .handle {
+      margin: 2px 0 0;
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 11px;
+      color: #8b949e;
+    }
+
+    /* Multiverse Suit Stats HUD */
+    .stats-hud {
+      margin-top: 12px;
+      padding: 7px 10px;
+      background: rgba(10, 10, 15, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .stat-label {
+      color: #a0aec0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stat-val {
+      font-weight: 700;
+      color: #f7fafc;
+    }
+
+    .stat-track {
+      flex: 1;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      margin: 0 8px;
+      overflow: hidden;
+    }
+
+    .stat-bar {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    .bar-agility {
+      background: linear-gradient(90deg, #e62429, #ff2a85);
+      width: 98%;
+      box-shadow: 0 0 6px rgba(255, 42, 133, 0.6);
+    }
+
+    .bar-reflex {
+      background: linear-gradient(90deg, #ff2a85, #00d2ff);
+      width: 96%;
+      box-shadow: 0 0 6px rgba(0, 210, 255, 0.6);
+    }
+
+    /* Skills Badges */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 4px 8px;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(230, 36, 41, 0.4);
+      border-radius: 999px;
+      background: rgba(230, 36, 41, 0.12);
+      color: #f1f3f5;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s ease;
+    }
+
+    .skills li:first-child {
+      border-color: rgba(255, 42, 133, 0.55);
+      background: rgba(255, 42, 133, 0.14);
+    }
+
+    .skills li:hover {
+      border-color: var(--spider-blue);
+      background: rgba(0, 210, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #718096;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 8px;
+    }
+
+    .footer span:last-child {
+      color: var(--suit);
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(230, 36, 41, 0.4);
+    }
+  </style>
+
+  <!-- "THWIP!" Comic Sound Effect Sticker -->
+  <div class="thwip-sticker">THWIP!</div>
+
+  <!-- Top-Right Detailed Spider Web (SVG with Dew Drops) -->
+  <svg class="corner-web web-tr" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="140.0" y1="0.0" x2="140.0" y2="130.0" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <line x1="140.0" y1="0.0" x2="99.8" y2="123.6" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <line x1="140.0" y1="0.0" x2="63.6" y2="105.2" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <line x1="140.0" y1="0.0" x2="34.8" y2="76.4" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <line x1="140.0" y1="0.0" x2="16.4" y2="40.2" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <line x1="140.0" y1="0.0" x2="10.0" y2="0.0" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <path d="M 140.0 26.0 Q 136.4 22.6 132.0 24.7 Q 129.6 20.4 124.7 21.0 Q 123.8 16.2 119.0 15.3 Q 119.6 10.4 115.3 8.0 Q 117.4 3.6 114.0 0.0" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+    <path d="M 140.0 52.0 Q 132.8 45.2 123.9 49.5 Q 119.2 40.8 109.4 42.1 Q 107.6 32.4 97.9 30.6 Q 99.2 20.8 90.5 16.1 Q 94.8 7.2 88.0 0.0" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+    <path d="M 140.0 78.0 Q 129.3 67.8 115.9 74.2 Q 108.8 61.2 94.2 63.1 Q 91.5 48.5 76.9 45.8 Q 78.8 31.2 65.8 24.1 Q 72.2 10.7 62.0 0.0" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+    <path d="M 140.0 104.0 Q 125.7 90.4 107.9 98.9 Q 98.5 81.5 78.9 84.1 Q 75.3 64.7 55.9 61.1 Q 58.5 41.5 41.1 32.1 Q 49.6 14.3 36.0 0.0" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+    <path d="M 140.0 130.0 Q 122.1 113.0 99.8 123.6 Q 88.1 101.9 63.6 105.2 Q 59.1 80.9 34.8 76.4 Q 38.1 51.9 16.4 40.2 Q 27.0 17.9 10.0 0.0" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+    <!-- Luminous Web Junction Nodes -->
+    <circle cx="124.7" cy="21.0" r="1.8" fill="#00d2ff"/>
+    <circle cx="94.2" cy="63.1" r="2" fill="#ff2a85"/>
+    <circle cx="63.6" cy="105.2" r="2" fill="#ffe600"/>
+    <circle cx="34.8" cy="76.4" r="1.8" fill="#00d2ff"/>
+  </svg>
+
+  <!-- Bottom-Left Spider Web -->
+  <svg class="corner-web web-bl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0.0" y1="100.0" x2="0.0" y2="10.0" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+    <line x1="0.0" y1="100.0" x2="34.4" y2="16.9" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+    <line x1="0.0" y1="100.0" x2="63.6" y2="36.4" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+    <line x1="0.0" y1="100.0" x2="83.1" y2="65.6" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+    <line x1="0.0" y1="100.0" x2="90.0" y2="100.0" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+    <path d="M 0.0 77.5 Q 3.9 80.6 8.6 79.2 Q 11.0 83.5 15.9 84.1 Q 16.5 89.0 20.8 91.4 Q 19.4 96.1 22.5 100.0" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <path d="M 0.0 55.0 Q 7.7 61.2 17.2 58.4 Q 22.0 67.1 31.8 68.2 Q 32.9 78.0 41.6 82.8 Q 38.8 92.3 45.0 100.0" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <path d="M 0.0 32.5 Q 11.6 41.7 25.8 37.6 Q 33.0 50.6 47.7 52.3 Q 49.4 67.0 62.4 74.2 Q 58.3 88.4 67.5 100.0" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+    <path d="M 0.0 10.0 Q 15.5 22.3 34.4 16.9 Q 44.0 34.1 63.6 36.4 Q 65.9 56.0 83.1 65.6 Q 77.7 84.5 90.0 100.0" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+  </svg>
+
+  <!-- Dangling Web Strand with Spider -->
+  <svg class="dangling-spider" viewBox="0 0 22 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="11" y1="0" x2="11" y2="48" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1" stroke-dasharray="2 2"/>
+    <g transform="translate(11, 54)">
+      <ellipse cx="0" cy="0" rx="3.5" ry="4.8" fill="#e62429"/>
+      <circle cx="0" cy="-4" r="2.2" fill="#ffffff"/>
+      <path d="M -2 -3 Q -7 -7 -9 -4" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M -3 -1 Q -9 -3 -11 1" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M -3 1 Q -10 3 -10 7" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M -2 3 Q -7 6 -8 10" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M 2 -3 Q 7 -7 9 -4" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M 3 -1 Q 9 -3 11 1" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M 3 1 Q 10 3 10 7" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+      <path d="M 2 3 Q 7 6 8 10" stroke="#ffffff" stroke-width="0.8" fill="none"/>
+    </g>
+  </svg>
+
+  <!-- Stylized Background Spider Emblem Watermark -->
+  <svg class="spider-emblem-bg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 50 48 C 45 48 38 60 44 82 C 47 92 50 98 50 98 C 50 98 53 92 56 82 C 62 60 55 48 50 48 Z"/>
+    <path d="M 50 44 C 46 44 44 38 47 34 C 48 32 52 32 53 34 C 56 38 54 44 50 44 Z"/>
+    <path d="M 45 42 Q 22 25 15 8 Q 14 18 28 36 Q 42 46 45 45"/>
+    <path d="M 44 46 Q 16 38 8 26 Q 10 36 24 50 Q 40 56 44 49"/>
+    <path d="M 44 54 Q 18 64 12 85 Q 18 80 30 68 Q 42 62 45 56"/>
+    <path d="M 45 60 Q 25 80 20 108 Q 25 98 38 82 Q 46 72 46 62"/>
+    <path d="M 55 42 Q 78 25 85 8 Q 86 18 72 36 Q 58 46 55 45"/>
+    <path d="M 56 46 Q 84 38 92 26 Q 90 36 76 50 Q 60 56 56 49"/>
+    <path d="M 56 54 Q 82 64 88 85 Q 82 80 70 68 Q 58 62 55 56"/>
+    <path d="M 55 60 Q 75 80 80 108 Q 75 98 62 82 Q 54 72 54 62"/>
+  </svg>
+
+  <div class="card-content">
+    <!-- Top Row: Multiverse Status -->
+    <div class="header-row">
+      <div class="multiverse-badge">
+        <span class="beacon-dot"></span>
+        <span>Earth-65 // Active</span>
+      </div>
+    </div>
+
+    <!-- Identity Row: Avatar + Spider-Sense + Names -->
+    <div class="identity-row">
+      <div class="avatar-wrapper">
+        <!-- Animated Spider-Sense Waves -->
+        <svg class="spider-sense-fx" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 9 26 Q 2 47 9 68" stroke="#ffe600" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 2 18 Q -7 47 2 76" stroke="#ff2a85" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M 85 26 Q 92 47 85 68" stroke="#ffe600" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 92 18 Q 101 47 92 76" stroke="#00d2ff" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+
+        <img
+          class="avatar"
+          src="https://github.com/janikasoni2908.png"
+          alt="Mirage29"
+        />
+
+        <div class="mask-badge">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="name-block">
+        <h1 class="alias">Gwen</h1>
+        <div class="suit-tag">Ghost-Spider</div>
+        <p class="name"><span class="name-dot"></span>Mirage29</p>
+        <p class="handle">@janikasoni2908</p>
+      </div>
+    </div>
+
+    <!-- Multiverse Combat & Suit Specs HUD -->
+    <div class="stats-hud">
+      <div class="stat-row">
+        <span class="stat-label">Agility</span>
+        <div class="stat-track"><div class="stat-bar bar-agility"></div></div>
+        <span class="stat-val">98%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Spider-Sense</span>
+        <div class="stat-track"><div class="stat-bar bar-reflex"></div></div>
+        <span class="stat-val">MAX</span>
+      </div>
+    </div>
+
+    <!-- Spider Traits / Skills Badges -->
+    <ul class="skills">
+      <li>🕸️ Web-Shooters</li>
+      <li>⚡ Spider-Sense</li>
+      <li>🤸 Punk Acrobatics</li>
+      <li>🌌 Multiverse Travel</li>
+    </ul>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>Spider-Society</span>
+      <span>Earth-65</span>
+    </div>
+  </div>
+</div>
