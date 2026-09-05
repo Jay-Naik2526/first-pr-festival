@@ -1,0 +1,222 @@
+<!--
+  SPIDER-ID CARD — LOKESH PATIL
+  Data Analyst | Gold & Marble Edition
+-->
+
+<div
+  class="spider-card"
+  data-name="Lokesh Patil"
+  data-alias="The Analyst"
+  data-github="lokesh780patil"
+  data-suit="#D4AF37"
+>
+  <style>
+    .spider-card {
+      --gold: #d4af37;
+      --marble: #efe9dd;
+      --ink: #14110b;
+      --blood: #7a1f1f;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 24px;
+      font-family: "Times New Roman", "Iowan Old Style", Georgia, serif;
+      color: var(--marble);
+      background:
+        radial-gradient(circle at 50% -10%, rgba(212, 175, 55, 0.18), transparent 55%),
+        linear-gradient(180deg, #1c170e, var(--ink) 60%);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(115deg, transparent 40%, rgba(239, 233, 221, 0.03) 41%, transparent 43%),
+        linear-gradient(70deg, transparent 60%, rgba(239, 233, 221, 0.025) 61%, transparent 64%);
+      pointer-events: none;
+    }
+
+    .gold-rule {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .crest-row {
+      margin-top: 18px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    /* YOUR UPLOADED IMAGE */
+    .silhouette {
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+      position: relative;
+      border-radius: 50%;
+      background: #2a2115;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .id-text .alias {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .id-text .name {
+      margin: 5px 0 0;
+      font-size: 13px;
+      color: rgba(239, 233, 221, 0.75);
+      letter-spacing: 0.5px;
+    }
+
+    .id-text .handle {
+      margin: 3px 0 0;
+      font-size: 10.5px;
+      font-family: ui-monospace, monospace;
+      color: rgba(239, 233, 221, 0.4);
+    }
+
+    .motto {
+      margin: 20px 0 0;
+      padding: 13px 15px;
+      border-left: 2px solid var(--gold);
+      background: rgba(212, 175, 55, 0.06);
+      font-size: 13px;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--marble);
+    }
+
+    .ledger {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .ledger-item {
+      flex: 1;
+      text-align: center;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 9px 4px;
+      background: rgba(212, 175, 55, 0.04);
+    }
+
+    .ledger-num {
+      font-size: 17px;
+      color: var(--gold);
+      font-weight: bold;
+      font-family: Georgia, serif;
+    }
+
+    .ledger-label {
+      margin-top: 3px;
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+      color: rgba(239, 233, 221, 0.5);
+      font-family: ui-monospace, monospace;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 10px;
+      font-size: 11px;
+      color: var(--marble);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(122, 31, 31, 0.15);
+      letter-spacing: 0.3px;
+    }
+
+    .footer {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      color: rgba(239, 233, 221, 0.45);
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 10px;
+      font-family: ui-monospace, monospace;
+    }
+  </style>
+
+  <div class="gold-rule"></div>
+
+  <div class="crest-row">
+
+    <!-- YOUR UPLOADED PHOTO: LP.jpeg -->
+    <div class="silhouette">
+      <img
+        class="profile-image"
+        src="LP.jpeg"
+        alt="Lokesh Patil profile photo"
+      />
+    </div>
+
+    <div class="id-text">
+      <h1 class="alias">The Analyst</h1>
+      <p class="name">Lokesh Patil</p>
+      <p class="handle">@lokesh780patil</p>
+    </div>
+
+  </div>
+
+  <p class="motto">
+    "I turn raw data into clear decisions.
+    Every number has a story — I find it."
+  </p>
+
+  <div class="ledger">
+    <div class="ledger-item">
+      <div class="ledger-num">SQL</div>
+      <div class="ledger-label">QUERYING</div>
+    </div>
+
+    <div class="ledger-item">
+      <div class="ledger-num">∞</div>
+      <div class="ledger-label">CURIOSITY</div>
+    </div>
+  </div>
+
+  <ul class="skills">
+    <li>Data Analysis</li>
+    <li>Python</li>
+    <li>Power BI</li>
+  </ul>
+
+  <div class="footer">
+    <span>Spider-Society</span>
+    <span>Data Chapter</span>
+  </div>
+
+</div>
