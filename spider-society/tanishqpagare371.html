@@ -11,16 +11,24 @@
   Everything else is yours. Go wild.
 -->
 
-```html
 <!--
-  SPIDER-ID CARD — EARTH-26038
-  Tanishq Pagare // Dark Spider-Verse Edition
+  SPIDER-ID CARD — CINEMATIC SPIDER-VERSE
+  EARTH-26038
 
-  Rules respected:
-  - 320 x 440 card
-  - Internal CSS only
-  - No JavaScript
-  - Required data-* attributes preserved
+  RULES:
+  1. Rename this file to <your-github-username>.html
+  2. Internal CSS only
+  3. No <script> tags
+  4. Everything fits inside 320 x 440
+  5. Keep the four data-* attributes on .spider-card
+-->
+
+<!--
+  FUTURISTIC SPIDER-ID CARD
+  Name: Tanishq Pagare
+  GitHub: tanishqpagare371
+
+  Card size: 320 x 440
 -->
 
 <!--
@@ -47,6 +55,7 @@
   data-suit="#E62429"
 >
   <style>
+<<<<<<< HEAD
 
     /* =====================================================
        BASE CARD
@@ -55,11 +64,22 @@
     .spider-card {
       width: 320px;
       height: 440px;
+=======
+    .spider-card {
+      --red: #e62429;
+      --cyan: #00eaff;
+      --white: #f4f7ff;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+>>>>>>> symbiote
 
       position: relative;
       overflow: hidden;
       box-sizing: border-box;
 
+<<<<<<< HEAD
       border: 2px solid #e62429;
       border-radius: 18px;
 
@@ -426,6 +446,163 @@
       }
 
     }
+=======
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: var(--white);
+
+      border: 2px solid var(--red);
+      border-radius: 18px;
+
+      background: #020307;
+
+      box-shadow:
+        0 0 20px rgba(230, 36, 41, 0.45),
+        0 0 45px rgba(0, 234, 255, 0.15);
+    }
+
+    /* ───────── SPIDER-MAN MAIN BACKGROUND ───────── */
+
+    .spider-bg {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      z-index: 0;
+
+      filter:
+        contrast(1.15)
+        saturate(1.15);
+
+      transform: scale(1.03);
+    }
+
+    /* ───────── DARK CINEMATIC OVERLAY ───────── */
+
+    .cinematic-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(0, 0, 0, 0.05) 25%,
+          rgba(0, 0, 0, 0.25) 48%,
+          rgba(0, 0, 0, 0.88) 100%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.7),
+          transparent 65%
+        );
+    }
+
+    /* ───────── CYBER GRID ───────── */
+
+    .grid {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 2;
+
+      background-image:
+        linear-gradient(
+          rgba(0, 234, 255, 0.055) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0, 234, 255, 0.055) 1px,
+          transparent 1px
+        );
+
+      background-size: 18px 18px;
+
+      pointer-events: none;
+    }
+
+    /* ───────── FUTURISTIC SCANLINES ───────── */
+
+    .scanlines {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 3;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          transparent 4px,
+          rgba(255, 255, 255, 0.025) 5px
+        );
+
+      pointer-events: none;
+    }
+
+    /* ───────── TOP HUD ───────── */
+
+    .top-hud {
+      position: absolute;
+
+      top: 17px;
+      left: 18px;
+      right: 18px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      z-index: 5;
+
+      font-family: monospace;
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+    }
+
+    .status {
+      color: #00ff88;
+
+      padding: 5px 8px;
+
+      border: 1px solid rgba(0, 255, 136, 0.5);
+
+      background: rgba(0, 0, 0, 0.45);
+
+      text-shadow:
+        0 0 8px rgba(0, 255, 136, 0.8);
+    }
+
+    .status::before {
+      content: "●";
+
+      margin-right: 5px;
+    }
+
+    .id {
+      color: var(--cyan);
+
+      padding: 5px 8px;
+
+      background: rgba(0, 0, 0, 0.45);
+
+      border: 1px solid rgba(0, 234, 255, 0.35);
+    }
+
+    /* ───────── GITHUB AVATAR ───────── */
+>>>>>>> symbiote
 
 
     /* =====================================================
@@ -438,6 +615,7 @@
       top: 58px;
       left: 20px;
 
+<<<<<<< HEAD
       width: 58px;
       height: 58px;
 
@@ -574,10 +752,88 @@
       letter-spacing: 4px;
 
       color: rgba(255,255,255,0.65);
+=======
+      width: 62px;
+      height: 62px;
+
+      object-fit: cover;
+
+      border-radius: 10px;
+
+      border: 2px solid var(--cyan);
+
+      z-index: 6;
+
+      box-shadow:
+        0 0 15px rgba(0, 234, 255, 0.55),
+        0 0 30px rgba(230, 36, 41, 0.35);
+    }
+
+    /* ───────── IDENTITY PANEL ───────── */
+
+    .identity {
+      position: absolute;
+
+      left: 20px;
+      right: 20px;
+
+      bottom: 105px;
+
+      z-index: 6;
+
+      padding: 13px 14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.45)
+        );
+
+      border-left: 3px solid var(--red);
+
+      border-top: 1px solid rgba(0, 234, 255, 0.3);
+
+      border-bottom: 1px solid rgba(0, 234, 255, 0.2);
+
+      box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .alias {
+      margin: 0;
+
+      font-size: 27px;
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      color: var(--red);
+
+      text-transform: uppercase;
+
+      text-shadow:
+        0 0 8px rgba(230, 36, 41, 0.8),
+        2px 2px 0 rgba(0, 234, 255, 0.25);
+    }
+
+    .name {
+      margin: 7px 0 0;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+>>>>>>> symbiote
 
       text-transform: uppercase;
     }
 
+<<<<<<< HEAD
 
     /* =====================================================
        SPIDER TITLE GLOW
@@ -604,9 +860,22 @@
 
       animation:
         titleGlow 3s ease-in-out infinite alternate;
+=======
+    .handle {
+      margin: 4px 0 0;
+
+      font-family: monospace;
+
+      font-size: 10px;
+
+      color: var(--cyan);
+
+      opacity: 0.85;
+>>>>>>> symbiote
     }
 
 
+<<<<<<< HEAD
     @keyframes titleGlow {
 
       0% {
@@ -683,6 +952,18 @@
       color: #00eaff;
 
       opacity: 0.85;
+=======
+    .skills-title {
+      margin-top: 10px;
+
+      font-family: monospace;
+
+      font-size: 8px;
+
+      letter-spacing: 2px;
+
+      color: var(--cyan);
+>>>>>>> symbiote
     }
 
 
@@ -747,6 +1028,11 @@
 
       gap: 5px;
 
+<<<<<<< HEAD
+=======
+      margin: 6px 0 0;
+
+>>>>>>> symbiote
       padding: 0;
       margin: 0;
 
@@ -759,6 +1045,7 @@
 
       font-family: monospace;
 
+<<<<<<< HEAD
       font-size: 8px;
 
       letter-spacing: 0.5px;
@@ -770,9 +1057,13 @@
 
       border:
         1px solid rgba(255,255,255,0.35);
+=======
+      font-size: 9px;
+>>>>>>> symbiote
 
-      text-transform: uppercase;
+      color: white;
 
+<<<<<<< HEAD
       transition:
         transform 0.25s ease,
         border-color 0.25s ease;
@@ -858,6 +1149,16 @@
     /* =====================================================
        FOOTER
        ===================================================== */
+=======
+      background: rgba(230, 36, 41, 0.2);
+
+      border: 1px solid rgba(0, 234, 255, 0.45);
+
+      border-radius: 3px;
+    }
+
+    /* ───────── SPIDER-SOCIETY FOOTER ───────── */
+>>>>>>> symbiote
 
     .footer {
       position: absolute;
@@ -865,13 +1166,20 @@
       left: 20px;
       right: 20px;
 
+<<<<<<< HEAD
       bottom: 19px;
 
       z-index: 10;
+=======
+      bottom: 18px;
+
+      z-index: 6;
+>>>>>>> symbiote
 
       display: flex;
 
       justify-content: space-between;
+<<<<<<< HEAD
 
       align-items: center;
 
@@ -951,6 +1259,101 @@
 
       border-top: 1px solid;
       border-left: 1px solid;
+=======
+
+      padding-top: 9px;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.25);
+
+      font-family: monospace;
+
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .earth {
+      color: var(--red);
+
+      text-shadow:
+        0 0 8px rgba(230, 36, 41, 0.7);
+    }
+
+    /* ───────── CORNER HUD MARKERS ───────── */
+
+    .corner {
+      position: absolute;
+
+      width: 18px;
+      height: 18px;
+
+      z-index: 7;
+
+      border-color: var(--cyan);
+
+      opacity: 0.9;
+    }
+
+    .tl {
+      top: 8px;
+      left: 8px;
+
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .tr {
+      top: 8px;
+      right: 8px;
+
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+
+    .bl {
+      bottom: 8px;
+      left: 8px;
+
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+
+    .br {
+      bottom: 8px;
+      right: 8px;
+
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+
+    /* ───────── SCAN BAR ───────── */
+
+    .scan-bar {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: 88px;
+
+      height: 1px;
+
+      z-index: 7;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          transparent
+        );
+
+      box-shadow:
+        0 0 12px var(--cyan);
+>>>>>>> symbiote
     }
 
 
@@ -982,17 +1385,22 @@
 
   </style>
 
+<<<<<<< HEAD
 
   <!-- =====================================================
        BACKGROUND
        ===================================================== -->
 
+=======
+  <!-- MAIN SPIDER-MAN BACKGROUND -->
+>>>>>>> symbiote
   <img
     class="spider-bg"
     src="https://upload.wikimedia.org/wikipedia/commons/3/36/Spider-Man_%28cropped%29.jpg"
     alt="Spider-Man"
   />
 
+<<<<<<< HEAD
 
   <!-- CINEMATIC EFFECTS -->
 
@@ -1007,11 +1415,24 @@
 
   <!-- HUD CORNERS -->
 
+=======
+  <!-- CINEMATIC OVERLAY -->
+  <div class="cinematic-overlay"></div>
+
+  <!-- FUTURISTIC GRID -->
+  <div class="grid"></div>
+
+  <!-- SCANLINES -->
+  <div class="scanlines"></div>
+
+  <!-- HUD CORNERS -->
+>>>>>>> symbiote
   <span class="corner tl"></span>
   <span class="corner tr"></span>
   <span class="corner bl"></span>
   <span class="corner br"></span>
 
+<<<<<<< HEAD
 
   <!-- TOP LABEL -->
 
@@ -1028,11 +1449,26 @@
 
   <!-- GITHUB AVATAR -->
 
+=======
+  <!-- TOP HUD -->
+  <div class="top-hud">
+    <div class="status">
+      SYSTEM ONLINE
+    </div>
+
+    <div class="id">
+      SPIDER-ID // T371
+    </div>
+  </div>
+
+  <!-- YOUR GITHUB AVATAR -->
+>>>>>>> symbiote
   <img
     class="avatar"
     src="https://github.com/tanishqpagare371.png"
     alt="Tanishq Pagare"
   />
+<<<<<<< HEAD
 
 
   <!-- SYSTEM STATUS -->
@@ -1073,16 +1509,41 @@
 
     <div class="skill-label">
       Core Abilities // Verified
+=======
+
+  <!-- IDENTITY -->
+  <div class="identity">
+
+    <h1 class="alias">
+      SPIDER-371
+    </h1>
+
+    <p class="name">
+      venum
+    </p>
+
+    <p class="handle">
+      @tanishqpagare371
+    </p>
+
+    <div class="skills-title">
+      CORE ABILITIES // SCAN
+>>>>>>> symbiote
     </div>
 
     <ul class="skills">
       <li>Skill One</li>
+<<<<<<< HEAD
       <li>Skill Two</li>
+=======
+      <li>skill two</li>
+>>>>>>> symbiote
       <li>Skill Three</li>
     </ul>
 
   </div>
 
+<<<<<<< HEAD
 
   <!-- LIGHT SWEEP -->
 
@@ -1090,9 +1551,17 @@
 
 
   <!-- FOOTER -->
+=======
+  <!-- SCAN BAR -->
+  <div class="scan-bar"></div>
+>>>>>>> symbiote
 
+  <!-- FOOTER -->
   <div class="footer">
+<<<<<<< HEAD
 
+=======
+>>>>>>> symbiote
     <span>
       SPIDER-SOCIETY
     </span>
@@ -1100,7 +1569,10 @@
     <span class="earth">
       EARTH-1610
     </span>
+<<<<<<< HEAD
 
+=======
+>>>>>>> symbiote
   </div>
 
 </div>
