@@ -1,6 +1,6 @@
 {
-  "name": "Aher",
-  "alias": "spyder-bite",
+  "name": "Aher"
+  "alias" : "spyder-bite",
   "skills": ["Skill One", "Skill Two", "Skill Three"],
   "suitColor": " #FFFFFF",
   "githubUsername": "ahersiddhi19-cmyk"
