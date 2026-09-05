@@ -3,5 +3,8 @@
   "alias": "Spider-Daddy",
   "skills": ["Web Bombing", "16-mob Fiesta", "Poison balls", "Preist mode", "Re-gen Heal", "Stregth boosting"],
   "suitColor": "#FF0000",
+  "alias": "Green-Goblin",
+  "skills": ["Helium Bomba", "Flying Doomer", "Thrash Guns"],
+  "suitColor": "#1A1A1A",
   "githubUsername": "bagalalaa"
 }
