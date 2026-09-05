@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spider-Society ID Card — GitHub Preview</title>
+  <meta name="description" content="Animated Spider-Society ID Card for GitHub Profile README" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 40px 20px;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #e0dce4;
+      background: radial-gradient(ellipse at 50% 30%, #0f0b15 0%, #06060a 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient particles */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 22%, rgba(230,36,41,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 78% 18%, rgba(0,240,255,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 72%, rgba(230,36,41,0.2) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 62% 88%, rgba(0,240,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 55%, rgba(230,36,41,0.3) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Card Container ──────────────────────────── */
+    .card-showcase {
+      position: relative;
+      z-index: 1;
+      animation: floatIn 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    @keyframes floatIn {
+      0% { opacity: 0; transform: translateY(25px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .card-showcase img {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.7)) drop-shadow(0 0 20px rgba(230,36,41,0.25));
+      transition: filter 0.4s ease, transform 0.4s ease;
+      border-radius: 16px;
+    }
+
+    .card-showcase:hover img {
+      filter: drop-shadow(0 12px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 35px rgba(230,36,41,0.45)) drop-shadow(0 0 15px rgba(0,240,255,0.15));
+      transform: translateY(-3px);
+    }
+
+    /* ── Instructions Section ────────────────────── */
+    .instructions {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      width: 100%;
+      animation: floatIn 1s 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    .instructions h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .instructions h2::before {
+      content: "🕸️";
+    }
+
+    .instructions p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .code-block {
+      position: relative;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(230,36,41,0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: rgba(230,36,41,0.08);
+      border-bottom: 1px solid rgba(230,36,41,0.15);
+    }
+
+    .code-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: #ff7b88;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .copy-btn {
+      background: rgba(230,36,41,0.15);
+      border: 1px solid rgba(230,36,41,0.3);
+      border-radius: 6px;
+      padding: 4px 10px;
+      color: #ff7b88;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(230,36,41,0.25);
+      border-color: rgba(230,36,41,0.5);
+      color: #ffffff;
+    }
+
+    .copy-btn.copied {
+      background: rgba(0,240,255,0.15);
+      border-color: rgba(0,240,255,0.4);
+      color: #00f0ff;
+    }
+
+    pre {
+      padding: 16px;
+      margin: 0;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: #d4d0da;
+    }
+
+    .tag { color: #ff6b7a; }
+    .attr { color: #00f0ff; }
+    .val { color: #a8e6cf; }
+    .comment { color: rgba(255,255,255,0.3); font-style: italic; }
+
+    /* ── Step badges ─────────────────────────────── */
+    .step {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,240,255,0.08);
+      border: 1px solid rgba(0,240,255,0.25);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #00f0ff;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .step-num {
+      width: 16px;
+      height: 16px;
+      background: rgba(0,240,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+    }
+
+    .note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: rgba(0,240,255,0.05);
+      border: 1px solid rgba(0,240,255,0.15);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    .note-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Footer ──────────────────────────────────── */
+    .page-footer {
+      position: relative;
+      z-index: 1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      padding-top: 16px;
+      border-top: 1px solid rgba(230,36,41,0.15);
+      animation: floatIn 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Live Card Preview ───────────────────────── -->
+  <div class="card-showcase">
+    <img src="spider-card.svg" alt="Spider-Society ID Card — Pawhas Bhardwaj (Spider-Weaver)" width="850" />
+  </div>
+
+  <!-- ── How to Use ──────────────────────────────── -->
+  <div class="instructions">
+    <h2>Add to Your GitHub Profile</h2>
+    <p>
+      Drop <strong>spider-card.svg</strong> into your profile repo
+      (<code>pawhasbhardwaj/pawhasbhardwaj</code>), then add one of the snippets below to your <code>README.md</code>.
+    </p>
+
+    <!-- Step 1 -->
+    <div class="step"><span class="step-num">1</span> MARKDOWN (SIMPLE)</div>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-label">README.md</span>
+        <button class="copy-btn" onclick="copyCode(this, 'md-code')">Copy</button>
+      </div>
+      <pre><code id="md-code">![Spider-Society ID Card](./spider-card.svg)</code></pre>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step"><span class="step-num">2</span> HTML (CENTERED)</div>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-label">README.md</span>
+        <button class="copy-btn" onclick="copyCode(this, 'html-code')">Copy</button>
+      </div>
+      <pre><code id="html-code"><span class="tag">&lt;p</span> <span class="attr">align</span>=<span class="val">"center"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://github.com/pawhasbhardwaj"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"./spider-card.svg"</span> <span class="attr">alt</span>=<span class="val">"Spider-Society ID Card"</span> <span class="attr">width</span>=<span class="val">"850"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;/p&gt;</span></code></pre>
+    </div>
+
+    <div class="note">
+      <span class="note-icon">💡</span>
+      <span>
+        All animations (pulsing dot, scanline sweep, stat bar fill, skill fade-in, border glow)
+        are pure CSS — no JavaScript needed. They auto-play when anyone views your profile.
+        Works on all modern browsers and GitHub's SVG renderer.
+      </span>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    Spider-Society HQ • Earth-1610 • Clearance Ω
+  </div>
+
+  <script>
+    function copyCode(btn, codeId) {
+      const el = document.getElementById(codeId);
+      const text = el.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
