@@ -1,0 +1,484 @@
+<div
+  class="spider-card"
+  data-name="lalu prasad"
+  data-alias="WEB-WEAVER"
+  data-github="jayeshbanjara12"
+  data-suit="#E62429"
+>
+  <style>
+    .spider-card {
+      --red: #e62429;
+      --dark: #030304;
+      --cyan: #00e5ff;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+
+      font-family: system-ui, sans-serif;
+      color: #f5f5f5;
+
+      background:
+        radial-gradient(
+          circle at 50% 25%,
+          rgba(230,36,41,.2),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 85% 90%,
+          rgba(0,229,255,.08),
+          transparent 30%
+        ),
+        var(--dark);
+
+      border: 2px solid var(--red);
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 18px rgba(230,36,41,.5),
+        inset 0 0 35px rgba(230,36,41,.06);
+    }
+
+    /* ───── FULL SPIDER WEB ───── */
+
+    .spider-card::before {
+      content: "";
+      position: absolute;
+      inset: -100px;
+
+      background-image:
+        repeating-radial-gradient(
+          circle at 50% 38%,
+          transparent 0 18px,
+          rgba(255,255,255,.08) 19px 20px
+        ),
+        repeating-conic-gradient(
+          from 0deg at 50% 38%,
+          transparent 0deg 14deg,
+          rgba(255,255,255,.07) 15deg 16deg
+        );
+
+      opacity: .7;
+      transform: rotate(-6deg);
+      pointer-events: none;
+    }
+
+    /* Spider silhouette */
+
+    .spider {
+      position: absolute;
+      top: 110px;
+      right: -8px;
+
+      font-size: 105px;
+
+      opacity: .055;
+
+      filter: drop-shadow(0 0 15px var(--red));
+      transform: rotate(-12deg);
+
+      pointer-events: none;
+    }
+
+    /* ───── HEADER ───── */
+
+    .top {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      justify-content: space-between;
+
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: 1.7px;
+
+      color: #888;
+    }
+
+    .society {
+      color: var(--red);
+    }
+
+    .status {
+      padding: 4px 7px;
+
+      border: 1px solid #39ff78;
+      border-radius: 20px;
+
+      color: #39ff78;
+      font-size: 8px;
+    }
+
+    .status::before {
+      content: "● ";
+    }
+
+    /* ───── PROFILE ───── */
+
+    .identity {
+      position: relative;
+      z-index: 3;
+      margin-top: 20px;
+    }
+
+    .avatar-area {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 78px;
+      height: 78px;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 2px solid var(--red);
+
+      box-shadow:
+        0 0 15px rgba(230,36,41,.8),
+        0 0 35px rgba(230,36,41,.2);
+    }
+
+    .web-ring {
+      position: absolute;
+      inset: -7px;
+
+      border: 1px dashed rgba(230,36,41,.7);
+      border-radius: 50%;
+    }
+
+    .classification {
+      margin-bottom: 6px;
+
+      font-family: monospace;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+
+      color: var(--cyan);
+    }
+
+    /* ───── WEB-WEAVER ───── */
+
+    .alias {
+      margin: 0;
+
+      font-size: 27px;
+      line-height: .95;
+
+      letter-spacing: 1px;
+
+      color: #fff;
+
+      text-shadow:
+        0 0 8px rgba(230,36,41,.7),
+        0 0 20px rgba(230,36,41,.25);
+    }
+
+    .alias span {
+      color: var(--red);
+    }
+
+    .name {
+      margin: 7px 0 0;
+
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .handle {
+      margin: 3px 0 0;
+
+      font-family: monospace;
+      font-size: 9px;
+
+      color: #777;
+    }
+
+    /* ───── WEB CONNECTION ───── */
+
+    .web-line {
+      position: relative;
+      z-index: 3;
+
+      margin-top: 16px;
+
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      font-family: monospace;
+      font-size: 8px;
+
+      color: #777;
+    }
+
+    .web-line span {
+      color: var(--red);
+    }
+
+    .web-line::before,
+    .web-line::after {
+      content: "━━━━━━";
+      color: rgba(230,36,41,.7);
+    }
+
+    /* ───── SKILLS ───── */
+
+    .section {
+      position: relative;
+      z-index: 3;
+
+      margin-top: 13px;
+
+      font-family: monospace;
+      font-size: 8px;
+
+      letter-spacing: 2px;
+
+      color: #888;
+    }
+
+    .section span {
+      color: var(--red);
+    }
+
+    .skills {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      margin: 9px 0 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 5px 9px;
+
+      font-family: monospace;
+      font-size: 9px;
+
+      border: 1px solid rgba(230,36,41,.7);
+      border-radius: 999px;
+
+      background: rgba(230,36,41,.08);
+
+      color: #eee;
+    }
+
+    /* ───── MISSION ───── */
+
+    .mission {
+      position: relative;
+      z-index: 3;
+
+      margin-top: 14px;
+      padding: 10px 11px;
+
+      border-left: 3px solid var(--red);
+
+      background: rgba(255,255,255,.035);
+
+      box-shadow:
+        inset 0 0 15px rgba(230,36,41,.05);
+    }
+
+    .mission-title {
+      font-family: monospace;
+      font-size: 8px;
+
+      letter-spacing: 1.5px;
+
+      color: var(--red);
+    }
+
+    .mission-text {
+      margin: 4px 0 0;
+
+      font-size: 10px;
+      line-height: 1.35;
+
+      color: #bbb;
+    }
+
+    /* ───── SPIDER SENSE ───── */
+
+    .sense {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      margin-top: 9px;
+
+      font-family: monospace;
+      font-size: 8px;
+
+      color: #777;
+    }
+
+    .sense-bar {
+      width: 70px;
+      height: 4px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red) 0 82%,
+          #222 82% 100%
+        );
+
+      box-shadow:
+        0 0 8px rgba(230,36,41,.6);
+    }
+
+    /* ───── FOOTER ───── */
+
+    .footer {
+      position: absolute;
+
+      left: 20px;
+      right: 20px;
+      bottom: 14px;
+
+      z-index: 4;
+
+      display: flex;
+      justify-content: space-between;
+
+      padding-top: 8px;
+
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      font-family: monospace;
+      font-size: 7px;
+
+      letter-spacing: 1.5px;
+
+      color: #666;
+    }
+
+    .earth {
+      color: var(--red);
+    }
+
+    .protocol {
+      color: var(--cyan);
+    }
+  </style>
+
+  <div class="spider">🕷</div>
+
+  <div class="top">
+    <span class="society">SPIDER-SOCIETY // ID</span>
+    <span class="status">ONLINE</span>
+  </div>
+
+  <div class="identity">
+
+    <div class="avatar-area">
+
+      <div class="avatar-wrapper">
+        <div class="web-ring"></div>
+
+        <img
+          class="avatar"
+          src="https://github.com/jayeshbanjara12.png"
+          alt="Jayesh Banjara"
+        />
+      </div>
+
+      <div>
+
+        <div class="classification">
+          CLASSIFICATION // WEB-WEAVER
+        </div>
+
+        <h1 class="alias">
+          WEB<span>-</span><br>WEAVER
+        </h1>
+
+        <p class="name">
+          Jayesh Banjara
+        </p>
+
+        <p class="handle">
+          @jayeshbanjara12
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="web-line">
+    <span>✦</span>
+    SPIDER PROTOCOL
+    <span>✦</span>
+  </div>
+
+  <div class="section">
+    <span>◈</span> WEB-WEAVER CAPABILITIES
+  </div>
+
+  <ul class="skills">
+    <li>C</li>
+    <li>C++</li>
+    <li>Python</li>
+    <li>AI / ML</li>
+    <li>GitHub</li>
+    <li>Problem Solving</li>
+  </ul>
+
+  <div class="mission">
+
+    <div class="mission-title">
+      CURRENT MISSION // 001
+    </div>
+
+    <p class="mission-text">
+      Weaving code into solutions.
+      Learning, building and leveling up
+      one connection at a time.
+    </p>
+
+  </div>
+
+  <div class="sense">
+
+    SPIDER-SENSE
+
+    <div class="sense-bar"></div>
+
+    82%
+
+  </div>
+
+  <div class="footer">
+    <span>SPIDER-SOCIETY</span>
+    <span class="earth">EARTH-12</span>
+    <span class="protocol">WW//01</span>
+  </div>
+
+</div>
