@@ -1,0 +1,674 @@
+<!--
+  SPIDER-ID CARD
+  Everything fits inside 320 x 440.
+  No JavaScript.
+-->
+
+<div
+  class="spider-card"
+  data-name="Aabhas Suryavanshi"
+  data-alias="Spooderman"
+  data-github="AabhasSuryavanshi22"
+  data-suit="#E62429"
+>
+
+  <style>
+
+    .spider-card {
+      --red: #e62429;
+      --blue: #087ac1;
+      --dark: #05070c;
+      --white: #f5f7fa;
+
+      width: 320px;
+      height: 440px;
+      box-sizing: border-box;
+
+      position: relative;
+      overflow: hidden;
+
+      padding: 12px;
+
+      color: var(--white);
+      font-family: system-ui, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 90% 0%,
+          rgba(230,36,41,.35),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 0% 100%,
+          rgba(8,122,193,.35),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #0b0d13,
+          #070a11 45%,
+          #100305
+        );
+
+      border: 2px solid var(--red);
+      border-radius: 18px;
+
+      box-shadow:
+        0 0 20px rgba(230,36,41,.45),
+        inset 0 0 40px rgba(8,122,193,.12);
+    }
+
+
+    /* ==============================
+       WEB BACKGROUND
+       ============================== */
+
+    .spider-card::before {
+      content: "";
+
+      position: absolute;
+      inset: -80px;
+
+      background:
+        repeating-radial-gradient(
+          circle at 50% 0%,
+          transparent 0 22px,
+          rgba(255,255,255,.045) 23px 24px,
+          transparent 25px 45px
+        ),
+        repeating-linear-gradient(
+          60deg,
+          transparent 0 25px,
+          rgba(255,255,255,.035) 26px 27px
+        ),
+        repeating-linear-gradient(
+          -60deg,
+          transparent 0 25px,
+          rgba(255,255,255,.035) 26px 27px
+        );
+
+      opacity: .7;
+      pointer-events: none;
+    }
+
+
+    /* ==============================
+       GIANT BACKGROUND SPIDER
+       ============================== */
+
+    .background-spider {
+      position: absolute;
+
+      right: -25px;
+      bottom: 42px;
+
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(230,36,41,.13);
+
+      box-shadow:
+        0 0 0 20px rgba(230,36,41,.025),
+        0 0 0 40px rgba(230,36,41,.02),
+        0 0 0 60px rgba(230,36,41,.015);
+
+      transform: rotate(25deg);
+
+      pointer-events: none;
+    }
+
+    .background-spider::before {
+      content: "🕷";
+
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 110px;
+
+      opacity: .08;
+
+      filter: grayscale(1);
+    }
+
+
+    /* ==============================
+       HEADER
+       ============================== */
+
+    .header {
+      position: relative;
+      z-index: 5;
+
+      height: 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--red);
+
+      box-shadow:
+        0 0 8px var(--red),
+        0 0 14px rgba(230,36,41,.7);
+    }
+
+    .file {
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+      letter-spacing: 1px;
+
+      color: #77818c;
+    }
+
+
+    /* ==============================
+       CHAPTER 10 VICTORY BADGE
+       ============================== */
+
+    .final-badge {
+      position: absolute;
+
+      top: 42px;
+      right: 10px;
+
+      z-index: 20;
+
+      padding: 5px 8px;
+
+      border: 1px solid var(--red);
+      border-radius: 5px;
+
+      background: rgba(0,0,0,.85);
+
+      color: var(--red);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      box-shadow:
+        0 0 8px rgba(230,36,41,.7),
+        0 0 16px rgba(230,36,41,.25);
+
+      transform: rotate(3deg);
+    }
+
+
+    /* ==============================
+       IMAGE
+       ============================== */
+
+    .hero {
+      position: relative;
+      z-index: 4;
+
+      width: 100%;
+      height: 155px;
+
+      margin-top: 9px;
+
+      overflow: hidden;
+
+      border-radius: 12px;
+
+      border: 2px solid var(--blue);
+
+      background: #020408;
+
+      box-shadow:
+        0 0 18px rgba(8,122,193,.4),
+        inset 0 0 20px rgba(230,36,41,.15);
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      object-position: center center;
+
+      filter:
+        contrast(1.15)
+        saturate(1.35)
+        brightness(.9);
+
+      transition: transform .3s ease;
+    }
+
+    .hero:hover img {
+      transform: scale(1.04);
+    }
+
+
+    /* IMAGE GRADIENT */
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 40%,
+          rgba(0,0,0,.82)
+        );
+
+      pointer-events: none;
+    }
+
+    .image-tag {
+      position: absolute;
+
+      z-index: 5;
+
+      left: 9px;
+      bottom: 8px;
+
+      padding: 4px 7px;
+
+      background: rgba(0,0,0,.78);
+
+      border-left: 3px solid var(--red);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+    }
+
+
+    /* ==============================
+       NAME
+       ============================== */
+
+    .identity {
+      position: relative;
+      z-index: 5;
+
+      margin-top: 9px;
+    }
+
+    .alias {
+      margin: 0;
+
+      font-size: 27px;
+
+      line-height: .95;
+
+      font-weight: 950;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      color: white;
+
+      text-shadow:
+        3px 3px 0 var(--red),
+        -2px -1px 0 var(--blue);
+    }
+
+    .name {
+      margin: 5px 0 0;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: .7px;
+    }
+
+    .handle {
+      margin: 2px 0 0;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 9px;
+
+      color: #89939e;
+    }
+
+
+    /* ==============================
+       SKILLS
+       ============================== */
+
+    .skills {
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 5px;
+
+      margin: 8px 0 0;
+
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 4px 8px;
+
+      border-radius: 5px;
+
+      border: 1px solid rgba(230,36,41,.7);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(230,36,41,.2),
+          rgba(8,122,193,.12)
+        );
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      letter-spacing: .5px;
+
+      box-shadow:
+        0 0 6px rgba(230,36,41,.12);
+    }
+
+
+    /* ==============================
+       BOTTOM CONTROL PANEL
+       ============================== */
+
+    .control-panel {
+      position: relative;
+      z-index: 5;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr 1fr;
+
+      gap: 5px;
+
+      margin-top: 9px;
+
+      padding: 7px;
+
+      border: 1px solid rgba(255,255,255,.12);
+
+      border-radius: 7px;
+
+      background: rgba(0,0,0,.48);
+
+      box-shadow:
+        inset 0 0 15px rgba(8,122,193,.06);
+    }
+
+    .control {
+      text-align: center;
+
+      padding: 3px 2px;
+    }
+
+    .control-label {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #68737e;
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 6px;
+
+      letter-spacing: 1px;
+    }
+
+    .control-value {
+      font-family: ui-monospace, monospace;
+
+      font-size: 8px;
+
+      font-weight: 900;
+    }
+
+    .green {
+      color: #48ff91;
+    }
+
+    .red {
+      color: var(--red);
+    }
+
+    .blue {
+      color: #40aaff;
+    }
+
+
+    /* ==============================
+       FOOTER
+       ============================== */
+
+    .footer {
+      position: absolute;
+
+      left: 12px;
+      right: 12px;
+
+      bottom: 9px;
+
+      z-index: 5;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-top: 7px;
+
+      border-top: 1px solid rgba(255,255,255,.12);
+
+      font-family: ui-monospace, monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 1.4px;
+    }
+
+    .society {
+      color: var(--red);
+
+      font-weight: 900;
+    }
+
+    .earth {
+      color: #68737e;
+    }
+
+    .scan {
+      color: #48ff91;
+    }
+
+  </style>
+
+
+  <!-- BACKGROUND SPIDER -->
+
+  <div class="background-spider"></div>
+
+
+  <!-- CHAPTER 10 VICTORY FLOURISH -->
+
+  <div class="final-badge">
+    SPIDER-VERSE // VERIFIED
+  </div>
+
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <div class="brand">
+      <span class="dot"></span>
+      SPIDER-ID
+    </div>
+
+    <div class="file">
+      FILE // AABHAS-22
+    </div>
+
+  </div>
+
+
+  <!-- MAIN IMAGE -->
+
+  <div class="hero">
+
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Spider-Man_%287993907018%29.jpg"
+      alt="Spider-Man"
+    />
+
+    <div class="image-tag">
+      MULTIVERSE // ACTIVE
+    </div>
+
+  </div>
+
+
+  <!-- IDENTITY -->
+
+  <div class="identity">
+
+    <h1 class="alias">
+      SPOODERMAN
+    </h1>
+
+    <p class="name">
+      Aabhas Suryavanshi
+    </p>
+
+    <p class="handle">
+      @AabhasSuryavanshi22
+    </p>
+
+  </div>
+
+
+  <!-- SKILLS -->
+
+  <ul class="skills">
+
+    <li>WEB DEV</li>
+    <li>PYTHON</li>
+    <li>GITHUB</li>
+    <li>PROBLEM SOLVER</li>
+
+  </ul>
+
+
+  <!-- BOTTOM DATA -->
+
+  <div class="control-panel">
+
+    <div class="control">
+
+      <span class="control-label">
+        SPIDER-SENSE
+      </span>
+
+      <span class="control-value green">
+        ONLINE
+      </span>
+
+    </div>
+
+
+    <div class="control">
+
+      <span class="control-label">
+        THREAT
+      </span>
+
+      <span class="control-value red">
+        FRIENDLY
+      </span>
+
+    </div>
+
+
+    <div class="control">
+
+      <span class="control-label">
+        EARTH
+      </span>
+
+      <span class="control-value blue">
+        1610
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+
+    <span class="society">
+      SPIDER-SOCIETY
+    </span>
+
+    <span class="scan">
+      ● VERIFIED
+    </span>
+
+    <span class="earth">
+      AABHAS-22
+    </span>
+
+  </div>
+
+</div>
