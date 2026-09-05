@@ -23,558 +23,1084 @@
   - Required data-* attributes preserved
 -->
 
+<!--
+  CINEMATIC SPIDER-ID CARD
+  Name: Tanishq Pagare
+  GitHub: tanishqpagare371
+-->
+
+<!--
+  ANIMATED CINEMATIC SPIDER-ID CARD
+  Name: Tanishq Pagare
+  GitHub: tanishqpagare371
+
+  320 x 440
+  CSS animations only
+  NO JavaScript
+-->
+
 <div
   class="spider-card"
   data-name="Tanishq Pagare"
-  data-alias="The Dark Weaver"
+  data-alias="SPIDER-371"
   data-github="tanishqpagare371"
   data-suit="#E62429"
 >
   <style>
-    /* ─────────────────────────────────────────────
-       DARK SPIDER-VERSE // EARTH-26038
-       ───────────────────────────────────────────── */
+
+    /* =====================================================
+       BASE CARD
+       ===================================================== */
 
     .spider-card {
-      --red: #e62429;
-      --dark-red: #8e1116;
-      --cream: #f4ead3;
-      --black: #09090b;
-      --grey: #18181b;
-
       width: 320px;
       height: 440px;
-      box-sizing: border-box;
+
       position: relative;
       overflow: hidden;
+      box-sizing: border-box;
 
-      padding: 18px;
+      border: 2px solid #e62429;
+      border-radius: 18px;
 
-      color: var(--cream);
-      font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+      background: #030307;
 
-      background:
-        radial-gradient(
-          circle at 82% 18%,
-          rgba(230, 36, 41, 0.28),
-          transparent 28%
-        ),
-        linear-gradient(
-          145deg,
-          #050505 0%,
-          #111113 52%,
-          #09090b 100%
-        );
+      color: white;
 
-      border: 4px solid var(--red);
+      font-family:
+        "Arial Black",
+        "Segoe UI",
+        system-ui,
+        sans-serif;
+
       box-shadow:
-        8px 8px 0 #000,
-        0 0 0 2px var(--cream),
-        0 0 30px rgba(230, 36, 41, 0.35);
+        0 0 20px rgba(230, 36, 41, 0.45),
+        0 0 60px rgba(230, 36, 41, 0.18);
 
-      transform: rotate(-0.4deg);
+      isolation: isolate;
     }
 
-    /* ───────── HALFTONE BACKGROUND ───────── */
 
-    .spider-card::before {
-      content: "";
+    /* =====================================================
+       SPIDER-MAN CINEMATIC BACKGROUND
+       ===================================================== */
+
+    .spider-bg {
       position: absolute;
+
+      inset: -7%;
+
+      width: 114%;
+      height: 114%;
+
+      object-fit: cover;
+      object-position: center;
+
+      z-index: 0;
+
+      filter:
+        contrast(1.25)
+        saturate(1.2)
+        brightness(0.8);
+
+      animation:
+        cinematicZoom 12s ease-in-out infinite alternate;
+    }
+
+
+    /* =====================================================
+       SLOW CINEMATIC CAMERA MOVEMENT
+       ===================================================== */
+
+    @keyframes cinematicZoom {
+
+      0% {
+        transform:
+          scale(1)
+          translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform:
+          scale(1.045)
+          translate3d(-1%, -0.5%, 0);
+      }
+
+      100% {
+        transform:
+          scale(1.08)
+          translate3d(1%, 0.5%, 0);
+      }
+
+    }
+
+
+    /* =====================================================
+       CINEMATIC COLOR GRADING
+       ===================================================== */
+
+    .cinematic {
+      position: absolute;
+
       inset: 0;
 
-      background-image:
-        radial-gradient(
-          rgba(244, 234, 211, 0.18) 1.3px,
-          transparent 1.3px
-        );
-
-      background-size: 9px 9px;
-
-      opacity: 0.28;
-      mix-blend-mode: screen;
-
-      pointer-events: none;
-    }
-
-    /* Red comic panel */
-
-    .spider-card::after {
-      content: "";
-
-      position: absolute;
-
-      width: 220px;
-      height: 220px;
-
-      right: -95px;
-      top: -70px;
+      z-index: 1;
 
       background:
-        repeating-linear-gradient(
-          45deg,
-          transparent 0 9px,
-          rgba(230, 36, 41, 0.32) 10px 11px
+
+        radial-gradient(
+          ellipse at 75% 25%,
+          rgba(230, 36, 41, 0.48),
+          transparent 42%
+        ),
+
+        radial-gradient(
+          ellipse at 5% 70%,
+          rgba(0, 100, 255, 0.22),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.75),
+          transparent 34%
+        ),
+
+        linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.98),
+          rgba(0, 0, 0, 0.65) 30%,
+          transparent 62%
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.78),
+          transparent 60%,
+          rgba(0, 0, 0, 0.25)
         );
 
-      border: 3px solid rgba(230, 36, 41, 0.5);
+      animation:
+        colorPulse 7s ease-in-out infinite alternate;
+    }
 
-      transform: rotate(18deg);
+
+    @keyframes colorPulse {
+
+      0% {
+        opacity: 0.82;
+      }
+
+      100% {
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =====================================================
+       VIGNETTE
+       ===================================================== */
+
+    .vignette {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 2;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 38%,
+          rgba(0, 0, 0, 0.78) 100%
+        );
 
       pointer-events: none;
     }
 
-    /* ───────── TOP BAR ───────── */
 
-    .top-bar {
-      position: relative;
-      z-index: 5;
+    /* =====================================================
+       MOVING CINEMATIC SCANLINE
+       ===================================================== */
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding-bottom: 8px;
-
-      border-bottom: 2px solid var(--cream);
-
-      font-family: monospace;
-      font-size: 9px;
-      font-weight: bold;
-      letter-spacing: 1.4px;
-    }
-
-    .classified {
-      color: var(--red);
-    }
-
-    .earth {
-      color: var(--cream);
-    }
-
-    /* ───────── COMIC BURST ───────── */
-
-    .burst {
+    .scanlines {
       position: absolute;
 
-      right: -6px;
-      top: 82px;
+      left: 0;
+      right: 0;
 
-      width: 72px;
-      height: 72px;
+      top: -20%;
 
-      background: var(--red);
+      height: 20%;
 
-      clip-path: polygon(
-        50% 0%,
-        61% 25%,
-        82% 5%,
-        77% 32%,
-        100% 29%,
-        78% 49%,
-        98% 63%,
-        72% 65%,
-        78% 93%,
-        56% 72%,
-        42% 100%,
-        39% 71%,
-        12% 84%,
-        29% 59%,
-        0% 51%,
-        28% 41%,
-        9% 18%,
-        37% 28%
-      );
+      z-index: 4;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(0, 234, 255, 0.13),
+          rgba(255, 255, 255, 0.04),
+          transparent
+        );
+
+      filter:
+        blur(1px);
+
+      animation:
+        scanMove 5s linear infinite;
+
+      pointer-events: none;
+    }
+
+
+    @keyframes scanMove {
+
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(600%);
+      }
+
+    }
+
+
+    /* =====================================================
+       FILM GRAIN / FLICKER
+       ===================================================== */
+
+    .grain {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 5;
+
+      opacity: 0.1;
+
+      background:
+        repeating-radial-gradient(
+          circle at 0 0,
+          rgba(255,255,255,0.13) 0,
+          rgba(255,255,255,0.13) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+      animation:
+        filmFlicker 0.18s steps(2) infinite;
+
+      pointer-events: none;
+    }
+
+
+    @keyframes filmFlicker {
+
+      0% {
+        opacity: 0.07;
+      }
+
+      50% {
+        opacity: 0.13;
+      }
+
+      100% {
+        opacity: 0.08;
+      }
+
+    }
+
+
+    /* =====================================================
+       TOP LABEL
+       ===================================================== */
+
+    .top-label {
+      position: absolute;
+
+      top: 19px;
+      left: 20px;
+
+      z-index: 10;
+
+      font-family: monospace;
+
+      font-size: 8px;
+
+      letter-spacing: 3px;
+
+      color: rgba(255,255,255,0.72);
+
+      text-transform: uppercase;
+
+      animation:
+        labelFade 3s ease-in-out infinite alternate;
+    }
+
+
+    .top-label span {
+      color: #e62429;
+
+      text-shadow:
+        0 0 10px rgba(230,36,41,0.9);
+    }
+
+
+    @keyframes labelFade {
+
+      0% {
+        opacity: 0.55;
+      }
+
+      100% {
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =====================================================
+       SPIDER SOCIETY MARK
+       ===================================================== */
+
+    .society-mark {
+      position: absolute;
+
+      top: 16px;
+      right: 18px;
+
+      z-index: 10;
+
+      width: 32px;
+      height: 32px;
+
+      border: 1px solid rgba(255,255,255,0.45);
+
+      transform: rotate(45deg);
+
+      background:
+        rgba(0,0,0,0.3);
+
+      animation:
+        markPulse 2.5s ease-in-out infinite;
+    }
+
+
+    .society-mark::after {
+      content: "S";
+
+      position: absolute;
+
+      inset: 0;
 
       display: flex;
-      align-items: center;
+
       justify-content: center;
+      align-items: center;
 
-      color: var(--cream);
+      transform: rotate(-45deg);
 
-      font-family: Impact, sans-serif;
-      font-size: 11px;
-      text-align: center;
+      font-size: 14px;
 
-      transform: rotate(12deg);
+      color: #e62429;
 
-      z-index: 4;
-
-      box-shadow: 4px 4px 0 #000;
+      text-shadow:
+        0 0 10px rgba(230,36,41,0.9);
     }
 
-    /* ───────── AVATAR ───────── */
 
-    .avatar-frame {
-      position: relative;
-      z-index: 4;
+    @keyframes markPulse {
 
-      width: 92px;
-      height: 92px;
+      0%,
+      100% {
+        box-shadow:
+          0 0 5px rgba(230,36,41,0.25);
+      }
 
-      margin-top: 16px;
+      50% {
+        box-shadow:
+          0 0 25px rgba(230,36,41,0.75);
+      }
 
-      transform: rotate(-3deg);
-
-      background: var(--cream);
-
-      padding: 5px;
-
-      box-shadow:
-        6px 6px 0 var(--red),
-        10px 10px 0 #000;
     }
+
+
+    /* =====================================================
+       GITHUB AVATAR
+       ===================================================== */
 
     .avatar {
-      width: 100%;
-      height: 100%;
+      position: absolute;
 
-      display: block;
+      top: 58px;
+      left: 20px;
+
+      width: 58px;
+      height: 58px;
 
       object-fit: cover;
 
-      border: 3px solid var(--black);
+      border-radius: 50%;
 
-      filter:
-        grayscale(25%)
-        contrast(1.2);
+      border: 2px solid white;
+
+      z-index: 10;
+
+      box-shadow:
+        0 0 0 3px rgba(230,36,41,0.35),
+        0 0 20px rgba(230,36,41,0.65);
+
+      animation:
+        avatarGlow 3s ease-in-out infinite alternate;
     }
 
-    /* ───────── ALIAS ───────── */
 
-    .alias {
-      position: relative;
-      z-index: 5;
+    @keyframes avatarGlow {
 
-      margin: 16px 0 0;
+      0% {
+        box-shadow:
+          0 0 0 3px rgba(230,36,41,0.25),
+          0 0 10px rgba(230,36,41,0.35);
+      }
 
-      max-width: 260px;
+      100% {
+        box-shadow:
+          0 0 0 3px rgba(230,36,41,0.55),
+          0 0 30px rgba(230,36,41,0.85);
+      }
 
-      font-size: 30px;
-      line-height: 0.92;
+    }
+
+
+    /* =====================================================
+       SYSTEM STATUS
+       ===================================================== */
+
+    .status {
+      position: absolute;
+
+      top: 68px;
+      right: 20px;
+
+      z-index: 10;
+
+      font-family: monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 2px;
+
+      color: #00ff9d;
 
       text-transform: uppercase;
 
-      color: var(--cream);
+      animation:
+        statusBlink 2s ease-in-out infinite;
+    }
 
-      letter-spacing: 0.5px;
+
+    .status::before {
+      content: "●";
+
+      margin-right: 5px;
 
       text-shadow:
-        3px 3px 0 var(--red),
-        6px 6px 0 #000;
-
-      transform: skew(-4deg);
+        0 0 10px #00ff9d;
     }
 
-    .alias span {
-      color: var(--red);
+
+    @keyframes statusBlink {
+
+      0%,
+      100% {
+        opacity: 0.55;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
     }
 
-    /* ───────── NAME ───────── */
 
-    .identity {
-      position: relative;
-      z-index: 5;
+    /* =====================================================
+       MAIN TITLE
+       ===================================================== */
 
-      margin-top: 7px;
+    .title {
+      position: absolute;
 
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      left: 20px;
+      right: 20px;
+
+      bottom: 172px;
+
+      z-index: 10;
+
+      animation:
+        titleReveal 1.4s ease-out both;
     }
 
-    .name {
-      margin: 0;
 
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 900;
+    @keyframes titleReveal {
 
-      color: var(--cream);
+      0% {
+        opacity: 0;
+
+        transform:
+          translateY(18px);
+      }
+
+      100% {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+
+    }
+
+
+    .small-title {
+      margin-bottom: 5px;
+
+      font-family: monospace;
+
+      font-size: 8px;
+
+      letter-spacing: 4px;
+
+      color: rgba(255,255,255,0.65);
 
       text-transform: uppercase;
     }
 
-    .handle {
+
+    /* =====================================================
+       SPIDER TITLE GLOW
+       ===================================================== */
+
+    .alias {
       margin: 0;
 
-      font-family: monospace;
-      font-size: 9px;
+      font-size: 42px;
 
-      color: #aaa;
+      line-height: 0.88;
+
+      letter-spacing: -1px;
+
+      font-weight: 950;
+
+      color: white;
+
+      text-transform: uppercase;
+
+      text-shadow:
+        3px 3px 0 #e62429,
+        0 0 20px rgba(230,36,41,0.55);
+
+      animation:
+        titleGlow 3s ease-in-out infinite alternate;
     }
 
-    /* ───────── SKILLS ───────── */
 
-    .skills-title {
-      position: relative;
-      z-index: 5;
+    @keyframes titleGlow {
 
-      display: inline-block;
+      0% {
+        text-shadow:
+          3px 3px 0 #e62429,
+          0 0 12px rgba(230,36,41,0.4);
+      }
 
-      margin-top: 14px;
-      margin-bottom: 6px;
+      100% {
+        text-shadow:
+          3px 3px 0 #e62429,
+          0 0 35px rgba(230,36,41,0.95);
+      }
 
-      padding: 3px 7px;
+    }
 
-      color: var(--black);
-      background: var(--cream);
+
+    .alias-line {
+      width: 85px;
+
+      height: 4px;
+
+      margin-top: 10px;
+
+      background: #e62429;
+
+      box-shadow:
+        0 0 15px rgba(230,36,41,0.8);
+
+      animation:
+        linePulse 2s ease-in-out infinite alternate;
+    }
+
+
+    @keyframes linePulse {
+
+      from {
+        width: 45px;
+      }
+
+      to {
+        width: 105px;
+      }
+
+    }
+
+
+    /* =====================================================
+       NAME
+       ===================================================== */
+
+    .name {
+      margin: 10px 0 0;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.9);
+    }
+
+
+    .handle {
+      margin: 5px 0 0;
 
       font-family: monospace;
+
       font-size: 9px;
-      font-weight: bold;
 
-      letter-spacing: 1px;
+      color: #00eaff;
 
-      transform: rotate(-2deg);
+      opacity: 0.85;
     }
+
+
+    /* =====================================================
+       SKILL PANEL
+       ===================================================== */
+
+    .skill-panel {
+      position: absolute;
+
+      left: 20px;
+      right: 20px;
+
+      bottom: 82px;
+
+      z-index: 10;
+
+      padding-top: 9px;
+
+      border-top:
+        1px solid rgba(255,255,255,0.3);
+    }
+
+
+    .skill-label {
+      font-family: monospace;
+
+      font-size: 7px;
+
+      letter-spacing: 3px;
+
+      color: #00eaff;
+
+      text-transform: uppercase;
+
+      margin-bottom: 7px;
+
+      animation:
+        cyanPulse 2s ease-in-out infinite alternate;
+    }
+
+
+    @keyframes cyanPulse {
+
+      from {
+        text-shadow:
+          0 0 3px rgba(0,234,255,0.2);
+      }
+
+      to {
+        text-shadow:
+          0 0 12px rgba(0,234,255,0.9);
+      }
+
+    }
+
 
     .skills {
-      position: relative;
-      z-index: 5;
-
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 5px;
 
-      margin: 0;
       padding: 0;
+      margin: 0;
 
       list-style: none;
     }
 
+
     .skills li {
-      padding: 5px 8px;
-
-      color: var(--cream);
-
-      background: var(--dark-red);
-
-      border: 2px solid var(--cream);
+      padding: 4px 8px;
 
       font-family: monospace;
-      font-size: 9px;
-      font-weight: bold;
+
+      font-size: 8px;
+
+      letter-spacing: 0.5px;
+
+      color: white;
+
+      background:
+        rgba(0,0,0,0.52);
+
+      border:
+        1px solid rgba(255,255,255,0.35);
 
       text-transform: uppercase;
 
-      box-shadow: 3px 3px 0 #000;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
 
-      transform: skew(-7deg);
+      animation:
+        skillFloat 4s ease-in-out infinite alternate;
     }
 
+
     .skills li:nth-child(2) {
-      background: var(--red);
-      color: #fff;
-      transform: skew(5deg);
+      animation-delay: 0.5s;
     }
 
     .skills li:nth-child(3) {
-      background: var(--grey);
+      animation-delay: 1s;
     }
 
-    .skills li:nth-child(4) {
-      background: var(--cream);
-      color: var(--black);
+
+    @keyframes skillFloat {
+
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-2px);
+      }
+
     }
 
-    /* ───────── COMIC WORDS ───────── */
 
-    .thwip {
+    /* =====================================================
+       MOVING LIGHT STREAK
+       ===================================================== */
+
+    .light-bar {
       position: absolute;
 
-      left: -5px;
-      bottom: 68px;
+      left: -100%;
 
-      color: var(--cream);
+      bottom: 72px;
 
-      font-family: Impact, sans-serif;
-      font-size: 20px;
+      width: 70%;
 
-      letter-spacing: 1px;
+      height: 2px;
 
-      transform: rotate(-12deg);
-
-      text-shadow:
-        2px 2px 0 var(--red),
-        4px 4px 0 #000;
-
-      z-index: 3;
-    }
-
-    .krak {
-      position: absolute;
-
-      right: 8px;
-      bottom: 92px;
-
-      color: var(--red);
-
-      font-family: Impact, sans-serif;
-      font-size: 22px;
-
-      transform: rotate(8deg);
-
-      text-shadow:
-        2px 2px 0 var(--cream),
-        4px 4px 0 #000;
-
-      z-index: 3;
-    }
-
-    /* ───────── WEB LINES ───────── */
-
-    .web {
-      position: absolute;
-
-      right: -20px;
-      bottom: 30px;
-
-      width: 145px;
-      height: 145px;
-
-      border-radius: 50%;
-
-      opacity: 0.28;
+      z-index: 11;
 
       background:
-        repeating-radial-gradient(
-          circle,
-          transparent 0 15px,
-          var(--cream) 16px 17px,
-          transparent 18px 29px
-        ),
-        repeating-conic-gradient(
-          from 0deg,
-          transparent 0deg 14deg,
-          var(--cream) 15deg 16deg,
-          transparent 17deg 29deg
+        linear-gradient(
+          90deg,
+          transparent,
+          #e62429,
+          white,
+          transparent
         );
 
-      z-index: 1;
+      box-shadow:
+        0 0 15px rgba(230,36,41,0.9);
+
+      animation:
+        lightSweep 4s ease-in-out infinite;
     }
 
-    /* ───────── FOOTER ───────── */
+
+    @keyframes lightSweep {
+
+      0% {
+        left: -80%;
+      }
+
+      45% {
+        left: 120%;
+      }
+
+      100% {
+        left: 120%;
+      }
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .footer {
       position: absolute;
 
-      left: 18px;
-      right: 18px;
-      bottom: 13px;
+      left: 20px;
+      right: 20px;
 
-      z-index: 8;
+      bottom: 19px;
+
+      z-index: 10;
 
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
 
-      padding-top: 7px;
-
-      border-top: 2px solid var(--cream);
-
       font-family: monospace;
-      font-size: 8px;
-      font-weight: bold;
 
-      letter-spacing: 1px;
+      font-size: 7px;
 
-      color: var(--cream);
+      letter-spacing: 2px;
+
+      color: rgba(255,255,255,0.55);
+
+      text-transform: uppercase;
     }
 
-    .status {
-      color: var(--red);
+
+    .earth {
+      color: #e62429;
+
+      text-shadow:
+        0 0 10px rgba(230,36,41,0.8);
+
+      animation:
+        earthPulse 2.5s ease-in-out infinite alternate;
     }
 
-    /* ───────── SPIDER-SENSE ANIMATION ───────── */
 
-    .avatar-frame::after {
-      content: "";
+    @keyframes earthPulse {
 
+      from {
+        opacity: 0.5;
+      }
+
+      to {
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =====================================================
+       CORNER HUD MARKERS
+       ===================================================== */
+
+    .corner {
       position: absolute;
 
-      inset: -7px;
+      width: 15px;
+      height: 15px;
 
-      border: 2px solid var(--red);
+      z-index: 12;
 
-      opacity: 0;
+      opacity: 0.75;
 
-      animation: spiderSense 2.8s infinite;
+      border-color: #e62429;
+
+      animation:
+        cornerPulse 2s ease-in-out infinite alternate;
     }
 
-    @keyframes spiderSense {
-      0% {
-        transform: scale(0.92);
-        opacity: 0;
+
+    @keyframes cornerPulse {
+
+      from {
+        opacity: 0.35;
       }
 
-      35% {
-        opacity: 0.8;
+      to {
+        opacity: 1;
       }
 
-      100% {
-        transform: scale(1.18);
-        opacity: 0;
-      }
     }
 
-    /* ───────── PRINT / REDUCED MOTION FRIENDLY ───────── */
 
-    @media (prefers-reduced-motion: reduce) {
-      .avatar-frame::after {
-        animation: none;
-      }
+    .tl {
+      top: 8px;
+      left: 8px;
+
+      border-top: 1px solid;
+      border-left: 1px solid;
     }
+
+
+    .tr {
+      top: 8px;
+      right: 8px;
+
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+
+
+    .bl {
+      bottom: 8px;
+      left: 8px;
+
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+
+
+    .br {
+      bottom: 8px;
+      right: 8px;
+
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+
   </style>
 
-  <div class="top-bar">
-    <span class="classified">SPIDER-SOCIETY // CLASSIFIED</span>
-    <span class="earth">26038</span>
+
+  <!-- =====================================================
+       BACKGROUND
+       ===================================================== -->
+
+  <img
+    class="spider-bg"
+    src="https://upload.wikimedia.org/wikipedia/commons/3/36/Spider-Man_%28cropped%29.jpg"
+    alt="Spider-Man"
+  />
+
+
+  <!-- CINEMATIC EFFECTS -->
+
+  <div class="cinematic"></div>
+
+  <div class="vignette"></div>
+
+  <div class="scanlines"></div>
+
+  <div class="grain"></div>
+
+
+  <!-- HUD CORNERS -->
+
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner bl"></span>
+  <span class="corner br"></span>
+
+
+  <!-- TOP LABEL -->
+
+  <div class="top-label">
+    SPIDER-SOCIETY //
+    <span>CLASSIFIED</span>
   </div>
 
-  <div class="burst">
-    THWIP!
+
+  <!-- SPIDER SOCIETY MARK -->
+
+  <div class="society-mark"></div>
+
+
+  <!-- GITHUB AVATAR -->
+
+  <img
+    class="avatar"
+    src="https://github.com/tanishqpagare371.png"
+    alt="Tanishq Pagare"
+  />
+
+
+  <!-- SYSTEM STATUS -->
+
+  <div class="status">
+    ACTIVE
   </div>
 
-  <div class="avatar-frame">
-    <img
-      class="avatar"
-      src="https://github.com/tanishqpagare371.png"
-      alt="Tanishq Pagare"
-    />
+
+  <!-- MAIN IDENTITY -->
+
+  <div class="title">
+
+    <div class="small-title">
+      Spider-Identity
+    </div>
+
+    <h1 class="alias">
+      SPIDER-371
+    </h1>
+
+    <div class="alias-line"></div>
+
+    <p class="name">
+      Tanishq Pagare
+    </p>
+
+    <p class="handle">
+      @tanishqpagare371
+    </p>
+
   </div>
 
-  <h1 class="alias">
-    THE <span>DARK</span><br />
-    WEAVER
-  </h1>
 
-  <div class="identity">
-    <p class="name">Tanishq Pagare</p>
-    <p class="handle">@tanishqpagare371</p>
+  <!-- SKILLS -->
+
+  <div class="skill-panel">
+
+    <div class="skill-label">
+      Core Abilities // Verified
+    </div>
+
+    <ul class="skills">
+      <li>Skill One</li>
+      <li>Skill Two</li>
+      <li>Skill Three</li>
+    </ul>
+
   </div>
 
-  <div class="skills-title">
-    SPIDER ABILITIES
-  </div>
 
-  <ul class="skills">
-    <li>AI / ML</li>
-    <li>WEB DEV</li>
-    <li>PYTHON</li>
-    <li>UI / UX</li>
-    <li>PROBLEM SOLVING</li>
-  </ul>
+  <!-- LIGHT SWEEP -->
 
-  <div class="thwip">THWIP!</div>
-  <div class="krak">KRAK!</div>
+  <div class="light-bar"></div>
 
-  <div class="web"></div>
+
+  <!-- FOOTER -->
 
   <div class="footer">
-    <span>EARTH-26038</span>
-    <span class="status">● SPIDER ACTIVE</span>
+
+    <span>
+      SPIDER-SOCIETY
+    </span>
+
+    <span class="earth">
+      EARTH-1610
+    </span>
+
   </div>
+
 </div>
-```
-
-
